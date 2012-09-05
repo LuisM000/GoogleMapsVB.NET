@@ -29,6 +29,9 @@ Partial Class Form1
         Me.txtPais = New System.Windows.Forms.TextBox()
         Me.txtCP = New System.Windows.Forms.TextBox()
         Me.txtNumero = New System.Windows.Forms.TextBox()
+        Me.txtlong = New System.Windows.Forms.TextBox()
+        Me.txtLat = New System.Windows.Forms.TextBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'txtCalle
@@ -41,7 +44,7 @@ Partial Class Form1
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(498, 6)
+        Me.Button1.Location = New System.Drawing.Point(104, 109)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(66, 29)
         Me.Button1.TabIndex = 1
@@ -88,11 +91,39 @@ Partial Class Form1
         Me.txtNumero.TabIndex = 6
         Me.txtNumero.Text = "Número"
         '
+        'txtlong
+        '
+        Me.txtlong.Location = New System.Drawing.Point(467, 37)
+        Me.txtlong.Name = "txtlong"
+        Me.txtlong.Size = New System.Drawing.Size(173, 20)
+        Me.txtlong.TabIndex = 7
+        Me.txtlong.Text = "Longitud"
+        '
+        'txtLat
+        '
+        Me.txtLat.Location = New System.Drawing.Point(467, 11)
+        Me.txtLat.Name = "txtLat"
+        Me.txtLat.Size = New System.Drawing.Size(173, 20)
+        Me.txtLat.TabIndex = 8
+        Me.txtLat.Text = "Latitud"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(534, 109)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(66, 29)
+        Me.Button2.TabIndex = 9
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(606, 418)
+        Me.ClientSize = New System.Drawing.Size(807, 418)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.txtLat)
+        Me.Controls.Add(Me.txtlong)
         Me.Controls.Add(Me.txtNumero)
         Me.Controls.Add(Me.txtCP)
         Me.Controls.Add(Me.txtPais)
@@ -113,5 +144,8 @@ Partial Class Form1
     Friend WithEvents txtPais As System.Windows.Forms.TextBox
     Friend WithEvents txtCP As System.Windows.Forms.TextBox
     Friend WithEvents txtNumero As System.Windows.Forms.TextBox
+    Friend WithEvents txtlong As System.Windows.Forms.TextBox
+    Friend WithEvents txtLat As System.Windows.Forms.TextBox
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 
 End Class
