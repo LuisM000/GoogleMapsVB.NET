@@ -62,4 +62,26 @@ Public Class Form1
         txtlong.Text = mlongitude
 
     End Sub
+
+    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+        Dim reader As XmlTextReader = New XmlTextReader("http://maps.googleapis.com/maps/api/geocode/xml?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false")
+        Dim type As XmlNodeType
+        Dim latitud As Double
+        reader.WhitespaceHandling = WhitespaceHandling.Significant
+
+        While reader.Read
+            type = reader.NodeType
+            If type = XmlNodeType.Element Then
+
+                Select Case reader.Name
+                    Case "lat"
+                        reader.Read()
+                        latitud = reader.Value
+                        MessageBox.Show(latitud)
+
+
+                End Select
+            End If
+        End While
+    End Sub
 End Class

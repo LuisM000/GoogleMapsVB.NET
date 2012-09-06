@@ -35,6 +35,7 @@ Partial Class Form1
         Me.Button3 = New System.Windows.Forms.Button()
         Me.txtprovincia = New System.Windows.Forms.TextBox()
         Me.txtcomunidad = New System.Windows.Forms.TextBox()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'txtCalle
@@ -121,7 +122,7 @@ Partial Class Form1
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(673, 315)
+        Me.Button3.Location = New System.Drawing.Point(673, 109)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(66, 72)
         Me.Button3.TabIndex = 10
@@ -144,11 +145,21 @@ Partial Class Form1
         Me.txtcomunidad.TabIndex = 12
         Me.txtcomunidad.Text = "Comunidad"
         '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(725, 252)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(70, 66)
+        Me.Button4.TabIndex = 13
+        Me.Button4.Text = "Button4"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(893, 527)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.txtcomunidad)
         Me.Controls.Add(Me.txtprovincia)
         Me.Controls.Add(Me.Button3)
@@ -181,5 +192,6 @@ Partial Class Form1
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents txtprovincia As System.Windows.Forms.TextBox
     Friend WithEvents txtcomunidad As System.Windows.Forms.TextBox
+    Friend WithEvents Button4 As System.Windows.Forms.Button
 
 End Class
