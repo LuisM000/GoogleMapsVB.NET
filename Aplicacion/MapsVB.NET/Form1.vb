@@ -2,18 +2,20 @@
 Public Class Form1
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        Dim datos As String
-        datos = "http://maps.google.es/maps?q=" + txtCalle.Text + " " + txtNumero.Text + " " + txtCP.Text + " " + txtCiudad.Text + " " + txtprovincia.Text + " " + txtcomunidad.Text + " " + txtPais.Text + "&output=embed"
-        Dim direccion As New Uri(datos)
+        Dim objetoMaps As New GoogleMaps
+        Dim direccionAux As String
+        direccionAux = objetoMaps.ObtenerURLDireccionMaps(txtCalle.Text, txtNumero.Text, txtCP.Text, txtCiudad.Text, txtprovincia.Text, txtcomunidad.Text, txtPais.Text)
+        Dim direccion As New Uri(direccionAux)
         WebBrowser1.Url = direccion
     End Sub
 
 
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        Dim datos As String
-        datos = "http://maps.google.es/maps?q=" + txtLat.Text + "%2C" + txtlong.Text + "&output=embed"
-        Dim direccion As New Uri(datos)
+        Dim objetoMaps As New GoogleMaps
+        Dim direccionAux As String
+        direccionAux = objetoMaps.ObtenerURLlatlongMaps(CDbl(txtLat.Text), CDbl(txtlong.Text))
+        Dim direccion As New Uri(direccionAux)
         WebBrowser1.Url = direccion
 
     End Sub
@@ -21,67 +23,31 @@ Public Class Form1
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         Dim objetoMaps As New GoogleMaps
         Dim ip As String = objetoMaps.ObtenerIp()
-        Dim reader As XmlTextReader = New XmlTextReader("http://smart-ip.net/geoip-xml/" & ip & "/auto?lang=en")
-        Dim type As XmlNodeType
-        Dim mcountryName As String = "Datos no encontrados"
-        Dim mcity As String = "Datos no encontrados"
-        Dim mregion As String = "Datos no encontrados"
-        Dim mlongitude As String = "Datos no encontrados"
-        Dim mlatitude As String = "Datos no encontrados"
-
-        reader.WhitespaceHandling = WhitespaceHandling.Significant
-
-        While reader.Read
-            type = reader.NodeType
-            If type = XmlNodeType.Element Then
-
-                Select Case reader.Name
-                    Case "countryName"
-                        reader.Read()
-                        mcountryName = reader.Value
-                    Case "city"
-                        reader.Read()
-                        mcity = reader.Value
-                    Case "region"
-                        reader.Read()
-                        mregion = reader.Value
-                    Case "latitude"
-                        reader.Read()
-                        mlatitude = reader.Value
-                    Case "longitude"
-                        reader.Read()
-                        mlongitude = reader.Value
-                End Select
-            End If
-        End While
+        Dim DatosRetorno(4) As String
+        DatosRetorno=objetoMaps.localizarIp(ip)
         objetoMaps.borrarCampos()
-        txtPais.Text = mcountryName
-        txtCiudad.Text = mcity
-        txtcomunidad.Text = mregion
-        txtLat.Text = mlatitude
-        txtlong.Text = mlongitude
+        txtPais.Text = DatosRetorno(0)
+        txtCiudad.Text = DatosRetorno(1)
+        txtcomunidad.Text = DatosRetorno(2)
+        txtLat.Text = DatosRetorno(3)
+        txtlong.Text = DatosRetorno(4)
 
     End Sub
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
-        Dim reader As XmlTextReader = New XmlTextReader("http://maps.googleapis.com/maps/api/geocode/xml?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false")
-        Dim type As XmlNodeType
-        Dim latitud As Double
-        reader.WhitespaceHandling = WhitespaceHandling.Significant
+        Dim calle, poblacion, provincia, comunidad, pais As String
+        calle = txtCalle.Text
+        poblacion = txtCiudad.Text
+        provincia = txtprovincia.Text
+        comunidad = txtcomunidad.Text
+        pais = txtPais.Text
+        Dim objetoMaps As New GoogleMaps
+        Dim latlong(1) As Double
+        latlong = objetoMaps.ObternetLatLong(calle, poblacion, provincia, comunidad, pais)
+        Dim direccionAux As String
+        direccionAux = objetoMaps.ObtenerURLlatlongMaps(latlong(0), latlong(1))
+        Dim direccion As New Uri(direccionAux)
+        WebBrowser1.Url = direccion
 
-        While reader.Read
-            type = reader.NodeType
-            If type = XmlNodeType.Element Then
-
-                Select Case reader.Name
-                    Case "lat"
-                        reader.Read()
-                        latitud = reader.Value
-                        MessageBox.Show(latitud)
-
-
-                End Select
-            End If
-        End While
     End Sub
 End Class
