@@ -39,6 +39,38 @@ Public Class GoogleMaps
         Return LatLong
     End Function
 
+    Public Function CodigoPostal(Optional ByVal calle As String = "", Optional ByVal poblacion As String = "", Optional ByVal provincia As String = "", Optional ByVal comunidad As String = "", Optional ByVal pais As String = "")
+        Dim direccion As String
+        Dim cp As String = "0"
+        If calle <> "" Then calle = calle.Replace(" ", "+")
+        If poblacion <> "" Then poblacion = poblacion.Replace(" ", "+")
+        If provincia <> "" Then provincia = provincia.Replace(" ", "+")
+        If comunidad <> "" Then comunidad = comunidad.Replace(" ", "+")
+        If pais <> "" Then pais.Replace(" ", "+")
+        direccion = calle + ",+" + poblacion + ",+" + provincia + ",+" + comunidad + ",+" + pais
+        direccion = "http://maps.googleapis.com/maps/api/geocode/xml?address=" + direccion + "+CA&sensor=false"
+        Dim reader As XmlTextReader = New XmlTextReader(direccion)
+        Dim type As XmlNodeType
+        reader.WhitespaceHandling = WhitespaceHandling.Significant
+        While reader.Read
+            type = reader.NodeType
+            If type = XmlNodeType.Element Then
+                If reader.Name = "address_component" Then
+                    reader.Read()
+                    reader.Read()
+                    If IsNumeric(reader.Value) Then
+                        cp = reader.Value
+                        Exit While
+                    End If
+                End If
+            End If
+        End While
+        If cp = "0" Then
+            cp = "Código postal no encontrado"
+        End If
+        Return cp
+    End Function
+
     'Public Sub borrarCampos()
     '    Form1.txtCalle.Text = ""
     '    Form1.txtCiudad.Text = ""

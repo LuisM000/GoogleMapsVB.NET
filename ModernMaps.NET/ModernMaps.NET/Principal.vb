@@ -1,4 +1,6 @@
-﻿Public Class Principal
+﻿Imports System.Xml
+
+Public Class Principal
 
     Private Sub Principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         For Each c As Object In Me.Controls
@@ -57,5 +59,10 @@
             ISP.Show()
             Timer2.Enabled = False
         End If
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Dim maps As New GoogleMaps
+        MessageBox.Show(maps.CodigoPostal)
     End Sub
 End Class

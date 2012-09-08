@@ -81,6 +81,7 @@
     Private Sub Timer4_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer4.Tick
         Timer2.Enabled = True
         Timer3.Enabled = True
+        Timer4.Enabled = False
     End Sub
 
     Private Sub Timer5_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer5.Tick
