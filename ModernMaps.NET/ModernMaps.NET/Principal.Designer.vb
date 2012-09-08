@@ -30,6 +30,7 @@ Partial Class Principal
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'Label1
@@ -96,6 +97,10 @@ Partial Class Principal
         Me.Label6.TabIndex = 6
         Me.Label6.Text = "Modern Maps .NET"
         '
+        'Timer2
+        '
+        Me.Timer2.Interval = 1
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -123,4 +128,5 @@ Partial Class Principal
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Timer2 As System.Windows.Forms.Timer
 End Class

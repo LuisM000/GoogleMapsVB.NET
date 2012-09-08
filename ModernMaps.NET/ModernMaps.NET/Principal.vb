@@ -28,6 +28,10 @@
         Timer1.Enabled = True
     End Sub
 
+    Private Sub Label3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label3.Click
+        Timer2.Enabled = True
+    End Sub
+
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         If Me.Width > 2 Then
             Me.Opacity = Me.Opacity - 0.04
@@ -41,9 +45,17 @@
         End If
     End Sub
 
-   
 
-    Private Sub Label6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label6.Click
-
+    Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
+        If Me.Width > 2 Then
+            Me.Opacity = Me.Opacity - 0.04
+            Me.Width = Me.Width - 10
+        Else
+            Me.Hide()
+            Me.Opacity = 1
+            Me.Size = New Size(320, 266)
+            ISP.Show()
+            Timer2.Enabled = False
+        End If
     End Sub
 End Class
