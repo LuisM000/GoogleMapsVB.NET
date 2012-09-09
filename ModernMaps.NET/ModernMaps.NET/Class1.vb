@@ -65,7 +65,7 @@ Public Class GoogleMaps
                 End If
             End If
         End While
-        If cp = "0" Then
+        If cp = "0" Or cp.Length <> 5 Then
             cp = "Código postal no encontrado"
         End If
         Return cp
