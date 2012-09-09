@@ -30,6 +30,10 @@ Public Class Principal
         Timer1.Enabled = True
     End Sub
 
+    Private Sub Label2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label2.Click
+        Timer4.Enabled = True
+    End Sub
+
     Private Sub Label3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label3.Click
         Timer2.Enabled = True
     End Sub
@@ -75,11 +79,18 @@ Public Class Principal
             Timer3.Enabled = False
         End If
     End Sub
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Dim maps As New GoogleMaps
-        MessageBox.Show(maps.CodigoPostal)
+    Private Sub Timer4_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer4.Tick
+        If Me.Width > 2 Then
+            Me.Opacity = Me.Opacity - 0.04
+            Me.Width = Me.Width - 10
+        Else
+            Me.Hide()
+            Me.Opacity = 1
+            Me.Size = New Size(320, 266)
+            BuscarLatLong.Show()
+            Timer4.Enabled = False
+        End If
     End Sub
 
-   
-   
+    
 End Class

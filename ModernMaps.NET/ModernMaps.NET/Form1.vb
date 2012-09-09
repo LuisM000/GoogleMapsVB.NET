@@ -6,7 +6,6 @@ Public Class Form1
         Dim direccion As New Uri(" http://maps.google.es/maps?q=España&output=embed")
         WebBrowser1.Url = direccion
         Me.Size = New Size(0, 333)
-        txtpoblacion.Focus()
         For Each c As Object In Me.Controls
             If c.GetType Is GetType(TextBox) Then
                 AddHandler DirectCast(c, TextBox).GotFocus, AddressOf conFoco
@@ -20,10 +19,11 @@ Public Class Form1
         Next
         Timer5.Interval = 1000
         Timer5.Enabled = True
+        txtpoblacion.Focus()
     End Sub
 
     Private Sub conFoco(ByVal sender As Object, ByVal e As System.EventArgs)
-        DirectCast(sender, TextBox).BackColor = Color.AliceBlue
+        DirectCast(sender, TextBox).BackColor = Color.LightCyan
     End Sub
 
 

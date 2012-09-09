@@ -86,7 +86,7 @@ Partial Class latlong
         Me.Label5.Location = New System.Drawing.Point(70, 288)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(88, 26)
-        Me.Label5.TabIndex = 11
+        Me.Label5.TabIndex = 0
         Me.Label5.Text = "Longitud"
         '
         'Label1
@@ -96,7 +96,7 @@ Partial Class latlong
         Me.Label1.Location = New System.Drawing.Point(70, 252)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(72, 26)
-        Me.Label1.TabIndex = 8
+        Me.Label1.TabIndex = 0
         Me.Label1.Text = "Latitud"
         '
         'txtpais
@@ -151,7 +151,7 @@ Partial Class latlong
         Me.Label2.Location = New System.Drawing.Point(70, 108)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(102, 26)
-        Me.Label2.TabIndex = 21
+        Me.Label2.TabIndex = 0
         Me.Label2.Text = "Calle/Local"
         '
         'Label4
@@ -161,7 +161,7 @@ Partial Class latlong
         Me.Label4.Location = New System.Drawing.Point(70, 144)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(90, 26)
-        Me.Label4.TabIndex = 19
+        Me.Label4.TabIndex = 0
         Me.Label4.Text = "Provincia"
         '
         'Label3
@@ -171,7 +171,7 @@ Partial Class latlong
         Me.Label3.Location = New System.Drawing.Point(70, 180)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(109, 26)
-        Me.Label3.TabIndex = 17
+        Me.Label3.TabIndex = 0
         Me.Label3.Text = "Comunidad"
         '
         'Label6
@@ -181,7 +181,7 @@ Partial Class latlong
         Me.Label6.Location = New System.Drawing.Point(70, 216)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(45, 26)
-        Me.Label6.TabIndex = 15
+        Me.Label6.TabIndex = 0
         Me.Label6.Text = "País"
         '
         'Label7
@@ -191,7 +191,7 @@ Partial Class latlong
         Me.Label7.Location = New System.Drawing.Point(70, 72)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(93, 26)
-        Me.Label7.TabIndex = 13
+        Me.Label7.TabIndex = 0
         Me.Label7.Text = "Población"
         '
         'Timer1
@@ -213,7 +213,7 @@ Partial Class latlong
         Me.WebBrowser1.Name = "WebBrowser1"
         Me.WebBrowser1.ScrollBarsEnabled = False
         Me.WebBrowser1.Size = New System.Drawing.Size(990, 370)
-        Me.WebBrowser1.TabIndex = 26
+        Me.WebBrowser1.TabIndex = 0
         '
         'Timer4
         '
