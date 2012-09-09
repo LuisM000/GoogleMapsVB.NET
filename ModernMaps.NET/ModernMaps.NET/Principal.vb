@@ -1,4 +1,6 @@
-﻿Public Class Principal
+﻿Imports System.Xml
+
+Public Class Principal
 
     Private Sub Principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         For Each c As Object In Me.Controls
@@ -31,6 +33,9 @@
     Private Sub Label3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label3.Click
         Timer2.Enabled = True
     End Sub
+    Private Sub Label4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label4.Click
+        Timer3.Enabled = True
+    End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         If Me.Width > 2 Then
@@ -58,4 +63,23 @@
             Timer2.Enabled = False
         End If
     End Sub
+    Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer3.Tick
+        If Me.Width > 2 Then
+            Me.Opacity = Me.Opacity - 0.04
+            Me.Width = Me.Width - 10
+        Else
+            Me.Hide()
+            Me.Opacity = 1
+            Me.Size = New Size(320, 266)
+            latlong.Show()
+            Timer3.Enabled = False
+        End If
+    End Sub
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Dim maps As New GoogleMaps
+        MessageBox.Show(maps.CodigoPostal)
+    End Sub
+
+   
+   
 End Class

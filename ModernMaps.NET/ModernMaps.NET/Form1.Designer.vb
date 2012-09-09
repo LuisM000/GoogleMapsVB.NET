@@ -43,6 +43,7 @@ Partial Class Form1
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer5 = New System.Windows.Forms.Timer(Me.components)
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -199,12 +200,25 @@ Partial Class Form1
         '
         Me.Timer5.Interval = 1000
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Button1.Font = New System.Drawing.Font("Palatino Linotype", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.Location = New System.Drawing.Point(343, 281)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(107, 40)
+        Me.Button1.TabIndex = 11
+        Me.Button1.Text = "Borrar campos"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DodgerBlue
         Me.ClientSize = New System.Drawing.Size(467, 333)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.WebBrowser1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.txtcp)
@@ -247,5 +261,6 @@ Partial Class Form1
     Friend WithEvents Timer3 As System.Windows.Forms.Timer
     Friend WithEvents Timer4 As System.Windows.Forms.Timer
     Friend WithEvents Timer5 As System.Windows.Forms.Timer
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 
 End Class

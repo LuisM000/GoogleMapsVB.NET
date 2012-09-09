@@ -117,4 +117,28 @@ Public Class Form1
         End If
     End Sub
 
+   
+
+    Private Sub Button1_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button1.MouseEnter
+        Button1.BackColor = Color.White
+        Button1.ForeColor = Color.Black
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub Button1_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button1.MouseLeave
+        Button1.BackColor = Color.DodgerBlue
+        Button1.ForeColor = Color.White
+        Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        txtcalle.Text = ""
+        txtcomunidad.Text = ""
+        txtcp.Text = ""
+        txtpais.Text = ""
+        txtpoblacion.Text = ""
+        txtprovincia.Text = ""
+    End Sub
+
+  
 End Class

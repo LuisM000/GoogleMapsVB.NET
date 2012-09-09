@@ -86,6 +86,12 @@
     <Compile Include="ISP.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="latlong.Designer.vb">
+      <DependentUpon>latlong.vb</DependentUpon>
+    </Compile>
+    <Compile Include="latlong.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -114,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ISP.resx">
       <DependentUpon>ISP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="latlong.resx">
+      <DependentUpon>latlong.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
