@@ -78,9 +78,6 @@ Public Class Form1
         End If
     End Sub
 
-
-  
-
     Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer3.Tick
         If Me.Width > 2 Then
             Me.Width = Me.Width - 10

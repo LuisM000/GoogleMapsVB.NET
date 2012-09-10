@@ -31,6 +31,10 @@ Partial Class BuscarLatLong
         Me.Label1 = New System.Windows.Forms.Label()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer5 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -94,6 +98,22 @@ Partial Class BuscarLatLong
         '
         Me.Timer1.Interval = 1
         '
+        'Timer2
+        '
+        Me.Timer2.Interval = 1
+        '
+        'Timer3
+        '
+        Me.Timer3.Interval = 1
+        '
+        'Timer4
+        '
+        Me.Timer4.Interval = 1
+        '
+        'Timer5
+        '
+        Me.Timer5.Interval = 1
+        '
         'BuscarLatLong
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -122,4 +142,8 @@ Partial Class BuscarLatLong
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents Timer2 As System.Windows.Forms.Timer
+    Friend WithEvents Timer3 As System.Windows.Forms.Timer
+    Friend WithEvents Timer4 As System.Windows.Forms.Timer
+    Friend WithEvents Timer5 As System.Windows.Forms.Timer
 End Class
