@@ -4,7 +4,7 @@ Imports System.Xml
 
 Public Class GoogleMaps
 
-    Public Function ObternetLatLong(Optional ByVal calle As String = "", Optional ByVal poblacion As String = "", Optional ByVal provincia As String = "", Optional ByVal comunidad As String = "", Optional ByVal pais As String = "")
+    Public Function CodificacionGeo(Optional ByVal calle As String = "", Optional ByVal poblacion As String = "", Optional ByVal provincia As String = "", Optional ByVal comunidad As String = "", Optional ByVal pais As String = "")
         Dim direccion As String
         Dim LatLong(1) As Double
         LatLong(0) = 0
@@ -38,6 +38,7 @@ Public Class GoogleMaps
         End While
         Return LatLong
     End Function
+
 
     Public Function CodigoPostal(Optional ByVal calle As String = "", Optional ByVal poblacion As String = "", Optional ByVal provincia As String = "", Optional ByVal comunidad As String = "", Optional ByVal pais As String = "")
         Dim direccion As String
@@ -126,6 +127,7 @@ Public Class GoogleMaps
                 End Select
             End If
         End While
+
         Return datosRetorno
     End Function
     Public Function ObtenerURLDireccionMaps(Optional ByVal calle As String = "", Optional ByVal numero As String = "", Optional ByVal CodigoPostal As String = "", Optional ByVal poblacion As String = "", Optional ByVal provincia As String = "", Optional ByVal comunidad As String = "", Optional ByVal pais As String = "")
@@ -140,5 +142,74 @@ Public Class GoogleMaps
         Return urlMaps
     End Function
 
+
+    Public Function CodificacionGeoInv(ByVal latitud As Double, ByVal longitud As Double)
+        Dim direccion As String
+        Dim datos As String
+        datos = "Dirección no encontrada"
+        direccion = "http://maps.googleapis.com/maps/api/geocode/xml?latlng=" + CStr(latitud) + "," + CStr(longitud) + "&sensor=false"
+        Dim reader As XmlTextReader = New XmlTextReader(direccion)
+        Dim type As XmlNodeType
+        reader.WhitespaceHandling = WhitespaceHandling.Significant
+        While reader.Read
+            type = reader.NodeType
+            If type = XmlNodeType.Element Then
+
+                Select Case reader.Name
+                    Case "type"
+                        reader.Read()
+                        If reader.Value = "street_address" Then
+                            reader.Read()
+                            reader.Read()
+                            If reader.Name = "formatted_address" Then
+                                reader.Read()
+                                datos = "Dirección postal: " + reader.Value
+                                Exit While
+                            End If
+                        End If
+
+                        If reader.Value = "route" Then
+                            reader.Read()
+                            reader.Read()
+                            If reader.Name = "formatted_address" Then
+                                reader.Read()
+                                datos = "Ruta: " + reader.Value
+                                Exit While
+                            End If
+                        End If
+                        If reader.Value = "intersection" Then
+                            reader.Read()
+                            reader.Read()
+                            If reader.Name = "formatted_address" Then
+                                reader.Read()
+                                datos = "Intersección: " + reader.Value
+                                Exit While
+                            End If
+                        End If
+
+                End Select
+            End If
+        End While
+
+        If datos = "Dirección no encontrada" Then
+            Dim reader2 As XmlTextReader = New XmlTextReader(direccion)
+            Dim type2 As XmlNodeType
+            reader2.WhitespaceHandling = WhitespaceHandling.Significant
+            While reader2.Read
+                type2 = reader2.NodeType
+                If type2 = XmlNodeType.Element Then
+                    Select Case reader2.Name
+                        Case "formatted_address"
+                            reader2.Read()
+                            datos = "Dirección: " + reader2.Value
+                            Exit While
+
+                    End Select
+                End If
+            End While
+        End If
+
+        Return datos
+    End Function
 
 End Class

@@ -17,24 +17,29 @@
      
 
     Private Sub ISP_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Timer1.Enabled = True
+
         Me.Size = New Size(0, 360)
+        Timer1.Enabled = True
         Me.Opacity = 0
         txtip.Focus()
+        Dim datoslocalizacion(4) As String
+        Dim ip As String
         Dim objetoMaps As New GoogleMaps
-        Dim ip As String = objetoMaps.ObtenerIp
-        Dim datosLocalizacion = objetoMaps.localizarIp(ip)
+        ip = objetoMaps.ObtenerIp
+        datoslocalizacion = objetoMaps.localizarIp(ip)
         txtip.Text = ip
-        txtlatitud.Text = datosLocalizacion(3)
-        txtlongitud.Text = datosLocalizacion(4)
-        txtciudad.Text = datosLocalizacion(1)
-        txtpais.Text = datosLocalizacion(0)
-        txtregion.Text = datosLocalizacion(2)
+        txtlatitud.Text = datoslocalizacion(3)
+        txtlongitud.Text = datoslocalizacion(4)
+        txtciudad.Text = datoslocalizacion(1)
+        txtpais.Text = datoslocalizacion(0)
+        txtregion.Text = datoslocalizacion(2)
 
     End Sub
 
     Private Sub Label6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label6.Click
         Dim objetoMaps As New GoogleMaps
+        If txtlatitud.Text = "" Then txtlatitud.Text = 0
+        If txtlongitud.Text = "" Then txtlongitud.Text = 0
         Dim direccion = objetoMaps.ObtenerURLlatlongMaps(txtlatitud.Text, txtlongitud.Text)
         Dim url As New Uri(direccion)
         WebBrowser1.Url = url

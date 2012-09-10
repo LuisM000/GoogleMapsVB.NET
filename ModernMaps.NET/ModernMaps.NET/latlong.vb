@@ -60,7 +60,7 @@
         Else
             calle = ""
         End If
-        latlong = objetoMaps.ObternetLatLong(calle, txtpoblacion.Text, txtprovincia.Text, txtcomunidad.Text, txtpais.Text)
+        latlong = objetoMaps.CodificacionGeo(calle, txtpoblacion.Text, txtprovincia.Text, txtcomunidad.Text, txtpais.Text)
         txtlat.Text = latlong(0)
         txtlong.Text = latlong(1)
         Dim direccion As New Uri(objetoMaps.ObtenerURLlatlongMaps(latlong(0), latlong(1)))

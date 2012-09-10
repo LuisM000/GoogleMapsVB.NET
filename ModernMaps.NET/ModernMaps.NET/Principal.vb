@@ -48,7 +48,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 266)
+            Me.Size = New Size(320, 305)
             Form1.Show()
             Timer1.Enabled = False
         End If
@@ -62,7 +62,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 266)
+            Me.Size = New Size(320, 305)
             ISP.Show()
             Timer2.Enabled = False
         End If
@@ -74,7 +74,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 266)
+            Me.Size = New Size(320, 305)
             latlong.Show()
             Timer3.Enabled = False
         End If
@@ -86,11 +86,35 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 266)
+            Me.Size = New Size(320, 305)
             BuscarLatLong.Show()
             Timer4.Enabled = False
         End If
     End Sub
 
     
+    Private Sub Label7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label7.Click
+        Me.Close()
+    End Sub
+    Private Sub Label6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label6.Click
+        Timer5.Enabled = True
+    End Sub
+   
+    Private Sub Timer5_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer5.Tick
+        If Me.Width > 2 Then
+            Me.Opacity = Me.Opacity - 0.04
+            Me.Width = Me.Width - 10
+        Else
+            Me.Hide()
+            Me.Opacity = 1
+            Me.Size = New Size(320, 305)
+            AcercaDe.Show()
+            Timer5.Enabled = False
+        End If
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Dim maps As New GoogleMaps
+        MessageBox.Show(maps.CodificacionGeoInv(2.714224, -80.986452))
+    End Sub
 End Class
