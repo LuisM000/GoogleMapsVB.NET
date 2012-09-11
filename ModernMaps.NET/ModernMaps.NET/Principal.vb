@@ -22,10 +22,6 @@ Public Class Principal
         Me.Cursor = Cursors.Default
     End Sub
 
-    Private Sub Label5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label5.Click
-        Me.Close()
-    End Sub
-
     Private Sub Label1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label1.Click
         Timer1.Enabled = True
     End Sub
@@ -48,7 +44,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 305)
+            Me.Size = New Size(320, 361)
             Form1.Show()
             Timer1.Enabled = False
         End If
@@ -62,7 +58,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 305)
+            Me.Size = New Size(320, 361)
             ISP.Show()
             Timer2.Enabled = False
         End If
@@ -74,7 +70,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 305)
+            Me.Size = New Size(320, 361)
             latlong.Show()
             Timer3.Enabled = False
         End If
@@ -86,7 +82,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 305)
+            Me.Size = New Size(320, 361)
             BuscarLatLong.Show()
             Timer4.Enabled = False
         End If
@@ -107,14 +103,25 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 305)
+            Me.Size = New Size(320, 361)
             AcercaDe.Show()
             Timer5.Enabled = False
         End If
     End Sub
 
+  
+    Private Sub Label7_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Label7.MouseEnter
+
+    End Sub
+
+    Private Sub Label5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label5.Click
+        Me.Hide()
+        CodifiInversa.Show()
+    End Sub
+
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Dim maps As New GoogleMaps
-        MessageBox.Show(maps.CodificacionGeoInv(2.714224, -80.986452))
+        TextBox1.Text = maps.ImagenStreetViewLatiLong(42.55229, -6.596714, 400, 400, 0, , 120)
+
     End Sub
 End Class

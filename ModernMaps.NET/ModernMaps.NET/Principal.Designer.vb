@@ -27,7 +27,6 @@ Partial Class Principal
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
@@ -35,7 +34,9 @@ Partial Class Principal
         Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Timer5 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -78,16 +79,6 @@ Partial Class Principal
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "Codificación geográfica"
         '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Palatino Linotype", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(120, 306)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(48, 26)
-        Me.Label5.TabIndex = 5
-        Me.Label5.Text = "Salir"
-        '
         'Timer1
         '
         Me.Timer1.Interval = 1
@@ -118,7 +109,7 @@ Partial Class Principal
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Palatino Linotype", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(136, 257)
+        Me.Label7.Location = New System.Drawing.Point(136, 309)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(48, 26)
         Me.Label7.TabIndex = 7
@@ -128,25 +119,43 @@ Partial Class Principal
         '
         Me.Timer5.Interval = 1
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Palatino Linotype", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(28, 262)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(265, 26)
+        Me.Label5.TabIndex = 8
+        Me.Label5.Text = "Codificación geográfica inversa"
+        '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(260, 104)
+        Me.Button1.Location = New System.Drawing.Point(245, 92)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(36, 31)
-        Me.Button1.TabIndex = 8
+        Me.Button1.Size = New System.Drawing.Size(80, 58)
+        Me.Button1.TabIndex = 9
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(14, 81)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(179, 20)
+        Me.TextBox1.TabIndex = 10
         '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DodgerBlue
-        Me.ClientSize = New System.Drawing.Size(320, 305)
+        Me.ClientSize = New System.Drawing.Size(320, 361)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -163,7 +172,6 @@ Partial Class Principal
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Timer2 As System.Windows.Forms.Timer
@@ -171,5 +179,7 @@ Partial Class Principal
     Friend WithEvents Timer4 As System.Windows.Forms.Timer
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Timer5 As System.Windows.Forms.Timer
+    Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
 End Class

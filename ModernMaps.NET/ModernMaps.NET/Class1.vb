@@ -6,7 +6,7 @@ Public Class GoogleMaps
 
     Public Function CodificacionGeo(Optional ByVal calle As String = "", Optional ByVal poblacion As String = "", Optional ByVal provincia As String = "", Optional ByVal comunidad As String = "", Optional ByVal pais As String = "")
         Dim direccion As String
-        Dim LatLong(1) As Double
+        Dim LatLong(1) As String
         LatLong(0) = 0
         LatLong(1) = 0
         If calle <> "" Then calle = calle.Replace(" ", "+")
@@ -136,14 +136,14 @@ Public Class GoogleMaps
         Return urlMaps
     End Function
 
-    Public Function ObtenerURLlatlongMaps(ByVal latitud As Double, ByVal longitud As Double)
+    Public Function ObtenerURLlatlongMaps(ByVal latitud As String, ByVal longitud As String)
         Dim urlMaps As String
         urlMaps = "http://maps.google.es/maps?q=" + CStr(latitud) + "%2C" + CStr(longitud) + "&output=embed"
         Return urlMaps
     End Function
 
 
-    Public Function CodificacionGeoInv(ByVal latitud As Double, ByVal longitud As Double)
+    Public Function CodificacionGeoInv(ByVal latitud As String, ByVal longitud As String)
         Dim direccion As String
         Dim datos As String
         datos = "Dirección no encontrada"
@@ -186,30 +186,39 @@ Public Class GoogleMaps
                                 Exit While
                             End If
                         End If
+                    Case "formatted_address"
+                        reader.Read()
+                        datos = "Dirección: " + reader.Value
+                        Exit While
 
                 End Select
             End If
         End While
-
-        If datos = "Dirección no encontrada" Then
-            Dim reader2 As XmlTextReader = New XmlTextReader(direccion)
-            Dim type2 As XmlNodeType
-            reader2.WhitespaceHandling = WhitespaceHandling.Significant
-            While reader2.Read
-                type2 = reader2.NodeType
-                If type2 = XmlNodeType.Element Then
-                    Select Case reader2.Name
-                        Case "formatted_address"
-                            reader2.Read()
-                            datos = "Dirección: " + reader2.Value
-                            Exit While
-
-                    End Select
-                End If
-            End While
-        End If
-
         Return datos
     End Function
 
+    Public Function ImagenStreetViewLatiLong(ByVal latitud As Double, ByVal longitud As Double, Optional ByVal WidthImagen As Integer = 400, Optional ByVal HeightImagen As Integer = 400, Optional ByVal GradosHorizontales As Integer = -1, Optional ByVal GradosVerticales As Integer = -1, Optional ByVal zoom As Integer = 120)
+        Dim direccion As String
+        direccion = "http://maps.googleapis.com/maps/api/streetview?size=400x400&location=66.960654,-2.201815&heading=90&fov=120&pitch=0&&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        latitud = CStr(latitud)
+        longitud = CStr(longitud)
+        WidthImagen = CStr(WidthImagen)
+        HeightImagen = CStr(HeightImagen)
+        zoom = CStr(zoom)
+        GradosHorizontales = CStr(GradosHorizontales)
+        GradosVerticales = CStr(GradosVerticales)
+        If GradosHorizontales <> -1 And GradosVerticales <> -1 Then
+            direccion = "http://maps.googleapis.com/maps/api/streetview?size=" & WidthImagen & "x" & HeightImagen & "&location=" & latitud & "," & longitud & "&heading=" & GradosHorizontales & "&fov=" & zoom & "&pitch=" & GradosVerticales & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        End If
+        If GradosHorizontales = "-1" And GradosVerticales <> -1 Then
+            direccion = "http://maps.googleapis.com/maps/api/streetview?size=" & WidthImagen & "x" & HeightImagen & "&location=" & latitud & "," & longitud & "&fov=" & zoom & "&pitch=" & GradosVerticales & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        End If
+        If GradosHorizontales <> "-1" And GradosVerticales = -1 Then
+            direccion = "http://maps.googleapis.com/maps/api/streetview?size=" & WidthImagen & "x" & HeightImagen & "&location=" & latitud & "," & longitud & "&heading=" & GradosHorizontales & "&fov=" & zoom & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        End If
+        If GradosHorizontales = "-1" And GradosVerticales = -1 Then
+            direccion = "http://maps.googleapis.com/maps/api/streetview?size=" & WidthImagen & "x" & HeightImagen & "&location=" & latitud & "," & longitud & "&fov=" & zoom & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        End If
+        Return direccion
+    End Function
 End Class

@@ -88,6 +88,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Class1.vb" />
+    <Compile Include="CodifiInversa.Designer.vb">
+      <DependentUpon>CodifiInversa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CodifiInversa.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BuscarLatLong.resx">
       <DependentUpon>BuscarLatLong.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CodifiInversa.resx">
+      <DependentUpon>CodifiInversa.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
