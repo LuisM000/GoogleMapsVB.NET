@@ -36,6 +36,9 @@ Public Class Principal
     Private Sub Label4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label4.Click
         Timer3.Enabled = True
     End Sub
+    Private Sub Label5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label5.Click
+        Timer6.Enabled = True
+    End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         If Me.Width > 2 Then
@@ -109,9 +112,20 @@ Public Class Principal
         End If
     End Sub
 
-    Private Sub Label5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label5.Click
-        Me.Hide()
-        CodifiInversa.Show()
+    Private Sub Timer6_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer6.Tick
+        If Me.Width > 2 Then
+            Me.Opacity = Me.Opacity - 0.04
+            Me.Width = Me.Width - 10
+        Else
+            Me.Hide()
+            Me.Opacity = 1
+            Me.Size = New Size(320, 361)
+            CodifiInversa.Show()
+            Timer6.Enabled = False
+        End If
     End Sub
 
+   
+
+ 
 End Class

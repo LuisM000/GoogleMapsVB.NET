@@ -134,44 +134,37 @@ Public Class CodifiInversa
     Private Sub labelres_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles labelres.MouseEnter
         'Dim mouseLoc As Point = getMouseLoc()
         'mouseLoc.Y -= 150
+        'mouseLoc.X += 25
         'PictureBox2.Location = mouseLoc
-        labelres.ForeColor = Color.White
-        PictureBox2.Visible = True
+           labelres.ForeColor = Color.White
+        streetViewDIreccion = labelres.Text
         Me.Cursor = Windows.Forms.Cursors.Hand
+        SecundariaStreet.Show()
+
 
         Select Case labelres.Size.Width
             Case Is > 750
-                PictureBox2.Location = New Point(800, 15)
+                SecundariaStreet.Location = New Point(1050, 95)
             Case Is < 400
-                PictureBox2.Location = New Point(450, 25)
+                SecundariaStreet.Location = New Point(675, 95)
             Case Else
-                Dim ancho = labelres.Size.Width + 77
-                PictureBox2.Location = New Point(ancho, 25)
+                Dim ancho = labelres.Size.Width + 300
+                SecundariaStreet.Location = New Point(ancho, 100)
         End Select
-
-        Dim objetoMaps As New GoogleMaps
-        Dim enviaDIreccion As String
-        enviaDIreccion = labelres.Text.Replace(" ", "+")
-        Dim direccion As New Uri(objetoMaps.ImagenStreetViewDireccion(enviaDIreccion, 150, 150, 10, 0, 110))
-        Dim request As System.Net.WebRequest = System.Net.WebRequest.Create(direccion)
-        Dim response As System.Net.WebResponse = request.GetResponse()
-        Dim responseStream As System.IO.Stream = response.GetResponseStream()
-        Dim bmp As New Bitmap(responseStream)
-        PictureBox2.Image = bmp
-
 
 
     End Sub
 
     Private Sub labelres_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles labelres.MouseLeave
-        PictureBox2.Visible = False
+        SecundariaStreet.Close()
         labelres.ForeColor = Color.Black
         Me.Cursor = Windows.Forms.Cursors.Default
     End Sub
 
- 
+
     Private Sub labelres_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles labelres.Click
         streetViewDIreccion = labelres.Text.Replace(" ", "+")
         StreetView.Show()
     End Sub
+
 End Class

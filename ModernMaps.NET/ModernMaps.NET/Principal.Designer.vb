@@ -35,6 +35,7 @@ Partial Class Principal
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Timer5 = New System.Windows.Forms.Timer(Me.components)
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Timer6 = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'Label1
@@ -127,6 +128,10 @@ Partial Class Principal
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Codificación geográfica inversa"
         '
+        'Timer6
+        '
+        Me.Timer6.Interval = 1
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -160,4 +165,5 @@ Partial Class Principal
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Timer5 As System.Windows.Forms.Timer
     Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Timer6 As System.Windows.Forms.Timer
 End Class
