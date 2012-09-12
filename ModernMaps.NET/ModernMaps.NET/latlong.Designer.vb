@@ -46,7 +46,10 @@ Partial Class latlong
         Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer5 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer6 = New System.Windows.Forms.Timer(Me.components)
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Timer7 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -227,12 +230,25 @@ Partial Class latlong
         '
         Me.Timer6.Interval = 1
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.Location = New System.Drawing.Point(514, 77)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(445, 238)
+        Me.PictureBox2.TabIndex = 13
+        Me.PictureBox2.TabStop = False
+        '
+        'Timer7
+        '
+        Me.Timer7.Interval = 1000
+        '
         'latlong
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DodgerBlue
-        Me.ClientSize = New System.Drawing.Size(467, 333)
+        Me.ClientSize = New System.Drawing.Size(470, 333)
+        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.WebBrowser1)
         Me.Controls.Add(Me.txtpais)
         Me.Controls.Add(Me.txtcomunidad)
@@ -254,6 +270,7 @@ Partial Class latlong
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "latlong"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -280,4 +297,6 @@ Partial Class latlong
     Friend WithEvents Timer4 As System.Windows.Forms.Timer
     Friend WithEvents Timer5 As System.Windows.Forms.Timer
     Friend WithEvents Timer6 As System.Windows.Forms.Timer
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents Timer7 As System.Windows.Forms.Timer
 End Class

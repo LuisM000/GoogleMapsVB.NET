@@ -5,7 +5,7 @@
         Me.Opacity = 0
         Timer1.Enabled = True
         Dim objetoMaps As New GoogleMaps
-        Dim direccion As New Uri(objetoMaps.ImagenStreetViewDireccion(streetViewDIreccion, 787, 787, Label2.Text, Label3.Text, 120 - Label1.Text))
+        Dim direccion = objetoMaps.ImagenStreetViewDireccion(streetViewDIreccion, 787, 787, Label2.Text, Label3.Text, 120 - Label1.Text)
         Dim request As System.Net.WebRequest = System.Net.WebRequest.Create(direccion)
         Dim response As System.Net.WebResponse = request.GetResponse()
         Dim responseStream As System.IO.Stream = response.GetResponseStream()
@@ -398,4 +398,6 @@
             End If
         End With
     End Sub
+
+    
 End Class

@@ -1,4 +1,5 @@
 ﻿Public Class latlong
+    Dim latlong(1) As Double
 
     Private Sub latlong_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Opacity = 0
@@ -49,7 +50,6 @@
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         Dim objetoMaps As New GoogleMaps
-        Dim latlong(1) As Double
         Dim calle = txtcalle.Text
         If txtcalle.Text <> "" Then
             calle = calle.ToLower()
@@ -65,6 +65,7 @@
         txtlong.Text = latlong(1)
         Dim direccion As New Uri(objetoMaps.ObtenerURLlatlongMaps(latlong(0), latlong(1)))
         WebBrowser1.Url = direccion
+        Timer7.Enabled = True
         Timer1.Enabled = False
     End Sub
 
@@ -122,4 +123,53 @@
             Timer6.Enabled = False
         End If
     End Sub
+
+    Private Sub Timer7_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer7.Tick
+        Dim objetoMaps As New GoogleMaps
+        Dim enviaDIreccion = valordireccion()
+        Dim direccion As New Uri(objetoMaps.ImagenStreetViewDireccion(enviaDIreccion, 445, 238, 10, 0, 120))
+        Dim request As System.Net.WebRequest = System.Net.WebRequest.Create(direccion)
+        Dim response As System.Net.WebResponse = request.GetResponse()
+        Dim responseStream As System.IO.Stream = response.GetResponseStream()
+        Dim bmp As New Bitmap(responseStream)
+        PictureBox2.Image = bmp
+        Timer7.Enabled = False
+    End Sub
+
+    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
+       
+        StreetView.Show()
+    End Sub
+
+    Private Sub PictureBox2_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox2.MouseEnter
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub PictureBox2_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox2.MouseLeave
+        Me.Cursor = Cursors.Default
+    End Sub
+
+    Function valordireccion()
+        Dim calle = txtcalle.Text
+        Dim poblacion = txtpoblacion.Text
+        Dim comunidad = txtcomunidad.Text
+        Dim provincia = txtprovincia.Text
+        Dim pais = txtpais.Text
+        If txtcalle.Text <> "" Then
+            calle = calle.ToLower()
+            Dim posicion = calle.Contains("calle")
+            If posicion = False Then
+                calle = "calle " + txtcalle.Text
+            End If
+        Else
+            calle = ""
+        End If
+        If calle <> "" Then calle = calle.Replace(" ", "+")
+        If poblacion <> "" Then poblacion = poblacion.Replace(" ", "+")
+        If provincia <> "" Then provincia = provincia.Replace(" ", "+")
+        If comunidad <> "" Then comunidad = comunidad.Replace(" ", "+")
+        If pais <> "" Then pais.Replace(" ", "+")
+        streetViewDIreccion = calle + ",+" + poblacion + ",+" + provincia + ",+" + comunidad + ",+" + pais
+        Return streetViewDIreccion
+    End Function
 End Class
