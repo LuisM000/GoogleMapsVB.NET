@@ -1,6 +1,9 @@
-﻿Public Class CodifiInversa
+﻿Imports System.Windows.Input
+
+Public Class CodifiInversa
 
     Private Sub CodifiInversa_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        PictureBox2.Visible = False
         Me.Opacity = 0
         Dim direccion As New Uri(" http://maps.google.es/maps?q=España&output=embed")
         WebBrowser1.Url = direccion
@@ -35,17 +38,17 @@
 
     Private Sub PictureBox1_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox1.MouseEnter
         PictureBox1.ImageLocation = "imagenes/white/back.png"
-        Me.Cursor = Cursors.Hand
+        Me.Cursor = System.Windows.Forms.Cursors.Hand
     End Sub
 
     Private Sub PictureBox1_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox1.MouseLeave
         PictureBox1.ImageLocation = "imagenes/black/back.png"
-        Me.Cursor = Cursors.Default
+        Me.Cursor = System.Windows.Forms.Cursors.Default
     End Sub
     Private Sub Buscar(ByVal sender As Object, ByVal e As System.EventArgs)
         Timer2.Enabled = True
-        Timer1.enabled = True
-       
+        Timer1.Enabled = True
+
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
@@ -120,6 +123,50 @@
         Else
             Timer5.Enabled = False
         End If
+    End Sub
+
+ 
+
+    'Private Function getMouseLoc() As Point
+    '    getMouseLoc = Me.PointToClient(Windows.Forms.Cursor.Position)
+    '    Return getMouseLoc
+    'End Function
+    Private Sub labelres_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles labelres.MouseEnter
+        'Dim mouseLoc As Point = getMouseLoc()
+        'mouseLoc.Y -= 150
+        'PictureBox2.Location = mouseLoc
+        labelres.ForeColor = Color.White
+        PictureBox2.Visible = True
+        Me.Cursor = Windows.Forms.Cursors.Hand
+
+        Select Case labelres.Size.Width
+            Case Is > 750
+                PictureBox2.Location = New Point(800, 15)
+            Case Is < 400
+                PictureBox2.Location = New Point(450, 25)
+            Case Else
+                Dim ancho = labelres.Size.Width + 77
+                PictureBox2.Location = New Point(ancho, 25)
+        End Select
+
+        Dim objetoMaps As New GoogleMaps
+        Dim enviaDIreccion As String
+        enviaDIreccion = labelres.Text.Replace(" ", "+")
+        Dim direccion As New Uri(objetoMaps.ImagenStreetViewDireccion(enviaDIreccion, 150, 150))
+        Dim request As System.Net.WebRequest = System.Net.WebRequest.Create(direccion)
+        Dim response As System.Net.WebResponse = request.GetResponse()
+        Dim responseStream As System.IO.Stream = response.GetResponseStream()
+        Dim bmp As New Bitmap(responseStream)
+        PictureBox2.Image = bmp
+
+
+
+    End Sub
+
+    Private Sub labelres_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles labelres.MouseLeave
+        PictureBox2.Visible = False
+        labelres.ForeColor = Color.Black
+        Me.Cursor = Windows.Forms.Cursors.Default
     End Sub
 
  

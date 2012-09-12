@@ -36,7 +36,9 @@ Partial Class CodifiInversa
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer5 = New System.Windows.Forms.Timer(Me.components)
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -125,12 +127,21 @@ Partial Class CodifiInversa
         '
         Me.Timer5.Interval = 1
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.Location = New System.Drawing.Point(335, 6)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(150, 150)
+        Me.PictureBox2.TabIndex = 36
+        Me.PictureBox2.TabStop = False
+        '
         'CodifiInversa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DodgerBlue
         Me.ClientSize = New System.Drawing.Size(472, 162)
+        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.WebBrowser1)
         Me.Controls.Add(Me.labelres)
         Me.Controls.Add(Me.PictureBox1)
@@ -143,6 +154,7 @@ Partial Class CodifiInversa
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CodifiInversa"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -159,4 +171,5 @@ Partial Class CodifiInversa
     Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
     Friend WithEvents Timer4 As System.Windows.Forms.Timer
     Friend WithEvents Timer5 As System.Windows.Forms.Timer
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
 End Class

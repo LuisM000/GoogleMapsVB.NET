@@ -75,7 +75,6 @@
                 Timer3.Enabled = False
                 Dim objetoMaps As New GoogleMaps
                 Dim direccionAux As String
-
                 direccionAux = objetoMaps.ObtenerURLlatlongMaps(txtlat.Text, txtlong.Text)
                 Dim direccion As New Uri(direccionAux)
                 WebBrowser1.Url = direccion

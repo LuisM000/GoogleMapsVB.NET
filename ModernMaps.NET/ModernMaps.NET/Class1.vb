@@ -6,7 +6,7 @@ Public Class GoogleMaps
 
     Public Function CodificacionGeo(Optional ByVal calle As String = "", Optional ByVal poblacion As String = "", Optional ByVal provincia As String = "", Optional ByVal comunidad As String = "", Optional ByVal pais As String = "")
         Dim direccion As String
-        Dim LatLong(1) As String
+        Dim LatLong(1) As Double
         LatLong(0) = 0
         LatLong(1) = 0
         If calle <> "" Then calle = calle.Replace(" ", "+")
@@ -220,5 +220,26 @@ Public Class GoogleMaps
             direccion = "http://maps.googleapis.com/maps/api/streetview?size=" & WidthImagen & "x" & HeightImagen & "&location=" & latitud & "," & longitud & "&fov=" & zoom & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
         End If
         Return direccion
+    End Function
+    Public Function ImagenStreetViewDireccion(ByVal direccion As String, Optional ByVal WidthImagen As Integer = 400, Optional ByVal HeightImagen As Integer = 400, Optional ByVal GradosHorizontales As Integer = -1, Optional ByVal GradosVerticales As Integer = -1, Optional ByVal zoom As Integer = 120)
+        Dim URL = "http://maps.googleapis.com/maps/api/streetview?size=400x400&location=66.960654,-2.201815&heading=90&fov=120&pitch=0&&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        WidthImagen = CStr(WidthImagen)
+        HeightImagen = CStr(HeightImagen)
+        zoom = CStr(zoom)
+        GradosHorizontales = CStr(GradosHorizontales)
+        GradosVerticales = CStr(GradosVerticales)
+        If GradosHorizontales <> -1 And GradosVerticales <> -1 Then
+            URL = "http://maps.googleapis.com/maps/api/streetview?size=" & WidthImagen & "x" & HeightImagen & "&location=" & direccion & "&heading=" & GradosHorizontales & "&fov=" & zoom & "&pitch=" & GradosVerticales & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        End If
+        If GradosHorizontales = "-1" And GradosVerticales <> -1 Then
+            URL = "http://maps.googleapis.com/maps/api/streetview?size=" & WidthImagen & "x" & HeightImagen & "&location=" & direccion & "&fov=" & zoom & "&pitch=" & GradosVerticales & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        End If
+        If GradosHorizontales <> "-1" And GradosVerticales = -1 Then
+            URL = "http://maps.googleapis.com/maps/api/streetview?size=" & WidthImagen & "x" & HeightImagen & "&location=" & direccion & "&heading=" & GradosHorizontales & "&fov=" & zoom & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        End If
+        If GradosHorizontales = "-1" And GradosVerticales = -1 Then
+            URL = "http://maps.googleapis.com/maps/api/streetview?size=" & WidthImagen & "x" & HeightImagen & "&location=" & direccion & "&fov=" & zoom & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        End If
+        Return URL
     End Function
 End Class
