@@ -84,7 +84,8 @@
             End If
         End If
     End Sub
- 
+
+
   
     Private Sub PictureBox3_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PictureBox3.MouseUp
         Timer4.Enabled = False
@@ -206,14 +207,12 @@
     End Sub
 
 
-
-
     Private Sub PictureBox8_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PictureBox8.MouseUp
         Timer7.Enabled = False
         Dim ancho As Integer
         ancho = Label3.Text
         ancho += 1
-        If ancho <> 90 Then Label3.Text = ancho
+        If ancho <> 180 Then Label3.Text = ancho
         pulsado = 0
         Dim objetoMaps As New GoogleMaps
         Dim direccion As New Uri(objetoMaps.ImagenStreetViewDireccion(streetViewDIreccion, 787, 787, Label2.Text, Label3.Text, 120 - Label1.Text))
@@ -224,7 +223,7 @@
         PictureBox1.Image = bmp
     End Sub
     Private Sub PictureBox8_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PictureBox8.MouseDown
-        If CInt(Label3.Text) <= 89 Then
+        If CInt(Label3.Text) <= 179 Then
             Timer7.Interval = 100
             Timer7.Enabled = True
         End If
@@ -235,7 +234,7 @@
         Else
             Dim ancho As Integer
             ancho = Label3.Text
-            If ancho < 89 Then
+            If ancho < 179 Then
                 pulsado += 1
                 If pulsado > 10 Then
                     Timer7.Interval = 10
@@ -246,6 +245,157 @@
         End If
     End Sub
 
-    
+   
+    Private Sub PictureBox7_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PictureBox7.MouseUp
+        Timer8.Enabled = False
+        Dim ancho As Integer
+        ancho = Label3.Text
+        If ancho <> -90 Then Label3.Text = ancho - 1
+        ancho -= 1
+        pulsado = 0
+        Dim objetoMaps As New GoogleMaps
+        Dim direccion As New Uri(objetoMaps.ImagenStreetViewDireccion(streetViewDIreccion, 787, 787, Label2.Text, Label3.Text, 120 - Label1.Text))
+        Dim request As System.Net.WebRequest = System.Net.WebRequest.Create(direccion)
+        Dim response As System.Net.WebResponse = request.GetResponse()
+        Dim responseStream As System.IO.Stream = response.GetResponseStream()
+        Dim bmp As New Bitmap(responseStream)
+        PictureBox1.Image = bmp
+    End Sub
 
+    Private Sub PictureBox7_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PictureBox7.MouseDown
+        If CInt(Label3.Text) >= -90 Then
+            Timer8.Interval = 100
+            Timer8.Enabled = True
+        End If
+    End Sub
+
+    Private Sub Timer8_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer8.Tick
+        If pulsado = 0 Then
+            pulsado += 1
+        Else
+            Dim ancho As Integer
+            ancho = Label3.Text
+            If ancho > -90 Then
+                pulsado += 1
+                If pulsado > 10 Then
+                    Timer8.Interval = 10
+                End If
+                ancho -= 1
+                Label3.Text = ancho
+            End If
+        End If
+    End Sub
+
+
+    '*************************************************************************************
+    '*************************************************************************************
+
+    Private Sub PictureBox3_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox3.MouseEnter
+        PictureBox3.ImageLocation = "imagenes/white/minus.png"
+        Me.Cursor = System.Windows.Forms.Cursors.Hand
+    End Sub
+
+    Private Sub PictureBox3_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox3.MouseLeave
+        PictureBox3.ImageLocation = "imagenes/black/minus.png"
+        Me.Cursor = System.Windows.Forms.Cursors.Default
+    End Sub
+
+    Private Sub PictureBox5_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox5.MouseEnter
+        PictureBox5.ImageLocation = "imagenes/white/minus.png"
+        Me.Cursor = System.Windows.Forms.Cursors.Hand
+    End Sub
+
+    Private Sub PictureBox5_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox5.MouseLeave
+        PictureBox5.ImageLocation = "imagenes/black/minus.png"
+        Me.Cursor = System.Windows.Forms.Cursors.Default
+    End Sub
+
+    Private Sub PictureBox7_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox7.MouseEnter
+        PictureBox7.ImageLocation = "imagenes/white/minus.png"
+        Me.Cursor = System.Windows.Forms.Cursors.Hand
+    End Sub
+
+    Private Sub PictureBox7_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox7.MouseLeave
+        PictureBox7.ImageLocation = "imagenes/black/minus.png"
+        Me.Cursor = System.Windows.Forms.Cursors.Default
+    End Sub
+
+
+
+
+    Private Sub PictureBox4_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox4.MouseEnter
+        PictureBox4.ImageLocation = "imagenes/white/add.png"
+        Me.Cursor = System.Windows.Forms.Cursors.Hand
+    End Sub
+
+    Private Sub PictureBox4_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox4.MouseLeave
+        PictureBox4.ImageLocation = "imagenes/black/add.png"
+        Me.Cursor = System.Windows.Forms.Cursors.Default
+    End Sub
+
+    Private Sub PictureBox6_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox6.MouseEnter
+        PictureBox6.ImageLocation = "imagenes/white/add.png"
+        Me.Cursor = System.Windows.Forms.Cursors.Hand
+    End Sub
+
+    Private Sub PictureBox6_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox6.MouseLeave
+        PictureBox6.ImageLocation = "imagenes/black/add.png"
+        Me.Cursor = System.Windows.Forms.Cursors.Default
+    End Sub
+
+    Private Sub PictureBox8_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox8.MouseEnter
+        PictureBox8.ImageLocation = "imagenes/white/add.png"
+        Me.Cursor = System.Windows.Forms.Cursors.Hand
+    End Sub
+
+    Private Sub PictureBox8_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox8.MouseLeave
+        PictureBox8.ImageLocation = "imagenes/black/add.png"
+        Me.Cursor = System.Windows.Forms.Cursors.Default
+    End Sub
+ 
+
+    Private Sub PictureBox9_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox9.MouseEnter
+        PictureBox9.ImageLocation = "imagenes/white/save.png"
+        Me.Cursor = System.Windows.Forms.Cursors.Hand
+    End Sub
+
+    Private Sub PictureBox9_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox9.MouseLeave
+        PictureBox9.ImageLocation = "imagenes/black/save.png"
+        Me.Cursor = System.Windows.Forms.Cursors.Default
+    End Sub
+
+    Private Sub PictureBox9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox9.Click
+        Dim bmp As New Bitmap(PictureBox1.Image)
+        Dim salvar As New SaveFileDialog
+        With salvar
+            .Filter = "Ficheros BMP|*.bmp" & _
+                      "|Ficheros GIF|*.gif" & _
+                      "|Ficheros JPG o JPEG|*.jpg;*.jpeg" & _
+                      "|Ficheros PNG|*.png" & _
+                      "|Ficheros TIFF|*.tif"
+            .FilterIndex = 3
+            Dim nombreSalida = streetViewDIreccion.Replace("+", "_")
+            nombreSalida = nombreSalida.Replace(":", "-")
+            .FileName = "CapturaStreetView-" & nombreSalida
+            If (.ShowDialog() = Windows.Forms.DialogResult.OK) Then
+
+                If salvar.FileName <> "" Then
+                    Dim fs As System.IO.FileStream = CType(salvar.OpenFile(), System.IO.FileStream)
+                    Select Case salvar.FilterIndex
+                        Case 1
+                            bmp.Save(fs, System.Drawing.Imaging.ImageFormat.Bmp)
+                        Case 2
+                            bmp.Save(fs, System.Drawing.Imaging.ImageFormat.Gif)
+                        Case 3
+                            bmp.Save(fs, System.Drawing.Imaging.ImageFormat.Jpeg)
+                        Case 4
+                            bmp.Save(fs, System.Drawing.Imaging.ImageFormat.Png)
+                        Case 5
+                            bmp.Save(fs, System.Drawing.Imaging.ImageFormat.Tiff)
+                    End Select
+                    fs.Close()
+                End If
+            End If
+        End With
+    End Sub
 End Class
