@@ -134,12 +134,6 @@
     <Compile Include="Principal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SecundariaStreet.Designer.vb">
-      <DependentUpon>SecundariaStreet.vb</DependentUpon>
-    </Compile>
-    <Compile Include="SecundariaStreet.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="StreetView.Designer.vb">
       <DependentUpon>StreetView.vb</DependentUpon>
     </Compile>
@@ -175,9 +169,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SecundariaStreet.resx">
-      <DependentUpon>SecundariaStreet.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StreetView.resx">
       <DependentUpon>StreetView.vb</DependentUpon>
