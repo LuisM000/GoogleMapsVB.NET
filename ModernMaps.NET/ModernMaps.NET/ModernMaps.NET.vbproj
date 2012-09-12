@@ -134,6 +134,13 @@
     <Compile Include="Principal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="StreetView.Designer.vb">
+      <DependentUpon>StreetView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="StreetView.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VariablesGlobales.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AcercaDe.resx">
@@ -162,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StreetView.resx">
+      <DependentUpon>StreetView.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

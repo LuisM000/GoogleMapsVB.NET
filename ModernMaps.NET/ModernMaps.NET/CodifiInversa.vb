@@ -152,7 +152,7 @@ Public Class CodifiInversa
         Dim objetoMaps As New GoogleMaps
         Dim enviaDIreccion As String
         enviaDIreccion = labelres.Text.Replace(" ", "+")
-        Dim direccion As New Uri(objetoMaps.ImagenStreetViewDireccion(enviaDIreccion, 150, 150))
+        Dim direccion As New Uri(objetoMaps.ImagenStreetViewDireccion(enviaDIreccion, 150, 150, 10, 0, 110))
         Dim request As System.Net.WebRequest = System.Net.WebRequest.Create(direccion)
         Dim response As System.Net.WebResponse = request.GetResponse()
         Dim responseStream As System.IO.Stream = response.GetResponseStream()
@@ -170,4 +170,8 @@ Public Class CodifiInversa
     End Sub
 
  
+    Private Sub labelres_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles labelres.Click
+        streetViewDIreccion = labelres.Text.Replace(" ", "+")
+        StreetView.Show()
+    End Sub
 End Class
