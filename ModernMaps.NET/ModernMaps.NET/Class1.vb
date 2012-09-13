@@ -247,7 +247,7 @@ Public Class GoogleMaps
         Dim URL = "https://maps.googleapis.com/maps/api/place/search/xml?location=-33.8670522,151.1957362&radius=500&types=food&name=harbour&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
 
         If tipoLocal <> "sin tipo" And nombrePlace <> "sin nombre" Then
-
+            URL = "https://maps.googleapis.com/maps/api/place/search/xml?location=" & latitud & "," & longitud & "&radius=" & radioMetros & "&types=" & tipoLocal & "&name=" & nombrePlace & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
         End If
 
         If tipoLocal = "sin tipo" And nombrePlace = "sin nombre" Then
@@ -255,11 +255,62 @@ Public Class GoogleMaps
         End If
 
         If tipoLocal = "sin tipo" And nombrePlace <> "sin nombre" Then
-
+            URL = "https://maps.googleapis.com/maps/api/place/search/xml?location=" & latitud & "," & longitud & "&radius=" & radioMetros & "&name=" & nombrePlace & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
         End If
         If tipoLocal <> "sin tipo" And nombrePlace = "sin nombre" Then
-
+            URL = "https://maps.googleapis.com/maps/api/place/search/xml?location=" & latitud & "," & longitud & "&radius=" & radioMetros & "&types=" & tipoLocal & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
         End If
-        Return URL
+
+        Dim datos(1000) As String
+        Dim contador As Integer = 0
+        Dim reader As XmlTextReader = New XmlTextReader(URL)
+        Dim type As XmlNodeType
+        reader.WhitespaceHandling = WhitespaceHandling.Significant
+        While reader.Read
+            type = reader.NodeType
+            If type = XmlNodeType.Element Then
+
+                Select Case reader.Name
+                    Case "name"
+                        reader.Read()
+                        datos(contador) = "name"
+                        contador += 1
+                        datos(contador) = reader.Value
+                        contador += 1
+
+                    Case "lat"
+                        reader.Read()
+                        datos(contador) = "lat"
+                        contador += 1
+                        datos(contador) = reader.Value
+                        contador += 1
+                       
+                    Case "lng"
+                        reader.Read()
+                        datos(contador) = "lng"
+                        contador += 1
+                        datos(contador) = reader.Value
+                        contador += 1
+                      
+                    Case "rating"
+                        reader.Read()
+                        datos(contador) = "rating"
+                        contador += 1
+                        datos(contador) = reader.Value
+                        contador += 1
+                       
+                    Case "icon"
+                        reader.Read()
+                        datos(contador) = "icon"
+                        contador += 1
+                        datos(contador) = reader.Value
+                        contador += 1
+                      
+
+                End Select
+            End If
+        End While
+        contadorPlaces = contador
+        Return datos
     End Function
 End Class

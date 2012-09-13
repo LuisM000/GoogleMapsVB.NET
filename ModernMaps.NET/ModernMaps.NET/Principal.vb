@@ -39,6 +39,9 @@ Public Class Principal
     Private Sub Label5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label5.Click
         Timer6.Enabled = True
     End Sub
+    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
+        timer7.enabled = True
+    End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         If Me.Width > 2 Then
@@ -47,7 +50,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 361)
+            Me.Size = New Size(320, 407)
             Form1.Show()
             Timer1.Enabled = False
         End If
@@ -61,7 +64,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 361)
+            Me.Size = New Size(320, 407)
             ISP.Show()
             Timer2.Enabled = False
         End If
@@ -73,7 +76,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 361)
+            Me.Size = New Size(320, 407)
             latlong.Show()
             Timer3.Enabled = False
         End If
@@ -85,7 +88,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 361)
+            Me.Size = New Size(320, 407)
             BuscarLatLong.Show()
             Timer4.Enabled = False
         End If
@@ -106,7 +109,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 361)
+            Me.Size = New Size(320, 407)
             AcercaDe.Show()
             Timer5.Enabled = False
         End If
@@ -119,17 +122,23 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 361)
+            Me.Size = New Size(320, 407)
             CodifiInversa.Show()
             Timer6.Enabled = False
         End If
     End Sub
 
-   
-
  
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim objetoMpas As New GoogleMaps
-        TextBox1.Text = (objetoMpas.GooglePlaces(42.5483753, -6.5833189, 5000))
+    Private Sub Timer7_Tick(sender As Object, e As EventArgs) Handles Timer7.Tick
+        If Me.Width > 2 Then
+            Me.Opacity = Me.Opacity - 0.04
+            Me.Width = Me.Width - 10
+        Else
+            Me.Hide()
+            Me.Opacity = 1
+            Me.Size = New Size(320, 407)
+            BuscarParaComer.Show()
+            Timer7.Enabled = False
+        End If
     End Sub
 End Class

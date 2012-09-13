@@ -87,6 +87,12 @@
     <Compile Include="BuscarLatLong.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="BuscarParaComer.Designer.vb">
+      <DependentUpon>BuscarParaComer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarParaComer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Class1.vb" />
     <Compile Include="CodifiInversa.Designer.vb">
       <DependentUpon>CodifiInversa.vb</DependentUpon>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BuscarLatLong.resx">
       <DependentUpon>BuscarLatLong.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuscarParaComer.resx">
+      <DependentUpon>BuscarParaComer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CodifiInversa.resx">
       <DependentUpon>CodifiInversa.vb</DependentUpon>
