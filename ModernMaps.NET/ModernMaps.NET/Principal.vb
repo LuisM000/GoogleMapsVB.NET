@@ -128,4 +128,8 @@ Public Class Principal
    
 
  
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim objetoMpas As New GoogleMaps
+        TextBox1.Text = (objetoMpas.GooglePlaces(42.5483753, -6.5833189, 5000))
+    End Sub
 End Class

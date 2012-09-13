@@ -242,4 +242,24 @@ Public Class GoogleMaps
         End If
         Return URL
     End Function
+
+    Public Function GooglePlaces(ByVal latitud As Double, ByVal longitud As Double, ByVal radioMetros As Integer, Optional ByVal tipoLocal As String = "sin tipo", Optional ByVal nombrePlace As String = "sin nombre")
+        Dim URL = "https://maps.googleapis.com/maps/api/place/search/xml?location=-33.8670522,151.1957362&radius=500&types=food&name=harbour&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+
+        If tipoLocal <> "sin tipo" And nombrePlace <> "sin nombre" Then
+
+        End If
+
+        If tipoLocal = "sin tipo" And nombrePlace = "sin nombre" Then
+            URL = "https://maps.googleapis.com/maps/api/place/search/xml?location=" & latitud & "," & longitud & "&radius=" & radioMetros & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        End If
+
+        If tipoLocal = "sin tipo" And nombrePlace <> "sin nombre" Then
+
+        End If
+        If tipoLocal <> "sin tipo" And nombrePlace = "sin nombre" Then
+
+        End If
+        Return URL
+    End Function
 End Class
