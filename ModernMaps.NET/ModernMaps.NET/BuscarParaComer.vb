@@ -1,6 +1,11 @@
 ﻿Public Class BuscarParaComer
 
     Private Sub BuscarParaComer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label5.Visible = False
+        Label8.Visible = False
+        Label9.Visible = False
+        Label10.Visible = False
+        Label11.Visible = False
         Me.Opacity = 0
         Me.Size = New Point(0, 257)
         For Each c As Object In Me.Controls
@@ -15,7 +20,7 @@
             End If
         Next
         Timer1.Enabled = True
-       
+
     End Sub
     Private Sub conFoco(ByVal sender As Object, ByVal e As System.EventArgs)
         DirectCast(sender, TextBox).BackColor = Color.LightCyan
@@ -30,16 +35,7 @@
         End If
     End Sub
 
-    Private Sub PictureBox2_MouseEnter(sender As Object, e As EventArgs) Handles PictureBox2.MouseEnter
-        PictureBox2.ImageLocation = "imagenes/white/check.png"
-        Me.Cursor = Cursors.Hand
-    End Sub
-
-    Private Sub PictureBox2_MouseLeave(sender As Object, e As EventArgs) Handles PictureBox2.MouseLeave
-        PictureBox2.ImageLocation = "imagenes/black/check.png"
-        Me.Cursor = Cursors.Default
-    End Sub
-
+   
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
         Timer3.Enabled = True
     End Sub
@@ -89,71 +85,130 @@
     End Sub
 
     Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
-        If Me.Height < 430 Then
+        If Me.Height < 462 Then
             Me.Height = Me.Height + 10
             Me.Location = New Point(Me.Location.X, Me.Location.Y - 5)
         Else
-
-            Dim onobjetoMaps As New GoogleMaps
-            Dim objetoMpas As New GoogleMaps
-            Dim datos() As String
-            datos = objetoMpas.GooglePlaces(42.5483753, -6.5833189, 5000)
-            If txtradio.Text <> "" And txtestabl.Text <> "" Then
-                datos = objetoMpas.GooglePlaces(42.5483753, -6.5833189, txtradio.Text, , txtestabl.Text)
-            End If
-
-            If txtradio.Text = "" And txtestabl.Text = "" Then
-                datos = objetoMpas.GooglePlaces(42.5483753, -6.5833189, 5000)
-            End If
-
-            If txtradio.Text <> "" And txtestabl.Text = "" Then
-                datos = objetoMpas.GooglePlaces(42.5483753, -6.5833189, txtradio.Text, , )
-            End If
-            If txtradio.Text = "" And txtestabl.Text <> "" Then
-                datos = objetoMpas.GooglePlaces(42.5483753, -6.5833189, 5000, , txtestabl.Text)
-            End If
-            Dim datos2(contadorPlaces - 1) As String
-            For i = 0 To contadorPlaces - 1
-                datos2(i) = datos(i)
-            Next
-
-            Label5.Text = "Establecimiento: "
-            Label8.Text = "Latitud: "
-            Label9.Text = "Longitud: "
-            Label10.Text = "Rating: "
-            Label11.Text = "Icono: "
-
-            If datos2.Length > 8 Then
-                If datos2(0) = "name" Then
-                    Label5.Text = Label5.Text & datos2(1)
-                End If
-                If datos2(2) = "lat" Then
-                    Label8.Text = Label8.Text & datos2(3)
-                End If
-                If datos2(4) = "lng" Then
-                    Label9.Text = Label9.Text + datos2(5)
-                End If
-                If datos2(6) = "rating" Then
-                    Label10.Text = Label10.Text + datos2(7)
-                End If
-                If datos2(8) = "icon" Then
-                    Label11.Text = Label11.Text + datos2(9)
-                End If
-            ElseIf datos2.Length = 8 Then
-                If datos2(0) = "name" Then
-                    Label5.Text = Label5.Text + datos2(1)
-                End If
-                If datos2(2) = "lat" Then
-                    Label8.Text = Label8.Text + datos2(3)
-                End If
-                If datos2(4) = "lng" Then
-                    Label9.Text = Label9.Text + datos2(5)
-                End If
-                If datos2(6) = "icon" Then
-                    Label11.Text = Label11.Text + datos2(7)
-                End If
-            End If
+            Timer5.Enabled = True
             Timer4.Enabled = False
         End If
+    End Sub
+
+    Private Sub Timer5_Tick(sender As Object, e As EventArgs) Handles Timer5.Tick
+        Dim onobjetoMaps As New GoogleMaps
+        Dim objetoMpas As New GoogleMaps
+        Dim datos(1000) As String
+        datos(0) = ""
+        Dim latlong(1) As Double
+        Dim calle As String
+        calle = txtcalle.Text
+        If txtcalle.Text <> "" Then
+            calle = calle.ToLower()
+            Dim posicion = calle.Contains("calle")
+            If posicion = False Then
+                calle = "calle " + txtcalle.Text
+            End If
+        Else
+            calle = ""
+        End If
+        latlong = onobjetoMaps.CodificacionGeo(calle, txtpoblacion.Text, txtprovincia.Text)
+        If txtradio.Text <> "" And txtestabl.Text <> "" Then
+            datos = objetoMpas.GooglePlaces(latlong(0), latlong(1), txtradio.Text, "food", txtestabl.Text)
+        End If
+
+        If txtradio.Text = "" And txtestabl.Text = "" Then
+            datos = objetoMpas.GooglePlaces(latlong(0), latlong(1), 5000, "food")
+        End If
+
+        If txtradio.Text <> "" And txtestabl.Text = "" Then
+            datos = objetoMpas.GooglePlaces(latlong(0), latlong(1), txtradio.Text, "food", )
+        End If
+        If txtradio.Text = "" And txtestabl.Text <> "" Then
+            datos = objetoMpas.GooglePlaces(latlong(0), latlong(1), 5000, "food", txtestabl.Text)
+        End If
+        Dim datos2(contadorPlaces - 1) As String
+        For i = 0 To contadorPlaces - 1
+            datos2(i) = datos(i)
+        Next
+        Label5.Visible = False
+        Label8.Visible = False
+        Label9.Visible = False
+        Label10.Visible = False
+        Label11.Visible = False
+
+        PictureBox2.Visible = False
+        PictureBox3.Visible = False
+        PictureBox4.Visible = False
+        PictureBox5.Visible = False
+        PictureBox6.Visible = False
+
+        Label5.Text = "Establecimiento: "
+        Label8.Text = "Establecimiento: "
+        Label9.Text = "Establecimiento: "
+        Label10.Text = "Establecimiento: "
+        Label11.Text = "Establecimiento: "
+        Dim auxiliar(100, 4) As String
+        Dim contador As Integer = 0
+        Dim URLimagenes(4) As String
+        If datos2.Length >= 7 Then
+            For i = 0 To UBound(datos2) - 1
+                Select Case datos2(i)
+                    Case "name"
+                        auxiliar(contador, 0) = datos2(i + 1)
+
+                    Case "lat"
+                        auxiliar(contador, 1) = " (" & datos2(i + 1) & ","
+
+                    Case "lng"
+                        auxiliar(contador, 2) = datos2(i + 1) & ")."
+
+                    Case "rating"
+                        If datos2(i + 1) = Nothing Then
+                            auxiliar(contador, 3) = "Restaurante no valorado. " & datos2(i + 1)
+                        Else
+                            auxiliar(contador, 3) = "Valoración: " & datos2(i + 1)
+                        End If
+
+                    Case "icon"
+                        auxiliar(contador, 4) = datos2(i + 1)
+                        If contador <= 4 Then
+                            URLimagenes(contador) = datos2(i + 1)
+                        End If
+                        contador += 1
+                End Select
+            Next
+
+        End If
+       
+        For i = 0 To 3
+            Label5.Text = Label5.Text + auxiliar(0, i)
+        Next
+        For i = 0 To 3
+            Label8.Text = Label8.Text + auxiliar(1, i)
+        Next
+        For i = 0 To 3
+            Label9.Text = Label9.Text + auxiliar(2, i)
+        Next
+        For i = 0 To 3
+            Label10.Text = Label10.Text + auxiliar(3, i)
+        Next
+        For i = 0 To 3
+            Label11.Text = Label11.Text + auxiliar(4, i)
+        Next
+       
+        PictureBox2.Image = objetoMpas.cargarrecursoweb(URLimagenes(0))
+        PictureBox3.Image = objetoMpas.cargarrecursoweb(URLimagenes(1))
+        PictureBox4.Image = objetoMpas.cargarrecursoweb(URLimagenes(2))
+        PictureBox5.Image = objetoMpas.cargarrecursoweb(URLimagenes(3))
+        PictureBox6.Image = objetoMpas.cargarrecursoweb(URLimagenes(4))
+
+       
+        If Label5.Text <> "Establecimiento: " Then Label5.Visible = True : PictureBox2.Visible = True
+        If Label8.Text <> "Establecimiento: " Then Label8.Visible = True : PictureBox3.Visible = True
+        If Label9.Text <> "Establecimiento: " Then Label9.Visible = True : PictureBox4.Visible = True
+        If Label10.Text <> "Establecimiento: " Then Label10.Visible = True : PictureBox5.Visible = True
+        If Label11.Text <> "Establecimiento: " Then Label11.Visible = True : PictureBox6.Visible = True
+
+        Timer5.Enabled = False
     End Sub
 End Class

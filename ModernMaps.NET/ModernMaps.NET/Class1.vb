@@ -313,4 +313,36 @@ Public Class GoogleMaps
         contadorPlaces = contador
         Return datos
     End Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Function cargarrecursoweb(ByVal enlace As String)
+        Dim BItmapOriginal As New Bitmap("imagenes/black/cancel.png")
+        System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor
+        Try
+            Dim request As System.Net.WebRequest = System.Net.WebRequest.Create(enlace)
+            Dim response As System.Net.WebResponse = request.GetResponse()
+            Dim responseStream As System.IO.Stream = response.GetResponseStream()
+            Dim bmp As New Bitmap(responseStream)
+            Return bmp
+
+        Catch
+            Return BItmapOriginal
+
+        End Try
+    End Function
 End Class
