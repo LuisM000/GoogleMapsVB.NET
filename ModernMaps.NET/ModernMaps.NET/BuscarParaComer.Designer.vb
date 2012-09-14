@@ -178,7 +178,7 @@ Partial Class BuscarParaComer
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(43, 313)
+        Me.Label8.Location = New System.Drawing.Point(43, 317)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(112, 18)
         Me.Label8.TabIndex = 26
@@ -188,7 +188,7 @@ Partial Class BuscarParaComer
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(43, 348)
+        Me.Label9.Location = New System.Drawing.Point(43, 352)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(112, 18)
         Me.Label9.TabIndex = 27
@@ -198,7 +198,7 @@ Partial Class BuscarParaComer
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(43, 383)
+        Me.Label10.Location = New System.Drawing.Point(43, 387)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(112, 18)
         Me.Label10.TabIndex = 28
@@ -208,7 +208,7 @@ Partial Class BuscarParaComer
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(43, 418)
+        Me.Label11.Location = New System.Drawing.Point(43, 422)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(112, 18)
         Me.Label11.TabIndex = 29
@@ -245,7 +245,7 @@ Partial Class BuscarParaComer
         '
         'PictureBox3
         '
-        Me.PictureBox3.Location = New System.Drawing.Point(12, 309)
+        Me.PictureBox3.Location = New System.Drawing.Point(12, 313)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(25, 25)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -254,7 +254,7 @@ Partial Class BuscarParaComer
         '
         'PictureBox4
         '
-        Me.PictureBox4.Location = New System.Drawing.Point(12, 344)
+        Me.PictureBox4.Location = New System.Drawing.Point(12, 348)
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.Size = New System.Drawing.Size(25, 25)
         Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -263,7 +263,7 @@ Partial Class BuscarParaComer
         '
         'PictureBox5
         '
-        Me.PictureBox5.Location = New System.Drawing.Point(12, 379)
+        Me.PictureBox5.Location = New System.Drawing.Point(12, 383)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(25, 25)
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -272,7 +272,7 @@ Partial Class BuscarParaComer
         '
         'PictureBox6
         '
-        Me.PictureBox6.Location = New System.Drawing.Point(12, 414)
+        Me.PictureBox6.Location = New System.Drawing.Point(12, 418)
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.Size = New System.Drawing.Size(25, 25)
         Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage

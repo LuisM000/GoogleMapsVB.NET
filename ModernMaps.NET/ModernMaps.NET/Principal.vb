@@ -141,4 +141,8 @@ Public Class Principal
             Timer7.Enabled = False
         End If
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        GooglePlacesS.Show()
+    End Sub
 End Class
