@@ -7,7 +7,7 @@
         Label10.Visible = False
         Label11.Visible = False
         Me.Opacity = 0
-        Me.Size = New Point(0, 257)
+        Me.Size = New Point(588, 257)
         For Each c As Object In Me.Controls
             If c.GetType Is GetType(TextBox) Then
                 AddHandler DirectCast(c, TextBox).GotFocus, AddressOf conFoco
@@ -19,6 +19,7 @@
                 AddHandler DirectCast(c, TextBox).KeyDown, AddressOf Buscar
             End If
         Next
+        Me.Size = New Point(0, 257)
         Timer1.Enabled = True
 
     End Sub
