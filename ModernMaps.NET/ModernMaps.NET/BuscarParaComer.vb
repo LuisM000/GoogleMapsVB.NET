@@ -1,5 +1,5 @@
 ﻿Public Class BuscarParaComer
-
+    Dim latlongAux(100, 100)
     Private Sub BuscarParaComer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label5.Visible = False
         Label8.Visible = False
@@ -95,6 +95,7 @@
     End Sub
 
     Private Sub Timer5_Tick(sender As Object, e As EventArgs) Handles Timer5.Tick
+        Timer5.Interval = 1000
         Dim onobjetoMaps As New GoogleMaps
         Dim objetoMpas As New GoogleMaps
         Dim datos(1000) As String
@@ -112,103 +113,207 @@
             calle = ""
         End If
         latlong = onobjetoMaps.CodificacionGeo(calle, txtpoblacion.Text, txtprovincia.Text)
-        If txtradio.Text <> "" And txtestabl.Text <> "" Then
-            datos = objetoMpas.GooglePlaces(latlong(0), latlong(1), txtradio.Text, "food", txtestabl.Text)
-        End If
+        If latlong(0) <> 36.778261 And latlong(1) <> -119.4179324 Then
+            If txtradio.Text <> "" And txtestabl.Text <> "" Then
+                datos = objetoMpas.GooglePlaces(latlong(0), latlong(1), txtradio.Text, "food", txtestabl.Text)
+            End If
 
-        If txtradio.Text = "" And txtestabl.Text = "" Then
-            datos = objetoMpas.GooglePlaces(latlong(0), latlong(1), 5000, "food")
-        End If
+            If txtradio.Text = "" And txtestabl.Text = "" Then
+                datos = objetoMpas.GooglePlaces(latlong(0), latlong(1), 5000, "food")
+            End If
 
-        If txtradio.Text <> "" And txtestabl.Text = "" Then
-            datos = objetoMpas.GooglePlaces(latlong(0), latlong(1), txtradio.Text, "food", )
-        End If
-        If txtradio.Text = "" And txtestabl.Text <> "" Then
-            datos = objetoMpas.GooglePlaces(latlong(0), latlong(1), 5000, "food", txtestabl.Text)
-        End If
-        Dim datos2(contadorPlaces - 1) As String
-        For i = 0 To contadorPlaces - 1
-            datos2(i) = datos(i)
-        Next
-        Label5.Visible = False
-        Label8.Visible = False
-        Label9.Visible = False
-        Label10.Visible = False
-        Label11.Visible = False
+            If txtradio.Text <> "" And txtestabl.Text = "" Then
+                datos = objetoMpas.GooglePlaces(latlong(0), latlong(1), txtradio.Text, "food", )
+            End If
+            If txtradio.Text = "" And txtestabl.Text <> "" Then
+                datos = objetoMpas.GooglePlaces(latlong(0), latlong(1), 5000, "food", txtestabl.Text)
+            End If
+            Dim datos2(contadorPlaces - 1) As String
+            For i = 0 To contadorPlaces - 1
+                datos2(i) = datos(i)
+            Next
+            Label5.Visible = False
+            Label8.Visible = False
+            Label9.Visible = False
+            Label10.Visible = False
+            Label11.Visible = False
 
-        PictureBox2.Visible = False
-        PictureBox3.Visible = False
-        PictureBox4.Visible = False
-        PictureBox5.Visible = False
-        PictureBox6.Visible = False
+            PictureBox2.Visible = False
+            PictureBox3.Visible = False
+            PictureBox4.Visible = False
+            PictureBox5.Visible = False
+            PictureBox6.Visible = False
 
-        Label5.Text = "Establecimiento: "
-        Label8.Text = "Establecimiento: "
-        Label9.Text = "Establecimiento: "
-        Label10.Text = "Establecimiento: "
-        Label11.Text = "Establecimiento: "
-        Dim auxiliar(100, 4) As String
-        Dim contador As Integer = 0
-        Dim URLimagenes(4) As String
-        If datos2.Length >= 7 Then
-            For i = 0 To UBound(datos2) - 1
-                Select Case datos2(i)
-                    Case "name"
-                        auxiliar(contador, 0) = datos2(i + 1)
+            Label5.Text = "Establecimiento: "
+            Label8.Text = "Establecimiento: "
+            Label9.Text = "Establecimiento: "
+            Label10.Text = "Establecimiento: "
+            Label11.Text = "Establecimiento: "
+            Dim auxiliar(100, 4) As String
+            Dim contador As Integer = 0
+            Dim URLimagenes(4) As String
+            If datos2.Length >= 7 Then
+                For i = 0 To UBound(datos2) - 1
+                    Select Case datos2(i)
+                        Case "name"
+                            auxiliar(contador, 0) = datos2(i + 1)
 
-                    Case "lat"
-                        auxiliar(contador, 1) = " (" & datos2(i + 1) & ","
+                        Case "lat"
+                            auxiliar(contador, 1) = " (" & datos2(i + 1) & ","
+                            latlongAux(contador, 0) = datos2(i + 1)
 
-                    Case "lng"
-                        auxiliar(contador, 2) = datos2(i + 1) & ")."
+                        Case "lng"
+                            auxiliar(contador, 2) = datos2(i + 1) & ")."
+                            latlongAux(contador, 1) = datos2(i + 1)
 
-                    Case "rating"
-                        If datos2(i + 1) = Nothing Then
-                            auxiliar(contador, 3) = "Restaurante no valorado. " & datos2(i + 1)
-                        Else
-                            auxiliar(contador, 3) = "Valoración: " & datos2(i + 1)
-                        End If
+                        Case "rating"
+                            If datos2(i + 1) = Nothing Then
+                                auxiliar(contador, 3) = "Restaurante no valorado. " & datos2(i + 1)
+                            Else
+                                auxiliar(contador, 3) = "Valoración: " & datos2(i + 1)
+                            End If
 
-                    Case "icon"
-                        auxiliar(contador, 4) = datos2(i + 1)
-                        If contador <= 4 Then
-                            URLimagenes(contador) = datos2(i + 1)
-                        End If
-                        contador += 1
-                End Select
+                        Case "icon"
+                            auxiliar(contador, 4) = datos2(i + 1)
+                            If contador <= 4 Then
+                                URLimagenes(contador) = datos2(i + 1)
+                            End If
+                            contador += 1
+                    End Select
+                Next
+
+            End If
+
+            For i = 0 To 3
+                Label5.Text = Label5.Text + auxiliar(0, i)
+            Next
+            For i = 0 To 3
+                Label8.Text = Label8.Text + auxiliar(1, i)
+            Next
+            For i = 0 To 3
+                Label9.Text = Label9.Text + auxiliar(2, i)
+            Next
+            For i = 0 To 3
+                Label10.Text = Label10.Text + auxiliar(3, i)
+            Next
+            For i = 0 To 3
+                Label11.Text = Label11.Text + auxiliar(4, i)
             Next
 
-        End If
-       
-        For i = 0 To 3
-            Label5.Text = Label5.Text + auxiliar(0, i)
-        Next
-        For i = 0 To 3
-            Label8.Text = Label8.Text + auxiliar(1, i)
-        Next
-        For i = 0 To 3
-            Label9.Text = Label9.Text + auxiliar(2, i)
-        Next
-        For i = 0 To 3
-            Label10.Text = Label10.Text + auxiliar(3, i)
-        Next
-        For i = 0 To 3
-            Label11.Text = Label11.Text + auxiliar(4, i)
-        Next
-       
-        PictureBox2.Image = objetoMpas.cargarrecursoweb(URLimagenes(0))
-        PictureBox3.Image = objetoMpas.cargarrecursoweb(URLimagenes(1))
-        PictureBox4.Image = objetoMpas.cargarrecursoweb(URLimagenes(2))
-        PictureBox5.Image = objetoMpas.cargarrecursoweb(URLimagenes(3))
-        PictureBox6.Image = objetoMpas.cargarrecursoweb(URLimagenes(4))
+            PictureBox2.Image = objetoMpas.cargarrecursoweb(URLimagenes(0))
+            PictureBox3.Image = objetoMpas.cargarrecursoweb(URLimagenes(1))
+            PictureBox4.Image = objetoMpas.cargarrecursoweb(URLimagenes(2))
+            PictureBox5.Image = objetoMpas.cargarrecursoweb(URLimagenes(3))
+            PictureBox6.Image = objetoMpas.cargarrecursoweb(URLimagenes(4))
 
-       
-        If Label5.Text <> "Establecimiento: " Then Label5.Visible = True : PictureBox2.Visible = True
-        If Label8.Text <> "Establecimiento: " Then Label8.Visible = True : PictureBox3.Visible = True
-        If Label9.Text <> "Establecimiento: " Then Label9.Visible = True : PictureBox4.Visible = True
-        If Label10.Text <> "Establecimiento: " Then Label10.Visible = True : PictureBox5.Visible = True
-        If Label11.Text <> "Establecimiento: " Then Label11.Visible = True : PictureBox6.Visible = True
+
+            If Label5.Text <> "Establecimiento: " Then Label5.Visible = True : PictureBox2.Visible = True Else Label5.Text = "Sin resultados :(, refine su búsqueda." : Label5.Visible = True : PictureBox2.Image = objetoMpas.cargarrecursoweb("no resultados") : PictureBox2.Visible = True
+            If Label8.Text <> "Establecimiento: " Then Label8.Visible = True : PictureBox3.Visible = True
+            If Label9.Text <> "Establecimiento: " Then Label9.Visible = True : PictureBox4.Visible = True
+            If Label10.Text <> "Establecimiento: " Then Label10.Visible = True : PictureBox5.Visible = True
+            If Label11.Text <> "Establecimiento: " Then Label11.Visible = True : PictureBox6.Visible = True
+        Else
+            'Evitando resultados irrelevantes
+            Label5.Text = True
+            Label8.Visible = False
+            Label9.Visible = False
+            Label10.Visible = False
+            Label11.Visible = False
+            Label5.Text = "Sin resultados :(, refine su búsqueda."
+            Label5.Visible = True : PictureBox2.Image = objetoMpas.cargarrecursoweb("no resultados")
+            PictureBox2.Visible = True
+            PictureBox3.Visible = False
+            PictureBox4.Visible = False
+            PictureBox5.Visible = False
+            PictureBox6.Visible = False
+        End If
 
         Timer5.Enabled = False
+    End Sub
+
+    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
+        latitudLongitud(0) = latlongAux(4, 0)
+        latitudLongitud(1) = latlongAux(4, 1)
+        localizacion = Label11.Text
+        MostrarResultados.ShowDialog()
+    End Sub
+
+    Private Sub Label11_MouseEnter(sender As Object, e As EventArgs) Handles Label11.MouseEnter
+        Label11.ForeColor = Color.White
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub Label11_MouseLeave(sender As Object, e As EventArgs) Handles Label11.MouseLeave
+        Label11.ForeColor = Color.Black
+        Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub Label10_Click(sender As Object, e As EventArgs) Handles Label10.Click
+        latitudLongitud(0) = latlongAux(3, 0)
+        latitudLongitud(1) = latlongAux(3, 1)
+        localizacion = Label10.Text
+        MostrarResultados.ShowDialog()
+    End Sub
+ 
+    Private Sub Label10_MouseEnter(sender As Object, e As EventArgs) Handles Label10.MouseEnter
+        Label10.ForeColor = Color.White
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub Label10_MouseLeave(sender As Object, e As EventArgs) Handles Label10.MouseLeave
+        Label10.ForeColor = Color.Black
+        Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
+        latitudLongitud(0) = latlongAux(2, 0)
+        latitudLongitud(1) = latlongAux(2, 1)
+        localizacion = Label9.Text
+        MostrarResultados.ShowDialog()
+    End Sub
+
+    Private Sub Label9_MouseEnter(sender As Object, e As EventArgs) Handles Label9.MouseEnter
+        Label9.ForeColor = Color.White
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub Label9_MouseLeave(sender As Object, e As EventArgs) Handles Label9.MouseLeave
+        Label9.ForeColor = Color.Black
+        Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
+        latitudLongitud(0) = latlongAux(1, 0)
+        latitudLongitud(1) = latlongAux(1, 1)
+        localizacion = Label8.Text
+        MostrarResultados.ShowDialog()
+    End Sub
+
+    Private Sub Label8_MouseEnter(sender As Object, e As EventArgs) Handles Label8.MouseEnter
+        Label8.ForeColor = Color.White
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub Label8_MouseLeave(sender As Object, e As EventArgs) Handles Label8.MouseLeave
+        Label8.ForeColor = Color.Black
+        Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
+        latitudLongitud(0) = latlongAux(0, 0)
+        latitudLongitud(1) = latlongAux(0, 1)
+        localizacion = Label5.Text
+        MostrarResultados.ShowDialog()
+    End Sub
+
+    
+    Private Sub Label5_MouseEnter(sender As Object, e As EventArgs) Handles Label5.MouseEnter
+        Label5.ForeColor = Color.White
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub Label5_MouseLeave(sender As Object, e As EventArgs) Handles Label5.MouseLeave
+        Label5.ForeColor = Color.Black
+        Me.Cursor = Cursors.Default
     End Sub
 End Class

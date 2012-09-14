@@ -261,6 +261,8 @@ Public Class GoogleMaps
             URL = "https://maps.googleapis.com/maps/api/place/search/xml?location=" & latitud & "," & longitud & "&radius=" & radioMetros & "&types=" & tipoLocal & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
         End If
 
+        
+
         Dim datos(1000) As String
         Dim contador As Integer = 0
         Dim reader As XmlTextReader = New XmlTextReader(URL)
