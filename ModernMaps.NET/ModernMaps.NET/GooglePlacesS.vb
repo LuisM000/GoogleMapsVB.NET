@@ -2,6 +2,7 @@
     Dim buscar As String
     Dim latlongAux(100, 100)
     Private Sub GooglePlacesS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Label16.Visible = False
         Label19.Visible = False
         Label20.Visible = False
@@ -24,8 +25,26 @@
                 AddHandler DirectCast(c, Label).MouseUp, AddressOf BuscarD
             End If
         Next
+        For Each c As Object In Me.Controls
+            If c.GetType Is GetType(Label) Then
+                If c IsNot Label14 And c IsNot Label15 And c IsNot Label17 And c IsNot Label18 Then
+                    AddHandler DirectCast(c, Label).MouseEnter, AddressOf conFocoLabel
+                    AddHandler DirectCast(c, Label).MouseLeave, AddressOf sinFocoLabel
+                End If
+               
+            End If
+        Next
         Timer1.Enabled = False
         ocultar()
+    End Sub
+
+    Private Sub conFocoLabel(ByVal sender As Object, ByVal e As System.EventArgs)
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+
+    Private Sub sinFocoLabel(ByVal sender As Object, ByVal e As System.EventArgs)
+        Me.Cursor = Cursors.Default
     End Sub
     Private Sub conFoco(ByVal sender As Object, ByVal e As System.EventArgs)
         DirectCast(sender, TextBox).BackColor = Color.LightCyan
@@ -50,24 +69,30 @@
                 If TypeOf c Is Label Then
                     If c.ForeColor = Color.White Then
                         Select Case c.Text
-                            Case "Cajero automático"
+                            Case "-Cajero automático"
                                 buscar = "atm"
-                            Case "Gasolinera"
+                            Case "-Gasolinera"
                                 buscar = "gas_station"
-                            Case "Hospital"
+                            Case "-Hospital"
                                 buscar = "hospital"
-                            Case "Bar"
+                            Case "-Bar"
                                 buscar = "bar"
-                            Case "Cine"
+                            Case "-Cine"
                                 buscar = "movie_theater"
-                            Case "Restaurante"
+                            Case "-Restaurante"
                                 buscar = "restaurant"
-                            Case "Estación de autobuses"
+                            Case "-Estación de autobuses"
                                 buscar = "bus_station"
-                            Case "Estación de tren"
+                            Case "-Estación de tren"
                                 buscar = "train_station"
-                            Case "Museo"
+                            Case "-Estación de metro"
+                                buscar = "subway_station"
+                            Case "-Museo"
                                 buscar = "museum"
+                            Case "-Galería de arte"
+                                buscar = "art_gallery"
+                            Case "-Universidad"
+                                buscar = "university"
                         End Select
                         Timer1.Enabled = True
                     End If
@@ -235,6 +260,9 @@
         Label11.Visible = False
         Label12.Visible = False
         Label13.Visible = False
+        Label23.Visible = False
+        Label24.Visible = False
+        Label25.Visible = False
     End Sub
     Sub pintar(ByRef label As Label)
         label.ForeColor = Color.White
@@ -261,6 +289,7 @@
 
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+        Timer2.Enabled = True
         ocultar()
         borrar()
         pintar(Label1)
@@ -270,6 +299,7 @@
     End Sub
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+        Timer2.Enabled = True
         ocultar()
         borrar()
         pintar(Label2)
@@ -279,20 +309,25 @@
     End Sub
 
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+        Timer2.Enabled = True
         ocultar()
         borrar()
         pintar(Label3)
         Label11.Visible = True
         Label12.Visible = True
+        Label23.Visible = True
 
 
     End Sub
 
     Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+        Timer2.Enabled = True
         ocultar()
         borrar()
         pintar(Label4)
         Label13.Visible = True
+        Label24.Visible = True
+        Label25.Visible = True
     End Sub
 
     Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
@@ -336,7 +371,11 @@
         pintar(Label11)
         pintar(Label3)
     End Sub
-
+    Private Sub Label23_Click(sender As Object, e As EventArgs) Handles Label23.Click
+        borrar()
+        pintar(Label23)
+        pintar(Label3)
+    End Sub
     Private Sub Label12_Click(sender As Object, e As EventArgs) Handles Label12.Click
         borrar()
         pintar(Label12)
@@ -347,6 +386,31 @@
         borrar()
         pintar(Label13)
         pintar(Label4)
+    End Sub
+    Private Sub Label24_Click(sender As Object, e As EventArgs) Handles Label24.Click
+        borrar()
+        pintar(Label24)
+        pintar(Label4)
+    End Sub
+
+    Private Sub Label25_Click(sender As Object, e As EventArgs) Handles Label25.Click
+        borrar()
+        pintar(Label25)
+        pintar(Label4)
+    End Sub
+
+
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        If Label18.Location.Y < 145 Then
+            Label18.Location = New Point(Label18.Location.X, Label18.Location.Y + 10)
+            Label17.Location = New Point(Label17.Location.X, Label17.Location.Y + 10)
+            Label14.Location = New Point(Label14.Location.X, Label14.Location.Y + 10)
+            Label15.Location = New Point(Label15.Location.X, Label15.Location.Y + 10)
+            txtpoblacion.Location = New Point(txtpoblacion.Location.X, txtpoblacion.Location.Y + 10)
+            txtcalle.Location = New Point(txtcalle.Location.X, txtcalle.Location.Y + 10)
+            txtprovincia.Location = New Point(txtprovincia.Location.X, txtprovincia.Location.Y + 10)
+            txtradio.Location = New Point(txtradio.Location.X, txtradio.Location.Y + 10)
+        End If
     End Sub
 
 End Class
