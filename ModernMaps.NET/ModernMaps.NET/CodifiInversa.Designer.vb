@@ -151,6 +151,7 @@ Partial Class CodifiInversa
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "CodifiInversa"
+        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CodifiInversa"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

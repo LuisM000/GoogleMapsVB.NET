@@ -42,7 +42,7 @@ Partial Class AcercaDe
         Me.Label1.Size = New System.Drawing.Size(321, 36)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Programa desarrollado en Visual Basic .NET (2010)," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "para trabajar con las APIs de" & _
-            " Google Maps."
+    " Google Maps."
         '
         'Label2
         '
@@ -94,6 +94,7 @@ Partial Class AcercaDe
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AcercaDe"
+        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AcercaDe"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

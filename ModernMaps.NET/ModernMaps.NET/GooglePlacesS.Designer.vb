@@ -61,6 +61,8 @@ Partial Class GooglePlacesS
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
+        Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -418,12 +420,20 @@ Partial Class GooglePlacesS
         Me.Label25.TabIndex = 47
         Me.Label25.Text = "-Universidad"
         '
+        'Timer3
+        '
+        Me.Timer3.Interval = 1
+        '
+        'Timer4
+        '
+        Me.Timer4.Interval = 1
+        '
         'GooglePlacesS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DodgerBlue
-        Me.ClientSize = New System.Drawing.Size(615, 525)
+        Me.ClientSize = New System.Drawing.Size(615, 231)
         Me.Controls.Add(Me.Label24)
         Me.Controls.Add(Me.Label25)
         Me.Controls.Add(Me.Label23)
@@ -461,6 +471,7 @@ Partial Class GooglePlacesS
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "GooglePlacesS"
+        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "GooglePlacesS"
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
@@ -510,4 +521,6 @@ Partial Class GooglePlacesS
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents Label24 As System.Windows.Forms.Label
     Friend WithEvents Label25 As System.Windows.Forms.Label
+    Friend WithEvents Timer3 As System.Windows.Forms.Timer
+    Friend WithEvents Timer4 As System.Windows.Forms.Timer
 End Class

@@ -259,6 +259,7 @@ Partial Class StreetView
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "StreetView"
+        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "StreetView"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

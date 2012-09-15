@@ -244,6 +244,7 @@ Partial Class ISP
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ISP"
+        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Latitud"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

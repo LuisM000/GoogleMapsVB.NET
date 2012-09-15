@@ -312,6 +312,7 @@ Partial Class BuscarParaComer
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "BuscarParaComer"
+        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "BuscarParaComer"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

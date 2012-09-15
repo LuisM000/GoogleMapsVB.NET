@@ -267,6 +267,7 @@ Partial Class latlong
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "latlong"
+        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "latlong"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
