@@ -23,7 +23,9 @@
         Next
         For Each c As Object In Me.Controls
             If c.GetType Is GetType(Label) Then
-                AddHandler DirectCast(c, Label).MouseUp, AddressOf BuscarD
+                If c IsNot Label16 And c IsNot Label19 And c IsNot Label20 And c IsNot Label21 And c IsNot Label22 Then
+                    AddHandler DirectCast(c, Label).MouseUp, AddressOf BuscarD
+                End If
             End If
         Next
         For Each c As Object In Me.Controls
@@ -437,7 +439,10 @@
 
 
     Private Sub Label16_Click(sender As Object, e As EventArgs) Handles Label16.Click
-
+        latitudLongitud(0) = latlongAux(0, 0)
+        latitudLongitud(1) = latlongAux(0, 1)
+        localizacion = Label16.Text
+        MostrarResultados.ShowDialog()
     End Sub
 
     Private Sub Label16_MouseEnter(sender As Object, e As EventArgs) Handles Label16.MouseEnter
@@ -453,11 +458,11 @@
     End Sub
 
     Private Sub Label19_MouseEnter(sender As Object, e As EventArgs) Handles Label19.MouseEnter
-        Label16.ForeColor = Color.White
+        Label19.ForeColor = Color.White
     End Sub
 
     Private Sub Label19_MouseLeave(sender As Object, e As EventArgs) Handles Label19.MouseLeave
-        Label16.ForeColor = Color.Black
+        Label19.ForeColor = Color.Black
     End Sub
 
     Private Sub Label20_Click(sender As Object, e As EventArgs) Handles Label20.Click
@@ -465,11 +470,11 @@
     End Sub
 
     Private Sub Label20_MouseEnter(sender As Object, e As EventArgs) Handles Label20.MouseEnter
-        Label16.ForeColor = Color.White
+        Label20.ForeColor = Color.White
     End Sub
 
     Private Sub Label20_MouseLeave(sender As Object, e As EventArgs) Handles Label20.MouseLeave
-        Label16.ForeColor = Color.Black
+        Label20.ForeColor = Color.Black
     End Sub
 
     Private Sub Label21_Click(sender As Object, e As EventArgs) Handles Label21.Click
@@ -477,11 +482,11 @@
     End Sub
 
     Private Sub Label21_MouseEnter(sender As Object, e As EventArgs) Handles Label21.MouseEnter
-        Label16.ForeColor = Color.White
+        Label21.ForeColor = Color.White
     End Sub
 
     Private Sub Label21_MouseLeave(sender As Object, e As EventArgs) Handles Label21.MouseLeave
-        Label16.ForeColor = Color.Black
+        Label21.ForeColor = Color.Black
     End Sub
 
     Private Sub Label22_Click(sender As Object, e As EventArgs) Handles Label22.Click
@@ -489,10 +494,10 @@
     End Sub
 
     Private Sub Label22_MouseEnter(sender As Object, e As EventArgs) Handles Label22.MouseEnter
-        Label16.ForeColor = Color.White
+        Label22.ForeColor = Color.White
     End Sub
 
     Private Sub Label22_MouseLeave(sender As Object, e As EventArgs) Handles Label22.MouseLeave
-        Label16.ForeColor = Color.Black
+        Label22.ForeColor = Color.Black
     End Sub
 End Class
