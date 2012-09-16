@@ -317,6 +317,29 @@ Public Class GoogleMaps
     End Function
 
 
+    Public Function AutocompletadoPlaces(Optional ByVal nombrePlace As String = "sin nombre")
+        nombrePlace = nombrePlace.Replace("  ", "+")
+        nombrePlace = nombrePlace.Replace(" ", "+")
+        Dim URL = "https://maps.googleapis.com/maps/api/place/autocomplete/xml?input=" & nombrePlace & "&types=geocode&region=es&language=es&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        Dim datos As String = "sin resultados"
+        Dim reader As XmlTextReader = New XmlTextReader(URL)
+        Dim type As XmlNodeType
+        reader.WhitespaceHandling = WhitespaceHandling.Significant
+        While reader.Read
+            type = reader.NodeType
+            If type = XmlNodeType.Element Then
+                Select Case reader.Name
+                    Case "description"
+                        reader.Read()
+                        datos = reader.Value
+                        Exit While
+                End Select
+            End If
+        End While
+        Return datos
+    End Function
+
+
 
 
 

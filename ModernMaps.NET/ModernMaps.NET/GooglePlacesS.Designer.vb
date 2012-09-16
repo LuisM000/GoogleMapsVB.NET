@@ -63,6 +63,9 @@ Partial Class GooglePlacesS
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Timer5 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer6 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -428,12 +431,31 @@ Partial Class GooglePlacesS
         '
         Me.Timer4.Interval = 1
         '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.Location = New System.Drawing.Point(12, 343)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(56, 18)
+        Me.Label26.TabIndex = 49
+        Me.Label26.Text = "Label26"
+        '
+        'Timer5
+        '
+        Me.Timer5.Interval = 1
+        '
+        'Timer6
+        '
+        Me.Timer6.Interval = 1
+        '
         'GooglePlacesS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DodgerBlue
         Me.ClientSize = New System.Drawing.Size(615, 231)
+        Me.Controls.Add(Me.Label26)
         Me.Controls.Add(Me.Label24)
         Me.Controls.Add(Me.Label25)
         Me.Controls.Add(Me.Label23)
@@ -523,4 +545,7 @@ Partial Class GooglePlacesS
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents Timer3 As System.Windows.Forms.Timer
     Friend WithEvents Timer4 As System.Windows.Forms.Timer
+    Friend WithEvents Label26 As System.Windows.Forms.Label
+    Friend WithEvents Timer5 As System.Windows.Forms.Timer
+    Friend WithEvents Timer6 As System.Windows.Forms.Timer
 End Class

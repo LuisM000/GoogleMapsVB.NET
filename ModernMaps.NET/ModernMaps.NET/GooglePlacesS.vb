@@ -1,9 +1,16 @@
 ﻿Public Class GooglePlacesS
     Dim buscar As String
     Dim latlongAux(100, 100)
+    Dim calleC(5) As String
+    Dim callePre, poblacionPre, provinciaPre As String
+
     Private Sub GooglePlacesS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        For i = 0 To 4
+            calleC(i) = ""
+        Next
         Me.Opacity = 0
         Me.Size = New Point(615, 231)
+        Label26.Visible = False
         Label16.Visible = False
         Label19.Visible = False
         Label20.Visible = False
@@ -34,7 +41,7 @@
                     AddHandler DirectCast(c, Label).MouseEnter, AddressOf conFocoLabel
                     AddHandler DirectCast(c, Label).MouseLeave, AddressOf sinFocoLabel
                 End If
-               
+
             End If
         Next
         Me.Size = New Point(0, 231)
@@ -109,133 +116,147 @@
 
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+
         Dim onobjetoMaps As New GoogleMaps
-            Dim objetoMpas As New GoogleMaps
-            Dim datos(1000) As String
-            datos(0) = ""
-            Dim latlong(1) As Double
-            Dim calle As String
-            calle = txtcalle.Text
-            If txtcalle.Text <> "" Then
-                calle = calle.ToLower()
-                Dim posicion = calle.Contains("calle")
-                If posicion = False Then
-                    calle = "calle " + txtcalle.Text
-                End If
-            Else
-                calle = ""
+        Dim objetoMpas As New GoogleMaps
+        Dim datos(1000) As String
+        datos(0) = ""
+        Dim latlong(1) As Double
+        Dim calle As String
+        Label26.Visible = False
+        calle = txtcalle.Text
+        If txtcalle.Text <> "" Then
+            calle = calle.ToLower()
+            Dim posicion = calle.Contains("calle")
+            If posicion = False Then
+                calle = "calle " + txtcalle.Text
             End If
-            latlong = onobjetoMaps.CodificacionGeo(calle, txtpoblacion.Text, txtprovincia.Text)
-            If latlong(0) <> 36.778261 And latlong(1) <> -119.4179324 Then
+        Else
+            calle = ""
+        End If
+        latlong = onobjetoMaps.CodificacionGeo(calle, txtpoblacion.Text, txtprovincia.Text)
+        If latlong(0) <> 36.778261 And latlong(1) <> -119.4179324 Then
 
 
-                If IsNumeric(txtradio.Text) Then
-                    datos = objetoMpas.GooglePlaces(latlong(0), latlong(1), txtradio.Text, buscar)
-                Else
-                    datos = objetoMpas.GooglePlaces(latlong(0), latlong(1), 5000, buscar)
-                End If
-                Dim datos2(contadorPlaces - 1) As String
-                For i = 0 To contadorPlaces - 1
-                    datos2(i) = datos(i)
-                Next
-                Label16.Visible = False
-                Label19.Visible = False
-                Label20.Visible = False
-                Label21.Visible = False
-                Label22.Visible = False
-
-                PictureBox2.Visible = False
-                PictureBox3.Visible = False
-                PictureBox4.Visible = False
-                PictureBox5.Visible = False
-                PictureBox6.Visible = False
-
-                Label16.Text = "Establecimiento: "
-                Label19.Text = "Establecimiento: "
-                Label20.Text = "Establecimiento: "
-                Label21.Text = "Establecimiento: "
-                Label22.Text = "Establecimiento: "
-                Dim auxiliar(100, 4) As String
-                Dim contador As Integer = 0
-                Dim URLimagenes(4) As String
-                If datos2.Length >= 7 Then
-                    For i = 0 To UBound(datos2) - 1
-                        Select Case datos2(i)
-                            Case "name"
-                                auxiliar(contador, 0) = datos2(i + 1)
-
-                            Case "lat"
-                                auxiliar(contador, 1) = " (" & datos2(i + 1) & ","
-                                latlongAux(contador, 0) = datos2(i + 1)
-
-                            Case "lng"
-                                auxiliar(contador, 2) = datos2(i + 1) & ")."
-                                latlongAux(contador, 1) = datos2(i + 1)
-
-                            Case "rating"
-                                If datos2(i + 1) = Nothing Then
-                                    auxiliar(contador, 3) = "Restaurante no valorado. " & datos2(i + 1)
-                                Else
-                                    auxiliar(contador, 3) = "Valoración: " & datos2(i + 1)
-                                End If
-
-                            Case "icon"
-                                auxiliar(contador, 4) = datos2(i + 1)
-                                If contador <= 4 Then
-                                    URLimagenes(contador) = datos2(i + 1)
-                                End If
-                                contador += 1
-                        End Select
-                    Next
-
-                End If
-
-                For i = 0 To 3
-                    Label16.Text = Label16.Text + auxiliar(0, i)
-                Next
-                For i = 0 To 3
-                    Label19.Text = Label19.Text + auxiliar(1, i)
-                Next
-                For i = 0 To 3
-                    Label20.Text = Label20.Text + auxiliar(2, i)
-                Next
-                For i = 0 To 3
-                    Label21.Text = Label21.Text + auxiliar(3, i)
-                Next
-                For i = 0 To 3
-                    Label22.Text = Label22.Text + auxiliar(4, i)
-                Next
-
-                PictureBox2.Image = objetoMpas.cargarrecursoweb(URLimagenes(0))
-                PictureBox3.Image = objetoMpas.cargarrecursoweb(URLimagenes(1))
-                PictureBox4.Image = objetoMpas.cargarrecursoweb(URLimagenes(2))
-                PictureBox5.Image = objetoMpas.cargarrecursoweb(URLimagenes(3))
-                PictureBox6.Image = objetoMpas.cargarrecursoweb(URLimagenes(4))
-
-
-                If Label16.Text <> "Establecimiento: " Then Label16.Visible = True : PictureBox2.Visible = True Else Label16.Text = "No se han encontrado resultados :(" : Label16.Visible = True : PictureBox2.Image = objetoMpas.cargarrecursoweb("no resultados") : PictureBox2.Visible = True
-                If Label19.Text <> "Establecimiento: " Then Label19.Visible = True : PictureBox3.Visible = True
-                If Label20.Text <> "Establecimiento: " Then Label20.Visible = True : PictureBox4.Visible = True
-                If Label21.Text <> "Establecimiento: " Then Label21.Visible = True : PictureBox5.Visible = True
-                If Label22.Text <> "Establecimiento: " Then Label22.Visible = True : PictureBox6.Visible = True
+            If IsNumeric(txtradio.Text) Then
+                datos = objetoMpas.GooglePlaces(latlong(0), latlong(1), txtradio.Text, buscar)
             Else
-                'Evitando resultados irrelevantes
-                Label16.Visible = True
-                Label19.Visible = False
-                Label20.Visible = False
-                Label21.Visible = False
-                Label22.Visible = False
+                datos = objetoMpas.GooglePlaces(latlong(0), latlong(1), 5000, buscar)
+            End If
+            Dim datos2(contadorPlaces - 1) As String
+            For i = 0 To contadorPlaces - 1
+                datos2(i) = datos(i)
+            Next
+            Label16.Visible = False
+            Label19.Visible = False
+            Label20.Visible = False
+            Label21.Visible = False
+            Label22.Visible = False
+
+            PictureBox2.Visible = False
+            PictureBox3.Visible = False
+            PictureBox4.Visible = False
+            PictureBox5.Visible = False
+            PictureBox6.Visible = False
+
+            Label16.Text = "Establecimiento: "
+            Label19.Text = "Establecimiento: "
+            Label20.Text = "Establecimiento: "
+            Label21.Text = "Establecimiento: "
+            Label22.Text = "Establecimiento: "
+            Dim auxiliar(100, 4) As String
+            Dim contador As Integer = 0
+            Dim URLimagenes(4) As String
+            If datos2.Length >= 7 Then
+                For i = 0 To UBound(datos2) - 1
+                    Select Case datos2(i)
+                        Case "name"
+                            auxiliar(contador, 0) = datos2(i + 1)
+
+                        Case "lat"
+                            auxiliar(contador, 1) = " (" & datos2(i + 1) & ","
+                            latlongAux(contador, 0) = datos2(i + 1)
+
+                        Case "lng"
+                            auxiliar(contador, 2) = datos2(i + 1) & ")."
+                            latlongAux(contador, 1) = datos2(i + 1)
+
+                        Case "rating"
+                            If datos2(i + 1) = Nothing Then
+                                auxiliar(contador, 3) = "Restaurante no valorado. " & datos2(i + 1)
+                            Else
+                                auxiliar(contador, 3) = "Valoración: " & datos2(i + 1)
+                            End If
+
+                        Case "icon"
+                            auxiliar(contador, 4) = datos2(i + 1)
+                            If contador <= 4 Then
+                                URLimagenes(contador) = datos2(i + 1)
+                            End If
+                            contador += 1
+                    End Select
+                Next
+
+            End If
+
+            For i = 0 To 3
+                Label16.Text = Label16.Text + auxiliar(0, i)
+            Next
+            For i = 0 To 3
+                Label19.Text = Label19.Text + auxiliar(1, i)
+            Next
+            For i = 0 To 3
+                Label20.Text = Label20.Text + auxiliar(2, i)
+            Next
+            For i = 0 To 3
+                Label21.Text = Label21.Text + auxiliar(3, i)
+            Next
+            For i = 0 To 3
+                Label22.Text = Label22.Text + auxiliar(4, i)
+            Next
+
+            PictureBox2.Image = objetoMpas.cargarrecursoweb(URLimagenes(0))
+            PictureBox3.Image = objetoMpas.cargarrecursoweb(URLimagenes(1))
+            PictureBox4.Image = objetoMpas.cargarrecursoweb(URLimagenes(2))
+            PictureBox5.Image = objetoMpas.cargarrecursoweb(URLimagenes(3))
+            PictureBox6.Image = objetoMpas.cargarrecursoweb(URLimagenes(4))
+
+
+            If Label16.Text <> "Establecimiento: " Then
+                Label16.Visible = True : PictureBox2.Visible = True
+            Else
                 Label16.Text = "No se han encontrado resultados :("
-                Label16.Visible = True : PictureBox2.Image = objetoMpas.cargarrecursoweb("no resultados")
+                Label16.Visible = True
+                PictureBox2.Image = objetoMpas.cargarrecursoweb("no resultados")
                 PictureBox2.Visible = True
-                PictureBox3.Visible = False
-                PictureBox4.Visible = False
-                PictureBox5.Visible = False
-                PictureBox6.Visible = False
+                Dim autocomMaps As New GoogleMaps
+                predictivo()
+
             End If
+            If Label19.Text <> "Establecimiento: " Then Label19.Visible = True : PictureBox3.Visible = True
+            If Label20.Text <> "Establecimiento: " Then Label20.Visible = True : PictureBox4.Visible = True
+            If Label21.Text <> "Establecimiento: " Then Label21.Visible = True : PictureBox5.Visible = True
+            If Label22.Text <> "Establecimiento: " Then Label22.Visible = True : PictureBox6.Visible = True
+        Else
+            'Evitando resultados irrelevantes
+            Label16.Visible = True
+            Label19.Visible = False
+            Label20.Visible = False
+            Label21.Visible = False
+            Label22.Visible = False
+            Label16.Text = "No se han encontrado resultados :("
+            Label16.Visible = True : PictureBox2.Image = objetoMpas.cargarrecursoweb("no resultados")
+            PictureBox2.Visible = True
+            PictureBox3.Visible = False
+            PictureBox4.Visible = False
+            PictureBox5.Visible = False
+            PictureBox6.Visible = False
+            predictivo()
+
+        End If
 
 
-            Timer1.Enabled = False
+        Timer1.Enabled = False
     End Sub
 
 
@@ -247,6 +268,7 @@
 
 
 
+   
 
 
 
@@ -439,10 +461,12 @@
 
 
     Private Sub Label16_Click(sender As Object, e As EventArgs) Handles Label16.Click
-        latitudLongitud(0) = latlongAux(0, 0)
-        latitudLongitud(1) = latlongAux(0, 1)
-        localizacion = Label16.Text
-        MostrarResultados.ShowDialog()
+        If Label16.Text <> "No se han encontrado resultados :(" Then
+            latitudLongitud(0) = latlongAux(0, 0)
+            latitudLongitud(1) = latlongAux(0, 1)
+            localizacion = Label16.Text
+            MostrarResultados.ShowDialog()
+        End If
     End Sub
 
     Private Sub Label16_MouseEnter(sender As Object, e As EventArgs) Handles Label16.MouseEnter
@@ -454,7 +478,10 @@
     End Sub
 
     Private Sub Label19_Click(sender As Object, e As EventArgs) Handles Label19.Click
-
+        latitudLongitud(0) = latlongAux(1, 0)
+        latitudLongitud(1) = latlongAux(1, 1)
+        localizacion = Label19.Text
+        MostrarResultados.ShowDialog()
     End Sub
 
     Private Sub Label19_MouseEnter(sender As Object, e As EventArgs) Handles Label19.MouseEnter
@@ -466,7 +493,10 @@
     End Sub
 
     Private Sub Label20_Click(sender As Object, e As EventArgs) Handles Label20.Click
-
+        latitudLongitud(0) = latlongAux(2, 0)
+        latitudLongitud(1) = latlongAux(2, 1)
+        localizacion = Label20.Text
+        MostrarResultados.ShowDialog()
     End Sub
 
     Private Sub Label20_MouseEnter(sender As Object, e As EventArgs) Handles Label20.MouseEnter
@@ -478,7 +508,10 @@
     End Sub
 
     Private Sub Label21_Click(sender As Object, e As EventArgs) Handles Label21.Click
-
+        latitudLongitud(0) = latlongAux(3, 0)
+        latitudLongitud(1) = latlongAux(3, 1)
+        localizacion = Label21.Text
+        MostrarResultados.ShowDialog()
     End Sub
 
     Private Sub Label21_MouseEnter(sender As Object, e As EventArgs) Handles Label21.MouseEnter
@@ -490,7 +523,10 @@
     End Sub
 
     Private Sub Label22_Click(sender As Object, e As EventArgs) Handles Label22.Click
-
+        latitudLongitud(0) = latlongAux(4, 0)
+        latitudLongitud(1) = latlongAux(4, 1)
+        localizacion = Label22.Text
+        MostrarResultados.ShowDialog()
     End Sub
 
     Private Sub Label22_MouseEnter(sender As Object, e As EventArgs) Handles Label22.MouseEnter
@@ -499,5 +535,122 @@
 
     Private Sub Label22_MouseLeave(sender As Object, e As EventArgs) Handles Label22.MouseLeave
         Label22.ForeColor = Color.Black
+    End Sub
+
+
+    Private Sub Label26_MouseEnter(sender As Object, e As EventArgs) Handles Label26.MouseEnter
+        Label26.ForeColor = Color.White
+    End Sub
+
+    Private Sub Label26_MouseLeave(sender As Object, e As EventArgs) Handles Label26.MouseLeave
+        Label26.ForeColor = Color.Black
+    End Sub
+
+
+
+
+    Sub predictivo()
+        callePre = " "
+        poblacionPre = " "
+        provinciaPre = " "
+        Dim autocomMaps As New GoogleMaps
+        Dim prediccion As String
+        Dim direccionAuto = txtprovincia.Text & " " & txtpoblacion.Text & " " & txtcalle.Text
+        prediccion = autocomMaps.AutocompletadoPlaces(direccionAuto)
+        Try
+            If prediccion <> "sin resultados" Then
+                Label26.Text = "Quizá quiso decir:" & vbCrLf & prediccion
+                Dim direccionPredic = Label26.Text
+                direccionPredic = direccionPredic.Replace("Quizá quiso decir:", "")
+                calleC = direccionPredic.Split(",")
+                callePre = calleC(0)
+                poblacionPre = calleC(1)
+                provinciaPre = calleC(2)
+            Else
+                direccionAuto = txtprovincia.Text & " " & txtcalle.Text
+                prediccion = autocomMaps.AutocompletadoPlaces(direccionAuto)
+                If prediccion <> "sin resultados" Then
+                    Label26.Text = "Quizá quiso decir:" & vbCrLf & prediccion
+                    Dim direccionPredic = Label26.Text
+                    direccionPredic = direccionPredic.Replace("Quizá quiso decir:", "")
+                    calleC = direccionPredic.Split(",")
+
+                    If calleC.Length = 3 Then
+                        callePre = calleC(0)
+                        poblacionPre = calleC(1)
+                        provinciaPre = calleC(2)
+                    Else
+                        callePre = calleC(0)
+                        provinciaPre = calleC(1)
+                    End If
+                    
+                Else
+                    direccionAuto = txtpoblacion.Text & " " & txtcalle.Text
+                    prediccion = autocomMaps.AutocompletadoPlaces(direccionAuto)
+                    Label26.Text = "Quizá quiso decir:" & vbCrLf & prediccion
+                    Dim direccionPredic = Label26.Text
+                    direccionPredic = direccionPredic.Replace("Quizá quiso decir:", "")
+                    calleC = direccionPredic.Split(",")
+                    If calleC.Length = 3 Then
+                        callePre = calleC(0)
+                        poblacionPre = calleC(1)
+                        provinciaPre = calleC(2)
+                    Else
+                        callePre = calleC(0)
+                        poblacionPre = calleC(1)
+                    End If
+                   
+                End If
+            End If
+        Catch
+        End Try
+        Label26.Visible = True
+    End Sub
+
+    Private Sub Label26_Click(sender As Object, e As EventArgs) Handles Label26.Click
+        If Label26.Text <> "Quizá quiso decir:" & vbCrLf & "sin resultados" Then
+            Dim direccionPredic = Label26.Text
+            txtcalle.Text = callePre
+            txtpoblacion.Text = poblacionPre
+            txtprovincia.Text = provinciaPre
+            Label26.Visible = False
+        End If
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        Timer5.Enabled = True
+    End Sub
+
+    Private Sub PictureBox1_MouseEnter(sender As Object, e As EventArgs) Handles PictureBox1.MouseEnter
+        PictureBox1.ImageLocation = "imagenes/white/back.png"
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub PictureBox1_MouseLeave(sender As Object, e As EventArgs) Handles PictureBox1.MouseLeave
+        PictureBox1.ImageLocation = "imagenes/black/back.png"
+        Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub Timer5_Tick(sender As Object, e As EventArgs) Handles Timer5.Tick
+        If Me.Height > 300 Then
+            Me.Height = Me.Height - 10
+            Me.Location = New Point(Me.Location.X, Me.Location.Y + 5)
+        Else
+            Timer6.Enabled = True
+            Timer5.Enabled = False
+        End If
+    End Sub
+
+    Private Sub Timer6_Tick(sender As Object, e As EventArgs) Handles Timer6.Tick
+        If Me.Width > 2 Then
+            Me.Width = Me.Width - 10
+           
+                Me.Opacity = Me.Opacity - 0.023
+
+        Else
+            Timer6.Enabled = False
+            Me.Close()
+            Principal.Show()
+        End If
     End Sub
 End Class
