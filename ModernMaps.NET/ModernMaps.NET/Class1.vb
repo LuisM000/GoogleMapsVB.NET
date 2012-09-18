@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports System.Net
 Imports System.Xml
+Imports System.Xml.XPath
 
 Public Class GoogleMaps
 
@@ -261,7 +262,7 @@ Public Class GoogleMaps
             URL = "https://maps.googleapis.com/maps/api/place/search/xml?location=" & latitud & "," & longitud & "&radius=" & radioMetros & "&types=" & tipoLocal & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
         End If
 
-        
+
 
         Dim datos(1000) As String
         Dim contador As Integer = 0
@@ -286,28 +287,28 @@ Public Class GoogleMaps
                         contador += 1
                         datos(contador) = reader.Value
                         contador += 1
-                       
+
                     Case "lng"
                         reader.Read()
                         datos(contador) = "lng"
                         contador += 1
                         datos(contador) = reader.Value
                         contador += 1
-                      
+
                     Case "rating"
                         reader.Read()
                         datos(contador) = "rating"
                         contador += 1
                         datos(contador) = reader.Value
                         contador += 1
-                       
+
                     Case "icon"
                         reader.Read()
                         datos(contador) = "icon"
                         contador += 1
                         datos(contador) = reader.Value
                         contador += 1
-                      
+
 
                 End Select
             End If
@@ -336,6 +337,84 @@ Public Class GoogleMaps
                 End Select
             End If
         End While
+        Return datos
+    End Function
+
+    Public Function CalcularRuta(ByVal nombreOrigen As String, ByVal nombreDestino As String, Optional ByVal evitarPeajes As Boolean = False, Optional ByVal tipoTransporte As Integer = 0)
+        Dim peaje As String
+        Dim transporte As String
+        Dim origen, destino As String
+        If evitarPeajes = True Then
+            peaje = "&avoid=highways"
+        Else
+            peaje = "&avoid=tolls"
+        End If
+
+        Select Case tipoTransporte
+            Case 0
+                transporte = "&mode=driving"
+            Case 1
+                transporte = "&mode=walking"
+            Case 2
+                transporte = "&mode=bicycling"
+            Case Else
+                transporte = "&mode=driving"
+        End Select
+
+        origen = nombreOrigen.Replace("  ", "+")
+        origen = nombreOrigen.Replace(" ", "+")
+        destino = nombreDestino.Replace("  ", "+")
+        destino = nombreDestino.Replace(" ", "+")
+
+
+        Dim URL = "http://maps.googleapis.com/maps/api/distancematrix/xml?origins=" & origen & "&destinations=" & destino & peaje & transporte & "&=es&sensor=false"
+        Dim datos(3) As String
+        Dim NodeIter As XPathNodeIterator
+        Dim ExOrigen, Exdestino, Extiempo, Exdistancia As String
+        Dim docNav As New XPathDocument(URL)
+        Dim nav = docNav.CreateNavigator
+
+        ExOrigen = "DistanceMatrixResponse/origin_address"
+        Exdestino = "DistanceMatrixResponse/destination_address"
+        Extiempo = "DistanceMatrixResponse/row/element/duration/text"
+        Exdistancia = "DistanceMatrixResponse/row/element/distance/text"
+
+        NodeIter = nav.Select(ExOrigen)
+        While (NodeIter.MoveNext())
+            datos(0) = NodeIter.Current.Value
+        End While
+        NodeIter = nav.Select(Exdestino)
+        While (NodeIter.MoveNext())
+            datos(1) = NodeIter.Current.Value
+        End While
+        NodeIter = nav.Select(Extiempo)
+        While (NodeIter.MoveNext())
+            datos(2) = NodeIter.Current.Value
+        End While
+        NodeIter = nav.Select(Exdistancia)
+        While (NodeIter.MoveNext())
+            datos(3) = NodeIter.Current.Value
+        End While
+        'Dim reader As XmlTextReader = New XmlTextReader(URL)
+        'Dim type As XmlNodeType
+        'reader.WhitespaceHandling = WhitespaceHandling.Significant
+        'While reader.Read
+        '    type = reader.NodeType
+        '    If type = XmlNodeType.Element Then
+        '        Select Case reader.Name
+        '            Case "origin_address"
+        '                reader.Read()
+        '                datos(0) = reader.Value
+        '            Case "destination_address"
+        '                reader.Read()
+        '                datos(1) = reader.Value
+        '            Case "text"
+        '                reader.Read()
+        '                datos(2) = reader.Value
+        '                Exit While
+        '        End Select
+        '    End If
+        'End While
         Return datos
     End Function
 

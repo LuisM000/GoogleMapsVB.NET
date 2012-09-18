@@ -40,6 +40,7 @@ Partial Class Principal
         Me.Timer7 = New System.Windows.Forms.Timer(Me.components)
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Timer8 = New System.Windows.Forms.Timer(Me.components)
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -164,12 +165,22 @@ Partial Class Principal
         '
         Me.Timer8.Interval = 1
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(268, 41)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(35, 40)
+        Me.Button1.TabIndex = 13
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DodgerBlue
         Me.ClientSize = New System.Drawing.Size(320, 436)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label5)
@@ -204,4 +215,5 @@ Partial Class Principal
     Friend WithEvents Timer7 As System.Windows.Forms.Timer
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Timer8 As System.Windows.Forms.Timer
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class
