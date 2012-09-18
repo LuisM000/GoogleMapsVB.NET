@@ -10,13 +10,16 @@ Public Class GoogleMaps
         Dim LatLong(1) As Double
         LatLong(0) = 0
         LatLong(1) = 0
-        If calle <> "" Then calle = calle.Replace(" ", "+")
-        If poblacion <> "" Then poblacion = poblacion.Replace(" ", "+")
-        If provincia <> "" Then provincia = provincia.Replace(" ", "+")
-        If comunidad <> "" Then comunidad = comunidad.Replace(" ", "+")
+
+
+        If calle <> "" Then calle = calle.Replace(" ", "+") : calle = calle & ",+"
+        If poblacion <> "" Then poblacion = poblacion.Replace(" ", "+") : poblacion = poblacion & ",+"
+        If provincia <> "" Then provincia = provincia.Replace(" ", "+") : provincia = provincia & ",+"
+        If comunidad <> "" Then comunidad = comunidad.Replace(" ", "+") : comunidad = calle & ",+"
         If pais <> "" Then pais.Replace(" ", "+")
-        direccion = calle + ",+" + poblacion + ",+" + provincia + ",+" + comunidad + ",+" + pais
-        direccion = "http://maps.googleapis.com/maps/api/geocode/xml?address=" + direccion + "+CA&sensor=false"
+
+
+        direccion = "http://maps.googleapis.com/maps/api/geocode/xml?address=" & calle & poblacion & provincia & comunidad & pais & "CA&sensor=false"
         Dim reader As XmlTextReader = New XmlTextReader(direccion)
         Dim type As XmlNodeType
         reader.WhitespaceHandling = WhitespaceHandling.Significant
@@ -262,8 +265,6 @@ Public Class GoogleMaps
             URL = "https://maps.googleapis.com/maps/api/place/search/xml?location=" & latitud & "," & longitud & "&radius=" & radioMetros & "&types=" & tipoLocal & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
         End If
 
-
-
         Dim datos(1000) As String
         Dim contador As Integer = 0
         Dim reader As XmlTextReader = New XmlTextReader(URL)
@@ -367,6 +368,7 @@ Public Class GoogleMaps
         destino = nombreDestino.Replace(" ", "+")
 
 
+
         Dim URL = "http://maps.googleapis.com/maps/api/distancematrix/xml?origins=" & origen & "&destinations=" & destino & peaje & transporte & "&=es&sensor=false"
         Dim datos(3) As String
         Dim NodeIter As XPathNodeIterator
@@ -403,8 +405,8 @@ Public Class GoogleMaps
         Dim objetoMaps As New GoogleMaps
         Dim URL As String
         Dim latitLongOrigen(1), latitLongDestin(1) As Double
-        latitLongOrigen = objetoMaps.CodificacionGeo(nombreOrigen)
-        latitLongDestin = objetoMaps.CodificacionGeo(nombreDestino)
+        latitLongOrigen = objetoMaps.CodificacionGeo(, , , , nombreOrigen)
+        latitLongDestin = objetoMaps.CodificacionGeo(, , , , nombreDestino)
         Dim datos(1) As String
         Dim entra As Boolean = False
 

@@ -45,6 +45,9 @@ Public Class Principal
     Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
         timer8.enabled = True
     End Sub
+    Private Sub Label10_Click(sender As Object, e As EventArgs) Handles Label10.Click
+        Timer9.Enabled = True
+    End Sub
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         If Me.Width > 2 Then
             Me.Opacity = Me.Opacity - 0.04
@@ -52,7 +55,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 436)
+            Me.Size = New Size(320, 474)
             Form1.Show()
             Timer1.Enabled = False
         End If
@@ -66,7 +69,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 436)
+            Me.Size = New Size(320, 474)
             ISP.Show()
             Timer2.Enabled = False
         End If
@@ -78,7 +81,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 436)
+            Me.Size = New Size(320, 474)
             latlong.Show()
             Timer3.Enabled = False
         End If
@@ -90,7 +93,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 436)
+            Me.Size = New Size(320, 474)
             BuscarLatLong.Show()
             Timer4.Enabled = False
         End If
@@ -111,7 +114,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 436)
+            Me.Size = New Size(320, 474)
             AcercaDe.Show()
             Timer5.Enabled = False
         End If
@@ -124,7 +127,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 436)
+            Me.Size = New Size(320, 474)
             CodifiInversa.Show()
             Timer6.Enabled = False
         End If
@@ -138,7 +141,7 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 436)
+            Me.Size = New Size(320, 474)
             BuscarParaComer.Show()
             Timer7.Enabled = False
         End If
@@ -152,14 +155,29 @@ Public Class Principal
         Else
             Me.Hide()
             Me.Opacity = 1
-            Me.Size = New Size(320, 436)
+            Me.Size = New Size(320, 474)
             GooglePlacesS.Show()
             Timer8.Enabled = False
         End If
     End Sub
+    Private Sub Timer9_Tick(sender As Object, e As EventArgs) Handles Timer9.Tick
+        If Me.Width > 2 Then
+            Me.Opacity = Me.Opacity - 0.04
+            Me.Width = Me.Width - 10
+        Else
+            Me.Hide()
+            Me.Opacity = 1
+            Me.Size = New Size(320, 474)
+            DistancElevacionRuta.Show()
+            Timer9.Enabled = False
+        End If
+    End Sub
 
    
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         DistancElevacionRuta.Show()
     End Sub
+
+    
+   
 End Class
