@@ -160,7 +160,6 @@ Public Class Principal
 
    
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim objetoMaps As New GoogleMaps
-        objetoMaps.CalcularRuta("ponferrada monasterio de carracedo", "ponferrada nicolas de brujas", , 2)
+        DistancElevacionRuta.Show()
     End Sub
 End Class

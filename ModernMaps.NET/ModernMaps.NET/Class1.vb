@@ -395,26 +395,34 @@ Public Class GoogleMaps
         While (NodeIter.MoveNext())
             datos(3) = NodeIter.Current.Value
         End While
-        'Dim reader As XmlTextReader = New XmlTextReader(URL)
-        'Dim type As XmlNodeType
-        'reader.WhitespaceHandling = WhitespaceHandling.Significant
-        'While reader.Read
-        '    type = reader.NodeType
-        '    If type = XmlNodeType.Element Then
-        '        Select Case reader.Name
-        '            Case "origin_address"
-        '                reader.Read()
-        '                datos(0) = reader.Value
-        '            Case "destination_address"
-        '                reader.Read()
-        '                datos(1) = reader.Value
-        '            Case "text"
-        '                reader.Read()
-        '                datos(2) = reader.Value
-        '                Exit While
-        '        End Select
-        '    End If
-        'End While
+
+       
+        Return datos
+    End Function
+    Public Function ElevacionDosPuntos(ByVal nombreOrigen As String, ByVal nombreDestino As String)
+        Dim objetoMaps As New GoogleMaps
+        Dim URL As String
+        Dim latitLongOrigen(1), latitLongDestin(1) As Double
+        latitLongOrigen = objetoMaps.CodificacionGeo(nombreOrigen)
+        latitLongDestin = objetoMaps.CodificacionGeo(nombreDestino)
+        Dim datos(1) As String
+        Dim entra As Boolean = False
+
+        URL = "http://maps.googleapis.com/maps/api/elevation/xml?path=" & latitLongOrigen(0) & "," & latitLongOrigen(1) & "|" & latitLongDestin(0) & "," & latitLongDestin(1) & "&samples=2&sensor=false"
+
+        Dim i As Integer = 0
+        Dim NodeIter As XPathNodeIterator
+        Dim ExOrigen As String
+        Dim docNav As New XPathDocument(URL)
+        Dim nav = docNav.CreateNavigator
+
+        ExOrigen = "ElevationResponse/result/elevation"
+        NodeIter = nav.Select(ExOrigen)
+        While (NodeIter.MoveNext())
+            datos(i) = NodeIter.Current.Value
+            i += 1
+        End While
+
         Return datos
     End Function
 
