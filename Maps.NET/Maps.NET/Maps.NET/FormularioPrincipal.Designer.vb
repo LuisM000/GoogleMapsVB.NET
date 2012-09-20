@@ -30,6 +30,8 @@ Partial Class FormularioPrincipal
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevaPestañaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.BorrarPestañaActivarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DirecciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1 = New System.Windows.Forms.ToolStripContainer()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -44,8 +46,7 @@ Partial Class FormularioPrincipal
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
-        Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DirecciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LatitudLongitudToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
@@ -93,6 +94,20 @@ Partial Class FormularioPrincipal
         Me.BorrarPestañaActivarToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.W), System.Windows.Forms.Keys)
         Me.BorrarPestañaActivarToolStripMenuItem1.Size = New System.Drawing.Size(212, 22)
         Me.BorrarPestañaActivarToolStripMenuItem1.Text = "Cerrar pestaña"
+        '
+        'BuscarToolStripMenuItem
+        '
+        Me.BuscarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DirecciónToolStripMenuItem, Me.LatitudLongitudToolStripMenuItem})
+        Me.BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem"
+        Me.BuscarToolStripMenuItem.Size = New System.Drawing.Size(83, 21)
+        Me.BuscarToolStripMenuItem.Text = "Buscar por"
+        '
+        'DirecciónToolStripMenuItem
+        '
+        Me.DirecciónToolStripMenuItem.Name = "DirecciónToolStripMenuItem"
+        Me.DirecciónToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
+        Me.DirecciónToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
+        Me.DirecciónToolStripMenuItem.Text = "Dirección"
         '
         'ToolStripContainer1
         '
@@ -233,18 +248,12 @@ Partial Class FormularioPrincipal
         Me.ToolStripButton8.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton8.Text = "ToolStripButton8"
         '
-        'BuscarToolStripMenuItem
+        'LatitudLongitudToolStripMenuItem
         '
-        Me.BuscarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DirecciónToolStripMenuItem})
-        Me.BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem"
-        Me.BuscarToolStripMenuItem.Size = New System.Drawing.Size(58, 21)
-        Me.BuscarToolStripMenuItem.Text = "Buscar"
-        '
-        'DirecciónToolStripMenuItem
-        '
-        Me.DirecciónToolStripMenuItem.Name = "DirecciónToolStripMenuItem"
-        Me.DirecciónToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DirecciónToolStripMenuItem.Text = "Dirección"
+        Me.LatitudLongitudToolStripMenuItem.Name = "LatitudLongitudToolStripMenuItem"
+        Me.LatitudLongitudToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.L), System.Windows.Forms.Keys)
+        Me.LatitudLongitudToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
+        Me.LatitudLongitudToolStripMenuItem.Text = "Latitud/Longitud"
         '
         'FormularioPrincipal
         '
@@ -296,5 +305,6 @@ Partial Class FormularioPrincipal
     Friend WithEvents BorrarPestañaActivarToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BuscarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DirecciónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LatitudLongitudToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

@@ -88,7 +88,10 @@ Partial Class Dirección
         Me.Controls.Add(Me.txtdireccion)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "Dirección"
-        Me.Text = "Dirección"
+        Me.ShowIcon = False
+        Me.ShowInTaskbar = False
+        Me.Text = "Buscar por... Dirección"
+        Me.TopMost = True
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

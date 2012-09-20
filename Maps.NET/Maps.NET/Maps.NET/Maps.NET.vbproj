@@ -84,6 +84,12 @@
       <DependentUpon>FormularioPrincipal.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormuSecundarios\Latitud.Designer.vb">
+      <DependentUpon>Latitud.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormuSecundarios\Latitud.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MapsNet.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioPrincipal.resx">
       <DependentUpon>FormularioPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormuSecundarios\Latitud.resx">
+      <DependentUpon>Latitud.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
