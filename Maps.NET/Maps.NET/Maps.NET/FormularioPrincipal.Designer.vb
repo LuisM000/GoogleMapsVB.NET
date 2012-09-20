@@ -32,12 +32,14 @@ Partial Class FormularioPrincipal
         Me.BorrarPestañaActivarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DirecciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LatitudLongitudToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1 = New System.Windows.Forms.ToolStripContainer()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ISPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
@@ -46,7 +48,6 @@ Partial Class FormularioPrincipal
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
-        Me.LatitudLongitudToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
@@ -97,7 +98,7 @@ Partial Class FormularioPrincipal
         '
         'BuscarToolStripMenuItem
         '
-        Me.BuscarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DirecciónToolStripMenuItem, Me.LatitudLongitudToolStripMenuItem})
+        Me.BuscarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DirecciónToolStripMenuItem, Me.LatitudLongitudToolStripMenuItem, Me.ISPToolStripMenuItem})
         Me.BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem"
         Me.BuscarToolStripMenuItem.Size = New System.Drawing.Size(83, 21)
         Me.BuscarToolStripMenuItem.Text = "Buscar por"
@@ -108,6 +109,13 @@ Partial Class FormularioPrincipal
         Me.DirecciónToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
         Me.DirecciónToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
         Me.DirecciónToolStripMenuItem.Text = "Dirección"
+        '
+        'LatitudLongitudToolStripMenuItem
+        '
+        Me.LatitudLongitudToolStripMenuItem.Name = "LatitudLongitudToolStripMenuItem"
+        Me.LatitudLongitudToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.L), System.Windows.Forms.Keys)
+        Me.LatitudLongitudToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
+        Me.LatitudLongitudToolStripMenuItem.Text = "Latitud/Longitud"
         '
         'ToolStripContainer1
         '
@@ -175,6 +183,12 @@ Partial Class FormularioPrincipal
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(196, 25)
         Me.ToolStrip1.TabIndex = 0
+        '
+        'ISPToolStripMenuItem
+        '
+        Me.ISPToolStripMenuItem.Name = "ISPToolStripMenuItem"
+        Me.ISPToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
+        Me.ISPToolStripMenuItem.Text = "ISP"
         '
         'ToolStripButton1
         '
@@ -248,13 +262,6 @@ Partial Class FormularioPrincipal
         Me.ToolStripButton8.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton8.Text = "ToolStripButton8"
         '
-        'LatitudLongitudToolStripMenuItem
-        '
-        Me.LatitudLongitudToolStripMenuItem.Name = "LatitudLongitudToolStripMenuItem"
-        Me.LatitudLongitudToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.L), System.Windows.Forms.Keys)
-        Me.LatitudLongitudToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
-        Me.LatitudLongitudToolStripMenuItem.Text = "Latitud/Longitud"
-        '
         'FormularioPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -306,5 +313,6 @@ Partial Class FormularioPrincipal
     Friend WithEvents BuscarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DirecciónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LatitudLongitudToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ISPToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

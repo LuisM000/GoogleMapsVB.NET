@@ -17,4 +17,12 @@
     Private Sub DirecciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DirecciónToolStripMenuItem.Click
         Dirección.Show()
     End Sub
+
+    Private Sub LatitudLongitudToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LatitudLongitudToolStripMenuItem.Click
+        Latitud.Show()
+    End Sub
+
+    Private Sub ISPToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ISPToolStripMenuItem.Click
+        ISP.Show()
+    End Sub
 End Class

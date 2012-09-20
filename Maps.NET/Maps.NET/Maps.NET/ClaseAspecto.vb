@@ -39,4 +39,13 @@
         navegador = NavegadorActivo(0)
         Return navegador
     End Function
+    Public Function verificarnumeros(ByVal datos As String) 'Enviamos True si el dato es número
+        Dim dato As Boolean = False
+        If IsNumeric(datos) Then
+            dato = True
+        Else
+            dato = False
+        End If
+        Return dato
+    End Function
 End Class

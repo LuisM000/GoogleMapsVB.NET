@@ -30,14 +30,16 @@ Partial Class Latitud
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtlongitud = New System.Windows.Forms.TextBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(23, 29)
+        Me.Label1.Location = New System.Drawing.Point(23, 35)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(47, 17)
         Me.Label1.TabIndex = 6
@@ -46,36 +48,37 @@ Partial Class Latitud
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(449, 47)
+        Me.Button1.Location = New System.Drawing.Point(449, 53)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(129, 31)
-        Me.Button1.TabIndex = 5
+        Me.Button1.TabIndex = 3
         Me.Button1.Text = "Buscar"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'txtlatitud
         '
         Me.txtlatitud.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlatitud.Location = New System.Drawing.Point(133, 28)
+        Me.txtlatitud.Location = New System.Drawing.Point(133, 34)
         Me.txtlatitud.Name = "txtlatitud"
         Me.txtlatitud.Size = New System.Drawing.Size(238, 23)
-        Me.txtlatitud.TabIndex = 4
+        Me.txtlatitud.TabIndex = 1
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox1.Location = New System.Drawing.Point(90, 31)
+        Me.PictureBox1.Location = New System.Drawing.Point(96, 35)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(20, 20)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 7
         Me.PictureBox1.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox1, "La precisión máxima reconocida son 6 decimales")
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(23, 69)
+        Me.Label2.Location = New System.Drawing.Point(23, 75)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(59, 17)
         Me.Label2.TabIndex = 9
@@ -84,21 +87,34 @@ Partial Class Latitud
         'txtlongitud
         '
         Me.txtlongitud.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlongitud.Location = New System.Drawing.Point(133, 68)
+        Me.txtlongitud.Location = New System.Drawing.Point(133, 74)
         Me.txtlongitud.Name = "txtlongitud"
         Me.txtlongitud.Size = New System.Drawing.Size(238, 23)
-        Me.txtlongitud.TabIndex = 8
+        Me.txtlongitud.TabIndex = 2
         '
         'ToolTip1
         '
         Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
         Me.ToolTip1.ToolTipTitle = "Ayuda"
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.Maps.NET.My.Resources.Resources.help
+        Me.PictureBox2.Location = New System.Drawing.Point(96, 75)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(20, 20)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 10
+        Me.PictureBox2.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox2, "La precisión máxima reconocida son 6 decimales")
+        '
         'Latitud
         '
+        Me.AcceptButton = Me.Button1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(603, 130)
+        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtlongitud)
         Me.Controls.Add(Me.PictureBox1)
@@ -111,6 +127,7 @@ Partial Class Latitud
         Me.Text = "Buscar por... Latitud/Longitud"
         Me.TopMost = True
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -122,4 +139,5 @@ Partial Class Latitud
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txtlongitud As System.Windows.Forms.TextBox
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
 End Class
