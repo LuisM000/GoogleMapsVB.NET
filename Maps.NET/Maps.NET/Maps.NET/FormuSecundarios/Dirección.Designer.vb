@@ -46,7 +46,7 @@ Partial Class Dirección
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(129, 31)
         Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Buscar"
+        Me.Button1.Text = "Mostrar"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Label1

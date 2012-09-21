@@ -1,6 +1,7 @@
 ﻿Imports System.Net
 Imports System.IO
 Imports System.Xml
+Imports System.Xml.XPath
 
 Public Class MapsNet
 
@@ -15,57 +16,117 @@ Public Class MapsNet
         Return urlMaps
     End Function
 
-    Public Function ObtenerIp()
+    Public Function ObtenerIp() 'Obtiene IP gracias a un servicio web
+        'Creamos dirección 
+        Dim url As String = "http://automation.whatismyip.com/n09230945.asp"
+        Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
+        req.Timeout = 3000
         Try
-            Dim req As HttpWebRequest = WebRequest.Create("http://automation.whatismyip.com/n09230945.asp")
-            req.Timeout = 3000
             Dim res As HttpWebResponse = req.GetResponse()
             Dim stream As Stream = res.GetResponseStream()
             Dim sr As StreamReader = New StreamReader(stream)
             Return (sr.ReadToEnd())
         Catch
-            Return "0.0.0.0"
         End Try
+        Return "0.0.0.0"
+
     End Function
 
-    Public Function localizarIp()
+    Public Function localizarIp() 'Localiza la Ip gracias a un servicio Web
         Dim ip As String
         ip = Me.ObtenerIp
-        Dim datosRetorno(5) As String
-        Dim reader As XmlTextReader = New XmlTextReader("http://smart-ip.net/geoip-xml/" & ip & "/auto?lang=en")
-        Dim type As XmlNodeType
-        reader.WhitespaceHandling = WhitespaceHandling.Significant
+        Dim url As String = "http://smart-ip.net/geoip-xml/" & ip & "/auto?lang=en"
+        Dim datosretorno(5) As String
+        Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
+        req.Timeout = 3000
+        Try
+            'Preparamos el archivo xml
+            Dim res As System.Net.WebResponse = req.GetResponse()
+            Dim responseStream As Stream = res.GetResponseStream()
+            Dim NodeIter As XPathNodeIterator
+            Dim ExPais, Exciudad, Exregion, Exdlat, Exlong As String
+            Dim docNav As New XPathDocument(responseStream)
+            Dim nav = docNav.CreateNavigator
 
-        While reader.Read
-            type = reader.NodeType
-            If type = XmlNodeType.Element Then
+            'Creamos los paths
+            ExPais = "geoip/countryName"
+            Exciudad = "geoip/city"
+            Exregion = "geoip/region"
+            Exdlat = "geoip/latitude"
+            Exlong = "geoip/longitude"
 
-                Select Case reader.Name
-                    Case "countryName"
-                        reader.Read()
-                        datosRetorno(0) = reader.Value
-                    Case "city"
-                        reader.Read()
-                        datosRetorno(1) = reader.Value
-                    Case "region"
-                        reader.Read()
-                        datosRetorno(2) = reader.Value
-                    Case "latitude"
-                        reader.Read()
-                        datosRetorno(3) = reader.Value
-                    Case "longitude"
-                        reader.Read()
-                        datosRetorno(4) = reader.Value
-                End Select
-            End If
-        End While
-        If datosRetorno(0) = "" Then datosRetorno(0) = "Datos no encontrados"
-        If datosRetorno(1) = "" Then datosRetorno(1) = "Datos no encontrados"
-        If datosRetorno(2) = "" Then datosRetorno(2) = "Datos no encontrados"
-        If datosRetorno(3) = "" Then datosRetorno(3) = "Datos no encontrados"
-        If datosRetorno(4) = "" Then datosRetorno(4) = "Datos no encontrados"
-        datosRetorno(5) = CStr(ip)
+            'Recorremos el xml
+            NodeIter = nav.Select(ExPais)
+            While (NodeIter.MoveNext())
+                datosretorno(0) = NodeIter.Current.Value
+            End While
+            NodeIter = nav.Select(Exciudad)
+            While (NodeIter.MoveNext())
+                datosretorno(1) = NodeIter.Current.Value
+            End While
+            NodeIter = nav.Select(Exregion)
+            While (NodeIter.MoveNext())
+                datosretorno(2) = NodeIter.Current.Value
+            End While
+            NodeIter = nav.Select(Exdlat)
+            While (NodeIter.MoveNext())
+                datosretorno(3) = NodeIter.Current.Value
+            End While
+            NodeIter = nav.Select(Exlong)
+            While (NodeIter.MoveNext())
+                datosretorno(4) = NodeIter.Current.Value
+            End While
+            responseStream.Close()
+        Catch
+        End Try
+        datosretorno(5) = ip
+        Return datosretorno
+    End Function
 
-        Return datosRetorno
+
+    Public Function CodificacionGeografica(ByRef direccion As String, Optional ByRef regionBusqueda As String = "es") 'busca latitud/longitud a partir de dirección
+
+        'Creamos la url con los datso
+        Dim url = "http://maps.googleapis.com/maps/api/geocode/xml?address=" & direccion & "&sensor=false" & "&region=" & regionBusqueda
+        Dim LatLong As New ArrayList()
+
+        Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
+        req.Timeout = 3000
+        Try
+            'Preparamos el archivo xml
+            Dim res As System.Net.WebResponse = req.GetResponse()
+            Dim responseStream As Stream = res.GetResponseStream()
+            Dim NodeIter As XPathNodeIterator
+            Dim docNav As New XPathDocument(responseStream)
+            Dim nav = docNav.CreateNavigator
+
+            Dim ExLatitud, ExLongitud, ExdatosDireccion As String
+
+            'Creamos los paths
+            ExLatitud = "GeocodeResponse/result/geometry/location/lat"
+            ExLongitud = "GeocodeResponse/result/geometry/location/lng"
+            ExdatosDireccion = "GeocodeResponse/result/formatted_address"
+            'Recorremos el xml
+            NodeIter = nav.Select(ExLatitud)
+            While (NodeIter.MoveNext())
+                LatLong.Add(NodeIter.Current.Value)
+                Exit While
+            End While
+
+            NodeIter = nav.Select(ExLongitud)
+            While (NodeIter.MoveNext())
+                LatLong.Add(NodeIter.Current.Value)
+                Exit While
+            End While
+
+            NodeIter = nav.Select(ExdatosDireccion)
+            While (NodeIter.MoveNext())
+                LatLong.Add(NodeIter.Current.Value)
+                'Exit While
+            End While
+            responseStream.Close()
+        Catch
+        End Try
+        Return LatLong
     End Function
 End Class

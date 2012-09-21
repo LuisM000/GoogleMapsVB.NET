@@ -71,6 +71,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClaseAspecto.vb" />
+    <Compile Include="FormuSecundarios\CodificacionGeo.Designer.vb">
+      <DependentUpon>CodificacionGeo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormuSecundarios\CodificacionGeo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormuSecundarios\Dirección.Designer.vb">
       <DependentUpon>Dirección.vb</DependentUpon>
     </Compile>
@@ -114,6 +120,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormuSecundarios\CodificacionGeo.resx">
+      <DependentUpon>CodificacionGeo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\Dirección.resx">
       <DependentUpon>Dirección.vb</DependentUpon>
     </EmbeddedResource>

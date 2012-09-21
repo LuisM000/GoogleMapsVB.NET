@@ -25,4 +25,8 @@
     Private Sub ISPToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ISPToolStripMenuItem.Click
         ISP.Show()
     End Sub
+
+    Private Sub DirectaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DirectaToolStripMenuItem.Click
+        CodificacionGeo.Show()
+    End Sub
 End Class
