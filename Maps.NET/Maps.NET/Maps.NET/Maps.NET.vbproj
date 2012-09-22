@@ -77,6 +77,12 @@
     <Compile Include="FormuSecundarios\CodificacionGeo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormuSecundarios\CodifInversa.Designer.vb">
+      <DependentUpon>CodifInversa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormuSecundarios\CodifInversa.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormuSecundarios\Dirección.Designer.vb">
       <DependentUpon>Dirección.vb</DependentUpon>
     </Compile>
@@ -102,6 +108,12 @@
     <Compile Include="FormuSecundarios\Latitud.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormuSecundarios\Places.Designer.vb">
+      <DependentUpon>Places.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormuSecundarios\Places.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MapsNet.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -122,6 +134,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FormuSecundarios\CodificacionGeo.resx">
       <DependentUpon>CodificacionGeo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormuSecundarios\CodifInversa.resx">
+      <DependentUpon>CodifInversa.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\Dirección.resx">
       <DependentUpon>Dirección.vb</DependentUpon>

@@ -129,4 +129,139 @@ Public Class MapsNet
         End Try
         Return LatLong
     End Function
+
+    Public Function CodificacionGeograficaInversa(ByRef latitud As Double, ByRef longitud As Double, Optional ByRef regionBusqueda As String = "es") 'busca latitud/longitud a partir de dirección
+
+        'Creamos la url con los datso
+        Dim url = "http://maps.googleapis.com/maps/api/geocode/xml?latlng=" & latitud & "," & longitud & "&sensor=false" & "&region=" & regionBusqueda
+        Dim direcc As New ArrayList()
+
+        Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
+        req.Timeout = 3000
+        Try
+            'Preparamos el archivo xml
+            Dim res As System.Net.WebResponse = req.GetResponse()
+            Dim responseStream As Stream = res.GetResponseStream()
+            Dim NodeIter As XPathNodeIterator
+            Dim docNav As New XPathDocument(responseStream)
+            Dim nav = docNav.CreateNavigator
+
+            Dim ExDireccion As String
+
+            'Creamos los paths
+            ExDireccion = "GeocodeResponse/result/formatted_address"
+           
+            'Recorremos el xml
+            NodeIter = nav.Select(ExDireccion)
+            While (NodeIter.MoveNext())
+                direcc.Add(NodeIter.Current.Value)
+            End While
+
+            responseStream.Close()
+        Catch
+        End Try
+        Return direcc
+    End Function
+
+    Public Function PlacesLatLong(ByRef latitud As Double, ByRef longitud As Double, Optional ByRef radio As Integer = 3000, Optional tipoLocal As String() = Nothing, Optional NombreEstablecimiento As String = "", Optional idioma As String = "es") 'busca un place desde lat/long
+        'Creamos las variables desde las opcionales
+
+        'Variable local
+        Dim local As String = "&types="
+        Dim separador As String = "|"
+        If tipoLocal IsNot Nothing Then
+            For i = 0 To UBound(tipoLocal)
+                local = local & tipoLocal(i) & separador
+            Next
+        Else
+            local = ""
+        End If
+
+        'Variable nombre del establecimiento
+        If NombreEstablecimiento <> "" Then
+            NombreEstablecimiento = "&name=" & NombreEstablecimiento
+        End If
+
+        'Variable radio
+        Dim radioB As String
+        radioB = "&radius=" & radio
+
+        'Variable idioma
+        idioma = "&language=" & idioma
+
+        'Creamos la url con los datso
+        Dim url = "https://maps.googleapis.com/maps/api/place/search/xml?location=" & latitud & "," & longitud & local & NombreEstablecimiento & radioB & idioma & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        Dim datos As New ArrayList()
+        Dim auxiliar(0) As String
+        auxiliar(0) = "sin datos"
+
+        Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
+        req.Timeout = 3000
+        Try
+            'Preparamos el archivo xml
+            Dim res As System.Net.WebResponse = req.GetResponse()
+            Dim responseStream As Stream = res.GetResponseStream()
+            Dim NodeIter As XPathNodeIterator
+            Dim docNav As New XPathDocument(responseStream)
+            Dim nav = docNav.CreateNavigator
+
+            Dim ExNombre, EXdireccion, Exlati, Exlong, Exicon As String
+
+            'Creamos los paths
+            ExNombre = "PlaceSearchResponse/result/name"
+            EXdireccion = "PlaceSearchResponse/result/vicinity"
+            Exlati = "PlaceSearchResponse/result/geometry/location/lat"
+            Exlong = "PlaceSearchResponse/result/geometry/location/lng"
+            Exicon = "PlaceSearchResponse/result/icon"
+
+            'Recorremos el xml
+            NodeIter = nav.Select(ExNombre)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+            End While
+
+            NodeIter = nav.Select(EXdireccion)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+            End While
+
+            NodeIter = nav.Select(Exlati)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+            End While
+
+            NodeIter = nav.Select(Exlong)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+            End While
+
+            NodeIter = nav.Select(Exicon)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+            End While
+            ReDim auxiliar(datos.Count - 1)
+            Dim tamaño = CInt(datos.Count / 5)
+            Dim contador As Integer = 0
+            For i = 0 To tamaño - 1
+                auxiliar(contador) = datos(i)
+                auxiliar(contador + 1) = datos(i + tamaño)
+                auxiliar(contador + 2) = datos(i + tamaño + tamaño)
+                auxiliar(contador + 3) = datos(i + tamaño + tamaño + tamaño)
+                auxiliar(contador + 4) = datos(i + tamaño + tamaño + tamaño + tamaño)
+                contador += 5
+            Next
+            responseStream.Close()
+        Catch
+        End Try
+        If auxiliar.Count < 5 Then
+            ReDim auxiliar(4)
+            auxiliar(0) = "Sin datos"
+            auxiliar(1) = "Sin datos"
+            auxiliar(2) = "Sin datos"
+            auxiliar(3) = "Sin datos"
+            auxiliar(4) = "Sin datos"
+        End If
+        
+        Return auxiliar
+    End Function
 End Class

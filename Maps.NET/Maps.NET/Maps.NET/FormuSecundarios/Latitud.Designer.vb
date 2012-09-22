@@ -30,9 +30,7 @@ Partial Class Latitud
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtlongitud = New System.Windows.Forms.TextBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -97,24 +95,12 @@ Partial Class Latitud
         Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
         Me.ToolTip1.ToolTipTitle = "Ayuda"
         '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox2.Location = New System.Drawing.Point(96, 75)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(20, 20)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 10
-        Me.PictureBox2.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.PictureBox2, "La precisión máxima reconocida son 6 decimales")
-        '
         'Latitud
         '
         Me.AcceptButton = Me.Button1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(603, 130)
-        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtlongitud)
         Me.Controls.Add(Me.PictureBox1)
@@ -127,7 +113,6 @@ Partial Class Latitud
         Me.Text = "Buscar por... Latitud/Longitud"
         Me.TopMost = True
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -139,5 +124,4 @@ Partial Class Latitud
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txtlongitud As System.Windows.Forms.TextBox
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
 End Class

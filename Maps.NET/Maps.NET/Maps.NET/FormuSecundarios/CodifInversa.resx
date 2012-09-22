@@ -118,11 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>195, 17</value>
   </metadata>
   <data name="PictureBox1.ToolTip" xml:space="preserve">
-    <value>¿Qué es la codificación geográfica? Es el proceso de traducir una dirección interpretable por humanos en una ubicación de un mapa.
-Es recomendable separar las unidades geográficas por comas.
-Puerta del Sol, Madrid, España</value>
+    <value>¿Qué es la codificación geográfica inversa? Es el proceso de traducir una dirección interpretable por humanos en una ubicación de un mapa.
+La precisión máxima reconocida para latitud/longitud son 6 decimales.</value>
   </data>
+  <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="Timer2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>106, 17</value>
+  </metadata>
 </root>

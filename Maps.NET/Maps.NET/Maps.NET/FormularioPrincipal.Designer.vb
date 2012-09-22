@@ -34,7 +34,9 @@ Partial Class FormularioPrincipal
         Me.DirecciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LatitudLongitudToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ISPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SadaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CodificaciónGeográficaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DirectaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InversaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1 = New System.Windows.Forms.ToolStripContainer()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -49,9 +51,8 @@ Partial Class FormularioPrincipal
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
-        Me.CodificaciónGeográficaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DirectaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.InversaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PlacesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BuscarServicioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
@@ -65,7 +66,7 @@ Partial Class FormularioPrincipal
         'MenuStrip1
         '
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.CodificaciónGeográficaToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.CodificaciónGeográficaToolStripMenuItem, Me.PlacesToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(866, 25)
@@ -102,7 +103,7 @@ Partial Class FormularioPrincipal
         '
         'BuscarToolStripMenuItem
         '
-        Me.BuscarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DirecciónToolStripMenuItem, Me.LatitudLongitudToolStripMenuItem, Me.ISPToolStripMenuItem, Me.SadaToolStripMenuItem})
+        Me.BuscarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DirecciónToolStripMenuItem, Me.LatitudLongitudToolStripMenuItem, Me.ISPToolStripMenuItem})
         Me.BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem"
         Me.BuscarToolStripMenuItem.Size = New System.Drawing.Size(58, 21)
         Me.BuscarToolStripMenuItem.Text = "Buscar"
@@ -127,11 +128,24 @@ Partial Class FormularioPrincipal
         Me.ISPToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
         Me.ISPToolStripMenuItem.Text = "ISP"
         '
-        'SadaToolStripMenuItem
+        'CodificaciónGeográficaToolStripMenuItem
         '
-        Me.SadaToolStripMenuItem.Name = "SadaToolStripMenuItem"
-        Me.SadaToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
-        Me.SadaToolStripMenuItem.Text = "sada"
+        Me.CodificaciónGeográficaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DirectaToolStripMenuItem, Me.InversaToolStripMenuItem})
+        Me.CodificaciónGeográficaToolStripMenuItem.Name = "CodificaciónGeográficaToolStripMenuItem"
+        Me.CodificaciónGeográficaToolStripMenuItem.Size = New System.Drawing.Size(158, 21)
+        Me.CodificaciónGeográficaToolStripMenuItem.Text = "Codificación geográfica"
+        '
+        'DirectaToolStripMenuItem
+        '
+        Me.DirectaToolStripMenuItem.Name = "DirectaToolStripMenuItem"
+        Me.DirectaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DirectaToolStripMenuItem.Text = "Directa"
+        '
+        'InversaToolStripMenuItem
+        '
+        Me.InversaToolStripMenuItem.Name = "InversaToolStripMenuItem"
+        Me.InversaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.InversaToolStripMenuItem.Text = "Inversa"
         '
         'ToolStripContainer1
         '
@@ -272,24 +286,18 @@ Partial Class FormularioPrincipal
         Me.ToolStripButton8.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton8.Text = "ToolStripButton8"
         '
-        'CodificaciónGeográficaToolStripMenuItem
+        'PlacesToolStripMenuItem
         '
-        Me.CodificaciónGeográficaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DirectaToolStripMenuItem, Me.InversaToolStripMenuItem})
-        Me.CodificaciónGeográficaToolStripMenuItem.Name = "CodificaciónGeográficaToolStripMenuItem"
-        Me.CodificaciónGeográficaToolStripMenuItem.Size = New System.Drawing.Size(158, 21)
-        Me.CodificaciónGeográficaToolStripMenuItem.Text = "Codificación geográfica"
+        Me.PlacesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BuscarServicioToolStripMenuItem})
+        Me.PlacesToolStripMenuItem.Name = "PlacesToolStripMenuItem"
+        Me.PlacesToolStripMenuItem.Size = New System.Drawing.Size(56, 21)
+        Me.PlacesToolStripMenuItem.Text = "Places"
         '
-        'DirectaToolStripMenuItem
+        'BuscarServicioToolStripMenuItem
         '
-        Me.DirectaToolStripMenuItem.Name = "DirectaToolStripMenuItem"
-        Me.DirectaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DirectaToolStripMenuItem.Text = "Directa"
-        '
-        'InversaToolStripMenuItem
-        '
-        Me.InversaToolStripMenuItem.Name = "InversaToolStripMenuItem"
-        Me.InversaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.InversaToolStripMenuItem.Text = "Inversa"
+        Me.BuscarServicioToolStripMenuItem.Name = "BuscarServicioToolStripMenuItem"
+        Me.BuscarServicioToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.BuscarServicioToolStripMenuItem.Text = "Buscar servicio"
         '
         'FormularioPrincipal
         '
@@ -343,9 +351,10 @@ Partial Class FormularioPrincipal
     Friend WithEvents DirecciónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LatitudLongitudToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ISPToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SadaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CodificaciónGeográficaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DirectaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents InversaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PlacesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents BuscarServicioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
