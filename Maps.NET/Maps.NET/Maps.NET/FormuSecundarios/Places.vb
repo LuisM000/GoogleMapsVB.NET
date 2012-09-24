@@ -1,6 +1,7 @@
 ﻿Public Class Places
+    Dim datosPlaces() As String
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click  'Buscar
         Dim objetoMaps As New MapsNet
         Dim aspectoFormu As New AspectoFormulario
         If aspectoFormu.verificarnumeros(txtlatitud.Text) And aspectoFormu.verificarnumeros(txtlongitud.Text) Then 'Verificamos que sean numeros
@@ -8,16 +9,66 @@
             txtlatitud.ForeColor = Color.Black 'Pintamos de negro el dato correcto
             Dim TiposSeleccionados = recuperarTypes() 'Conseguimos arraylist con los tipos de establecimientos
             TiposSeleccionados = aspectoFormu.DevuelveEstablecimientosIngles(TiposSeleccionados)
-            Dim datosPlaces = objetoMaps.PlacesLatLong(txtlatitud.Text, txtlongitud.Text, NumericUpDown1.Value, TiposSeleccionados, txtestablecimiento.Text, ) 'String con la direccion
+            datosPlaces = objetoMaps.PlacesLatLong(txtlatitud.Text, txtlongitud.Text, NumericUpDown1.Value, TiposSeleccionados, txtestablecimiento.Text, ) 'String con la direccion
             rellenarTXT(datosPlaces)
-
         Else
             If aspectoFormu.verificarnumeros(txtlatitud.Text) = False Then txtlatitud.ForeColor = Color.Red
             If aspectoFormu.verificarnumeros(txtlongitud.Text) = False Then txtlongitud.ForeColor = Color.Red
         End If
     End Sub
 
-  
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click 'Todos los resultados
+        Dim objetoMaps As New MapsNet
+        Dim aspectoFormu As New AspectoFormulario
+        If aspectoFormu.verificarnumeros(txtlatitud.Text) And aspectoFormu.verificarnumeros(txtlongitud.Text) Then 'Verificamos que sean numeros
+            txtlongitud.ForeColor = Color.Black 'Pintamos de negro el dato correcto
+            txtlatitud.ForeColor = Color.Black 'Pintamos de negro el dato correcto
+            Dim TiposSeleccionados = recuperarTypes() 'Conseguimos arraylist con los tipos de establecimientos
+            TiposSeleccionados = aspectoFormu.DevuelveEstablecimientosIngles(TiposSeleccionados)
+            datosPlaces = objetoMaps.PlacesLatLong(txtlatitud.Text, txtlongitud.Text, NumericUpDown1.Value, TiposSeleccionados, txtestablecimiento.Text, ) 'String con la direccion
+            rellenarTXT(datosPlaces)
+            Try
+                Dim frm As New TodosResultados(datosPlaces)
+                frm.Show()
+            Catch
+            End Try
+        Else
+            If aspectoFormu.verificarnumeros(txtlatitud.Text) = False Then txtlatitud.ForeColor = Color.Red
+            If aspectoFormu.verificarnumeros(txtlongitud.Text) = False Then txtlongitud.ForeColor = Color.Red
+        End If
+    End Sub
+    Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
+        Try
+            Dim frm As New DatosLocal(datosPlaces(0), datosPlaces(5))
+            frm.Show()
+        Catch
+        End Try
+    End Sub
+    Private Sub Label10_Click(sender As Object, e As EventArgs) Handles Label10.Click
+        Try
+            Dim frm As New DatosLocal(datosPlaces(6), datosPlaces(11))
+            frm.Show()
+        Catch
+        End Try
+    End Sub
+
+    Private Sub Label12_Click(sender As Object, e As EventArgs) Handles Label12.Click
+        Try
+            Dim frm As New DatosLocal(datosPlaces(18), datosPlaces(23))
+            frm.Show()
+        Catch
+        End Try
+    End Sub
+
+    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
+        Try
+            Dim frm As New DatosLocal(datosPlaces(12), datosPlaces(17))
+            frm.Show()
+        Catch
+        End Try
+    End Sub
+
+
 
     Function recuperarTypes()
         Dim datos As New ArrayList()
@@ -126,7 +177,7 @@
         For Each elemento In ListBox12.SelectedItems
             ListBox2.Items.Add(elemento)
         Next
-     
+
         ListBox1.ClearSelected()
         ListBox3.ClearSelected()
         ListBox4.ClearSelected()
@@ -162,4 +213,33 @@
         ListBox11.ClearSelected()
         ListBox12.ClearSelected()
     End Sub
+
+
+
+    'PINTAMOS LOS LABEL DE MÁS DETALLES
+    Private Sub Places_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        For Each c As Object In Me.Controls
+            If c.GetType Is GetType(Label) Then
+                If c.ToString.Contains("Más detalles") Then
+                    AddHandler DirectCast(c, Label).MouseEnter, AddressOf conFoco
+                    AddHandler DirectCast(c, Label).MouseLeave, AddressOf sinFoco
+                End If
+            End If
+        Next
+    End Sub
+
+    Private Sub conFoco(ByVal sender As Object, ByVal e As System.EventArgs)
+        DirectCast(sender, Label).ForeColor = Color.Blue
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+
+    Private Sub sinFoco(ByVal sender As Object, ByVal e As System.EventArgs)
+        DirectCast(sender, Label).ForeColor = Color.Black
+        Me.Cursor = Cursors.Default
+    End Sub
+
+
+    
+   
 End Class

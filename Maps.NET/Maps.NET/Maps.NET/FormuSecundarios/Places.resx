@@ -120,11 +120,16 @@
   <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="PictureBox1.ToolTip" xml:space="preserve">
+    <value>Google Places es un servicio que devuelve información sobre lugares definidos en el API como establecimientos, ubicaciones geográficas o lugares de interés.
+Recuerde, la precisión máxima reconocida son 6 decimales.
+(*) campos obligatorios</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pc4.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuND6NzHYAAANdSURBVGhD1ZrP
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuND6NzHYAAANdSURBVGhD1ZrP
         xxVRGMcvERH1J7Rrm1K0bfXSKlpFREREtIpEraJVRESbUquoP6FdpJQiIiJatXkjRUR9P2/3uZ45c+bO
         OWfOzLx9+XCdmec53/lxnjlz5i5G0AFxSJwV55bwmza2bTvtF1fEc/EnEfYlhthZtFNcFB9EzGAO5CDX
         LjGJzojPImYG3ohX4p64u4TftLEtFgPkJPdoOiJiBr4KDG6IVLEvMcSG+eiDvqrqlPgpfEecsZNiqMgR
@@ -145,7 +150,7 @@
   <data name="pc3.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuND6NzHYAAANdSURBVGhD1ZrP
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuND6NzHYAAANdSURBVGhD1ZrP
         xxVRGMcvERH1J7Rrm1K0bfXSKlpFREREtIpEraJVRESbUquoP6FdpJQiIiJatXkjRUR9P2/3uZ45c+bO
         OWfOzLx9+XCdmec53/lxnjlz5i5G0AFxSJwV55bwmza2bTvtF1fEc/EnEfYlhthZtFNcFB9EzGAO5CDX
         LjGJzojPImYG3ohX4p64u4TftLEtFgPkJPdoOiJiBr4KDG6IVLEvMcSG+eiDvqrqlPgpfEecsZNiqMgR
@@ -166,7 +171,7 @@
   <data name="pc2.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuND6NzHYAAANdSURBVGhD1ZrP
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuND6NzHYAAANdSURBVGhD1ZrP
         xxVRGMcvERH1J7Rrm1K0bfXSKlpFREREtIpEraJVRESbUquoP6FdpJQiIiJatXkjRUR9P2/3uZ45c+bO
         OWfOzLx9+XCdmec53/lxnjlz5i5G0AFxSJwV55bwmza2bTvtF1fEc/EnEfYlhthZtFNcFB9EzGAO5CDX
         LjGJzojPImYG3ohX4p64u4TftLEtFgPkJPdoOiJiBr4KDG6IVLEvMcSG+eiDvqrqlPgpfEecsZNiqMgR
@@ -187,7 +192,7 @@
   <data name="pc1.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuND6NzHYAAANdSURBVGhD1ZrP
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuND6NzHYAAANdSURBVGhD1ZrP
         xxVRGMcvERH1J7Rrm1K0bfXSKlpFREREtIpEraJVRESbUquoP6FdpJQiIiJatXkjRUR9P2/3uZ45c+bO
         OWfOzLx9+XCdmec53/lxnjlz5i5G0AFxSJwV55bwmza2bTvtF1fEc/EnEfYlhthZtFNcFB9EzGAO5CDX
         LjGJzojPImYG3ohX4p64u4TftLEtFgPkJPdoOiJiBr4KDG6IVLEvMcSG+eiDvqrqlPgpfEecsZNiqMgR
@@ -204,10 +209,5 @@
         H7jvLOE3bWxjn1gsOcf4+hkVfwu4JD6JmJkcyEGuyf5qEMr+7MEZjhmMwZWY9c8eXaJisADLPczfbM4v
         4TdtbKtSVf5psfgLEMFEjEmNyccAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="PictureBox1.ToolTip" xml:space="preserve">
-    <value>Google Places es un servicio que devuelve información sobre lugares definidos en el API como establecimientos, ubicaciones geográficas o lugares de interés.
-Recuerde, la precisión máxima reconocida son 6 decimales.
-(*) campos obligatorios</value>
   </data>
 </root>
