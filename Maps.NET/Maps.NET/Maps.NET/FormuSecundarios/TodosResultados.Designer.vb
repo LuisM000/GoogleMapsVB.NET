@@ -26,10 +26,12 @@ Partial Class TodosResultados
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'RichTextBox1
         '
+        Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.RichTextBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox1.Location = New System.Drawing.Point(0, 0)
@@ -67,12 +69,23 @@ Partial Class TodosResultados
         Me.Button2.Text = "Aceptar"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'Button3
+        '
+        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(414, 320)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(173, 25)
+        Me.Button3.TabIndex = 4
+        Me.Button3.Text = "Mostrar en mapa"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'TodosResultados
         '
         Me.AcceptButton = Me.Button2
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(709, 353)
+        Me.ClientSize = New System.Drawing.Size(709, 356)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.ComboBox1)
@@ -90,4 +103,5 @@ Partial Class TodosResultados
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Button3 As System.Windows.Forms.Button
 End Class

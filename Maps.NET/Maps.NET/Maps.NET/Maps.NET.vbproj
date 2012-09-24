@@ -120,6 +120,12 @@
     <Compile Include="FormuSecundarios\Places.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormuSecundarios\PlacesDir.Designer.vb">
+      <DependentUpon>PlacesDir.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormuSecundarios\PlacesDir.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormuSecundarios\TodosResultados.Designer.vb">
       <DependentUpon>TodosResultados.vb</DependentUpon>
     </Compile>
@@ -167,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\Places.resx">
       <DependentUpon>Places.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormuSecundarios\PlacesDir.resx">
+      <DependentUpon>PlacesDir.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\TodosResultados.resx">
       <DependentUpon>TodosResultados.vb</DependentUpon>

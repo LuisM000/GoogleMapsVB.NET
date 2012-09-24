@@ -17,6 +17,8 @@
             RichTextBox1.Text += "Latitud: " & todosDatos(i + 2) & vbCrLf
             RichTextBox1.Text += "Longitud: " & todosDatos(i + 3) & vbCrLf & vbCrLf
         Next
+        
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -27,12 +29,27 @@
         Catch
         End Try
     End Sub
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Try
+            Dim objetoMaps As New MapsNet
+            Dim aspectoFormu As New AspectoFormulario
+            Dim dir1 = todosDatos((ComboBox1.SelectedIndex * 6))
+            Dim dir2 = todosDatos((ComboBox1.SelectedIndex * 6) + 1)
+            Dim direccion As String = dir2
+            Dim encabezado As String = dir1
+            Dim direccionString = objetoMaps.ObtenerURLdesdeDireccion(direccion) 'String con la direccion
+            Dim direccionWeb As New Uri(direccionString) 'Pasamos el string a URI
+            aspectoFormu.NuevaFicha(encabezado) 'Abrimos una nueva pestaña
+            'Este código sirve para seleccionar el navegador de la pestaña activa
+            Dim navegador = aspectoFormu.NavegadorActual(FormularioPrincipal.TabControl1.SelectedIndex)
+            navegador.Url = direccionWeb
+        Catch
+        End Try
+    End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Close()
     End Sub
-Poner en negrita y mejorar cosas del richbox
-    Quitar datos de los recuadros lati y longt
-    comprobar que el tabindex de todosresultados y masInformacion es correcto
-    añadir la opción de poner la callle en vez de latu longi
+
+   
 End Class

@@ -38,6 +38,7 @@ Partial Class FormularioPrincipal
         Me.DirectaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InversaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PlacesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarServicioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1 = New System.Windows.Forms.ToolStripContainer()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -53,7 +54,6 @@ Partial Class FormularioPrincipal
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
-        Me.SToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
@@ -150,16 +150,22 @@ Partial Class FormularioPrincipal
         '
         'PlacesToolStripMenuItem
         '
-        Me.PlacesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BuscarServicioToolStripMenuItem, Me.SToolStripMenuItem})
+        Me.PlacesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SToolStripMenuItem, Me.BuscarServicioToolStripMenuItem})
         Me.PlacesToolStripMenuItem.Name = "PlacesToolStripMenuItem"
         Me.PlacesToolStripMenuItem.Size = New System.Drawing.Size(56, 21)
         Me.PlacesToolStripMenuItem.Text = "Places"
         '
+        'SToolStripMenuItem
+        '
+        Me.SToolStripMenuItem.Name = "SToolStripMenuItem"
+        Me.SToolStripMenuItem.Size = New System.Drawing.Size(263, 22)
+        Me.SToolStripMenuItem.Text = "Buscar servicio (dirección)"
+        '
         'BuscarServicioToolStripMenuItem
         '
         Me.BuscarServicioToolStripMenuItem.Name = "BuscarServicioToolStripMenuItem"
-        Me.BuscarServicioToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
-        Me.BuscarServicioToolStripMenuItem.Text = "Buscar servicio"
+        Me.BuscarServicioToolStripMenuItem.Size = New System.Drawing.Size(263, 22)
+        Me.BuscarServicioToolStripMenuItem.Text = "Buscar servicio (latitud/longitud)"
         '
         'ToolStripContainer1
         '
@@ -299,12 +305,6 @@ Partial Class FormularioPrincipal
         Me.ToolStripButton8.Name = "ToolStripButton8"
         Me.ToolStripButton8.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton8.Text = "ToolStripButton8"
-        '
-        'SToolStripMenuItem
-        '
-        Me.SToolStripMenuItem.Name = "SToolStripMenuItem"
-        Me.SToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
-        Me.SToolStripMenuItem.Text = "s"
         '
         'FormularioPrincipal
         '

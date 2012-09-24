@@ -48,7 +48,7 @@ Partial Class DatosLocal
         Me.Label4.Location = New System.Drawing.Point(36, 29)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(57, 17)
-        Me.Label4.TabIndex = 25
+        Me.Label4.TabIndex = 0
         Me.Label4.Text = "Nombre"
         '
         'txtnombre
@@ -58,7 +58,7 @@ Partial Class DatosLocal
         Me.txtnombre.Name = "txtnombre"
         Me.txtnombre.ReadOnly = True
         Me.txtnombre.Size = New System.Drawing.Size(238, 23)
-        Me.txtnombre.TabIndex = 24
+        Me.txtnombre.TabIndex = 1
         '
         'Label1
         '
@@ -77,7 +77,7 @@ Partial Class DatosLocal
         Me.txtdir1.Name = "txtdir1"
         Me.txtdir1.ReadOnly = True
         Me.txtdir1.Size = New System.Drawing.Size(238, 23)
-        Me.txtdir1.TabIndex = 26
+        Me.txtdir1.TabIndex = 2
         '
         'Label2
         '
@@ -96,7 +96,7 @@ Partial Class DatosLocal
         Me.txtphone.Name = "txtphone"
         Me.txtphone.ReadOnly = True
         Me.txtphone.Size = New System.Drawing.Size(238, 23)
-        Me.txtphone.TabIndex = 28
+        Me.txtphone.TabIndex = 3
         '
         'Label3
         '
@@ -115,7 +115,7 @@ Partial Class DatosLocal
         Me.txtrating.Name = "txtrating"
         Me.txtrating.ReadOnly = True
         Me.txtrating.Size = New System.Drawing.Size(238, 23)
-        Me.txtrating.TabIndex = 34
+        Me.txtrating.TabIndex = 7
         '
         'Label5
         '
@@ -134,7 +134,7 @@ Partial Class DatosLocal
         Me.txtgoogle.Name = "txtgoogle"
         Me.txtgoogle.ReadOnly = True
         Me.txtgoogle.Size = New System.Drawing.Size(238, 23)
-        Me.txtgoogle.TabIndex = 32
+        Me.txtgoogle.TabIndex = 5
         '
         'Label6
         '
@@ -153,7 +153,7 @@ Partial Class DatosLocal
         Me.txtdir2.Name = "txtdir2"
         Me.txtdir2.ReadOnly = True
         Me.txtdir2.Size = New System.Drawing.Size(238, 23)
-        Me.txtdir2.TabIndex = 30
+        Me.txtdir2.TabIndex = 4
         '
         'Label8
         '
@@ -172,7 +172,7 @@ Partial Class DatosLocal
         Me.txtweb.Name = "txtweb"
         Me.txtweb.ReadOnly = True
         Me.txtweb.Size = New System.Drawing.Size(238, 23)
-        Me.txtweb.TabIndex = 36
+        Me.txtweb.TabIndex = 8
         '
         'Button2
         '
@@ -180,7 +180,7 @@ Partial Class DatosLocal
         Me.Button2.Location = New System.Drawing.Point(160, 281)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(129, 31)
-        Me.Button2.TabIndex = 40
+        Me.Button2.TabIndex = 10
         Me.Button2.Text = "Aceptar"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -190,7 +190,7 @@ Partial Class DatosLocal
         Me.Button1.Location = New System.Drawing.Point(390, 168)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(42, 23)
-        Me.Button1.TabIndex = 41
+        Me.Button1.TabIndex = 6
         Me.Button1.Text = "Abrir"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -200,7 +200,7 @@ Partial Class DatosLocal
         Me.Button4.Location = New System.Drawing.Point(390, 239)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(42, 23)
-        Me.Button4.TabIndex = 43
+        Me.Button4.TabIndex = 9
         Me.Button4.Text = "Abrir"
         Me.Button4.UseVisualStyleBackColor = True
         '

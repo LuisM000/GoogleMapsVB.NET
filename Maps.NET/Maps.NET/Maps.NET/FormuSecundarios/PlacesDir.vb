@@ -1,12 +1,19 @@
-﻿Public Class Places
+﻿Public Class PlacesDir
+
     Dim datosPlaces() As String
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click  'Buscar
+       
         Dim objetoMaps As New MapsNet
         Dim aspectoFormu As New AspectoFormulario
+        Dim latLong = objetoMaps.CodificacionGeografica(txtdireccion.Text) 'Buscamos por codificacion geografica la lati/long
+        Try
+            txtlatitud.Text = latLong(0)
+            txtlongitud.Text = latLong(1)
+            txtdir2.Text = latLong(2)
+        Catch
+        End Try
         If aspectoFormu.verificarnumeros(txtlatitud.Text) And aspectoFormu.verificarnumeros(txtlongitud.Text) Then 'Verificamos que sean numeros
-            txtlongitud.ForeColor = Color.Black 'Pintamos de negro el dato correcto
-            txtlatitud.ForeColor = Color.Black 'Pintamos de negro el dato correcto
             Dim TiposSeleccionados = recuperarTypes() 'Conseguimos arraylist con los tipos de establecimientos
             TiposSeleccionados = aspectoFormu.DevuelveEstablecimientosIngles(TiposSeleccionados)
             datosPlaces = objetoMaps.PlacesLatLong(txtlatitud.Text, txtlongitud.Text, NumericUpDown1.Value, TiposSeleccionados, txtestablecimiento.Text, ) 'String con la direccion
@@ -15,15 +22,19 @@
             If aspectoFormu.verificarnumeros(txtlatitud.Text) = False Then txtlatitud.ForeColor = Color.Red
             If aspectoFormu.verificarnumeros(txtlongitud.Text) = False Then txtlongitud.ForeColor = Color.Red
         End If
-
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click 'Todos los resultados
         Dim objetoMaps As New MapsNet
         Dim aspectoFormu As New AspectoFormulario
+        Dim latLong = objetoMaps.CodificacionGeografica(txtdireccion.Text) 'Buscamos por codificacion geografica la lati/long
+        Try
+            txtlatitud.Text = latLong(0)
+            txtlongitud.Text = latLong(1)
+            txtdir2.Text = latLong(2)
+        Catch
+        End Try
         If aspectoFormu.verificarnumeros(txtlatitud.Text) And aspectoFormu.verificarnumeros(txtlongitud.Text) Then 'Verificamos que sean numeros
-            txtlongitud.ForeColor = Color.Black 'Pintamos de negro el dato correcto
-            txtlatitud.ForeColor = Color.Black 'Pintamos de negro el dato correcto
             Dim TiposSeleccionados = recuperarTypes() 'Conseguimos arraylist con los tipos de establecimientos
             TiposSeleccionados = aspectoFormu.DevuelveEstablecimientosIngles(TiposSeleccionados)
             datosPlaces = objetoMaps.PlacesLatLong(txtlatitud.Text, txtlongitud.Text, NumericUpDown1.Value, TiposSeleccionados, txtestablecimiento.Text, ) 'String con la direccion
@@ -120,63 +131,29 @@
     End Sub
 
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click  'Mostrar resultados
-        Try
-            'Seleccionamos el que mostrar
-            Dim direccion = "España"
-            Dim encabezado = "Place - "
-            If RadioButton1.Checked = True Then
-                direccion = datosPlaces(0) & "." & datosPlaces(1)
-                encabezado += datosPlaces(0)
-            End If
-            If RadioButton2.Checked = True Then
-                direccion = datosPlaces(6) & "." & datosPlaces(7)
-                encabezado += datosPlaces(6)
-            End If
-            If RadioButton3.Checked = True Then
-                direccion = datosPlaces(12) & "." & datosPlaces(13)
-                encabezado += datosPlaces(12)
-            End If
-            If RadioButton4.Checked = True Then
-                direccion = datosPlaces(18) & "." & datosPlaces(19)
-                encabezado += datosPlaces(18)
-            End If
-            Dim objetoMaps As New MapsNet
-            Dim aspectoFormu As New AspectoFormulario
 
-            Dim direccionString = objetoMaps.ObtenerURLdesdeDireccion(direccion) 'String con la direccion
-            Dim direccionWeb As New Uri(direccionString) 'Pasamos el string a URI
-            If CheckBox1.Checked = True Then 'Decidimos si lo abrimos en pestaña activa o nueva pestaña
-                aspectoFormu.NuevaFicha(encabezado) 'Abrimos una nueva pestaña
-            End If
-            'Este código sirve para seleccionar el navegador de la pestaña activa
-            Dim navegador = aspectoFormu.NavegadorActual(FormularioPrincipal.TabControl1.SelectedIndex)
-            navegador.Url = direccionWeb
-        Catch
-        End Try
+
+
+
+
+
+
+
+
+    Private Sub txtlatitud_GotFocus(sender As Object, e As EventArgs) Handles txtdireccion.GotFocus
+        txtdireccion.ForeColor = Color.Black 'Pintamos de negro para actualizar
     End Sub
 
-
-
-
-
-
-
-
-    Private Sub txtlatitud_GotFocus(sender As Object, e As EventArgs) Handles txtlatitud.GotFocus
+    Private Sub txtlongitud_GotFocus(sender As Object, e As EventArgs) Handles txtlatitud.GotFocus
         txtlatitud.ForeColor = Color.Black 'Pintamos de negro para actualizar
     End Sub
 
-    Private Sub txtlongitud_GotFocus(sender As Object, e As EventArgs) Handles txtlongitud.GotFocus
-        txtlongitud.ForeColor = Color.Black 'Pintamos de negro para actualizar
+    Private Sub txtlatitud_KeyDown(sender As Object, e As KeyEventArgs) Handles txtdireccion.KeyDown
+        txtdireccion.ForeColor = Color.Black 'Pintamos de negro para actualizar
     End Sub
 
-    Private Sub txtlatitud_KeyDown(sender As Object, e As KeyEventArgs) Handles txtlatitud.KeyDown
+    Private Sub txtlongitud_KeyDown(sender As Object, e As KeyEventArgs) Handles txtlatitud.KeyDown
         txtlatitud.ForeColor = Color.Black 'Pintamos de negro para actualizar
-    End Sub
-
-    Private Sub txtlongitud_KeyDown(sender As Object, e As KeyEventArgs) Handles txtlongitud.KeyDown
-        txtlongitud.ForeColor = Color.Black 'Pintamos de negro para actualizar
     End Sub
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click 'Añadimos los elemntos
         For Each elemento In ListBox1.SelectedItems
@@ -274,5 +251,41 @@
         Me.Cursor = Cursors.Default
     End Sub
 
-   
+
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Try
+            'Seleccionamos el que mostrar
+            Dim direccion = "España"
+            Dim encabezado = "Place - "
+            If RadioButton1.Checked = True Then
+                direccion = datosPlaces(0) & "." & datosPlaces(1)
+                encabezado += datosPlaces(0)
+            End If
+            If RadioButton2.Checked = True Then
+                direccion = datosPlaces(6) & "." & datosPlaces(7)
+                encabezado += datosPlaces(6)
+            End If
+            If RadioButton3.Checked = True Then
+                direccion = datosPlaces(12) & "." & datosPlaces(13)
+                encabezado += datosPlaces(12)
+            End If
+            If RadioButton4.Checked = True Then
+                direccion = datosPlaces(18) & "." & datosPlaces(19)
+                encabezado += datosPlaces(18)
+            End If
+            Dim objetoMaps As New MapsNet
+            Dim aspectoFormu As New AspectoFormulario
+
+            Dim direccionString = objetoMaps.ObtenerURLdesdeDireccion(direccion) 'String con la direccion
+            Dim direccionWeb As New Uri(direccionString) 'Pasamos el string a URI
+            If CheckBox1.Checked = True Then 'Decidimos si lo abrimos en pestaña activa o nueva pestaña
+                aspectoFormu.NuevaFicha(encabezado) 'Abrimos una nueva pestaña
+            End If
+            'Este código sirve para seleccionar el navegador de la pestaña activa
+            Dim navegador = aspectoFormu.NavegadorActual(FormularioPrincipal.TabControl1.SelectedIndex)
+            navegador.Url = direccionWeb
+        Catch
+        End Try
+    End Sub
 End Class
