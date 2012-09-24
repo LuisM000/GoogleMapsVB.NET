@@ -45,22 +45,22 @@
             txtplace1.Text = "Sin datos"
         End Try
         Try
-            txtplace2.Text = datos(5) & ". " & datos(6) & " (" & datos(7) & "," & datos(8) & ")"
-            pc2.Image = aspectoFor.CargarImagenURL(datos(9))
+            txtplace2.Text = datos(6) & ". " & datos(7) & " (" & datos(8) & "," & datos(9) & ")"
+            pc2.Image = aspectoFor.CargarImagenURL(datos(10))
         Catch
             txtplace2.Text = "Sin datos"
             pc2.Image = aspectoFor.CargarImagenURL("error")
         End Try
         Try
-            txtplace3.Text = datos(10) & ". " & datos(11) & " (" & datos(12) & "," & datos(13) & ")"
-            pc3.Image = aspectoFor.CargarImagenURL(datos(14))
+            txtplace3.Text = datos(12) & ". " & datos(13) & " (" & datos(14) & "," & datos(15) & ")"
+            pc3.Image = aspectoFor.CargarImagenURL(datos(16))
         Catch
             txtplace3.Text = "Sin datos"
             pc3.Image = aspectoFor.CargarImagenURL("error")
         End Try
         Try
-            txtplace4.Text = datos(15) & ". " & datos(16) & " (" & datos(17) & "," & datos(18) & ")"
-            pc4.Image = aspectoFor.CargarImagenURL(datos(19))
+            txtplace4.Text = datos(18) & ". " & datos(19) & " (" & datos(20) & "," & datos(21) & ")"
+            pc4.Image = aspectoFor.CargarImagenURL(datos(22))
         Catch
             txtplace4.Text = "Sin datos"
             pc4.Image = aspectoFor.CargarImagenURL("error")

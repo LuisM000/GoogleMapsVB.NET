@@ -37,4 +37,9 @@
     Private Sub BuscarServicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BuscarServicioToolStripMenuItem.Click
         Places.Show()
     End Sub
+
+    Private Sub SToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SToolStripMenuItem.Click
+        Dim ooo As New MapsNet
+        Dim ss = ooo.DetallesLugar("CoQBcgAAAHvx-EnMra1d_yD0McZkBthDMqMzqCGOobZxM3yVQTWb3wPH4eGr7xZ-JTNRR_42hKr_4A3AQvcYvmGF8sh8IwazUmFSme6jQhXkCYN003KMuc4qoqbOTPQCPSSoxhsdtGvomYWGf9VweEHAu7Q-DOJQ1euaJxLVR55z71eiaXwSEhCG-NiF3euGJqEA8Gdg2GDCGhQQiHmldh52_Ao183lQ9GtxbZ-_Iw")
+    End Sub
 End Class

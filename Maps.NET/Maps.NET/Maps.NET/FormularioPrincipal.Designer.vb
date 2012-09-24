@@ -37,6 +37,8 @@ Partial Class FormularioPrincipal
         Me.CodificaciónGeográficaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DirectaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InversaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PlacesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BuscarServicioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1 = New System.Windows.Forms.ToolStripContainer()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -51,8 +53,7 @@ Partial Class FormularioPrincipal
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
-        Me.PlacesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BuscarServicioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
@@ -138,14 +139,27 @@ Partial Class FormularioPrincipal
         'DirectaToolStripMenuItem
         '
         Me.DirectaToolStripMenuItem.Name = "DirectaToolStripMenuItem"
-        Me.DirectaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DirectaToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.DirectaToolStripMenuItem.Text = "Directa"
         '
         'InversaToolStripMenuItem
         '
         Me.InversaToolStripMenuItem.Name = "InversaToolStripMenuItem"
-        Me.InversaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.InversaToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.InversaToolStripMenuItem.Text = "Inversa"
+        '
+        'PlacesToolStripMenuItem
+        '
+        Me.PlacesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BuscarServicioToolStripMenuItem, Me.SToolStripMenuItem})
+        Me.PlacesToolStripMenuItem.Name = "PlacesToolStripMenuItem"
+        Me.PlacesToolStripMenuItem.Size = New System.Drawing.Size(56, 21)
+        Me.PlacesToolStripMenuItem.Text = "Places"
+        '
+        'BuscarServicioToolStripMenuItem
+        '
+        Me.BuscarServicioToolStripMenuItem.Name = "BuscarServicioToolStripMenuItem"
+        Me.BuscarServicioToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.BuscarServicioToolStripMenuItem.Text = "Buscar servicio"
         '
         'ToolStripContainer1
         '
@@ -286,18 +300,11 @@ Partial Class FormularioPrincipal
         Me.ToolStripButton8.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton8.Text = "ToolStripButton8"
         '
-        'PlacesToolStripMenuItem
+        'SToolStripMenuItem
         '
-        Me.PlacesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BuscarServicioToolStripMenuItem})
-        Me.PlacesToolStripMenuItem.Name = "PlacesToolStripMenuItem"
-        Me.PlacesToolStripMenuItem.Size = New System.Drawing.Size(56, 21)
-        Me.PlacesToolStripMenuItem.Text = "Places"
-        '
-        'BuscarServicioToolStripMenuItem
-        '
-        Me.BuscarServicioToolStripMenuItem.Name = "BuscarServicioToolStripMenuItem"
-        Me.BuscarServicioToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
-        Me.BuscarServicioToolStripMenuItem.Text = "Buscar servicio"
+        Me.SToolStripMenuItem.Name = "SToolStripMenuItem"
+        Me.SToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.SToolStripMenuItem.Text = "s"
         '
         'FormularioPrincipal
         '
@@ -356,5 +363,6 @@ Partial Class FormularioPrincipal
     Friend WithEvents InversaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PlacesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BuscarServicioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

@@ -205,7 +205,7 @@ Public Class MapsNet
             Dim docNav As New XPathDocument(responseStream)
             Dim nav = docNav.CreateNavigator
 
-            Dim ExNombre, EXdireccion, Exlati, Exlong, Exicon As String
+            Dim ExNombre, EXdireccion, Exlati, Exlong, Exicon, Exref As String
 
             'Creamos los paths
             ExNombre = "PlaceSearchResponse/result/name"
@@ -213,6 +213,8 @@ Public Class MapsNet
             Exlati = "PlaceSearchResponse/result/geometry/location/lat"
             Exlong = "PlaceSearchResponse/result/geometry/location/lng"
             Exicon = "PlaceSearchResponse/result/icon"
+            Exref = "PlaceSearchResponse/result/reference"
+
 
             'Recorremos el xml
             NodeIter = nav.Select(ExNombre)
@@ -239,8 +241,14 @@ Public Class MapsNet
             While (NodeIter.MoveNext())
                 datos.Add(NodeIter.Current.Value)
             End While
+
+            NodeIter = nav.Select(Exref)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+            End While
+
             ReDim auxiliar(datos.Count - 1)
-            Dim tamaño = CInt(datos.Count / 5)
+            Dim tamaño = CInt(datos.Count / 6)
             Dim contador As Integer = 0
             For i = 0 To tamaño - 1
                 auxiliar(contador) = datos(i)
@@ -248,20 +256,132 @@ Public Class MapsNet
                 auxiliar(contador + 2) = datos(i + tamaño + tamaño)
                 auxiliar(contador + 3) = datos(i + tamaño + tamaño + tamaño)
                 auxiliar(contador + 4) = datos(i + tamaño + tamaño + tamaño + tamaño)
-                contador += 5
+                auxiliar(contador + 5) = datos(i + tamaño + tamaño + tamaño + tamaño + tamaño)
+                contador += 6
             Next
             responseStream.Close()
         Catch
         End Try
-        If auxiliar.Count < 5 Then
-            ReDim auxiliar(4)
+        If auxiliar.Count < 6 Then
+            ReDim auxiliar(5)
             auxiliar(0) = "Sin datos"
             auxiliar(1) = "Sin datos"
             auxiliar(2) = "Sin datos"
             auxiliar(3) = "Sin datos"
             auxiliar(4) = "Sin datos"
+            auxiliar(5) = "Sin datos"
         End If
-
         Return auxiliar
+    End Function
+
+    Public Function DetallesLugar(ByRef ParametroDetalles As String) 'Enviamos los detalles del lugar
+        
+        'Creamos la url con los datso
+        Dim url = "https://maps.googleapis.com/maps/api/place/details/xml?reference=" & ParametroDetalles & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        Dim datos As New ArrayList()
+        
+
+        Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
+        req.Timeout = 3000
+        Try
+            'Preparamos el archivo xml
+            Dim res As System.Net.WebResponse = req.GetResponse()
+            Dim responseStream As Stream = res.GetResponseStream()
+            Dim NodeIter As XPathNodeIterator
+            Dim docNav As New XPathDocument(responseStream)
+            Dim nav = docNav.CreateNavigator
+
+            Dim ExNombre, EXdireccion, ExTelefono, ExAdress, ExURLGoogle, Exrating, EXicon, ExURL As String
+            Dim nombre, direccion, telefono, adress, urlgoogle, rating, icon, WEbsite As Boolean
+            nombre = False : direccion = False : telefono = False : adress = False : urlgoogle = False : rating = False : icon = False : WEbsite = False
+            'Creamos los paths
+            ExNombre = "PlaceDetailsResponse/result/name"
+            EXdireccion = "PlaceDetailsResponse/result/vicinity"
+            ExTelefono = "PlaceDetailsResponse/result/formatted_phone_number"
+            ExAdress = "PlaceDetailsResponse/result/formatted_address"
+            ExURLGoogle = "PlaceDetailsResponse/result/url"
+            Exrating = "PlaceDetailsResponse/result/rating"
+            EXicon = "PlaceDetailsResponse/result/icon"
+            ExURL = "PlaceDetailsResponse/result/website"
+
+
+
+            'Recorremos el xml
+            NodeIter = nav.Select(ExNombre)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+                nombre = True
+            End While
+            If nombre = False Then
+                datos.Add("Sin nombre")
+            End If
+
+            NodeIter = nav.Select(EXdireccion)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+                direccion = True
+            End While
+            If direccion = False Then
+                datos.Add("Sin dirección")
+            End If
+
+            NodeIter = nav.Select(ExTelefono)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+                telefono = True
+            End While
+            If telefono = False Then
+                datos.Add("Sin teléfono")
+            End If
+
+            NodeIter = nav.Select(ExAdress)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+                adress = True
+            End While
+            If adress = False Then
+                datos.Add("Sin dirección")
+            End If
+
+            NodeIter = nav.Select(ExURLGoogle)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+                urlgoogle = True
+            End While
+            If urlgoogle = False Then
+                datos.Add("Sin página google")
+            End If
+
+            NodeIter = nav.Select(Exrating)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+                rating = True
+            End While
+            If rating = False Then
+                datos.Add("Sin puntuaciones")
+            End If
+
+            NodeIter = nav.Select(EXicon)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+                icon = True
+            End While
+            If icon = False Then
+                datos.Add("Sin icono")
+            End If
+
+            NodeIter = nav.Select(ExURL)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+                WEbsite = True
+            End While
+            If WEbsite = False Then
+                datos.Add("Sin página web")
+            End If
+
+            responseStream.Close()
+        Catch
+        End Try
+        Return datos
     End Function
 End Class
