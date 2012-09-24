@@ -38,6 +38,7 @@ Partial Class ISP
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtlatitud = New System.Windows.Forms.TextBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -182,12 +183,24 @@ Partial Class ISP
         Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
         Me.ToolTip1.ToolTipTitle = "Ayuda"
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox1.Location = New System.Drawing.Point(26, 277)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(147, 19)
+        Me.CheckBox1.TabIndex = 26
+        Me.CheckBox1.Text = "Abrir en nueva pestaña"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'ISP
         '
         Me.AcceptButton = Me.Button1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(394, 313)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtlongitud)
         Me.Controls.Add(Me.Label6)
@@ -228,4 +241,5 @@ Partial Class ISP
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents txtlatitud As System.Windows.Forms.TextBox
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
 End Class

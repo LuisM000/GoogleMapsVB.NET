@@ -30,6 +30,7 @@ Partial Class Latitud
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtlongitud = New System.Windows.Forms.TextBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -46,7 +47,7 @@ Partial Class Latitud
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(449, 53)
+        Me.Button1.Location = New System.Drawing.Point(407, 113)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(129, 31)
         Me.Button1.TabIndex = 3
@@ -95,12 +96,24 @@ Partial Class Latitud
         Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
         Me.ToolTip1.ToolTipTitle = "Ayuda"
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox1.Location = New System.Drawing.Point(26, 125)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(147, 19)
+        Me.CheckBox1.TabIndex = 11
+        Me.CheckBox1.Text = "Abrir en nueva pestaña"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'Latitud
         '
         Me.AcceptButton = Me.Button1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(603, 130)
+        Me.ClientSize = New System.Drawing.Size(550, 156)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtlongitud)
         Me.Controls.Add(Me.PictureBox1)
@@ -124,4 +137,5 @@ Partial Class Latitud
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txtlongitud As System.Windows.Forms.TextBox
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
 End Class

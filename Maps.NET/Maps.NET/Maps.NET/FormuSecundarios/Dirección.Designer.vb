@@ -28,6 +28,7 @@ Partial Class Dirección
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -42,7 +43,7 @@ Partial Class Dirección
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(445, 29)
+        Me.Button1.Location = New System.Drawing.Point(443, 68)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(129, 31)
         Me.Button1.TabIndex = 1
@@ -76,12 +77,24 @@ Partial Class Dirección
         Me.ToolTip1.SetToolTip(Me.PictureBox1, "Es recomendable separar las unidades geográficas por comas." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Puerta del Sol, Madr" & _
         "id, España")
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox1.Location = New System.Drawing.Point(15, 80)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(147, 19)
+        Me.CheckBox1.TabIndex = 12
+        Me.CheckBox1.Text = "Abrir en nueva pestaña"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'Dirección
         '
         Me.AcceptButton = Me.Button1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(603, 90)
+        Me.ClientSize = New System.Drawing.Size(585, 111)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button1)
@@ -102,4 +115,5 @@ Partial Class Dirección
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
 End Class

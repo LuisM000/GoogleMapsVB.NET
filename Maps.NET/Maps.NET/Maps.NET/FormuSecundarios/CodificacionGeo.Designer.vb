@@ -36,6 +36,7 @@ Partial Class CodificacionGeo
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtdir = New System.Windows.Forms.TextBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -150,12 +151,24 @@ Partial Class CodificacionGeo
         Me.txtdir.Size = New System.Drawing.Size(238, 23)
         Me.txtdir.TabIndex = 18
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox1.Location = New System.Drawing.Point(23, 229)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(147, 19)
+        Me.CheckBox1.TabIndex = 19
+        Me.CheckBox1.Text = "Abrir en nueva pestaña"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'CodificacionGeo
         '
         Me.AcceptButton = Me.Button1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(603, 226)
+        Me.ClientSize = New System.Drawing.Size(603, 260)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.txtdir)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Button2)
@@ -190,4 +203,5 @@ Partial Class CodificacionGeo
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents txtdir As System.Windows.Forms.TextBox
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
 End Class

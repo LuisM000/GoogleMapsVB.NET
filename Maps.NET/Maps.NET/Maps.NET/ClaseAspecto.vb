@@ -39,6 +39,12 @@
         navegador = NavegadorActivo(0)
         Return navegador
     End Function
+    'Public Function Navegadorsiguente(ByVal pestañaActiva As Integer) 'Enviamos el WebBrowser de la pestaña activa
+    '    Dim NavegadorActivo = FormularioPrincipal.TabControl1.TabPages(pestañaActiva).Controls()
+    '    Dim navegador As WebBrowser
+    '    navegador = NavegadorActivo(0)
+    '    Return navegador
+    'End Function
     Public Function verificarnumeros(ByVal datos As String) 'Enviamos True si el dato es número
         Dim dato As Boolean = False
         If IsNumeric(datos) Then
