@@ -163,15 +163,15 @@ Public Class MapsNet
         Return direcc
     End Function
 
-    Public Function PlacesLatLong(ByRef latitud As Double, ByRef longitud As Double, Optional ByRef radio As Integer = 3000, Optional tipoLocal As String() = Nothing, Optional NombreEstablecimiento As String = "", Optional idioma As String = "es") 'busca un place desde lat/long
+    Public Function PlacesLatLong(ByRef latitud As Double, ByRef longitud As Double, Optional ByRef radio As Integer = 3000, Optional tipoLocal As ArrayList = Nothing, Optional NombreEstablecimiento As String = "", Optional idioma As String = "es") 'busca un place desde lat/long
         'Creamos las variables desde las opcionales
 
         'Variable local
         Dim local As String = "&types="
         Dim separador As String = "|"
         If tipoLocal IsNot Nothing Then
-            For i = 0 To UBound(tipoLocal)
-                local = local & tipoLocal(i) & separador
+            For Each item As Object In tipoLocal
+                local = local & item & separador
             Next
         Else
             local = ""
@@ -261,7 +261,7 @@ Public Class MapsNet
             auxiliar(3) = "Sin datos"
             auxiliar(4) = "Sin datos"
         End If
-        
+
         Return auxiliar
     End Function
 End Class

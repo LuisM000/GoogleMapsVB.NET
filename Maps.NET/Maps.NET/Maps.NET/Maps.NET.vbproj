@@ -150,6 +150,9 @@
     <EmbeddedResource Include="FormuSecundarios\Latitud.resx">
       <DependentUpon>Latitud.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormuSecundarios\Places.resx">
+      <DependentUpon>Places.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -171,6 +174,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

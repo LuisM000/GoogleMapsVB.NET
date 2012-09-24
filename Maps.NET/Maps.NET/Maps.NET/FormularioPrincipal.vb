@@ -35,11 +35,6 @@
     End Sub
 
     Private Sub BuscarServicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BuscarServicioToolStripMenuItem.Click
-        Dim maps As New MapsNet
-        Dim local(0) As String
-        local(0) = "food"
-
-
-        Dim ss = maps.PlacesLatLong(42.5463315, -6.5908331, 2000, local, , )
+        Places.Show()
     End Sub
 End Class
