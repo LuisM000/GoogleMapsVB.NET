@@ -89,6 +89,12 @@
     <Compile Include="FormuSecundarios\DatosLocal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormuSecundarios\DetallesLugarComida.Designer.vb">
+      <DependentUpon>DetallesLugarComida.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormuSecundarios\DetallesLugarComida.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormuSecundarios\Dirección.Designer.vb">
       <DependentUpon>Dirección.vb</DependentUpon>
     </Compile>
@@ -133,6 +139,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MapsNet.vb" />
+    <Compile Include="VariablesGlobales.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -158,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\DatosLocal.resx">
       <DependentUpon>DatosLocal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormuSecundarios\DetallesLugarComida.resx">
+      <DependentUpon>DetallesLugarComida.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\Dirección.resx">
       <DependentUpon>Dirección.vb</DependentUpon>
@@ -204,6 +214,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trofeo-de-bronce.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trofeo-de-oro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trofeo-de-plata.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medalla-de-bronce-blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medalla-de-oro-blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medalla-de-plata.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

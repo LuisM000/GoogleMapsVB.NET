@@ -72,11 +72,6 @@ Partial Class PlacesDir
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.txtdireccion = New System.Windows.Forms.TextBox()
-        Me.pc4 = New System.Windows.Forms.PictureBox()
-        Me.pc3 = New System.Windows.Forms.PictureBox()
-        Me.pc2 = New System.Windows.Forms.PictureBox()
-        Me.pc1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Label13 = New System.Windows.Forms.Label()
         Me.txtlongitud = New System.Windows.Forms.TextBox()
@@ -86,6 +81,11 @@ Partial Class PlacesDir
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.pc4 = New System.Windows.Forms.PictureBox()
+        Me.pc3 = New System.Windows.Forms.PictureBox()
+        Me.pc2 = New System.Windows.Forms.PictureBox()
+        Me.pc1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -301,7 +301,7 @@ Partial Class PlacesDir
         Me.ListBox4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListBox4.FormattingEnabled = True
         Me.ListBox4.ItemHeight = 17
-        Me.ListBox4.Items.AddRange(New Object() {"Acuario", "Camping", "Estadio", "Parque de atracciones", "RV Park", "Zoo"})
+        Me.ListBox4.Items.AddRange(New Object() {"Acuario", "Camping", "Estadio", "Parque", "Parque de atracciones", "RV Park", "Zoo"})
         Me.ListBox4.Location = New System.Drawing.Point(3, 3)
         Me.ListBox4.Name = "ListBox4"
         Me.ListBox4.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
@@ -325,7 +325,7 @@ Partial Class PlacesDir
         Me.ListBox5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListBox5.FormattingEnabled = True
         Me.ListBox5.ItemHeight = 17
-        Me.ListBox5.Items.AddRange(New Object() {"Bolera", "Casino", "Cine", "Galería de arte", "Museo", "Parque", "Spa"})
+        Me.ListBox5.Items.AddRange(New Object() {"Bolera", "Casino", "Cine", "Galería de arte", "Museo", "Spa"})
         Me.ListBox5.Location = New System.Drawing.Point(3, 3)
         Me.ListBox5.Name = "ListBox5"
         Me.ListBox5.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
@@ -638,61 +638,6 @@ Partial Class PlacesDir
         Me.txtdireccion.Size = New System.Drawing.Size(238, 23)
         Me.txtdireccion.TabIndex = 45
         '
-        'pc4
-        '
-        Me.pc4.ErrorImage = CType(resources.GetObject("pc4.ErrorImage"), System.Drawing.Image)
-        Me.pc4.InitialImage = Nothing
-        Me.pc4.Location = New System.Drawing.Point(98, 425)
-        Me.pc4.Name = "pc4"
-        Me.pc4.Size = New System.Drawing.Size(20, 20)
-        Me.pc4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pc4.TabIndex = 70
-        Me.pc4.TabStop = False
-        '
-        'pc3
-        '
-        Me.pc3.ErrorImage = CType(resources.GetObject("pc3.ErrorImage"), System.Drawing.Image)
-        Me.pc3.InitialImage = Nothing
-        Me.pc3.Location = New System.Drawing.Point(98, 379)
-        Me.pc3.Name = "pc3"
-        Me.pc3.Size = New System.Drawing.Size(20, 20)
-        Me.pc3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pc3.TabIndex = 67
-        Me.pc3.TabStop = False
-        '
-        'pc2
-        '
-        Me.pc2.ErrorImage = CType(resources.GetObject("pc2.ErrorImage"), System.Drawing.Image)
-        Me.pc2.InitialImage = Nothing
-        Me.pc2.Location = New System.Drawing.Point(98, 333)
-        Me.pc2.Name = "pc2"
-        Me.pc2.Size = New System.Drawing.Size(20, 20)
-        Me.pc2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pc2.TabIndex = 64
-        Me.pc2.TabStop = False
-        '
-        'pc1
-        '
-        Me.pc1.ErrorImage = CType(resources.GetObject("pc1.ErrorImage"), System.Drawing.Image)
-        Me.pc1.InitialImage = Nothing
-        Me.pc1.Location = New System.Drawing.Point(98, 287)
-        Me.pc1.Name = "pc1"
-        Me.pc1.Size = New System.Drawing.Size(20, 20)
-        Me.pc1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pc1.TabIndex = 61
-        Me.pc1.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox1.Location = New System.Drawing.Point(112, 55)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(20, 20)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 53
-        Me.PictureBox1.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.PictureBox1, resources.GetString("PictureBox1.ToolTip"))
-        '
         'ToolTip1
         '
         Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
@@ -781,6 +726,61 @@ Partial Class PlacesDir
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "Place 1"
         Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'pc4
+        '
+        Me.pc4.ErrorImage = CType(resources.GetObject("pc4.ErrorImage"), System.Drawing.Image)
+        Me.pc4.InitialImage = Nothing
+        Me.pc4.Location = New System.Drawing.Point(98, 425)
+        Me.pc4.Name = "pc4"
+        Me.pc4.Size = New System.Drawing.Size(20, 20)
+        Me.pc4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pc4.TabIndex = 70
+        Me.pc4.TabStop = False
+        '
+        'pc3
+        '
+        Me.pc3.ErrorImage = CType(resources.GetObject("pc3.ErrorImage"), System.Drawing.Image)
+        Me.pc3.InitialImage = Nothing
+        Me.pc3.Location = New System.Drawing.Point(98, 379)
+        Me.pc3.Name = "pc3"
+        Me.pc3.Size = New System.Drawing.Size(20, 20)
+        Me.pc3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pc3.TabIndex = 67
+        Me.pc3.TabStop = False
+        '
+        'pc2
+        '
+        Me.pc2.ErrorImage = CType(resources.GetObject("pc2.ErrorImage"), System.Drawing.Image)
+        Me.pc2.InitialImage = Nothing
+        Me.pc2.Location = New System.Drawing.Point(98, 333)
+        Me.pc2.Name = "pc2"
+        Me.pc2.Size = New System.Drawing.Size(20, 20)
+        Me.pc2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pc2.TabIndex = 64
+        Me.pc2.TabStop = False
+        '
+        'pc1
+        '
+        Me.pc1.ErrorImage = CType(resources.GetObject("pc1.ErrorImage"), System.Drawing.Image)
+        Me.pc1.InitialImage = Nothing
+        Me.pc1.Location = New System.Drawing.Point(98, 287)
+        Me.pc1.Name = "pc1"
+        Me.pc1.Size = New System.Drawing.Size(20, 20)
+        Me.pc1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pc1.TabIndex = 61
+        Me.pc1.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Maps.NET.My.Resources.Resources.help
+        Me.PictureBox1.Location = New System.Drawing.Point(112, 55)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(20, 20)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 53
+        Me.PictureBox1.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox1, resources.GetString("PictureBox1.ToolTip"))
         '
         'PlacesDir
         '

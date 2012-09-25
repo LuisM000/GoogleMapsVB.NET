@@ -37,8 +37,12 @@
     Private Sub BuscarServicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BuscarServicioToolStripMenuItem.Click
         Places.Show()
     End Sub
-
-    Private Sub SToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SToolStripMenuItem.Click
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
         PlacesDir.Show()
     End Sub
+    Private Sub BUSCARRESTURANMToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BUSCARRESTURANMToolStripMenuItem.Click
+        DetallesLugarComida.Show()
+    End Sub
+
+   
 End Class

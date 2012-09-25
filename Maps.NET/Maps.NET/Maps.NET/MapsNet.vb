@@ -384,4 +384,173 @@ Public Class MapsNet
         End Try
         Return datos
     End Function
+
+
+
+    Public Function DetallesRestaurante(ByRef ParametroDetalles As String) 'Enviamos los detalles del lugar
+
+        'Creamos la url con los datso
+        Dim url = "https://maps.googleapis.com/maps/api/place/details/xml?reference=" & ParametroDetalles & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8&language=es"
+        Dim datos As New ArrayList()
+
+
+
+        Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
+        req.Timeout = 3000
+        Try
+            'Preparamos el archivo xml
+            Dim res As System.Net.WebResponse = req.GetResponse()
+            Dim responseStream As Stream = res.GetResponseStream()
+            Dim NodeIter As XPathNodeIterator
+            Dim docNav As New XPathDocument(responseStream)
+            Dim nav = docNav.CreateNavigator
+
+            Dim ExNombre, EXdireccion, ExTelefono, ExAdress, ExURLGoogle, Exrating, EXicon, ExURL As String
+            Dim nombre, direccion, telefono, adress, urlgoogle, rating, icon, WEbsite As Boolean
+            nombre = False : direccion = False : telefono = False : adress = False : urlgoogle = False : rating = False : icon = False : WEbsite = False
+            'Creamos los paths
+            ExNombre = "PlaceDetailsResponse/result/name"
+            EXdireccion = "PlaceDetailsResponse/result/vicinity"
+            ExTelefono = "PlaceDetailsResponse/result/formatted_phone_number"
+            ExAdress = "PlaceDetailsResponse/result/formatted_address"
+            ExURLGoogle = "PlaceDetailsResponse/result/url"
+            Exrating = "PlaceDetailsResponse/result/rating"
+            EXicon = "PlaceDetailsResponse/result/icon"
+            ExURL = "PlaceDetailsResponse/result/website"
+
+
+
+            'Recorremos el xml
+            NodeIter = nav.Select(ExNombre)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+                nombre = True
+            End While
+            If nombre = False Then
+                datos.Add("Sin nombre")
+            End If
+
+            NodeIter = nav.Select(EXdireccion)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+                direccion = True
+            End While
+            If direccion = False Then
+                datos.Add("Sin dirección")
+            End If
+
+            NodeIter = nav.Select(ExTelefono)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+                telefono = True
+            End While
+            If telefono = False Then
+                datos.Add("Sin teléfono")
+            End If
+
+            NodeIter = nav.Select(ExAdress)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+                adress = True
+            End While
+            If adress = False Then
+                datos.Add("Sin dirección")
+            End If
+
+            NodeIter = nav.Select(ExURLGoogle)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+                urlgoogle = True
+            End While
+            If urlgoogle = False Then
+                datos.Add("Sin página google")
+            End If
+
+            NodeIter = nav.Select(Exrating)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+                rating = True
+            End While
+            If rating = False Then
+                datos.Add("Sin puntuaciones")
+            End If
+
+            NodeIter = nav.Select(EXicon)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+                icon = True
+            End While
+            If icon = False Then
+                datos.Add("Sin icono")
+            End If
+
+            NodeIter = nav.Select(ExURL)
+            While (NodeIter.MoveNext())
+                datos.Add(NodeIter.Current.Value)
+                WEbsite = True
+            End While
+            If WEbsite = False Then
+                datos.Add("Sin página web")
+            End If
+
+
+
+            'todas ellas están como variables globales :(
+            Dim EXtime, EXautor, Extexto, EXurlautor As String
+            'Borramos los datos anteriores
+            time.Clear()
+            autor.Clear()
+            URLautor.Clear()
+            textoReview.Clear()
+
+            'Creamos los paths
+            EXtime = "PlaceDetailsResponse/result/review/time"
+            EXautor = "PlaceDetailsResponse/result/review/author_name"
+            Extexto = "PlaceDetailsResponse/result/review/text"
+            EXurlautor = "PlaceDetailsResponse/result/review/author_url"
+
+            NodeIter = nav.Select(EXtime)
+            While (NodeIter.MoveNext())
+                time.Add(NodeIter.Current.Value)
+                icon = True
+            End While
+
+            NodeIter = nav.Select(EXautor)
+            While (NodeIter.MoveNext())
+                autor.Add(NodeIter.Current.Value)
+                icon = True
+            End While
+
+            NodeIter = nav.Select(Extexto)
+            While (NodeIter.MoveNext())
+                textoReview.Add(NodeIter.Current.Value)
+                icon = True
+            End While
+
+            NodeIter = nav.Select(EXurlautor)
+            While (NodeIter.MoveNext())
+                URLautor.Add(NodeIter.Current.Value)
+                icon = True
+            End While
+
+
+
+            responseStream.Close()
+        Catch
+        End Try
+        Return datos
+    End Function
+
+    Public Function UnixToTime(ByVal strUnixTime As String) As Date  'Tiempo Unix a fecha
+        UnixToTime = DateAdd(DateInterval.Second, Val(strUnixTime), #1/1/1970#)
+        If UnixToTime.IsDaylightSavingTime = True Then
+            UnixToTime = DateAdd(DateInterval.Hour, 1, UnixToTime)
+        End If
+    End Function
+    Function TimeToUnix(ByVal dteDate As Date) As String   'Fecha a tiempo Unix
+        If dteDate.IsDaylightSavingTime = True Then
+            dteDate = DateAdd(DateInterval.Hour, -1, dteDate)
+        End If
+        TimeToUnix = DateDiff(DateInterval.Second, #1/1/1970#, dteDate)
+    End Function
 End Class
