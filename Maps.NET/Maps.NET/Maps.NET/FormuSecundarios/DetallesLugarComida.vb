@@ -2,7 +2,14 @@
     Dim datos As New ArrayList
     Dim contador = 0
     Dim contadorUrl = 0
-    Dim referenreferenciaM = "CnRqAAAA88J3FlljOZTbaI2hIF1pu8LW5hGJINjW5x8zbCbNA1lW61cxJcdR9u0c_ismLPTVTlYXK7lhANpxrEa_tshoVAdUSJZ_eg9LHzuxjdTOeGtVAktLP5FAxq8OkAFyQisGlK2N0CKDJyYXVGbfVGELlBIQ3Li4vTx8DfNhGpxTPuBQHxoUH-_PEyTMClzgacA666Z4GXFPyTI"
+    Dim referenreferenciaM = "sin referencia"
+
+    Sub New(ByVal referencia As String)  'Recibimos variables en el constructor
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        referenreferenciaM = referencia
+    End Sub
 
     Private Sub DetallesLugarComida_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint 'Dibujamos línea
         Dim myPen As New System.Drawing.Pen(System.Drawing.Color.Black, 2)
@@ -78,10 +85,11 @@
     End Sub
     Sub actualizar()
         'Si eliminamos los timer, con poner esto en el button 1 es suficiente
+        Dim maps As New MapsNet
         contador += 1
         contadorUrl += 1
         Try
-            Label1.Text = time(contador)
+            Label1.Text = maps.UnixToTime(time(contador))
             Label2.Text = autor(contador)
             If autor(contador) = "Un usuario de Google" Then
                 Label3.Text = "Sin página Google"
@@ -100,21 +108,24 @@
     End Sub
 
     Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click 'Mas/menos detalles
-        If Label5.Text = "Más info [+]" Then
-            Label5.Text = "Menos info [+]"
-            'Rellenamos los cuadros de texto
-            txtnombre.Text = datos(0)
-            txtdir1.Text = datos(1)
-            txtphone.Text = datos(2)
-            txtdir2.Text = datos(3)
-            txtgoogle.Text = datos(4)
-            txtrating.Text = datos(5)
-            txtweb.Text = datos(7)
-            mostrarDetalles() 'Visualizamos el panel 2
-            Timer3.Enabled = True
-        Else
-            Timer4.Enabled = True
-        End If
+        Try
+            If Label5.Text = "Más info [+]" Then
+                Label5.Text = "Menos info [+]"
+                'Rellenamos los cuadros de texto
+                txtnombre.Text = datos(0)
+                txtdir1.Text = datos(1)
+                txtphone.Text = datos(2)
+                txtdir2.Text = datos(3)
+                txtgoogle.Text = datos(4)
+                txtrating.Text = datos(5)
+                txtweb.Text = datos(7)
+                mostrarDetalles() 'Visualizamos el panel 2
+                Timer3.Enabled = True
+            Else
+                Timer4.Enabled = True
+            End If
+        Catch
+        End Try
     End Sub
     Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick 'Movemos las info del local
         Panel2.Visible = False 'El panel con la info review lo ponemos en false
@@ -126,9 +137,10 @@
     End Sub
 
     Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick 'Sacamos la info del local
-        If Panel1.Location.X < 745 Then
-            Panel1.Location = New Size(Panel1.Location.X + 20, Panel1.Location.Y)
+        If Panel1.Location.X > -450 Then
+            Panel1.Location = New Size(Panel1.Location.X - 20, Panel1.Location.Y)
         Else
+            Panel1.Location = New Size(721, Panel1.Location.Y)
             menosDetalles() 'OCultamos panel info local
             Panel2.Visible = True 'Hacemos visible panel review
             Label5.Text = "Más info [+]"

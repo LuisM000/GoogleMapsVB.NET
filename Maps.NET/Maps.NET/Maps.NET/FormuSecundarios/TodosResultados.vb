@@ -24,7 +24,7 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim datos = ((ComboBox1.SelectedIndex + 1) * 5) + ComboBox1.SelectedIndex
         Try
-            Dim frm As New DatosLocal(ComboBox1.SelectedItem, todosDatos(datos))
+            Dim frm As New DetallesLugarComida(todosDatos(datos))
             frm.Show()
         Catch
         End Try

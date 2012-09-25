@@ -51,11 +51,9 @@ Partial Class FormularioPrincipal
         Me.DirectaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InversaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PlacesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BuscarServicioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BUSCToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BuscarServicioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.BUSCARRESTURANMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer1.SuspendLayout()
@@ -281,16 +279,10 @@ Partial Class FormularioPrincipal
         '
         'PlacesToolStripMenuItem
         '
-        Me.PlacesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.BuscarServicioToolStripMenuItem, Me.BUSCToolStripMenuItem})
+        Me.PlacesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.BuscarServicioToolStripMenuItem})
         Me.PlacesToolStripMenuItem.Name = "PlacesToolStripMenuItem"
         Me.PlacesToolStripMenuItem.Size = New System.Drawing.Size(56, 21)
         Me.PlacesToolStripMenuItem.Text = "Places"
-        '
-        'BuscarServicioToolStripMenuItem
-        '
-        Me.BuscarServicioToolStripMenuItem.Name = "BuscarServicioToolStripMenuItem"
-        Me.BuscarServicioToolStripMenuItem.Size = New System.Drawing.Size(263, 22)
-        Me.BuscarServicioToolStripMenuItem.Text = "Buscar servicio (latitud/longitud)"
         '
         'ToolStripMenuItem1
         '
@@ -298,27 +290,21 @@ Partial Class FormularioPrincipal
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(263, 22)
         Me.ToolStripMenuItem1.Text = "Buscar servicio (dirección)"
         '
-        'BUSCToolStripMenuItem
+        'BuscarServicioToolStripMenuItem
         '
-        Me.BUSCToolStripMenuItem.Name = "BUSCToolStripMenuItem"
-        Me.BUSCToolStripMenuItem.Size = New System.Drawing.Size(263, 22)
-        Me.BUSCToolStripMenuItem.Text = "bUSC"
+        Me.BuscarServicioToolStripMenuItem.Name = "BuscarServicioToolStripMenuItem"
+        Me.BuscarServicioToolStripMenuItem.Size = New System.Drawing.Size(263, 22)
+        Me.BuscarServicioToolStripMenuItem.Text = "Buscar servicio (latitud/longitud)"
         '
         'MenuStrip1
         '
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.CodificaciónGeográficaToolStripMenuItem, Me.PlacesToolStripMenuItem, Me.BUSCARRESTURANMToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.CodificaciónGeográficaToolStripMenuItem, Me.PlacesToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(866, 25)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
-        '
-        'BUSCARRESTURANMToolStripMenuItem
-        '
-        Me.BUSCARRESTURANMToolStripMenuItem.Name = "BUSCARRESTURANMToolStripMenuItem"
-        Me.BUSCARRESTURANMToolStripMenuItem.Size = New System.Drawing.Size(148, 21)
-        Me.BUSCARRESTURANMToolStripMenuItem.Text = "bUSCAR RESTURANM"
         '
         'FormularioPrincipal
         '
@@ -377,8 +363,6 @@ Partial Class FormularioPrincipal
     Friend WithEvents PlacesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BuscarServicioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents BUSCToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents BUSCARRESTURANMToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

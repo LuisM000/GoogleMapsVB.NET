@@ -3,7 +3,6 @@
     Dim datosPlaces() As String
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click  'Buscar
-       
         Dim objetoMaps As New MapsNet
         Dim aspectoFormu As New AspectoFormulario
         Dim latLong = objetoMaps.CodificacionGeografica(txtdireccion.Text) 'Buscamos por codificacion geografica la lati/long
@@ -16,6 +15,8 @@
         If aspectoFormu.verificarnumeros(txtlatitud.Text) And aspectoFormu.verificarnumeros(txtlongitud.Text) Then 'Verificamos que sean numeros
             Dim TiposSeleccionados = recuperarTypes() 'Conseguimos arraylist con los tipos de establecimientos
             TiposSeleccionados = aspectoFormu.DevuelveEstablecimientosIngles(TiposSeleccionados)
+            contadorNext = 0 'Para el contador al ver más resultados
+            Button6.Enabled = True : Button7.Enabled = True 'Habilitamos los botones siguiente y todos resultados
             datosPlaces = objetoMaps.PlacesLatLong(txtlatitud.Text, txtlongitud.Text, NumericUpDown1.Value, TiposSeleccionados, txtestablecimiento.Text, ) 'String con la direccion
             rellenarTXT(datosPlaces)
         Else
@@ -27,18 +28,7 @@
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click 'Todos los resultados
         Dim objetoMaps As New MapsNet
         Dim aspectoFormu As New AspectoFormulario
-        Dim latLong = objetoMaps.CodificacionGeografica(txtdireccion.Text) 'Buscamos por codificacion geografica la lati/long
-        Try
-            txtlatitud.Text = latLong(0)
-            txtlongitud.Text = latLong(1)
-            txtdir2.Text = latLong(2)
-        Catch
-        End Try
         If aspectoFormu.verificarnumeros(txtlatitud.Text) And aspectoFormu.verificarnumeros(txtlongitud.Text) Then 'Verificamos que sean numeros
-            Dim TiposSeleccionados = recuperarTypes() 'Conseguimos arraylist con los tipos de establecimientos
-            TiposSeleccionados = aspectoFormu.DevuelveEstablecimientosIngles(TiposSeleccionados)
-            datosPlaces = objetoMaps.PlacesLatLong(txtlatitud.Text, txtlongitud.Text, NumericUpDown1.Value, TiposSeleccionados, txtestablecimiento.Text, ) 'String con la direccion
-            rellenarTXT(datosPlaces)
             Try
                 Dim frm As New TodosResultados(datosPlaces)
                 frm.Show()
@@ -51,14 +41,14 @@
     End Sub
     Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
         Try
-            Dim frm As New DatosLocal(datosPlaces(0), datosPlaces(5))
+            Dim frm As New DetallesLugarComida(datosPlaces(5 + contadorNext))
             frm.Show()
         Catch
         End Try
     End Sub
     Private Sub Label10_Click(sender As Object, e As EventArgs) Handles Label10.Click
         Try
-            Dim frm As New DatosLocal(datosPlaces(6), datosPlaces(11))
+            Dim frm As New DetallesLugarComida(datosPlaces(11 + contadorNext))
             frm.Show()
         Catch
         End Try
@@ -66,7 +56,7 @@
 
     Private Sub Label12_Click(sender As Object, e As EventArgs) Handles Label12.Click
         Try
-            Dim frm As New DatosLocal(datosPlaces(18), datosPlaces(23))
+            Dim frm As New DetallesLugarComida(datosPlaces(23 + contadorNext))
             frm.Show()
         Catch
         End Try
@@ -74,7 +64,7 @@
 
     Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
         Try
-            Dim frm As New DatosLocal(datosPlaces(12), datosPlaces(17))
+            Dim frm As New DetallesLugarComida(datosPlaces(17 + contadorNext))
             frm.Show()
         Catch
         End Try
@@ -286,6 +276,51 @@
             Dim navegador = aspectoFormu.NavegadorActual(FormularioPrincipal.TabControl1.SelectedIndex)
             navegador.Url = direccionWeb
         Catch
+        End Try
+    End Sub
+
+    Private Sub Button7_Click_1(sender As Object, e As EventArgs) Handles Button7.Click 'Siguientes resultados
+        rellenarTXTNext(datosPlaces)
+    End Sub
+    Dim contadorNext As Integer = 0 'Variable para saber qué resultado mostrar
+    Sub rellenarTXTNext(datos() As String) 'Siguientes resultados
+        contadorNext += 24
+        If txtplace2.Text = "Sin datos" Then contadorNext = 0 'Si ya no hay más datos volvemos al principio
+        Dim aspectoFor As New AspectoFormulario
+        txtplace1.Text = "Sin datos"
+        txtplace2.Text = "Sin datos"
+        txtplace4.Text = "Sin datos"
+        pc1.Image = Nothing
+        pc2.Image = Nothing
+        pc3.Image = Nothing
+        pc4.Image = Nothing
+
+        Try
+            txtplace1.Text = datos(0 + contadorNext) & ". " & datos(1 + contadorNext) & " (" & datos(2 + contadorNext) & "," & datos(3 + contadorNext) & ")"
+            pc1.Image = aspectoFor.CargarImagenURL(datos(4 + contadorNext))
+        Catch
+            txtplace1.Text = "Sin datos"
+        End Try
+        Try
+            txtplace2.Text = datos(6 + contadorNext) & ". " & datos(7 + contadorNext) & " (" & datos(8 + contadorNext) & "," & datos(9 + contadorNext) & ")"
+            pc2.Image = aspectoFor.CargarImagenURL(datos(10 + contadorNext))
+        Catch
+            txtplace2.Text = "Sin datos"
+            pc2.Image = aspectoFor.CargarImagenURL("error")
+        End Try
+        Try
+            txtplace3.Text = datos(12 + contadorNext) & ". " & datos(13 + contadorNext) & " (" & datos(14 + contadorNext) & "," & datos(15 + contadorNext) & ")"
+            pc3.Image = aspectoFor.CargarImagenURL(datos(16 + contadorNext))
+        Catch
+            txtplace3.Text = "Sin datos"
+            pc3.Image = aspectoFor.CargarImagenURL("error")
+        End Try
+        Try
+            txtplace4.Text = datos(18 + contadorNext) & ". " & datos(19 + contadorNext) & " (" & datos(20 + contadorNext) & "," & datos(21 + contadorNext) & ")"
+            pc4.Image = aspectoFor.CargarImagenURL(datos(22 + contadorNext))
+        Catch
+            txtplace4.Text = "Sin datos"
+            pc4.Image = aspectoFor.CargarImagenURL("error")
         End Try
     End Sub
 End Class

@@ -82,6 +82,7 @@ Partial Class Places
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton4 = New System.Windows.Forms.RadioButton()
+        Me.Button7 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -145,7 +146,7 @@ Partial Class Places
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(796, 416)
+        Me.Button1.Location = New System.Drawing.Point(796, 419)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(129, 31)
         Me.Button1.TabIndex = 7
@@ -179,7 +180,7 @@ Partial Class Places
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(796, 273)
+        Me.Button2.Location = New System.Drawing.Point(796, 281)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(129, 31)
         Me.Button2.TabIndex = 5
@@ -641,8 +642,9 @@ Partial Class Places
         '
         'Button6
         '
+        Me.Button6.Enabled = False
         Me.Button6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(796, 327)
+        Me.Button6.Location = New System.Drawing.Point(796, 373)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(129, 31)
         Me.Button6.TabIndex = 6
@@ -739,12 +741,24 @@ Partial Class Places
         Me.RadioButton4.Text = "Place 4"
         Me.RadioButton4.UseVisualStyleBackColor = True
         '
+        'Button7
+        '
+        Me.Button7.Enabled = False
+        Me.Button7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.Location = New System.Drawing.Point(796, 327)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(129, 31)
+        Me.Button7.TabIndex = 50
+        Me.Button7.Text = "Más resultados"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
         'Places
         '
         Me.AcceptButton = Me.Button2
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(944, 490)
+        Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.RadioButton4)
         Me.Controls.Add(Me.RadioButton3)
         Me.Controls.Add(Me.RadioButton2)
@@ -862,4 +876,5 @@ Partial Class Places
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton4 As System.Windows.Forms.RadioButton
+    Friend WithEvents Button7 As System.Windows.Forms.Button
 End Class
