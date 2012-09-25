@@ -3,7 +3,17 @@
     Dim contador = 0
     Dim contadorUrl = 0
     Dim referenreferenciaM = "CnRqAAAA88J3FlljOZTbaI2hIF1pu8LW5hGJINjW5x8zbCbNA1lW61cxJcdR9u0c_ismLPTVTlYXK7lhANpxrEa_tshoVAdUSJZ_eg9LHzuxjdTOeGtVAktLP5FAxq8OkAFyQisGlK2N0CKDJyYXVGbfVGELlBIQ3Li4vTx8DfNhGpxTPuBQHxoUH-_PEyTMClzgacA666Z4GXFPyTI"
-    Private Sub DetallesLugarComida_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    Private Sub DetallesLugarComida_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint 'Dibujamos línea
+        Dim myPen As New System.Drawing.Pen(System.Drawing.Color.Black, 2)
+        Dim formGraphics As System.Drawing.Graphics
+        formGraphics = Me.CreateGraphics()
+        formGraphics.DrawLine(myPen, 10, 60, Me.Size.Width - 28, 60)
+        formGraphics.DrawLine(myPen, 10, 400, Me.Size.Width - 28, 400)
+        myPen.Dispose()
+        formGraphics.Dispose()
+    End Sub
+    Private Sub DetallesLugarComida_Load(sender As Object, e As EventArgs) Handles MyBase.Load 'Carga del formulario y rellenamos datos
         Dim maps As New MapsNet
         datos = maps.DetallesRestaurante(referenreferenciaM)
         Try
@@ -22,9 +32,10 @@
             contadorUrl = 0
         End Try
 
-        Dim puntuacion = datos(5)
+        'Poner las puntuaciones
         Dim puntuacionTip = "Sin puntuaciones"
         Try
+            Dim puntuacion = datos(5)
             If puntuacion >= 0 And puntuacion <= 2 Then
                 PictureBox1.Image = My.Resources.medalla_de_bronce_blue
                 puntuacionTip = "Puntuación: " & puntuacion & ". Mal valorado"
@@ -44,9 +55,26 @@
 
     End Sub
    
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click 'Siguente resultado
         'Activamos timer para realizar los desplazamientos
         Timer1.Enabled = True
+    End Sub
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick 'Movemos panel a la izquierda
+        If Panel2.Location.X > -700 Then
+            Panel2.Location = New Size(Panel2.Location.X - 20, Panel2.Location.Y)
+        Else
+            Panel2.Location = New Size(1000, Panel2.Location.Y)
+            Timer1.Enabled = False
+            Timer2.Enabled = True
+            actualizar()
+        End If
+    End Sub
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick 'Movemos panel desde la izquierda
+        If Panel2.Location.X > 20 Then
+            Panel2.Location = New Size(Panel2.Location.X - 20, Panel2.Location.Y)
+        Else
+            Timer2.Enabled = False
+        End If
     End Sub
     Sub actualizar()
         'Si eliminamos los timer, con poner esto en el button 1 es suficiente
@@ -71,64 +99,10 @@
         End Try
     End Sub
 
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        If Label4.Location.X > -500 Then
-            Label1.Location = New Size(Label1.Location.X - 15, Label1.Location.Y)
-            Label2.Location = New Size(Label2.Location.X - 15, Label2.Location.Y)
-            Label3.Location = New Size(Label3.Location.X - 15, Label3.Location.Y)
-            Label4.Location = New Size(Label4.Location.X - 15, Label4.Location.Y)
-            Label13.Location = New Size(Label13.Location.X - 15, Label13.Location.Y)
-            Label14.Location = New Size(Label14.Location.X - 15, Label14.Location.Y)
-            Label15.Location = New Size(Label15.Location.X - 15, Label15.Location.Y)
-            Label16.Location = New Size(Label16.Location.X - 15, Label16.Location.Y)
-        Else
-            Label1.Location = New Size(1000, Label1.Location.Y)
-            Label2.Location = New Size(1000, Label2.Location.Y)
-            Label3.Location = New Size(1000, Label3.Location.Y)
-            Label4.Location = New Size(1000, Label4.Location.Y)
-            Label13.Location = New Size(1000, Label13.Location.Y)
-            Label14.Location = New Size(1000, Label14.Location.Y)
-            Label15.Location = New Size(1000, Label15.Location.Y)
-            Label16.Location = New Size(1000, Label16.Location.Y)
-            Timer1.Enabled = False
-            Timer2.Enabled = True
-            actualizar()
-        End If
-    End Sub
-
-    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
-        If Label13.Location.X > 20 Then
-            If Label1.Location.X > 113 Then
-                Label1.Location = New Size(Label1.Location.X - 15, Label1.Location.Y)
-                Label2.Location = New Size(Label2.Location.X - 15, Label2.Location.Y)
-                Label3.Location = New Size(Label3.Location.X - 15, Label3.Location.Y)
-                Label4.Location = New Size(Label4.Location.X - 15, Label4.Location.Y)
-            End If
-            Label13.Location = New Size(Label13.Location.X - 15, Label13.Location.Y)
-            Label14.Location = New Size(Label14.Location.X - 15, Label14.Location.Y)
-            Label15.Location = New Size(Label15.Location.X - 15, Label15.Location.Y)
-            Label16.Location = New Size(Label16.Location.X - 15, Label16.Location.Y)
-        Else
-
-            Timer2.Enabled = False
-
-        End If
-    End Sub
-
-
-    Private Sub DetallesLugarComida_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint 'Dibujamos línea
-        Dim myPen As New System.Drawing.Pen(System.Drawing.Color.Black, 2)
-        Dim formGraphics As System.Drawing.Graphics
-        formGraphics = Me.CreateGraphics()
-        formGraphics.DrawLine(myPen, 10, 60, Me.Size.Width - 28, 60)
-        formGraphics.DrawLine(myPen, 10, 400, Me.Size.Width - 28, 400)
-        myPen.Dispose()
-        formGraphics.Dispose()
-    End Sub
-
-    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
+    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click 'Mas/menos detalles
         If Label5.Text = "Más info [+]" Then
             Label5.Text = "Menos info [+]"
+            'Rellenamos los cuadros de texto
             txtnombre.Text = datos(0)
             txtdir1.Text = datos(1)
             txtphone.Text = datos(2)
@@ -136,12 +110,32 @@
             txtgoogle.Text = datos(4)
             txtrating.Text = datos(5)
             txtweb.Text = datos(7)
-            mostrarDetalles()
+            mostrarDetalles() 'Visualizamos el panel 2
             Timer3.Enabled = True
         Else
             Timer4.Enabled = True
         End If
     End Sub
+    Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick 'Movemos las info del local
+        Panel2.Visible = False 'El panel con la info review lo ponemos en false
+        If Panel1.Location.X > 160 Then
+            Panel1.Location = New Size(Panel1.Location.X - 20, Panel1.Location.Y)
+        Else
+            Timer3.Enabled = False
+        End If
+    End Sub
+
+    Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick 'Sacamos la info del local
+        If Panel1.Location.X < 745 Then
+            Panel1.Location = New Size(Panel1.Location.X + 20, Panel1.Location.Y)
+        Else
+            menosDetalles() 'OCultamos panel info local
+            Panel2.Visible = True 'Hacemos visible panel review
+            Label5.Text = "Más info [+]"
+            Timer4.Enabled = False
+        End If
+    End Sub
+
     Private Sub Label5_MouseEnter(sender As Object, e As EventArgs) Handles Label5.MouseEnter
         Label5.ForeColor = Color.Blue
         Me.Cursor = Cursors.Hand
@@ -152,70 +146,20 @@
         Me.Cursor = Cursors.Default
     End Sub
 
-
     Sub mostrarDetalles()
-        Label1.Visible = False
-        Label2.Visible = False
-        Label3.Visible = False
-        Label4.Visible = False
-        Label13.Visible = False
-        Label14.Visible = False
-        Label15.Visible = False
-        Label16.Visible = False
-        Button1.Visible = False
-        txtnombre.Visible = True
-        txtdir1.Visible = True
-        txtphone.Visible = True
-        txtdir2.Visible = True
-        txtgoogle.Visible = True
-        txtrating.Visible = True
-        txtweb.Visible = True
-        Label6.Visible = True
-        Label7.Visible = True
-        Label8.Visible = True
-        Label9.Visible = True
-        Label10.Visible = True
-        Label11.Visible = True
-        Label12.Visible = True
-        Button2.Visible = True
-        Button4.Visible = True
-
+        Panel1.Visible = True
     End Sub
 
     Sub menosDetalles()
-        Label1.Visible = True
-        Label2.Visible = True
-        Label3.Visible = True
-        Label4.Visible = True
-        Label13.Visible = True
-        Label14.Visible = True
-        Label15.Visible = True
-        Label16.Visible = True
-        Button1.Visible = True
-        txtnombre.Visible = False
-        txtdir1.Visible = False
-        txtphone.Visible = False
-        txtdir2.Visible = False
-        txtgoogle.Visible = False
-        txtrating.Visible = False
-        txtweb.Visible = False
-        Label6.Visible = False
-        Label7.Visible = False
-        Label8.Visible = False
-        Label9.Visible = False
-        Label10.Visible = False
-        Label11.Visible = False
-        Label12.Visible = False
-        Button2.Visible = False
-        Button4.Visible = False
-
+        Panel1.Visible = False
     End Sub
 
+    '***********ABRIR PÁGINA DESDE INFO LOCAL********************
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Try
             Dim aspectoFormu As New AspectoFormulario
             Dim nombreFicha As String
-            nombreFicha = "Página google " & Me.Text
+            nombreFicha = "Página Google " & Me.Text
             aspectoFormu.NuevaFicha(nombreFicha) 'Abrimos una nueva pestaña
             'Este código sirve para seleccionar el navegador de la pestaña activa
             Dim navegador = aspectoFormu.NavegadorActual(FormularioPrincipal.TabControl1.SelectedIndex)
@@ -238,56 +182,29 @@
             End Try
         End If
     End Sub
+    '************************************************************************************************************¡
 
 
-    Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick 'Movemos las info del local
-        If Label6.Location.X > 170 Then
-            Label6.Location = New Size(Label6.Location.X - 10, Label6.Location.Y)
-            Label7.Location = New Size(Label7.Location.X - 10, Label7.Location.Y)
-            Label8.Location = New Size(Label8.Location.X - 10, Label8.Location.Y)
-            Label9.Location = New Size(Label9.Location.X - 10, Label9.Location.Y)
-            Label10.Location = New Size(Label10.Location.X - 10, Label10.Location.Y)
-            Label11.Location = New Size(Label11.Location.X - 10, Label11.Location.Y)
-            Label12.Location = New Size(Label12.Location.X - 10, Label12.Location.Y)
-            txtnombre.Location = New Size(txtnombre.Location.X - 10, txtnombre.Location.Y)
-            txtdir1.Location = New Size(txtdir1.Location.X - 10, txtdir1.Location.Y)
-            txtphone.Location = New Size(txtphone.Location.X - 10, txtphone.Location.Y)
-            txtdir2.Location = New Size(txtdir2.Location.X - 10, txtdir2.Location.Y)
-            txtgoogle.Location = New Size(txtgoogle.Location.X - 10, txtgoogle.Location.Y)
-            txtrating.Location = New Size(txtrating.Location.X - 10, txtrating.Location.Y)
-            txtweb.Location = New Size(txtweb.Location.X - 10, txtweb.Location.Y)
-            Button2.Location = New Size(Button2.Location.X - 10, Button2.Location.Y)
-            Button4.Location = New Size(Button4.Location.X - 10, Button4.Location.Y)
-        Else
-            Timer3.Enabled = False
-        End If
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+        Try
+            Dim aspectoFormu As New AspectoFormulario
+            Dim nombreFicha As String
+            nombreFicha = "Página Google de " & Label2.Text
+            aspectoFormu.NuevaFicha(nombreFicha) 'Abrimos una nueva pestaña
+            'Este código sirve para seleccionar el navegador de la pestaña activa
+            Dim navegador = aspectoFormu.NavegadorActual(FormularioPrincipal.TabControl1.SelectedIndex)
+            navegador.Url = New Uri(Label3.Text)
+        Catch
+        End Try
     End Sub
 
-    Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick 'Sacamos la info del local
-        If Label6.Location.X < 745 Then
-            Label6.Location = New Size(Label6.Location.X + 10, Label6.Location.Y)
-            Label7.Location = New Size(Label7.Location.X + 10, Label7.Location.Y)
-            Label8.Location = New Size(Label8.Location.X + 10, Label8.Location.Y)
-            Label9.Location = New Size(Label9.Location.X + 10, Label9.Location.Y)
-            Label10.Location = New Size(Label10.Location.X + 10, Label10.Location.Y)
-            Label11.Location = New Size(Label11.Location.X + 10, Label11.Location.Y)
-            Label12.Location = New Size(Label12.Location.X + 10, Label12.Location.Y)
-            txtnombre.Location = New Size(txtnombre.Location.X + 10, txtnombre.Location.Y)
-            txtdir1.Location = New Size(txtdir1.Location.X + 10, txtdir1.Location.Y)
-            txtphone.Location = New Size(txtphone.Location.X + 10, txtphone.Location.Y)
-            txtdir2.Location = New Size(txtdir2.Location.X + 10, txtdir2.Location.Y)
-            txtgoogle.Location = New Size(txtgoogle.Location.X + 10, txtgoogle.Location.Y)
-            txtrating.Location = New Size(txtrating.Location.X + 10, txtrating.Location.Y)
-            txtweb.Location = New Size(txtweb.Location.X + 10, txtweb.Location.Y)
-            Button2.Location = New Size(Button2.Location.X + 10, Button2.Location.Y)
-            Button4.Location = New Size(Button4.Location.X + 10, Button4.Location.Y)
-      
-        Else
-            menosDetalles()
-            Label5.Text = "Más info [+]"
-            Timer4.Enabled = False
-        End If
+    Private Sub Label3_MouseEnter(sender As Object, e As EventArgs) Handles Label3.MouseEnter
+        Me.Cursor = Cursors.Hand
+        Label3.ForeColor = Color.Blue
     End Sub
 
-
+    Private Sub Label3_MouseLeave(sender As Object, e As EventArgs) Handles Label3.MouseLeave
+        Me.Cursor = Cursors.Default
+        Label3.ForeColor = Color.Black
+    End Sub
 End Class
