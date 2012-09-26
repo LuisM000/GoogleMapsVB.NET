@@ -66,6 +66,7 @@
         'Activamos timer para realizar los desplazamientos
         Timer1.Enabled = True
     End Sub
+
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick 'Movemos panel a la izquierda
         If Panel2.Location.X > -700 Then
             Panel2.Location = New Size(Panel2.Location.X - 20, Panel2.Location.Y)
@@ -95,15 +96,21 @@
                 Label3.Text = "Sin página Google"
                 contadorUrl -= 1
             Else
-                Label3.Text = URLautor(contador)
+                Label3.Text = URLautor(contadorUrl)
             End If
 
             Label4.Text = textoReview(contador)
-
+            Try 'Comprobamos si el siguiente resultado da error
+                Dim aux = textoReview(contador + 1)
+            Catch ex As Exception 'Si da error, pasamos al primer resultado y repetimos
+                contador = -1 'Bajamos contador para que al entrar de nuevo sea 0 (se le suma 1 al inicio)
+                contadorUrl = -1
+                actualizar()
+            End Try
         Catch
-            contador = -1 'Bajamos contador para que al entrar de nuevo sea 0 (se le suma 1 al inicio)
-            contadorUrl = -1
-            'Button1_Click(sender, e) 'Ejecutamos de nuevo
+            'contador = -1 'Bajamos contador para que al entrar de nuevo sea 0 (se le suma 1 al inicio)
+            'contadorUrl = -1
+
         End Try
     End Sub
 

@@ -34,6 +34,7 @@ Partial Class PlacesDir
         Me.txtplace2 = New System.Windows.Forms.TextBox()
         Me.txtplace1 = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -58,6 +59,8 @@ Partial Class PlacesDir
         Me.ListBox11 = New System.Windows.Forms.ListBox()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
         Me.ListBox12 = New System.Windows.Forms.ListBox()
+        Me.TabPage12 = New System.Windows.Forms.TabPage()
+        Me.ListBox13 = New System.Windows.Forms.ListBox()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
@@ -100,6 +103,7 @@ Partial Class PlacesDir
         Me.TabPage9.SuspendLayout()
         Me.TabPage10.SuspendLayout()
         Me.TabPage11.SuspendLayout()
+        Me.TabPage12.SuspendLayout()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pc4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -112,7 +116,7 @@ Partial Class PlacesDir
         '
         Me.Button6.Enabled = False
         Me.Button6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(796, 373)
+        Me.Button6.Location = New System.Drawing.Point(803, 396)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(129, 31)
         Me.Button6.TabIndex = 50
@@ -123,7 +127,7 @@ Partial Class PlacesDir
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(645, 425)
+        Me.Label12.Location = New System.Drawing.Point(652, 448)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(82, 17)
         Me.Label12.TabIndex = 74
@@ -133,7 +137,7 @@ Partial Class PlacesDir
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(645, 379)
+        Me.Label11.Location = New System.Drawing.Point(652, 402)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(82, 17)
         Me.Label11.TabIndex = 73
@@ -143,7 +147,7 @@ Partial Class PlacesDir
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(645, 333)
+        Me.Label10.Location = New System.Drawing.Point(652, 356)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(82, 17)
         Me.Label10.TabIndex = 72
@@ -153,7 +157,7 @@ Partial Class PlacesDir
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(645, 287)
+        Me.Label9.Location = New System.Drawing.Point(652, 310)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(82, 17)
         Me.Label9.TabIndex = 71
@@ -162,7 +166,7 @@ Partial Class PlacesDir
         'txtplace4
         '
         Me.txtplace4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtplace4.Location = New System.Drawing.Point(123, 424)
+        Me.txtplace4.Location = New System.Drawing.Point(130, 447)
         Me.txtplace4.Name = "txtplace4"
         Me.txtplace4.ReadOnly = True
         Me.txtplace4.Size = New System.Drawing.Size(516, 23)
@@ -171,7 +175,7 @@ Partial Class PlacesDir
         'txtplace3
         '
         Me.txtplace3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtplace3.Location = New System.Drawing.Point(123, 378)
+        Me.txtplace3.Location = New System.Drawing.Point(130, 401)
         Me.txtplace3.Name = "txtplace3"
         Me.txtplace3.ReadOnly = True
         Me.txtplace3.Size = New System.Drawing.Size(516, 23)
@@ -180,7 +184,7 @@ Partial Class PlacesDir
         'txtplace2
         '
         Me.txtplace2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtplace2.Location = New System.Drawing.Point(123, 332)
+        Me.txtplace2.Location = New System.Drawing.Point(130, 355)
         Me.txtplace2.Name = "txtplace2"
         Me.txtplace2.ReadOnly = True
         Me.txtplace2.Size = New System.Drawing.Size(516, 23)
@@ -189,7 +193,7 @@ Partial Class PlacesDir
         'txtplace1
         '
         Me.txtplace1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtplace1.Location = New System.Drawing.Point(123, 286)
+        Me.txtplace1.Location = New System.Drawing.Point(130, 309)
         Me.txtplace1.Name = "txtplace1"
         Me.txtplace1.ReadOnly = True
         Me.txtplace1.Size = New System.Drawing.Size(516, 23)
@@ -197,22 +201,31 @@ Partial Class PlacesDir
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.TabControl1)
         Me.GroupBox1.Controls.Add(Me.ListBox2)
         Me.GroupBox1.Controls.Add(Me.Button4)
         Me.GroupBox1.Controls.Add(Me.Button5)
-        Me.GroupBox1.Location = New System.Drawing.Point(408, 46)
+        Me.GroupBox1.Location = New System.Drawing.Point(408, 24)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(517, 205)
+        Me.GroupBox1.Size = New System.Drawing.Size(524, 247)
         Me.GroupBox1.TabIndex = 58
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Tipo de establecimiento"
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(8, 33)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(153, 20)
+        Me.TextBox1.TabIndex = 84
+        Me.TextBox1.Text = "Buscador"
+        '
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(315, 154)
+        Me.Button3.Location = New System.Drawing.Point(313, 195)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(67, 44)
         Me.Button3.TabIndex = 30
@@ -232,10 +245,11 @@ Partial Class PlacesDir
         Me.TabControl1.Controls.Add(Me.TabPage9)
         Me.TabControl1.Controls.Add(Me.TabPage10)
         Me.TabControl1.Controls.Add(Me.TabPage11)
-        Me.TabControl1.Location = New System.Drawing.Point(8, 21)
+        Me.TabControl1.Controls.Add(Me.TabPage12)
+        Me.TabControl1.Location = New System.Drawing.Point(6, 68)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(301, 178)
+        Me.TabControl1.Size = New System.Drawing.Size(301, 173)
         Me.TabControl1.TabIndex = 29
         '
         'TabPage1
@@ -244,7 +258,7 @@ Partial Class PlacesDir
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(293, 152)
+        Me.TabPage1.Size = New System.Drawing.Size(293, 147)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Comunes"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -259,7 +273,7 @@ Partial Class PlacesDir
         Me.ListBox1.Location = New System.Drawing.Point(3, 3)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox1.Size = New System.Drawing.Size(287, 146)
+        Me.ListBox1.Size = New System.Drawing.Size(287, 141)
         Me.ListBox1.TabIndex = 24
         '
         'TabPage2
@@ -268,7 +282,7 @@ Partial Class PlacesDir
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(293, 152)
+        Me.TabPage2.Size = New System.Drawing.Size(293, 147)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Transporte"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -283,7 +297,7 @@ Partial Class PlacesDir
         Me.ListBox3.Location = New System.Drawing.Point(3, 3)
         Me.ListBox3.Name = "ListBox3"
         Me.ListBox3.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox3.Size = New System.Drawing.Size(287, 146)
+        Me.ListBox3.Size = New System.Drawing.Size(287, 141)
         Me.ListBox3.TabIndex = 30
         '
         'TabPage3
@@ -292,7 +306,7 @@ Partial Class PlacesDir
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(293, 152)
+        Me.TabPage3.Size = New System.Drawing.Size(293, 147)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Ocio aire libre"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -307,7 +321,7 @@ Partial Class PlacesDir
         Me.ListBox4.Location = New System.Drawing.Point(3, 3)
         Me.ListBox4.Name = "ListBox4"
         Me.ListBox4.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox4.Size = New System.Drawing.Size(287, 146)
+        Me.ListBox4.Size = New System.Drawing.Size(287, 141)
         Me.ListBox4.TabIndex = 31
         '
         'TabPage4
@@ -316,7 +330,7 @@ Partial Class PlacesDir
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(293, 152)
+        Me.TabPage4.Size = New System.Drawing.Size(293, 147)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Ocio interior"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -331,7 +345,7 @@ Partial Class PlacesDir
         Me.ListBox5.Location = New System.Drawing.Point(3, 3)
         Me.ListBox5.Name = "ListBox5"
         Me.ListBox5.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox5.Size = New System.Drawing.Size(287, 146)
+        Me.ListBox5.Size = New System.Drawing.Size(287, 141)
         Me.ListBox5.TabIndex = 32
         '
         'TabPage5
@@ -340,7 +354,7 @@ Partial Class PlacesDir
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(293, 152)
+        Me.TabPage5.Size = New System.Drawing.Size(293, 147)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Comida"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -355,7 +369,7 @@ Partial Class PlacesDir
         Me.ListBox6.Location = New System.Drawing.Point(3, 3)
         Me.ListBox6.Name = "ListBox6"
         Me.ListBox6.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox6.Size = New System.Drawing.Size(287, 146)
+        Me.ListBox6.Size = New System.Drawing.Size(287, 141)
         Me.ListBox6.TabIndex = 32
         '
         'TabPage6
@@ -364,7 +378,7 @@ Partial Class PlacesDir
         Me.TabPage6.Location = New System.Drawing.Point(4, 22)
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage6.Size = New System.Drawing.Size(293, 152)
+        Me.TabPage6.Size = New System.Drawing.Size(293, 147)
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Servicios financieros"
         Me.TabPage6.UseVisualStyleBackColor = True
@@ -379,7 +393,7 @@ Partial Class PlacesDir
         Me.ListBox7.Location = New System.Drawing.Point(3, 3)
         Me.ListBox7.Name = "ListBox7"
         Me.ListBox7.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox7.Size = New System.Drawing.Size(287, 146)
+        Me.ListBox7.Size = New System.Drawing.Size(287, 141)
         Me.ListBox7.TabIndex = 33
         '
         'TabPage7
@@ -388,7 +402,7 @@ Partial Class PlacesDir
         Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(293, 152)
+        Me.TabPage7.Size = New System.Drawing.Size(293, 147)
         Me.TabPage7.TabIndex = 6
         Me.TabPage7.Text = "Servicios básicos"
         Me.TabPage7.UseVisualStyleBackColor = True
@@ -403,7 +417,7 @@ Partial Class PlacesDir
         Me.ListBox8.Location = New System.Drawing.Point(3, 3)
         Me.ListBox8.Name = "ListBox8"
         Me.ListBox8.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox8.Size = New System.Drawing.Size(287, 146)
+        Me.ListBox8.Size = New System.Drawing.Size(287, 141)
         Me.ListBox8.TabIndex = 33
         '
         'TabPage8
@@ -412,7 +426,7 @@ Partial Class PlacesDir
         Me.TabPage8.Location = New System.Drawing.Point(4, 22)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(293, 152)
+        Me.TabPage8.Size = New System.Drawing.Size(293, 147)
         Me.TabPage8.TabIndex = 7
         Me.TabPage8.Text = "Bares"
         Me.TabPage8.UseVisualStyleBackColor = True
@@ -427,7 +441,7 @@ Partial Class PlacesDir
         Me.ListBox9.Location = New System.Drawing.Point(3, 3)
         Me.ListBox9.Name = "ListBox9"
         Me.ListBox9.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox9.Size = New System.Drawing.Size(287, 146)
+        Me.ListBox9.Size = New System.Drawing.Size(287, 141)
         Me.ListBox9.TabIndex = 33
         '
         'TabPage9
@@ -436,7 +450,7 @@ Partial Class PlacesDir
         Me.TabPage9.Location = New System.Drawing.Point(4, 22)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(293, 152)
+        Me.TabPage9.Size = New System.Drawing.Size(293, 147)
         Me.TabPage9.TabIndex = 8
         Me.TabPage9.Text = "Religión"
         Me.TabPage9.UseVisualStyleBackColor = True
@@ -451,7 +465,7 @@ Partial Class PlacesDir
         Me.ListBox10.Location = New System.Drawing.Point(3, 3)
         Me.ListBox10.Name = "ListBox10"
         Me.ListBox10.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox10.Size = New System.Drawing.Size(287, 146)
+        Me.ListBox10.Size = New System.Drawing.Size(287, 141)
         Me.ListBox10.TabIndex = 34
         '
         'TabPage10
@@ -460,7 +474,7 @@ Partial Class PlacesDir
         Me.TabPage10.Location = New System.Drawing.Point(4, 22)
         Me.TabPage10.Name = "TabPage10"
         Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage10.Size = New System.Drawing.Size(293, 152)
+        Me.TabPage10.Size = New System.Drawing.Size(293, 147)
         Me.TabPage10.TabIndex = 9
         Me.TabPage10.Text = "Públicos"
         Me.TabPage10.UseVisualStyleBackColor = True
@@ -475,7 +489,7 @@ Partial Class PlacesDir
         Me.ListBox11.Location = New System.Drawing.Point(3, 3)
         Me.ListBox11.Name = "ListBox11"
         Me.ListBox11.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox11.Size = New System.Drawing.Size(287, 146)
+        Me.ListBox11.Size = New System.Drawing.Size(287, 141)
         Me.ListBox11.TabIndex = 34
         '
         'TabPage11
@@ -484,7 +498,7 @@ Partial Class PlacesDir
         Me.TabPage11.Location = New System.Drawing.Point(4, 22)
         Me.TabPage11.Name = "TabPage11"
         Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(293, 152)
+        Me.TabPage11.Size = New System.Drawing.Size(293, 147)
         Me.TabPage11.TabIndex = 10
         Me.TabPage11.Text = "Establecimientos/Otros"
         Me.TabPage11.UseVisualStyleBackColor = True
@@ -499,24 +513,48 @@ Partial Class PlacesDir
         Me.ListBox12.Location = New System.Drawing.Point(3, 3)
         Me.ListBox12.Name = "ListBox12"
         Me.ListBox12.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox12.Size = New System.Drawing.Size(287, 146)
+        Me.ListBox12.Size = New System.Drawing.Size(287, 141)
         Me.ListBox12.TabIndex = 34
+        '
+        'TabPage12
+        '
+        Me.TabPage12.Controls.Add(Me.ListBox13)
+        Me.TabPage12.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage12.Name = "TabPage12"
+        Me.TabPage12.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage12.Size = New System.Drawing.Size(293, 147)
+        Me.TabPage12.TabIndex = 11
+        Me.TabPage12.Text = "Todos"
+        Me.TabPage12.UseVisualStyleBackColor = True
+        '
+        'ListBox13
+        '
+        Me.ListBox13.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListBox13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox13.FormattingEnabled = True
+        Me.ListBox13.ItemHeight = 17
+        Me.ListBox13.Items.AddRange(New Object() {"Aeropuerto", "Estación de bus", "Estación de metro", "Estación de tren", "Parada de taxis", "Acuario", "Camping", "Estadio", "Parque", "Parque de atracciones", "RV Park", "Zoo", "Bolera", "Casino", "Cine", "Galería de arte", "Museo", "Spa", "Comida", "Comida para llevar", "Entrega de comida", "Panadería", "Restaurante", "Supermercado", "Tienda de licor", "Banco", "Cajero automático", "Contabilidad", "Finanzas", "Escuela", "Farmacia", "Hospital", "Médico", "Salud", "Tienda de artículos básicos", "Bar", "Café", "Night Club", "Cementerio" & Global.Microsoft.VisualBasic.ChrW(9), "Iglesia", "Lugar de culto", "Mezquita", "Sinagoga", "Templo hindú", "Ayuntamiento", "Embajada", "Oficina de correos", "Oficina del gobierno local", "Palacio de Justicia", "Parque de bomberos", "Policía", "Universidad", "Abogado", "Agencia de seguros", "Agencia de viajes", "Alquiler de coches", "Alquiler de películas", "Agencia inmobiliaria", "Almacén", "Almacén", "Alojamiento", "Biblioteca", "Centro comercial", "Cerrajero", "Clínica veterinaria", "Concesionario", "Contratista de techos", "Contratista general", "Dentista", "Droguería", "Electricista", "Empresa de mudanzas", "Establecimiento", "Fisioterapeuta", "Florista", "Fontanero", "Funeraria" & Global.Microsoft.VisualBasic.ChrW(9), "Gasolinera", "Gimnasio", "Grandes almacenes", "Joyería", "Lavandería", "Lavado de coches", "Librería", "Parking", "Peluquería", "Pintor", "Reparación de automóviles", "Salón de belleza", "Tienda de bicicletas", "Tienda de conveniencia", "Tienda de electrónica", "Tienda de mascotas", "Tienda de muebles", "Tienda de ropa", "Zapatería"})
+        Me.ListBox13.Location = New System.Drawing.Point(3, 3)
+        Me.ListBox13.Name = "ListBox13"
+        Me.ListBox13.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
+        Me.ListBox13.Size = New System.Drawing.Size(287, 141)
+        Me.ListBox13.TabIndex = 35
         '
         'ListBox2
         '
         Me.ListBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListBox2.FormattingEnabled = True
         Me.ListBox2.ItemHeight = 17
-        Me.ListBox2.Location = New System.Drawing.Point(388, 41)
+        Me.ListBox2.Location = New System.Drawing.Point(386, 82)
         Me.ListBox2.Name = "ListBox2"
         Me.ListBox2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox2.Size = New System.Drawing.Size(120, 157)
+        Me.ListBox2.Size = New System.Drawing.Size(132, 157)
         Me.ListBox2.TabIndex = 27
         '
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(315, 99)
+        Me.Button4.Location = New System.Drawing.Point(313, 140)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(67, 44)
         Me.Button4.TabIndex = 26
@@ -526,7 +564,7 @@ Partial Class PlacesDir
         'Button5
         '
         Me.Button5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(315, 44)
+        Me.Button5.Location = New System.Drawing.Point(313, 85)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(67, 44)
         Me.Button5.TabIndex = 25
@@ -537,7 +575,7 @@ Partial Class PlacesDir
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(28, 112)
+        Me.Label4.Location = New System.Drawing.Point(24, 137)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(99, 17)
         Me.Label4.TabIndex = 57
@@ -546,7 +584,7 @@ Partial Class PlacesDir
         'txtestablecimiento
         '
         Me.txtestablecimiento.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtestablecimiento.Location = New System.Drawing.Point(138, 112)
+        Me.txtestablecimiento.Location = New System.Drawing.Point(144, 136)
         Me.txtestablecimiento.Name = "txtestablecimiento"
         Me.txtestablecimiento.Size = New System.Drawing.Size(238, 23)
         Me.txtestablecimiento.TabIndex = 48
@@ -554,7 +592,7 @@ Partial Class PlacesDir
         'NumericUpDown1
         '
         Me.NumericUpDown1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumericUpDown1.Location = New System.Drawing.Point(232, 83)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(238, 94)
         Me.NumericUpDown1.Maximum = New Decimal(New Integer() {200000, 0, 0, 0})
         Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
@@ -566,7 +604,7 @@ Partial Class PlacesDir
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(28, 83)
+        Me.Label3.Location = New System.Drawing.Point(24, 94)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(176, 17)
         Me.Label3.TabIndex = 56
@@ -575,7 +613,7 @@ Partial Class PlacesDir
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(796, 281)
+        Me.Button2.Location = New System.Drawing.Point(803, 304)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(129, 31)
         Me.Button2.TabIndex = 49
@@ -586,7 +624,7 @@ Partial Class PlacesDir
         '
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.Location = New System.Drawing.Point(778, 460)
+        Me.CheckBox1.Location = New System.Drawing.Point(785, 483)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(147, 19)
         Me.CheckBox1.TabIndex = 55
@@ -597,7 +635,7 @@ Partial Class PlacesDir
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(26, 158)
+        Me.Label2.Location = New System.Drawing.Point(24, 181)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(47, 17)
         Me.Label2.TabIndex = 54
@@ -606,7 +644,7 @@ Partial Class PlacesDir
         'txtlatitud
         '
         Me.txtlatitud.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlatitud.Location = New System.Drawing.Point(146, 157)
+        Me.txtlatitud.Location = New System.Drawing.Point(144, 180)
         Me.txtlatitud.Name = "txtlatitud"
         Me.txtlatitud.ReadOnly = True
         Me.txtlatitud.Size = New System.Drawing.Size(238, 23)
@@ -616,7 +654,7 @@ Partial Class PlacesDir
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(27, 55)
+        Me.Label1.Location = New System.Drawing.Point(24, 51)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(79, 17)
         Me.Label1.TabIndex = 52
@@ -625,7 +663,7 @@ Partial Class PlacesDir
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(796, 419)
+        Me.Button1.Location = New System.Drawing.Point(803, 442)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(129, 31)
         Me.Button1.TabIndex = 51
@@ -635,7 +673,7 @@ Partial Class PlacesDir
         'txtdireccion
         '
         Me.txtdireccion.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdireccion.Location = New System.Drawing.Point(138, 54)
+        Me.txtdireccion.Location = New System.Drawing.Point(144, 50)
         Me.txtdireccion.Name = "txtdireccion"
         Me.txtdireccion.Size = New System.Drawing.Size(238, 23)
         Me.txtdireccion.TabIndex = 45
@@ -648,7 +686,7 @@ Partial Class PlacesDir
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox1.Location = New System.Drawing.Point(112, 55)
+        Me.PictureBox1.Location = New System.Drawing.Point(109, 51)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(20, 20)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -660,7 +698,7 @@ Partial Class PlacesDir
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(26, 187)
+        Me.Label13.Location = New System.Drawing.Point(24, 210)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(59, 17)
         Me.Label13.TabIndex = 76
@@ -669,7 +707,7 @@ Partial Class PlacesDir
         'txtlongitud
         '
         Me.txtlongitud.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlongitud.Location = New System.Drawing.Point(146, 186)
+        Me.txtlongitud.Location = New System.Drawing.Point(144, 209)
         Me.txtlongitud.Name = "txtlongitud"
         Me.txtlongitud.ReadOnly = True
         Me.txtlongitud.Size = New System.Drawing.Size(238, 23)
@@ -679,7 +717,7 @@ Partial Class PlacesDir
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(26, 216)
+        Me.Label14.Location = New System.Drawing.Point(24, 239)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(117, 17)
         Me.Label14.TabIndex = 78
@@ -688,7 +726,7 @@ Partial Class PlacesDir
         'txtdir2
         '
         Me.txtdir2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdir2.Location = New System.Drawing.Point(146, 215)
+        Me.txtdir2.Location = New System.Drawing.Point(144, 238)
         Me.txtdir2.Name = "txtdir2"
         Me.txtdir2.ReadOnly = True
         Me.txtdir2.Size = New System.Drawing.Size(238, 23)
@@ -698,7 +736,7 @@ Partial Class PlacesDir
         '
         Me.RadioButton4.AutoSize = True
         Me.RadioButton4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton4.Location = New System.Drawing.Point(29, 423)
+        Me.RadioButton4.Location = New System.Drawing.Point(36, 446)
         Me.RadioButton4.Name = "RadioButton4"
         Me.RadioButton4.Size = New System.Drawing.Size(67, 21)
         Me.RadioButton4.TabIndex = 82
@@ -709,7 +747,7 @@ Partial Class PlacesDir
         '
         Me.RadioButton3.AutoSize = True
         Me.RadioButton3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton3.Location = New System.Drawing.Point(29, 377)
+        Me.RadioButton3.Location = New System.Drawing.Point(36, 400)
         Me.RadioButton3.Name = "RadioButton3"
         Me.RadioButton3.Size = New System.Drawing.Size(67, 21)
         Me.RadioButton3.TabIndex = 81
@@ -720,7 +758,7 @@ Partial Class PlacesDir
         '
         Me.RadioButton2.AutoSize = True
         Me.RadioButton2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton2.Location = New System.Drawing.Point(29, 331)
+        Me.RadioButton2.Location = New System.Drawing.Point(36, 354)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(67, 21)
         Me.RadioButton2.TabIndex = 80
@@ -732,7 +770,7 @@ Partial Class PlacesDir
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.Checked = True
         Me.RadioButton1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton1.Location = New System.Drawing.Point(29, 285)
+        Me.RadioButton1.Location = New System.Drawing.Point(36, 308)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(67, 21)
         Me.RadioButton1.TabIndex = 79
@@ -744,7 +782,7 @@ Partial Class PlacesDir
         '
         Me.pc4.ErrorImage = CType(resources.GetObject("pc4.ErrorImage"), System.Drawing.Image)
         Me.pc4.InitialImage = Nothing
-        Me.pc4.Location = New System.Drawing.Point(98, 425)
+        Me.pc4.Location = New System.Drawing.Point(105, 448)
         Me.pc4.Name = "pc4"
         Me.pc4.Size = New System.Drawing.Size(20, 20)
         Me.pc4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -755,7 +793,7 @@ Partial Class PlacesDir
         '
         Me.pc3.ErrorImage = CType(resources.GetObject("pc3.ErrorImage"), System.Drawing.Image)
         Me.pc3.InitialImage = Nothing
-        Me.pc3.Location = New System.Drawing.Point(98, 379)
+        Me.pc3.Location = New System.Drawing.Point(105, 402)
         Me.pc3.Name = "pc3"
         Me.pc3.Size = New System.Drawing.Size(20, 20)
         Me.pc3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -766,7 +804,7 @@ Partial Class PlacesDir
         '
         Me.pc2.ErrorImage = CType(resources.GetObject("pc2.ErrorImage"), System.Drawing.Image)
         Me.pc2.InitialImage = Nothing
-        Me.pc2.Location = New System.Drawing.Point(98, 333)
+        Me.pc2.Location = New System.Drawing.Point(105, 356)
         Me.pc2.Name = "pc2"
         Me.pc2.Size = New System.Drawing.Size(20, 20)
         Me.pc2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -777,7 +815,7 @@ Partial Class PlacesDir
         '
         Me.pc1.ErrorImage = CType(resources.GetObject("pc1.ErrorImage"), System.Drawing.Image)
         Me.pc1.InitialImage = Nothing
-        Me.pc1.Location = New System.Drawing.Point(98, 287)
+        Me.pc1.Location = New System.Drawing.Point(105, 310)
         Me.pc1.Name = "pc1"
         Me.pc1.Size = New System.Drawing.Size(20, 20)
         Me.pc1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -788,7 +826,7 @@ Partial Class PlacesDir
         '
         Me.Button7.Enabled = False
         Me.Button7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(796, 327)
+        Me.Button7.Location = New System.Drawing.Point(803, 350)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(129, 31)
         Me.Button7.TabIndex = 83
@@ -800,7 +838,7 @@ Partial Class PlacesDir
         Me.AcceptButton = Me.Button2
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(944, 490)
+        Me.ClientSize = New System.Drawing.Size(944, 512)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.RadioButton4)
         Me.Controls.Add(Me.RadioButton3)
@@ -843,6 +881,7 @@ Partial Class PlacesDir
         Me.Text = "Buscar places por dirección"
         Me.TopMost = True
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
@@ -855,6 +894,7 @@ Partial Class PlacesDir
         Me.TabPage9.ResumeLayout(False)
         Me.TabPage10.ResumeLayout(False)
         Me.TabPage11.ResumeLayout(False)
+        Me.TabPage12.ResumeLayout(False)
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pc4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -928,4 +968,7 @@ Partial Class PlacesDir
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
     Friend WithEvents Button7 As System.Windows.Forms.Button
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents TabPage12 As System.Windows.Forms.TabPage
+    Friend WithEvents ListBox13 As System.Windows.Forms.ListBox
 End Class

@@ -179,6 +179,10 @@
         For Each elemento In ListBox12.SelectedItems
             ListBox2.Items.Add(elemento)
         Next
+        For Each elemento In ListBox13.SelectedItems
+            ListBox2.Items.Add(elemento)
+        Next
+
 
         ListBox1.ClearSelected()
         ListBox3.ClearSelected()
@@ -191,6 +195,7 @@
         ListBox10.ClearSelected()
         ListBox11.ClearSelected()
         ListBox12.ClearSelected()
+        ListBox13.ClearSelected()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click 'Quitamos elementos
@@ -214,6 +219,7 @@
         ListBox10.ClearSelected()
         ListBox11.ClearSelected()
         ListBox12.ClearSelected()
+        ListBox13.ClearSelected()
     End Sub
 
 
@@ -322,5 +328,45 @@
             txtplace4.Text = "Sin datos"
             pc4.Image = aspectoFor.CargarImagenURL("error")
         End Try
+    End Sub
+
+    Private Sub TextBox1_GotFocus(sender As Object, e As EventArgs) Handles TextBox1.GotFocus 'Borramos contenido al poner el foco
+        If TextBox1.Text = "Buscador" Then
+            TextBox1.Text = "" 'Borramos contenido
+        End If
+        ListBox13.ClearSelected() 'Realizamos esto porque si no se activa el primero resultado del listbox
+        Me.AcceptButton = Button5 'el botón asociado a intro es el de pasar al listbox 2
+    End Sub
+
+    Private Sub TextBox1_LostFocus(sender As Object, e As EventArgs) Handles TextBox1.LostFocus
+        Me.AcceptButton = Button2 'el botón asociado a intro es el de buscar
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged 'Buscamos en el listoBox de todos
+        Dim returnValue As Boolean
+        Dim comparisonType As StringComparison
+        For i = ListBox13.Items.Count - 1 To 0 Step -1
+            returnValue = LCase(ListBox13.Items(i)).StartsWith(LCase(TextBox1.Text), comparisonType)
+            If returnValue = True Then
+                eliminarElementos() 'Borramos las selecciones anteriores
+                TabControl1.SelectedTab = TabControl1.TabPages(11) 'Cambiamos a la pestaña de todos
+                TextBox1.Focus() 'Establecemos el foco en el texbox
+                ListBox13.SetSelected(i, True)
+            End If
+        Next
+    End Sub
+    Sub eliminarElementos()
+        ListBox1.ClearSelected()
+        ListBox3.ClearSelected()
+        ListBox4.ClearSelected()
+        ListBox5.ClearSelected()
+        ListBox6.ClearSelected()
+        ListBox7.ClearSelected()
+        ListBox8.ClearSelected()
+        ListBox9.ClearSelected()
+        ListBox10.ClearSelected()
+        ListBox11.ClearSelected()
+        ListBox12.ClearSelected()
+        ListBox13.ClearSelected()
     End Sub
 End Class
