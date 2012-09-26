@@ -41,26 +41,6 @@ Partial Class Places
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.txtplace1 = New System.Windows.Forms.TextBox()
-        Me.txtplace2 = New System.Windows.Forms.TextBox()
-        Me.txtplace3 = New System.Windows.Forms.TextBox()
-        Me.txtplace4 = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.pc4 = New System.Windows.Forms.PictureBox()
-        Me.pc3 = New System.Windows.Forms.PictureBox()
-        Me.pc2 = New System.Windows.Forms.PictureBox()
-        Me.pc1 = New System.Windows.Forms.PictureBox()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
-        Me.Button7 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
@@ -86,13 +66,30 @@ Partial Class Places
         Me.ListBox12 = New System.Windows.Forms.ListBox()
         Me.TabPage12 = New System.Windows.Forms.TabPage()
         Me.ListBox13 = New System.Windows.Forms.ListBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.txtplace1 = New System.Windows.Forms.TextBox()
+        Me.txtplace2 = New System.Windows.Forms.TextBox()
+        Me.txtplace3 = New System.Windows.Forms.TextBox()
+        Me.txtplace4 = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.pc4 = New System.Windows.Forms.PictureBox()
+        Me.pc3 = New System.Windows.Forms.PictureBox()
+        Me.pc2 = New System.Windows.Forms.PictureBox()
+        Me.pc1 = New System.Windows.Forms.PictureBox()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.pc4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pc3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pc2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pc1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -106,6 +103,10 @@ Partial Class Places
         Me.TabPage10.SuspendLayout()
         Me.TabPage11.SuspendLayout()
         Me.TabPage12.SuspendLayout()
+        CType(Me.pc4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pc3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pc2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pc1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CheckBox1
@@ -279,216 +280,6 @@ Partial Class Places
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Tipo de establecimiento"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(6, 31)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(153, 20)
-        Me.TextBox1.TabIndex = 1
-        Me.TextBox1.Text = "Buscador"
-        '
-        'Button3
-        '
-        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(313, 193)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(67, 44)
-        Me.Button3.TabIndex = 30
-        Me.Button3.TabStop = False
-        Me.Button3.Text = "Borrar selección"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'txtplace1
-        '
-        Me.txtplace1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtplace1.Location = New System.Drawing.Point(130, 307)
-        Me.txtplace1.Name = "txtplace1"
-        Me.txtplace1.ReadOnly = True
-        Me.txtplace1.Size = New System.Drawing.Size(516, 23)
-        Me.txtplace1.TabIndex = 29
-        Me.txtplace1.TabStop = False
-        '
-        'txtplace2
-        '
-        Me.txtplace2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtplace2.Location = New System.Drawing.Point(130, 353)
-        Me.txtplace2.Name = "txtplace2"
-        Me.txtplace2.ReadOnly = True
-        Me.txtplace2.Size = New System.Drawing.Size(516, 23)
-        Me.txtplace2.TabIndex = 32
-        Me.txtplace2.TabStop = False
-        '
-        'txtplace3
-        '
-        Me.txtplace3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtplace3.Location = New System.Drawing.Point(130, 399)
-        Me.txtplace3.Name = "txtplace3"
-        Me.txtplace3.ReadOnly = True
-        Me.txtplace3.Size = New System.Drawing.Size(516, 23)
-        Me.txtplace3.TabIndex = 35
-        Me.txtplace3.TabStop = False
-        '
-        'txtplace4
-        '
-        Me.txtplace4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtplace4.Location = New System.Drawing.Point(130, 445)
-        Me.txtplace4.Name = "txtplace4"
-        Me.txtplace4.ReadOnly = True
-        Me.txtplace4.Size = New System.Drawing.Size(516, 23)
-        Me.txtplace4.TabIndex = 38
-        Me.txtplace4.TabStop = False
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(652, 308)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(82, 17)
-        Me.Label9.TabIndex = 41
-        Me.Label9.Text = "Más detalles"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(652, 354)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(82, 17)
-        Me.Label10.TabIndex = 42
-        Me.Label10.Text = "Más detalles"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(652, 400)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(82, 17)
-        Me.Label11.TabIndex = 43
-        Me.Label11.Text = "Más detalles"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(652, 446)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(82, 17)
-        Me.Label12.TabIndex = 44
-        Me.Label12.Text = "Más detalles"
-        '
-        'Button6
-        '
-        Me.Button6.Enabled = False
-        Me.Button6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(803, 394)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(129, 31)
-        Me.Button6.TabIndex = 7
-        Me.Button6.Text = "Todos los resultados"
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'pc4
-        '
-        Me.pc4.ErrorImage = CType(resources.GetObject("pc4.ErrorImage"), System.Drawing.Image)
-        Me.pc4.InitialImage = Nothing
-        Me.pc4.Location = New System.Drawing.Point(107, 446)
-        Me.pc4.Name = "pc4"
-        Me.pc4.Size = New System.Drawing.Size(20, 20)
-        Me.pc4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pc4.TabIndex = 40
-        Me.pc4.TabStop = False
-        '
-        'pc3
-        '
-        Me.pc3.ErrorImage = CType(resources.GetObject("pc3.ErrorImage"), System.Drawing.Image)
-        Me.pc3.InitialImage = Nothing
-        Me.pc3.Location = New System.Drawing.Point(107, 400)
-        Me.pc3.Name = "pc3"
-        Me.pc3.Size = New System.Drawing.Size(20, 20)
-        Me.pc3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pc3.TabIndex = 37
-        Me.pc3.TabStop = False
-        '
-        'pc2
-        '
-        Me.pc2.ErrorImage = CType(resources.GetObject("pc2.ErrorImage"), System.Drawing.Image)
-        Me.pc2.InitialImage = Nothing
-        Me.pc2.Location = New System.Drawing.Point(107, 354)
-        Me.pc2.Name = "pc2"
-        Me.pc2.Size = New System.Drawing.Size(20, 20)
-        Me.pc2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pc2.TabIndex = 34
-        Me.pc2.TabStop = False
-        '
-        'pc1
-        '
-        Me.pc1.ErrorImage = CType(resources.GetObject("pc1.ErrorImage"), System.Drawing.Image)
-        Me.pc1.InitialImage = Nothing
-        Me.pc1.Location = New System.Drawing.Point(107, 308)
-        Me.pc1.Name = "pc1"
-        Me.pc1.Size = New System.Drawing.Size(20, 20)
-        Me.pc1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pc1.TabIndex = 31
-        Me.pc1.TabStop = False
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Checked = True
-        Me.RadioButton1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton1.Location = New System.Drawing.Point(37, 306)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(67, 21)
-        Me.RadioButton1.TabIndex = 45
-        Me.RadioButton1.Text = "Place 1"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton2.Location = New System.Drawing.Point(37, 352)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(67, 21)
-        Me.RadioButton2.TabIndex = 46
-        Me.RadioButton2.Text = "Place 2"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'RadioButton3
-        '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton3.Location = New System.Drawing.Point(37, 398)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(67, 21)
-        Me.RadioButton3.TabIndex = 47
-        Me.RadioButton3.Text = "Place 3"
-        Me.RadioButton3.UseVisualStyleBackColor = True
-        '
-        'RadioButton4
-        '
-        Me.RadioButton4.AutoSize = True
-        Me.RadioButton4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton4.Location = New System.Drawing.Point(37, 444)
-        Me.RadioButton4.Name = "RadioButton4"
-        Me.RadioButton4.Size = New System.Drawing.Size(67, 21)
-        Me.RadioButton4.TabIndex = 48
-        Me.RadioButton4.Text = "Place 4"
-        Me.RadioButton4.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.Enabled = False
-        Me.Button7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(803, 348)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(129, 31)
-        Me.Button7.TabIndex = 6
-        Me.Button7.Text = "Más resultados"
-        Me.Button7.UseVisualStyleBackColor = True
         '
         'TabControl1
         '
@@ -810,12 +601,235 @@ Partial Class Places
         Me.ListBox13.TabIndex = 35
         Me.ListBox13.TabStop = False
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(6, 31)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(153, 20)
+        Me.TextBox1.TabIndex = 1
+        Me.TextBox1.Text = "Buscador"
+        '
+        'Button3
+        '
+        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(313, 193)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(67, 44)
+        Me.Button3.TabIndex = 30
+        Me.Button3.TabStop = False
+        Me.Button3.Text = "Borrar selección"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'txtplace1
+        '
+        Me.txtplace1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtplace1.Location = New System.Drawing.Point(130, 307)
+        Me.txtplace1.Name = "txtplace1"
+        Me.txtplace1.ReadOnly = True
+        Me.txtplace1.Size = New System.Drawing.Size(516, 23)
+        Me.txtplace1.TabIndex = 29
+        Me.txtplace1.TabStop = False
+        '
+        'txtplace2
+        '
+        Me.txtplace2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtplace2.Location = New System.Drawing.Point(130, 353)
+        Me.txtplace2.Name = "txtplace2"
+        Me.txtplace2.ReadOnly = True
+        Me.txtplace2.Size = New System.Drawing.Size(516, 23)
+        Me.txtplace2.TabIndex = 32
+        Me.txtplace2.TabStop = False
+        '
+        'txtplace3
+        '
+        Me.txtplace3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtplace3.Location = New System.Drawing.Point(130, 399)
+        Me.txtplace3.Name = "txtplace3"
+        Me.txtplace3.ReadOnly = True
+        Me.txtplace3.Size = New System.Drawing.Size(516, 23)
+        Me.txtplace3.TabIndex = 35
+        Me.txtplace3.TabStop = False
+        '
+        'txtplace4
+        '
+        Me.txtplace4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtplace4.Location = New System.Drawing.Point(130, 445)
+        Me.txtplace4.Name = "txtplace4"
+        Me.txtplace4.ReadOnly = True
+        Me.txtplace4.Size = New System.Drawing.Size(516, 23)
+        Me.txtplace4.TabIndex = 38
+        Me.txtplace4.TabStop = False
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(652, 308)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(82, 17)
+        Me.Label9.TabIndex = 41
+        Me.Label9.Text = "Más detalles"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(652, 354)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(82, 17)
+        Me.Label10.TabIndex = 42
+        Me.Label10.Text = "Más detalles"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(652, 400)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(82, 17)
+        Me.Label11.TabIndex = 43
+        Me.Label11.Text = "Más detalles"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(652, 446)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(82, 17)
+        Me.Label12.TabIndex = 44
+        Me.Label12.Text = "Más detalles"
+        '
+        'Button6
+        '
+        Me.Button6.Enabled = False
+        Me.Button6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Location = New System.Drawing.Point(803, 394)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(129, 31)
+        Me.Button6.TabIndex = 7
+        Me.Button6.Text = "Todos los resultados"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'pc4
+        '
+        Me.pc4.ErrorImage = CType(resources.GetObject("pc4.ErrorImage"), System.Drawing.Image)
+        Me.pc4.InitialImage = Nothing
+        Me.pc4.Location = New System.Drawing.Point(107, 446)
+        Me.pc4.Name = "pc4"
+        Me.pc4.Size = New System.Drawing.Size(20, 20)
+        Me.pc4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pc4.TabIndex = 40
+        Me.pc4.TabStop = False
+        '
+        'pc3
+        '
+        Me.pc3.ErrorImage = CType(resources.GetObject("pc3.ErrorImage"), System.Drawing.Image)
+        Me.pc3.InitialImage = Nothing
+        Me.pc3.Location = New System.Drawing.Point(107, 400)
+        Me.pc3.Name = "pc3"
+        Me.pc3.Size = New System.Drawing.Size(20, 20)
+        Me.pc3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pc3.TabIndex = 37
+        Me.pc3.TabStop = False
+        '
+        'pc2
+        '
+        Me.pc2.ErrorImage = CType(resources.GetObject("pc2.ErrorImage"), System.Drawing.Image)
+        Me.pc2.InitialImage = Nothing
+        Me.pc2.Location = New System.Drawing.Point(107, 354)
+        Me.pc2.Name = "pc2"
+        Me.pc2.Size = New System.Drawing.Size(20, 20)
+        Me.pc2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pc2.TabIndex = 34
+        Me.pc2.TabStop = False
+        '
+        'pc1
+        '
+        Me.pc1.ErrorImage = CType(resources.GetObject("pc1.ErrorImage"), System.Drawing.Image)
+        Me.pc1.InitialImage = Nothing
+        Me.pc1.Location = New System.Drawing.Point(107, 308)
+        Me.pc1.Name = "pc1"
+        Me.pc1.Size = New System.Drawing.Size(20, 20)
+        Me.pc1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pc1.TabIndex = 31
+        Me.pc1.TabStop = False
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Checked = True
+        Me.RadioButton1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton1.Location = New System.Drawing.Point(37, 306)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(67, 21)
+        Me.RadioButton1.TabIndex = 45
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Place 1"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton2.Location = New System.Drawing.Point(37, 352)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(67, 21)
+        Me.RadioButton2.TabIndex = 46
+        Me.RadioButton2.Text = "Place 2"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'RadioButton3
+        '
+        Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton3.Location = New System.Drawing.Point(37, 398)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(67, 21)
+        Me.RadioButton3.TabIndex = 47
+        Me.RadioButton3.Text = "Place 3"
+        Me.RadioButton3.UseVisualStyleBackColor = True
+        '
+        'RadioButton4
+        '
+        Me.RadioButton4.AutoSize = True
+        Me.RadioButton4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton4.Location = New System.Drawing.Point(37, 444)
+        Me.RadioButton4.Name = "RadioButton4"
+        Me.RadioButton4.Size = New System.Drawing.Size(67, 21)
+        Me.RadioButton4.TabIndex = 48
+        Me.RadioButton4.Text = "Place 4"
+        Me.RadioButton4.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.Enabled = False
+        Me.Button7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.Location = New System.Drawing.Point(803, 348)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(129, 31)
+        Me.Button7.TabIndex = 6
+        Me.Button7.Text = "Más resultados"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(141, 239)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(102, 13)
+        Me.Label5.TabIndex = 84
+        Me.Label5.Text = "Quizá quiso decir: "
+        Me.Label5.Visible = False
+        '
         'Places
         '
         Me.AcceptButton = Me.Button2
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(944, 512)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.RadioButton4)
         Me.Controls.Add(Me.RadioButton3)
@@ -857,10 +871,6 @@ Partial Class Places
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.pc4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pc3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pc2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pc1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
@@ -874,6 +884,10 @@ Partial Class Places
         Me.TabPage10.ResumeLayout(False)
         Me.TabPage11.ResumeLayout(False)
         Me.TabPage12.ResumeLayout(False)
+        CType(Me.pc4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pc3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pc2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pc1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -940,4 +954,5 @@ Partial Class Places
     Friend WithEvents ListBox12 As System.Windows.Forms.ListBox
     Friend WithEvents TabPage12 As System.Windows.Forms.TabPage
     Friend WithEvents ListBox13 As System.Windows.Forms.ListBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
 End Class

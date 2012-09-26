@@ -2,6 +2,7 @@
     Dim datosPlaces() As String
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click  'Buscar
+        Label5.Visible = False 'Ocultamos label de quizá quiso decir
         Dim objetoMaps As New MapsNet
         Dim aspectoFormu As New AspectoFormulario
         If aspectoFormu.verificarnumeros(txtlatitud.Text) And aspectoFormu.verificarnumeros(txtlongitud.Text) Then 'Verificamos que sean numeros
@@ -13,6 +14,9 @@
             TiposSeleccionados = aspectoFormu.DevuelveEstablecimientosIngles(TiposSeleccionados)
             datosPlaces = objetoMaps.PlacesLatLong(txtlatitud.Text, txtlongitud.Text, NumericUpDown1.Value, TiposSeleccionados, txtestablecimiento.Text, ) 'String con la direccion
             rellenarTXT(datosPlaces)
+            If txtplace1.Text = "Sin datos. Sin datos (Sin datos,Sin datos)" And txtestablecimiento.Text <> "" Then   'Si no hay resultados en el establecimiento
+                autocompletado()
+            End If
         Else
             If aspectoFormu.verificarnumeros(txtlatitud.Text) = False Then txtlatitud.ForeColor = Color.Red
             If aspectoFormu.verificarnumeros(txtlongitud.Text) = False Then txtlongitud.ForeColor = Color.Red
@@ -114,6 +118,51 @@
             pc4.Image = aspectoFor.CargarImagenURL("error")
         End Try
     End Sub
+
+
+    Dim contadorPalabras As Integer
+    Sub autocompletado(Optional offset As Integer = 0) 'Buscamos con todos los caracteres y si no hay resultados vamos quitando el del final
+        Dim maps As New MapsNet
+        Dim autoc As New ArrayList
+        Try
+            If offset = 0 Then
+                contadorPalabras = txtestablecimiento.Text.Length - 1
+                autoc = maps.Autocompletado(txtestablecimiento.Text, txtlatitud.Text, txtlongitud.Text, NumericUpDown1.Value, txtestablecimiento.Text.Length)
+                Label5.Text = "Quizá quiso decir: " & autoc(0)
+                Label5.Visible = True
+            Else
+                autoc = maps.Autocompletado(txtestablecimiento.Text, txtlatitud.Text, txtlongitud.Text, NumericUpDown1.Value, contadorPalabras)
+                Label5.Text = "Quizá quiso decir: " & autoc(0)
+                Label5.Visible = True
+            End If
+
+        Catch
+            If contadorPalabras > 0 Then
+                contadorPalabras -= 1
+                autocompletado(contadorPalabras)
+            End If
+
+        End Try
+    End Sub
+    'Sustituimos en el txtestablecimiento el resultado que se ha predicho*************************
+    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
+        Dim cadena = Label5.Text.Replace("Quizá quiso decir: ", "")
+        txtestablecimiento.Text = cadena
+        Label5.Visible = False
+        Button2_Click(sender, e) 'Volvemos a buscar
+    End Sub
+
+    Private Sub Label5_MouseEnter(sender As Object, e As EventArgs) Handles Label5.MouseEnter
+        Label5.ForeColor = Color.Blue
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub Label5_MouseLeave(sender As Object, e As EventArgs) Handles Label5.MouseLeave
+        Label5.ForeColor = Color.Black
+        Me.Cursor = Cursors.Default
+    End Sub
+    '***************************************************************************************************
+
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click  'Mostrar resultados

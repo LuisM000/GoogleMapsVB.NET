@@ -596,7 +596,7 @@ Partial Class PlacesDir
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(24, 137)
+        Me.Label4.Location = New System.Drawing.Point(24, 130)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(99, 17)
         Me.Label4.TabIndex = 57
@@ -605,7 +605,7 @@ Partial Class PlacesDir
         'txtestablecimiento
         '
         Me.txtestablecimiento.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtestablecimiento.Location = New System.Drawing.Point(144, 136)
+        Me.txtestablecimiento.Location = New System.Drawing.Point(144, 129)
         Me.txtestablecimiento.Name = "txtestablecimiento"
         Me.txtestablecimiento.Size = New System.Drawing.Size(238, 23)
         Me.txtestablecimiento.TabIndex = 2
@@ -613,7 +613,7 @@ Partial Class PlacesDir
         'NumericUpDown1
         '
         Me.NumericUpDown1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumericUpDown1.Location = New System.Drawing.Point(238, 94)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(238, 87)
         Me.NumericUpDown1.Maximum = New Decimal(New Integer() {200000, 0, 0, 0})
         Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
@@ -625,7 +625,7 @@ Partial Class PlacesDir
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(24, 94)
+        Me.Label3.Location = New System.Drawing.Point(24, 87)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(176, 17)
         Me.Label3.TabIndex = 56
@@ -677,7 +677,7 @@ Partial Class PlacesDir
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(24, 51)
+        Me.Label1.Location = New System.Drawing.Point(24, 44)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(79, 17)
         Me.Label1.TabIndex = 52
@@ -696,7 +696,7 @@ Partial Class PlacesDir
         'txtdireccion
         '
         Me.txtdireccion.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdireccion.Location = New System.Drawing.Point(144, 50)
+        Me.txtdireccion.Location = New System.Drawing.Point(144, 43)
         Me.txtdireccion.Name = "txtdireccion"
         Me.txtdireccion.Size = New System.Drawing.Size(238, 23)
         Me.txtdireccion.TabIndex = 0
@@ -709,7 +709,7 @@ Partial Class PlacesDir
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox1.Location = New System.Drawing.Point(109, 51)
+        Me.PictureBox1.Location = New System.Drawing.Point(109, 44)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(20, 20)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -861,11 +861,13 @@ Partial Class PlacesDir
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(219, 277)
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(141, 155)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(94, 13)
+        Me.Label5.Size = New System.Drawing.Size(102, 13)
         Me.Label5.TabIndex = 83
         Me.Label5.Text = "Quizá quiso decir: "
+        Me.Label5.Visible = False
         '
         'PlacesDir
         '

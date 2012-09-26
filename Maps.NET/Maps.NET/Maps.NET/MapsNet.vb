@@ -5,12 +5,12 @@ Imports System.Xml.XPath
 
 Public Class MapsNet
 
-    Public Function ObtenerURLdesdeDireccion(ByRef direccion As String)
+    Public Function ObtenerURLdesdeDireccion(ByVal direccion As String)
         Dim urlMaps As String 'Creamos variable para almacenar la url
         urlMaps = "http://maps.google.es/maps?q=" & direccion & "&output=embed" 'Concatenamos la dirección con la dirección del mapa
         Return urlMaps
     End Function
-    Public Function ObtenerURLdesdelatlong(ByRef latitud As Double, ByRef longitud As Double)
+    Public Function ObtenerURLdesdelatlong(ByVal latitud As Double, ByVal longitud As Double)
         Dim urlMaps As String 'Creamos variable para almacenar la url
         urlMaps = "http://maps.google.es/maps?q=" + CStr(latitud) + "%2C" + CStr(longitud) + "&output=embed" 'Concatenamos la lat/long con la dirección del mapa
         Return urlMaps
@@ -84,7 +84,7 @@ Public Class MapsNet
     End Function
 
 
-    Public Function CodificacionGeografica(ByRef direccion As String, Optional ByRef regionBusqueda As String = "es") 'busca latitud/longitud a partir de dirección
+    Public Function CodificacionGeografica(ByVal direccion As String, Optional ByVal regionBusqueda As String = "es") 'busca latitud/longitud a partir de dirección
 
         'Creamos la url con los datso
         Dim url = "http://maps.googleapis.com/maps/api/geocode/xml?address=" & direccion & "&sensor=false" & "&region=" & regionBusqueda
@@ -130,7 +130,7 @@ Public Class MapsNet
         Return LatLong
     End Function
 
-    Public Function CodificacionGeograficaInversa(ByRef latitud As Double, ByRef longitud As Double, Optional ByRef regionBusqueda As String = "es") 'busca latitud/longitud a partir de dirección
+    Public Function CodificacionGeograficaInversa(ByVal latitud As Double, ByVal longitud As Double, Optional ByVal regionBusqueda As String = "es") 'busca latitud/longitud a partir de dirección
 
         'Creamos la url con los datso
         Dim url = "http://maps.googleapis.com/maps/api/geocode/xml?latlng=" & latitud & "," & longitud & "&sensor=false" & "&region=" & regionBusqueda
@@ -150,7 +150,7 @@ Public Class MapsNet
 
             'Creamos los paths
             ExDireccion = "GeocodeResponse/result/formatted_address"
-           
+
             'Recorremos el xml
             NodeIter = nav.Select(ExDireccion)
             While (NodeIter.MoveNext())
@@ -163,7 +163,7 @@ Public Class MapsNet
         Return direcc
     End Function
 
-    Public Function PlacesLatLong(ByRef latitud As Double, ByRef longitud As Double, Optional ByRef radio As Integer = 3000, Optional tipoLocal As ArrayList = Nothing, Optional NombreEstablecimiento As String = "", Optional idioma As String = "es") 'busca un place desde lat/long
+    Public Function PlacesLatLong(ByVal latitud As Double, ByVal longitud As Double, Optional ByVal radio As Integer = 3000, Optional tipoLocal As ArrayList = Nothing, Optional NombreEstablecimiento As String = "", Optional idioma As String = "es") 'busca un place desde lat/long
         'Creamos las variables desde las opcionales
 
         'Variable local
@@ -274,12 +274,12 @@ Public Class MapsNet
         Return auxiliar
     End Function
 
-    Public Function DetallesLugar(ByRef ParametroDetalles As String) 'Enviamos los detalles del lugar
-        
+    Public Function DetallesLugar(ByVal ParametroDetalles As String) 'Enviamos los detalles del lugar
+
         'Creamos la url con los datso
         Dim url = "https://maps.googleapis.com/maps/api/place/details/xml?reference=" & ParametroDetalles & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
         Dim datos As New ArrayList()
-        
+
 
         Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
         req.Timeout = 3000
@@ -387,7 +387,7 @@ Public Class MapsNet
 
 
 
-    Public Function DetallesRestaurante(ByRef ParametroDetalles As String) 'Enviamos los detalles del lugar
+    Public Function DetallesRestaurante(ByVal ParametroDetalles As String) 'Enviamos los detalles del lugar
 
         'Creamos la url con los datso
         Dim url = "https://maps.googleapis.com/maps/api/place/details/xml?reference=" & ParametroDetalles & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8&language=es"
@@ -542,7 +542,7 @@ Public Class MapsNet
     End Function
 
 
-    Public Function Autocompletado(ByRef input As String, ByRef latitud As Double, ByRef longitud As Double, ByRef radio As Integer, ByRef NumeroCaracteres As Integer, Optional ByRef idioma As String = "es") 'Autocompletado
+    Public Function Autocompletado(ByVal input As String, ByVal latitud As Double, ByVal longitud As Double, ByVal radio As Integer, ByVal NumeroCaracteres As Integer, Optional ByVal idioma As String = "es") 'Autocompletado
 
         'Creamos variable input
         input = input.Replace(" ", "+")
