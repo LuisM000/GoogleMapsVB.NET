@@ -226,6 +226,7 @@
 
     'PINTAMOS LOS LABEL DE MÁS DETALLES
     Private Sub Places_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        RadioButton1.TabStop = False 'Desde el diseñador no lo reconocía bien..
         For Each c As Object In Me.Controls
             If c.GetType Is GetType(Label) Then
                 If c.ToString.Contains("Más detalles") Then
@@ -369,4 +370,5 @@
         ListBox12.ClearSelected()
         ListBox13.ClearSelected()
     End Sub
+
 End Class

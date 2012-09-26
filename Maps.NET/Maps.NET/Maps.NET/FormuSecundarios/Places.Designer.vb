@@ -42,6 +42,25 @@ Partial Class Places
         Me.Button5 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.txtplace1 = New System.Windows.Forms.TextBox()
+        Me.txtplace2 = New System.Windows.Forms.TextBox()
+        Me.txtplace3 = New System.Windows.Forms.TextBox()
+        Me.txtplace4 = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.pc4 = New System.Windows.Forms.PictureBox()
+        Me.pc3 = New System.Windows.Forms.PictureBox()
+        Me.pc2 = New System.Windows.Forms.PictureBox()
+        Me.pc1 = New System.Windows.Forms.PictureBox()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
+        Me.Button7 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
@@ -67,28 +86,13 @@ Partial Class Places
         Me.ListBox12 = New System.Windows.Forms.ListBox()
         Me.TabPage12 = New System.Windows.Forms.TabPage()
         Me.ListBox13 = New System.Windows.Forms.ListBox()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.txtplace1 = New System.Windows.Forms.TextBox()
-        Me.txtplace2 = New System.Windows.Forms.TextBox()
-        Me.txtplace3 = New System.Windows.Forms.TextBox()
-        Me.txtplace4 = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.pc4 = New System.Windows.Forms.PictureBox()
-        Me.pc3 = New System.Windows.Forms.PictureBox()
-        Me.pc2 = New System.Windows.Forms.PictureBox()
-        Me.pc1 = New System.Windows.Forms.PictureBox()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
-        Me.Button7 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.pc4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pc3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pc2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pc1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -102,10 +106,6 @@ Partial Class Places
         Me.TabPage10.SuspendLayout()
         Me.TabPage11.SuspendLayout()
         Me.TabPage12.SuspendLayout()
-        CType(Me.pc4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pc3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pc2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pc1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CheckBox1
@@ -116,6 +116,7 @@ Partial Class Places
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(147, 19)
         Me.CheckBox1.TabIndex = 18
+        Me.CheckBox1.TabStop = False
         Me.CheckBox1.Text = "Abrir en nueva pestaña"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
@@ -135,7 +136,7 @@ Partial Class Places
         Me.txtlongitud.Location = New System.Drawing.Point(144, 107)
         Me.txtlongitud.Name = "txtlongitud"
         Me.txtlongitud.Size = New System.Drawing.Size(238, 23)
-        Me.txtlongitud.TabIndex = 2
+        Me.txtlongitud.TabIndex = 1
         '
         'Label1
         '
@@ -153,7 +154,7 @@ Partial Class Places
         Me.Button1.Location = New System.Drawing.Point(803, 440)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(129, 31)
-        Me.Button1.TabIndex = 7
+        Me.Button1.TabIndex = 8
         Me.Button1.Text = "Mostrar"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -163,7 +164,7 @@ Partial Class Places
         Me.txtlatitud.Location = New System.Drawing.Point(144, 54)
         Me.txtlatitud.Name = "txtlatitud"
         Me.txtlatitud.Size = New System.Drawing.Size(238, 23)
-        Me.txtlatitud.TabIndex = 1
+        Me.txtlatitud.TabIndex = 0
         '
         'ToolTip1
         '
@@ -209,7 +210,7 @@ Partial Class Places
         Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(144, 23)
-        Me.NumericUpDown1.TabIndex = 3
+        Me.NumericUpDown1.TabIndex = 2
         Me.NumericUpDown1.Value = New Decimal(New Integer() {1000, 0, 0, 0})
         '
         'Label4
@@ -228,7 +229,7 @@ Partial Class Places
         Me.txtestablecimiento.Location = New System.Drawing.Point(144, 213)
         Me.txtestablecimiento.Name = "txtestablecimiento"
         Me.txtestablecimiento.Size = New System.Drawing.Size(238, 23)
-        Me.txtestablecimiento.TabIndex = 4
+        Me.txtestablecimiento.TabIndex = 3
         '
         'ListBox2
         '
@@ -240,6 +241,7 @@ Partial Class Places
         Me.ListBox2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
         Me.ListBox2.Size = New System.Drawing.Size(132, 157)
         Me.ListBox2.TabIndex = 27
+        Me.ListBox2.TabStop = False
         '
         'Button4
         '
@@ -248,6 +250,7 @@ Partial Class Places
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(67, 44)
         Me.Button4.TabIndex = 26
+        Me.Button4.TabStop = False
         Me.Button4.Text = "<<"
         Me.Button4.UseVisualStyleBackColor = True
         '
@@ -258,13 +261,14 @@ Partial Class Places
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(67, 44)
         Me.Button5.TabIndex = 25
+        Me.Button5.TabStop = False
         Me.Button5.Text = ">>"
         Me.Button5.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.TabControl1)
+        Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.ListBox2)
         Me.GroupBox1.Controls.Add(Me.Button4)
@@ -272,7 +276,7 @@ Partial Class Places
         Me.GroupBox1.Location = New System.Drawing.Point(408, 24)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(524, 247)
-        Me.GroupBox1.TabIndex = 28
+        Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Tipo de establecimiento"
         '
@@ -281,316 +285,8 @@ Partial Class Places
         Me.TextBox1.Location = New System.Drawing.Point(6, 31)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(153, 20)
-        Me.TextBox1.TabIndex = 85
+        Me.TextBox1.TabIndex = 1
         Me.TextBox1.Text = "Buscador"
-        '
-        'TabControl1
-        '
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Controls.Add(Me.TabPage4)
-        Me.TabControl1.Controls.Add(Me.TabPage5)
-        Me.TabControl1.Controls.Add(Me.TabPage6)
-        Me.TabControl1.Controls.Add(Me.TabPage7)
-        Me.TabControl1.Controls.Add(Me.TabPage8)
-        Me.TabControl1.Controls.Add(Me.TabPage9)
-        Me.TabControl1.Controls.Add(Me.TabPage10)
-        Me.TabControl1.Controls.Add(Me.TabPage11)
-        Me.TabControl1.Controls.Add(Me.TabPage12)
-        Me.TabControl1.Location = New System.Drawing.Point(6, 68)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(301, 173)
-        Me.TabControl1.TabIndex = 31
-        '
-        'TabPage1
-        '
-        Me.TabPage1.Controls.Add(Me.ListBox1)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(293, 147)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Comunes"
-        Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'ListBox1
-        '
-        Me.ListBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.ItemHeight = 17
-        Me.ListBox1.Items.AddRange(New Object() {"Ayuntamiento", "Banco", "Biblioteca", "Cajero automático", "Centro comercial", "Cine", "Comida", "Estación de bus", "Estación de metro", "Gasolinera", "Oficina de correos", "Supermercado"})
-        Me.ListBox1.Location = New System.Drawing.Point(3, 3)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox1.Size = New System.Drawing.Size(287, 141)
-        Me.ListBox1.TabIndex = 24
-        '
-        'TabPage2
-        '
-        Me.TabPage2.Controls.Add(Me.ListBox3)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(293, 147)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Transporte"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'ListBox3
-        '
-        Me.ListBox3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListBox3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox3.FormattingEnabled = True
-        Me.ListBox3.ItemHeight = 17
-        Me.ListBox3.Items.AddRange(New Object() {"Aeropuerto", "Estación de bus", "Estación de metro", "Estación de tren", "Parada de taxis"})
-        Me.ListBox3.Location = New System.Drawing.Point(3, 3)
-        Me.ListBox3.Name = "ListBox3"
-        Me.ListBox3.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox3.Size = New System.Drawing.Size(287, 141)
-        Me.ListBox3.TabIndex = 30
-        '
-        'TabPage3
-        '
-        Me.TabPage3.Controls.Add(Me.ListBox4)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(293, 147)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Ocio aire libre"
-        Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'ListBox4
-        '
-        Me.ListBox4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListBox4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox4.FormattingEnabled = True
-        Me.ListBox4.ItemHeight = 17
-        Me.ListBox4.Items.AddRange(New Object() {"Acuario", "Camping", "Estadio", "Parque", "Parque de atracciones", "RV Park", "Zoo"})
-        Me.ListBox4.Location = New System.Drawing.Point(3, 3)
-        Me.ListBox4.Name = "ListBox4"
-        Me.ListBox4.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox4.Size = New System.Drawing.Size(287, 141)
-        Me.ListBox4.TabIndex = 31
-        '
-        'TabPage4
-        '
-        Me.TabPage4.Controls.Add(Me.ListBox5)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(293, 147)
-        Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "Ocio interior"
-        Me.TabPage4.UseVisualStyleBackColor = True
-        '
-        'ListBox5
-        '
-        Me.ListBox5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListBox5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox5.FormattingEnabled = True
-        Me.ListBox5.ItemHeight = 17
-        Me.ListBox5.Items.AddRange(New Object() {"Bolera", "Casino", "Cine", "Galería de arte", "Museo", "Spa"})
-        Me.ListBox5.Location = New System.Drawing.Point(3, 3)
-        Me.ListBox5.Name = "ListBox5"
-        Me.ListBox5.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox5.Size = New System.Drawing.Size(287, 141)
-        Me.ListBox5.TabIndex = 32
-        '
-        'TabPage5
-        '
-        Me.TabPage5.Controls.Add(Me.ListBox6)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(293, 147)
-        Me.TabPage5.TabIndex = 4
-        Me.TabPage5.Text = "Comida"
-        Me.TabPage5.UseVisualStyleBackColor = True
-        '
-        'ListBox6
-        '
-        Me.ListBox6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListBox6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox6.FormattingEnabled = True
-        Me.ListBox6.ItemHeight = 17
-        Me.ListBox6.Items.AddRange(New Object() {"Comida", "Comida para llevar", "Entrega de comida", "Panadería", "Restaurante", "Supermercado", "Tienda de licor"})
-        Me.ListBox6.Location = New System.Drawing.Point(3, 3)
-        Me.ListBox6.Name = "ListBox6"
-        Me.ListBox6.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox6.Size = New System.Drawing.Size(287, 141)
-        Me.ListBox6.TabIndex = 32
-        '
-        'TabPage6
-        '
-        Me.TabPage6.Controls.Add(Me.ListBox7)
-        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage6.Size = New System.Drawing.Size(293, 147)
-        Me.TabPage6.TabIndex = 5
-        Me.TabPage6.Text = "Servicios financieros"
-        Me.TabPage6.UseVisualStyleBackColor = True
-        '
-        'ListBox7
-        '
-        Me.ListBox7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListBox7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox7.FormattingEnabled = True
-        Me.ListBox7.ItemHeight = 17
-        Me.ListBox7.Items.AddRange(New Object() {"Banco", "Cajero automático", "Contabilidad", "Finanzas"})
-        Me.ListBox7.Location = New System.Drawing.Point(3, 3)
-        Me.ListBox7.Name = "ListBox7"
-        Me.ListBox7.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox7.Size = New System.Drawing.Size(287, 141)
-        Me.ListBox7.TabIndex = 33
-        '
-        'TabPage7
-        '
-        Me.TabPage7.Controls.Add(Me.ListBox8)
-        Me.TabPage7.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage7.Name = "TabPage7"
-        Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(293, 147)
-        Me.TabPage7.TabIndex = 6
-        Me.TabPage7.Text = "Servicios básicos"
-        Me.TabPage7.UseVisualStyleBackColor = True
-        '
-        'ListBox8
-        '
-        Me.ListBox8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListBox8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox8.FormattingEnabled = True
-        Me.ListBox8.ItemHeight = 17
-        Me.ListBox8.Items.AddRange(New Object() {"Escuela", "Farmacia", "Hospital", "Médico", "Salud", "Tienda de artículos básicos"})
-        Me.ListBox8.Location = New System.Drawing.Point(3, 3)
-        Me.ListBox8.Name = "ListBox8"
-        Me.ListBox8.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox8.Size = New System.Drawing.Size(287, 141)
-        Me.ListBox8.TabIndex = 33
-        '
-        'TabPage8
-        '
-        Me.TabPage8.Controls.Add(Me.ListBox9)
-        Me.TabPage8.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage8.Name = "TabPage8"
-        Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(293, 147)
-        Me.TabPage8.TabIndex = 7
-        Me.TabPage8.Text = "Bares"
-        Me.TabPage8.UseVisualStyleBackColor = True
-        '
-        'ListBox9
-        '
-        Me.ListBox9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListBox9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox9.FormattingEnabled = True
-        Me.ListBox9.ItemHeight = 17
-        Me.ListBox9.Items.AddRange(New Object() {"Bar", "Café", "Night Club"})
-        Me.ListBox9.Location = New System.Drawing.Point(3, 3)
-        Me.ListBox9.Name = "ListBox9"
-        Me.ListBox9.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox9.Size = New System.Drawing.Size(287, 141)
-        Me.ListBox9.TabIndex = 33
-        '
-        'TabPage9
-        '
-        Me.TabPage9.Controls.Add(Me.ListBox10)
-        Me.TabPage9.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage9.Name = "TabPage9"
-        Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(293, 147)
-        Me.TabPage9.TabIndex = 8
-        Me.TabPage9.Text = "Religión"
-        Me.TabPage9.UseVisualStyleBackColor = True
-        '
-        'ListBox10
-        '
-        Me.ListBox10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListBox10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox10.FormattingEnabled = True
-        Me.ListBox10.ItemHeight = 17
-        Me.ListBox10.Items.AddRange(New Object() {"Cementerio" & Global.Microsoft.VisualBasic.ChrW(9), "Iglesia", "Lugar de culto", "Mezquita", "Sinagoga", "Templo hindú"})
-        Me.ListBox10.Location = New System.Drawing.Point(3, 3)
-        Me.ListBox10.Name = "ListBox10"
-        Me.ListBox10.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox10.Size = New System.Drawing.Size(287, 141)
-        Me.ListBox10.TabIndex = 34
-        '
-        'TabPage10
-        '
-        Me.TabPage10.Controls.Add(Me.ListBox11)
-        Me.TabPage10.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage10.Name = "TabPage10"
-        Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage10.Size = New System.Drawing.Size(293, 147)
-        Me.TabPage10.TabIndex = 9
-        Me.TabPage10.Text = "Públicos"
-        Me.TabPage10.UseVisualStyleBackColor = True
-        '
-        'ListBox11
-        '
-        Me.ListBox11.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListBox11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox11.FormattingEnabled = True
-        Me.ListBox11.ItemHeight = 17
-        Me.ListBox11.Items.AddRange(New Object() {"Ayuntamiento", "Embajada", "Oficina de correos", "Oficina del gobierno local", "Palacio de Justicia", "Parque de bomberos", "Policía", "Universidad"})
-        Me.ListBox11.Location = New System.Drawing.Point(3, 3)
-        Me.ListBox11.Name = "ListBox11"
-        Me.ListBox11.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox11.Size = New System.Drawing.Size(287, 141)
-        Me.ListBox11.TabIndex = 34
-        '
-        'TabPage11
-        '
-        Me.TabPage11.Controls.Add(Me.ListBox12)
-        Me.TabPage11.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage11.Name = "TabPage11"
-        Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(293, 147)
-        Me.TabPage11.TabIndex = 10
-        Me.TabPage11.Text = "Establecimientos/Otros"
-        Me.TabPage11.UseVisualStyleBackColor = True
-        '
-        'ListBox12
-        '
-        Me.ListBox12.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListBox12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox12.FormattingEnabled = True
-        Me.ListBox12.ItemHeight = 17
-        Me.ListBox12.Items.AddRange(New Object() {"Abogado", "Agencia de seguros", "Agencia de viajes", "Alquiler de coches", "Alquiler de películas", "Agencia inmobiliaria", "Almacén", "Almacén", "Alojamiento", "Biblioteca", "Centro comercial", "Cerrajero", "Clínica veterinaria", "Concesionario", "Contratista de techos", "Contratista general", "Dentista", "Droguería", "Electricista", "Empresa de mudanzas", "Establecimiento", "Fisioterapeuta", "Florista", "Fontanero", "Funeraria" & Global.Microsoft.VisualBasic.ChrW(9), "Gasolinera", "Gimnasio", "Grandes almacenes", "Joyería", "Lavandería", "Lavado de coches", "Librería", "Parking", "Peluquería", "Pintor", "Reparación de automóviles", "Salón de belleza", "Tienda de bicicletas", "Tienda de conveniencia", "Tienda de electrónica", "Tienda de mascotas", "Tienda de muebles", "Tienda de ropa", "Zapatería"})
-        Me.ListBox12.Location = New System.Drawing.Point(3, 3)
-        Me.ListBox12.Name = "ListBox12"
-        Me.ListBox12.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox12.Size = New System.Drawing.Size(287, 141)
-        Me.ListBox12.TabIndex = 34
-        '
-        'TabPage12
-        '
-        Me.TabPage12.Controls.Add(Me.ListBox13)
-        Me.TabPage12.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage12.Name = "TabPage12"
-        Me.TabPage12.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage12.Size = New System.Drawing.Size(293, 147)
-        Me.TabPage12.TabIndex = 11
-        Me.TabPage12.Text = "Todos"
-        Me.TabPage12.UseVisualStyleBackColor = True
-        '
-        'ListBox13
-        '
-        Me.ListBox13.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListBox13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox13.FormattingEnabled = True
-        Me.ListBox13.ItemHeight = 17
-        Me.ListBox13.Items.AddRange(New Object() {"Aeropuerto", "Estación de bus", "Estación de metro", "Estación de tren", "Parada de taxis", "Acuario", "Camping", "Estadio", "Parque", "Parque de atracciones", "RV Park", "Zoo", "Bolera", "Casino", "Cine", "Galería de arte", "Museo", "Spa", "Comida", "Comida para llevar", "Entrega de comida", "Panadería", "Restaurante", "Supermercado", "Tienda de licor", "Banco", "Cajero automático", "Contabilidad", "Finanzas", "Escuela", "Farmacia", "Hospital", "Médico", "Salud", "Tienda de artículos básicos", "Bar", "Café", "Night Club", "Cementerio" & Global.Microsoft.VisualBasic.ChrW(9), "Iglesia", "Lugar de culto", "Mezquita", "Sinagoga", "Templo hindú", "Ayuntamiento", "Embajada", "Oficina de correos", "Oficina del gobierno local", "Palacio de Justicia", "Parque de bomberos", "Policía", "Universidad", "Abogado", "Agencia de seguros", "Agencia de viajes", "Alquiler de coches", "Alquiler de películas", "Agencia inmobiliaria", "Almacén", "Almacén", "Alojamiento", "Biblioteca", "Centro comercial", "Cerrajero", "Clínica veterinaria", "Concesionario", "Contratista de techos", "Contratista general", "Dentista", "Droguería", "Electricista", "Empresa de mudanzas", "Establecimiento", "Fisioterapeuta", "Florista", "Fontanero", "Funeraria" & Global.Microsoft.VisualBasic.ChrW(9), "Gasolinera", "Gimnasio", "Grandes almacenes", "Joyería", "Lavandería", "Lavado de coches", "Librería", "Parking", "Peluquería", "Pintor", "Reparación de automóviles", "Salón de belleza", "Tienda de bicicletas", "Tienda de conveniencia", "Tienda de electrónica", "Tienda de mascotas", "Tienda de muebles", "Tienda de ropa", "Zapatería"})
-        Me.ListBox13.Location = New System.Drawing.Point(3, 3)
-        Me.ListBox13.Name = "ListBox13"
-        Me.ListBox13.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox13.Size = New System.Drawing.Size(287, 141)
-        Me.ListBox13.TabIndex = 35
         '
         'Button3
         '
@@ -599,6 +295,7 @@ Partial Class Places
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(67, 44)
         Me.Button3.TabIndex = 30
+        Me.Button3.TabStop = False
         Me.Button3.Text = "Borrar selección"
         Me.Button3.UseVisualStyleBackColor = True
         '
@@ -610,6 +307,7 @@ Partial Class Places
         Me.txtplace1.ReadOnly = True
         Me.txtplace1.Size = New System.Drawing.Size(516, 23)
         Me.txtplace1.TabIndex = 29
+        Me.txtplace1.TabStop = False
         '
         'txtplace2
         '
@@ -619,6 +317,7 @@ Partial Class Places
         Me.txtplace2.ReadOnly = True
         Me.txtplace2.Size = New System.Drawing.Size(516, 23)
         Me.txtplace2.TabIndex = 32
+        Me.txtplace2.TabStop = False
         '
         'txtplace3
         '
@@ -628,6 +327,7 @@ Partial Class Places
         Me.txtplace3.ReadOnly = True
         Me.txtplace3.Size = New System.Drawing.Size(516, 23)
         Me.txtplace3.TabIndex = 35
+        Me.txtplace3.TabStop = False
         '
         'txtplace4
         '
@@ -637,6 +337,7 @@ Partial Class Places
         Me.txtplace4.ReadOnly = True
         Me.txtplace4.Size = New System.Drawing.Size(516, 23)
         Me.txtplace4.TabIndex = 38
+        Me.txtplace4.TabStop = False
         '
         'Label9
         '
@@ -685,7 +386,7 @@ Partial Class Places
         Me.Button6.Location = New System.Drawing.Point(803, 394)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(129, 31)
-        Me.Button6.TabIndex = 6
+        Me.Button6.TabIndex = 7
         Me.Button6.Text = "Todos los resultados"
         Me.Button6.UseVisualStyleBackColor = True
         '
@@ -742,7 +443,6 @@ Partial Class Places
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(67, 21)
         Me.RadioButton1.TabIndex = 45
-        Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "Place 1"
         Me.RadioButton1.UseVisualStyleBackColor = True
         '
@@ -786,9 +486,329 @@ Partial Class Places
         Me.Button7.Location = New System.Drawing.Point(803, 348)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(129, 31)
-        Me.Button7.TabIndex = 50
+        Me.Button7.TabIndex = 6
         Me.Button7.Text = "Más resultados"
         Me.Button7.UseVisualStyleBackColor = True
+        '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.TabPage3)
+        Me.TabControl1.Controls.Add(Me.TabPage4)
+        Me.TabControl1.Controls.Add(Me.TabPage5)
+        Me.TabControl1.Controls.Add(Me.TabPage6)
+        Me.TabControl1.Controls.Add(Me.TabPage7)
+        Me.TabControl1.Controls.Add(Me.TabPage8)
+        Me.TabControl1.Controls.Add(Me.TabPage9)
+        Me.TabControl1.Controls.Add(Me.TabPage10)
+        Me.TabControl1.Controls.Add(Me.TabPage11)
+        Me.TabControl1.Controls.Add(Me.TabPage12)
+        Me.TabControl1.Location = New System.Drawing.Point(6, 64)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(301, 173)
+        Me.TabControl1.TabIndex = 86
+        Me.TabControl1.TabStop = False
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.ListBox1)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(293, 147)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Comunes"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'ListBox1
+        '
+        Me.ListBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.ItemHeight = 17
+        Me.ListBox1.Items.AddRange(New Object() {"Ayuntamiento", "Banco", "Biblioteca", "Cajero automático", "Centro comercial", "Cine", "Comida", "Estación de bus", "Estación de metro", "Gasolinera", "Oficina de correos", "Supermercado"})
+        Me.ListBox1.Location = New System.Drawing.Point(3, 3)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
+        Me.ListBox1.Size = New System.Drawing.Size(287, 141)
+        Me.ListBox1.TabIndex = 0
+        Me.ListBox1.TabStop = False
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.ListBox3)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(293, 147)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Transporte"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'ListBox3
+        '
+        Me.ListBox3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListBox3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox3.FormattingEnabled = True
+        Me.ListBox3.ItemHeight = 17
+        Me.ListBox3.Items.AddRange(New Object() {"Aeropuerto", "Estación de bus", "Estación de metro", "Estación de tren", "Parada de taxis"})
+        Me.ListBox3.Location = New System.Drawing.Point(3, 3)
+        Me.ListBox3.Name = "ListBox3"
+        Me.ListBox3.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
+        Me.ListBox3.Size = New System.Drawing.Size(287, 141)
+        Me.ListBox3.TabIndex = 30
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Controls.Add(Me.ListBox4)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(293, 147)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Ocio aire libre"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'ListBox4
+        '
+        Me.ListBox4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListBox4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox4.FormattingEnabled = True
+        Me.ListBox4.ItemHeight = 17
+        Me.ListBox4.Items.AddRange(New Object() {"Acuario", "Camping", "Estadio", "Parque", "Parque de atracciones", "RV Park", "Zoo"})
+        Me.ListBox4.Location = New System.Drawing.Point(3, 3)
+        Me.ListBox4.Name = "ListBox4"
+        Me.ListBox4.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
+        Me.ListBox4.Size = New System.Drawing.Size(287, 141)
+        Me.ListBox4.TabIndex = 31
+        Me.ListBox4.TabStop = False
+        '
+        'TabPage4
+        '
+        Me.TabPage4.Controls.Add(Me.ListBox5)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(293, 147)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "Ocio interior"
+        Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'ListBox5
+        '
+        Me.ListBox5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListBox5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox5.FormattingEnabled = True
+        Me.ListBox5.ItemHeight = 17
+        Me.ListBox5.Items.AddRange(New Object() {"Bolera", "Casino", "Cine", "Galería de arte", "Museo", "Spa"})
+        Me.ListBox5.Location = New System.Drawing.Point(3, 3)
+        Me.ListBox5.Name = "ListBox5"
+        Me.ListBox5.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
+        Me.ListBox5.Size = New System.Drawing.Size(287, 141)
+        Me.ListBox5.TabIndex = 32
+        Me.ListBox5.TabStop = False
+        '
+        'TabPage5
+        '
+        Me.TabPage5.Controls.Add(Me.ListBox6)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage5.Size = New System.Drawing.Size(293, 147)
+        Me.TabPage5.TabIndex = 4
+        Me.TabPage5.Text = "Comida"
+        Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'ListBox6
+        '
+        Me.ListBox6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListBox6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox6.FormattingEnabled = True
+        Me.ListBox6.ItemHeight = 17
+        Me.ListBox6.Items.AddRange(New Object() {"Comida", "Comida para llevar", "Entrega de comida", "Panadería", "Restaurante", "Supermercado", "Tienda de licor"})
+        Me.ListBox6.Location = New System.Drawing.Point(3, 3)
+        Me.ListBox6.Name = "ListBox6"
+        Me.ListBox6.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
+        Me.ListBox6.Size = New System.Drawing.Size(287, 141)
+        Me.ListBox6.TabIndex = 32
+        Me.ListBox6.TabStop = False
+        '
+        'TabPage6
+        '
+        Me.TabPage6.Controls.Add(Me.ListBox7)
+        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage6.Size = New System.Drawing.Size(293, 147)
+        Me.TabPage6.TabIndex = 5
+        Me.TabPage6.Text = "Servicios financieros"
+        Me.TabPage6.UseVisualStyleBackColor = True
+        '
+        'ListBox7
+        '
+        Me.ListBox7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListBox7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox7.FormattingEnabled = True
+        Me.ListBox7.ItemHeight = 17
+        Me.ListBox7.Items.AddRange(New Object() {"Banco", "Cajero automático", "Contabilidad", "Finanzas"})
+        Me.ListBox7.Location = New System.Drawing.Point(3, 3)
+        Me.ListBox7.Name = "ListBox7"
+        Me.ListBox7.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
+        Me.ListBox7.Size = New System.Drawing.Size(287, 141)
+        Me.ListBox7.TabIndex = 33
+        Me.ListBox7.TabStop = False
+        '
+        'TabPage7
+        '
+        Me.TabPage7.Controls.Add(Me.ListBox8)
+        Me.TabPage7.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage7.Name = "TabPage7"
+        Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage7.Size = New System.Drawing.Size(293, 147)
+        Me.TabPage7.TabIndex = 6
+        Me.TabPage7.Text = "Servicios básicos"
+        Me.TabPage7.UseVisualStyleBackColor = True
+        '
+        'ListBox8
+        '
+        Me.ListBox8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListBox8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox8.FormattingEnabled = True
+        Me.ListBox8.ItemHeight = 17
+        Me.ListBox8.Items.AddRange(New Object() {"Escuela", "Farmacia", "Hospital", "Médico", "Salud", "Tienda de artículos básicos"})
+        Me.ListBox8.Location = New System.Drawing.Point(3, 3)
+        Me.ListBox8.Name = "ListBox8"
+        Me.ListBox8.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
+        Me.ListBox8.Size = New System.Drawing.Size(287, 141)
+        Me.ListBox8.TabIndex = 33
+        Me.ListBox8.TabStop = False
+        '
+        'TabPage8
+        '
+        Me.TabPage8.Controls.Add(Me.ListBox9)
+        Me.TabPage8.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage8.Name = "TabPage8"
+        Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage8.Size = New System.Drawing.Size(293, 147)
+        Me.TabPage8.TabIndex = 7
+        Me.TabPage8.Text = "Bares"
+        Me.TabPage8.UseVisualStyleBackColor = True
+        '
+        'ListBox9
+        '
+        Me.ListBox9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListBox9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox9.FormattingEnabled = True
+        Me.ListBox9.ItemHeight = 17
+        Me.ListBox9.Items.AddRange(New Object() {"Bar", "Café", "Night Club"})
+        Me.ListBox9.Location = New System.Drawing.Point(3, 3)
+        Me.ListBox9.Name = "ListBox9"
+        Me.ListBox9.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
+        Me.ListBox9.Size = New System.Drawing.Size(287, 141)
+        Me.ListBox9.TabIndex = 33
+        Me.ListBox9.TabStop = False
+        '
+        'TabPage9
+        '
+        Me.TabPage9.Controls.Add(Me.ListBox10)
+        Me.TabPage9.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage9.Name = "TabPage9"
+        Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage9.Size = New System.Drawing.Size(293, 147)
+        Me.TabPage9.TabIndex = 8
+        Me.TabPage9.Text = "Religión"
+        Me.TabPage9.UseVisualStyleBackColor = True
+        '
+        'ListBox10
+        '
+        Me.ListBox10.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListBox10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox10.FormattingEnabled = True
+        Me.ListBox10.ItemHeight = 17
+        Me.ListBox10.Items.AddRange(New Object() {"Cementerio" & Global.Microsoft.VisualBasic.ChrW(9), "Iglesia", "Lugar de culto", "Mezquita", "Sinagoga", "Templo hindú"})
+        Me.ListBox10.Location = New System.Drawing.Point(3, 3)
+        Me.ListBox10.Name = "ListBox10"
+        Me.ListBox10.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
+        Me.ListBox10.Size = New System.Drawing.Size(287, 141)
+        Me.ListBox10.TabIndex = 34
+        Me.ListBox10.TabStop = False
+        '
+        'TabPage10
+        '
+        Me.TabPage10.Controls.Add(Me.ListBox11)
+        Me.TabPage10.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage10.Name = "TabPage10"
+        Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage10.Size = New System.Drawing.Size(293, 147)
+        Me.TabPage10.TabIndex = 9
+        Me.TabPage10.Text = "Públicos"
+        Me.TabPage10.UseVisualStyleBackColor = True
+        '
+        'ListBox11
+        '
+        Me.ListBox11.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListBox11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox11.FormattingEnabled = True
+        Me.ListBox11.ItemHeight = 17
+        Me.ListBox11.Items.AddRange(New Object() {"Ayuntamiento", "Embajada", "Oficina de correos", "Oficina del gobierno local", "Palacio de Justicia", "Parque de bomberos", "Policía", "Universidad"})
+        Me.ListBox11.Location = New System.Drawing.Point(3, 3)
+        Me.ListBox11.Name = "ListBox11"
+        Me.ListBox11.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
+        Me.ListBox11.Size = New System.Drawing.Size(287, 141)
+        Me.ListBox11.TabIndex = 34
+        Me.ListBox11.TabStop = False
+        '
+        'TabPage11
+        '
+        Me.TabPage11.Controls.Add(Me.ListBox12)
+        Me.TabPage11.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage11.Name = "TabPage11"
+        Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage11.Size = New System.Drawing.Size(293, 147)
+        Me.TabPage11.TabIndex = 10
+        Me.TabPage11.Text = "Establecimientos/Otros"
+        Me.TabPage11.UseVisualStyleBackColor = True
+        '
+        'ListBox12
+        '
+        Me.ListBox12.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListBox12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox12.FormattingEnabled = True
+        Me.ListBox12.ItemHeight = 17
+        Me.ListBox12.Items.AddRange(New Object() {"Abogado", "Agencia de seguros", "Agencia de viajes", "Alquiler de coches", "Alquiler de películas", "Agencia inmobiliaria", "Almacén", "Almacén", "Alojamiento", "Biblioteca", "Centro comercial", "Cerrajero", "Clínica veterinaria", "Concesionario", "Contratista de techos", "Contratista general", "Dentista", "Droguería", "Electricista", "Empresa de mudanzas", "Establecimiento", "Fisioterapeuta", "Florista", "Fontanero", "Funeraria" & Global.Microsoft.VisualBasic.ChrW(9), "Gasolinera", "Gimnasio", "Grandes almacenes", "Joyería", "Lavandería", "Lavado de coches", "Librería", "Parking", "Peluquería", "Pintor", "Reparación de automóviles", "Salón de belleza", "Tienda de bicicletas", "Tienda de conveniencia", "Tienda de electrónica", "Tienda de mascotas", "Tienda de muebles", "Tienda de ropa", "Zapatería"})
+        Me.ListBox12.Location = New System.Drawing.Point(3, 3)
+        Me.ListBox12.Name = "ListBox12"
+        Me.ListBox12.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
+        Me.ListBox12.Size = New System.Drawing.Size(287, 141)
+        Me.ListBox12.TabIndex = 34
+        Me.ListBox12.TabStop = False
+        '
+        'TabPage12
+        '
+        Me.TabPage12.Controls.Add(Me.ListBox13)
+        Me.TabPage12.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage12.Name = "TabPage12"
+        Me.TabPage12.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage12.Size = New System.Drawing.Size(293, 147)
+        Me.TabPage12.TabIndex = 11
+        Me.TabPage12.Text = "Todos"
+        Me.TabPage12.UseVisualStyleBackColor = True
+        '
+        'ListBox13
+        '
+        Me.ListBox13.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListBox13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox13.FormattingEnabled = True
+        Me.ListBox13.ItemHeight = 17
+        Me.ListBox13.Items.AddRange(New Object() {"Aeropuerto", "Estación de bus", "Estación de metro", "Estación de tren", "Parada de taxis", "Acuario", "Camping", "Estadio", "Parque", "Parque de atracciones", "RV Park", "Zoo", "Bolera", "Casino", "Cine", "Galería de arte", "Museo", "Spa", "Comida", "Comida para llevar", "Entrega de comida", "Panadería", "Restaurante", "Supermercado", "Tienda de licor", "Banco", "Cajero automático", "Contabilidad", "Finanzas", "Escuela", "Farmacia", "Hospital", "Médico", "Salud", "Tienda de artículos básicos", "Bar", "Café", "Night Club", "Cementerio" & Global.Microsoft.VisualBasic.ChrW(9), "Iglesia", "Lugar de culto", "Mezquita", "Sinagoga", "Templo hindú", "Ayuntamiento", "Embajada", "Oficina de correos", "Oficina del gobierno local", "Palacio de Justicia", "Parque de bomberos", "Policía", "Universidad", "Abogado", "Agencia de seguros", "Agencia de viajes", "Alquiler de coches", "Alquiler de películas", "Agencia inmobiliaria", "Almacén", "Almacén", "Alojamiento", "Biblioteca", "Centro comercial", "Cerrajero", "Clínica veterinaria", "Concesionario", "Contratista de techos", "Contratista general", "Dentista", "Droguería", "Electricista", "Empresa de mudanzas", "Establecimiento", "Fisioterapeuta", "Florista", "Fontanero", "Funeraria" & Global.Microsoft.VisualBasic.ChrW(9), "Gasolinera", "Gimnasio", "Grandes almacenes", "Joyería", "Lavandería", "Lavado de coches", "Librería", "Parking", "Peluquería", "Pintor", "Reparación de automóviles", "Salón de belleza", "Tienda de bicicletas", "Tienda de conveniencia", "Tienda de electrónica", "Tienda de mascotas", "Tienda de muebles", "Tienda de ropa", "Zapatería"})
+        Me.ListBox13.Location = New System.Drawing.Point(3, 3)
+        Me.ListBox13.Name = "ListBox13"
+        Me.ListBox13.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
+        Me.ListBox13.Size = New System.Drawing.Size(287, 141)
+        Me.ListBox13.TabIndex = 35
+        Me.ListBox13.TabStop = False
         '
         'Places
         '
@@ -837,6 +857,10 @@ Partial Class Places
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.pc4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pc3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pc2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pc1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
@@ -850,10 +874,6 @@ Partial Class Places
         Me.TabPage10.ResumeLayout(False)
         Me.TabPage11.ResumeLayout(False)
         Me.TabPage12.ResumeLayout(False)
-        CType(Me.pc4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pc3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pc2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pc1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -894,6 +914,7 @@ Partial Class Places
     Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton4 As System.Windows.Forms.RadioButton
     Friend WithEvents Button7 As System.Windows.Forms.Button
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
@@ -919,5 +940,4 @@ Partial Class Places
     Friend WithEvents ListBox12 As System.Windows.Forms.ListBox
     Friend WithEvents TabPage12 As System.Windows.Forms.TabPage
     Friend WithEvents ListBox13 As System.Windows.Forms.ListBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
 End Class

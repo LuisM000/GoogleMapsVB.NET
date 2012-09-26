@@ -119,7 +119,7 @@ Partial Class PlacesDir
         Me.Button6.Location = New System.Drawing.Point(803, 396)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(129, 31)
-        Me.Button6.TabIndex = 50
+        Me.Button6.TabIndex = 6
         Me.Button6.Text = "Todos los resultados"
         Me.Button6.UseVisualStyleBackColor = True
         '
@@ -171,6 +171,7 @@ Partial Class PlacesDir
         Me.txtplace4.ReadOnly = True
         Me.txtplace4.Size = New System.Drawing.Size(516, 23)
         Me.txtplace4.TabIndex = 68
+        Me.txtplace4.TabStop = False
         '
         'txtplace3
         '
@@ -180,6 +181,7 @@ Partial Class PlacesDir
         Me.txtplace3.ReadOnly = True
         Me.txtplace3.Size = New System.Drawing.Size(516, 23)
         Me.txtplace3.TabIndex = 65
+        Me.txtplace3.TabStop = False
         '
         'txtplace2
         '
@@ -189,6 +191,7 @@ Partial Class PlacesDir
         Me.txtplace2.ReadOnly = True
         Me.txtplace2.Size = New System.Drawing.Size(516, 23)
         Me.txtplace2.TabIndex = 62
+        Me.txtplace2.TabStop = False
         '
         'txtplace1
         '
@@ -198,6 +201,7 @@ Partial Class PlacesDir
         Me.txtplace1.ReadOnly = True
         Me.txtplace1.Size = New System.Drawing.Size(516, 23)
         Me.txtplace1.TabIndex = 59
+        Me.txtplace1.TabStop = False
         '
         'GroupBox1
         '
@@ -210,7 +214,7 @@ Partial Class PlacesDir
         Me.GroupBox1.Location = New System.Drawing.Point(408, 24)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(524, 247)
-        Me.GroupBox1.TabIndex = 58
+        Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Tipo de establecimiento"
         '
@@ -219,7 +223,7 @@ Partial Class PlacesDir
         Me.TextBox1.Location = New System.Drawing.Point(8, 33)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(153, 20)
-        Me.TextBox1.TabIndex = 84
+        Me.TextBox1.TabIndex = 1
         Me.TextBox1.Text = "Buscador"
         '
         'Button3
@@ -228,7 +232,8 @@ Partial Class PlacesDir
         Me.Button3.Location = New System.Drawing.Point(313, 195)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(67, 44)
-        Me.Button3.TabIndex = 30
+        Me.Button3.TabIndex = 7
+        Me.Button3.TabStop = False
         Me.Button3.Text = "Borrar selección"
         Me.Button3.UseVisualStyleBackColor = True
         '
@@ -250,7 +255,8 @@ Partial Class PlacesDir
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(301, 173)
-        Me.TabControl1.TabIndex = 29
+        Me.TabControl1.TabIndex = 5
+        Me.TabControl1.TabStop = False
         '
         'TabPage1
         '
@@ -274,7 +280,8 @@ Partial Class PlacesDir
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
         Me.ListBox1.Size = New System.Drawing.Size(287, 141)
-        Me.ListBox1.TabIndex = 24
+        Me.ListBox1.TabIndex = 0
+        Me.ListBox1.TabStop = False
         '
         'TabPage2
         '
@@ -323,6 +330,7 @@ Partial Class PlacesDir
         Me.ListBox4.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
         Me.ListBox4.Size = New System.Drawing.Size(287, 141)
         Me.ListBox4.TabIndex = 31
+        Me.ListBox4.TabStop = False
         '
         'TabPage4
         '
@@ -347,6 +355,7 @@ Partial Class PlacesDir
         Me.ListBox5.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
         Me.ListBox5.Size = New System.Drawing.Size(287, 141)
         Me.ListBox5.TabIndex = 32
+        Me.ListBox5.TabStop = False
         '
         'TabPage5
         '
@@ -371,6 +380,7 @@ Partial Class PlacesDir
         Me.ListBox6.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
         Me.ListBox6.Size = New System.Drawing.Size(287, 141)
         Me.ListBox6.TabIndex = 32
+        Me.ListBox6.TabStop = False
         '
         'TabPage6
         '
@@ -395,6 +405,7 @@ Partial Class PlacesDir
         Me.ListBox7.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
         Me.ListBox7.Size = New System.Drawing.Size(287, 141)
         Me.ListBox7.TabIndex = 33
+        Me.ListBox7.TabStop = False
         '
         'TabPage7
         '
@@ -419,6 +430,7 @@ Partial Class PlacesDir
         Me.ListBox8.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
         Me.ListBox8.Size = New System.Drawing.Size(287, 141)
         Me.ListBox8.TabIndex = 33
+        Me.ListBox8.TabStop = False
         '
         'TabPage8
         '
@@ -443,6 +455,7 @@ Partial Class PlacesDir
         Me.ListBox9.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
         Me.ListBox9.Size = New System.Drawing.Size(287, 141)
         Me.ListBox9.TabIndex = 33
+        Me.ListBox9.TabStop = False
         '
         'TabPage9
         '
@@ -467,6 +480,7 @@ Partial Class PlacesDir
         Me.ListBox10.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
         Me.ListBox10.Size = New System.Drawing.Size(287, 141)
         Me.ListBox10.TabIndex = 34
+        Me.ListBox10.TabStop = False
         '
         'TabPage10
         '
@@ -491,6 +505,7 @@ Partial Class PlacesDir
         Me.ListBox11.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
         Me.ListBox11.Size = New System.Drawing.Size(287, 141)
         Me.ListBox11.TabIndex = 34
+        Me.ListBox11.TabStop = False
         '
         'TabPage11
         '
@@ -515,6 +530,7 @@ Partial Class PlacesDir
         Me.ListBox12.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
         Me.ListBox12.Size = New System.Drawing.Size(287, 141)
         Me.ListBox12.TabIndex = 34
+        Me.ListBox12.TabStop = False
         '
         'TabPage12
         '
@@ -539,6 +555,7 @@ Partial Class PlacesDir
         Me.ListBox13.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
         Me.ListBox13.Size = New System.Drawing.Size(287, 141)
         Me.ListBox13.TabIndex = 35
+        Me.ListBox13.TabStop = False
         '
         'ListBox2
         '
@@ -550,6 +567,7 @@ Partial Class PlacesDir
         Me.ListBox2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
         Me.ListBox2.Size = New System.Drawing.Size(132, 157)
         Me.ListBox2.TabIndex = 27
+        Me.ListBox2.TabStop = False
         '
         'Button4
         '
@@ -557,7 +575,8 @@ Partial Class PlacesDir
         Me.Button4.Location = New System.Drawing.Point(313, 140)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(67, 44)
-        Me.Button4.TabIndex = 26
+        Me.Button4.TabIndex = 6
+        Me.Button4.TabStop = False
         Me.Button4.Text = "<<"
         Me.Button4.UseVisualStyleBackColor = True
         '
@@ -567,7 +586,8 @@ Partial Class PlacesDir
         Me.Button5.Location = New System.Drawing.Point(313, 85)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(67, 44)
-        Me.Button5.TabIndex = 25
+        Me.Button5.TabIndex = 2
+        Me.Button5.TabStop = False
         Me.Button5.Text = ">>"
         Me.Button5.UseVisualStyleBackColor = True
         '
@@ -587,7 +607,7 @@ Partial Class PlacesDir
         Me.txtestablecimiento.Location = New System.Drawing.Point(144, 136)
         Me.txtestablecimiento.Name = "txtestablecimiento"
         Me.txtestablecimiento.Size = New System.Drawing.Size(238, 23)
-        Me.txtestablecimiento.TabIndex = 48
+        Me.txtestablecimiento.TabIndex = 2
         '
         'NumericUpDown1
         '
@@ -597,7 +617,7 @@ Partial Class PlacesDir
         Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(144, 23)
-        Me.NumericUpDown1.TabIndex = 47
+        Me.NumericUpDown1.TabIndex = 1
         Me.NumericUpDown1.Value = New Decimal(New Integer() {1000, 0, 0, 0})
         '
         'Label3
@@ -616,7 +636,7 @@ Partial Class PlacesDir
         Me.Button2.Location = New System.Drawing.Point(803, 304)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(129, 31)
-        Me.Button2.TabIndex = 49
+        Me.Button2.TabIndex = 4
         Me.Button2.Text = "Buscar"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -628,6 +648,7 @@ Partial Class PlacesDir
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(147, 19)
         Me.CheckBox1.TabIndex = 55
+        Me.CheckBox1.TabStop = False
         Me.CheckBox1.Text = "Abrir en nueva pestaña"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
@@ -648,7 +669,8 @@ Partial Class PlacesDir
         Me.txtlatitud.Name = "txtlatitud"
         Me.txtlatitud.ReadOnly = True
         Me.txtlatitud.Size = New System.Drawing.Size(238, 23)
-        Me.txtlatitud.TabIndex = 46
+        Me.txtlatitud.TabIndex = 3
+        Me.txtlatitud.TabStop = False
         '
         'Label1
         '
@@ -666,7 +688,7 @@ Partial Class PlacesDir
         Me.Button1.Location = New System.Drawing.Point(803, 442)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(129, 31)
-        Me.Button1.TabIndex = 51
+        Me.Button1.TabIndex = 7
         Me.Button1.Text = "Mostrar"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -676,7 +698,7 @@ Partial Class PlacesDir
         Me.txtdireccion.Location = New System.Drawing.Point(144, 50)
         Me.txtdireccion.Name = "txtdireccion"
         Me.txtdireccion.Size = New System.Drawing.Size(238, 23)
-        Me.txtdireccion.TabIndex = 45
+        Me.txtdireccion.TabIndex = 0
         '
         'ToolTip1
         '
@@ -711,7 +733,8 @@ Partial Class PlacesDir
         Me.txtlongitud.Name = "txtlongitud"
         Me.txtlongitud.ReadOnly = True
         Me.txtlongitud.Size = New System.Drawing.Size(238, 23)
-        Me.txtlongitud.TabIndex = 75
+        Me.txtlongitud.TabIndex = 10
+        Me.txtlongitud.TabStop = False
         '
         'Label14
         '
@@ -730,7 +753,8 @@ Partial Class PlacesDir
         Me.txtdir2.Name = "txtdir2"
         Me.txtdir2.ReadOnly = True
         Me.txtdir2.Size = New System.Drawing.Size(238, 23)
-        Me.txtdir2.TabIndex = 77
+        Me.txtdir2.TabIndex = 11
+        Me.txtdir2.TabStop = False
         '
         'RadioButton4
         '
@@ -773,7 +797,7 @@ Partial Class PlacesDir
         Me.RadioButton1.Location = New System.Drawing.Point(36, 308)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(67, 21)
-        Me.RadioButton1.TabIndex = 79
+        Me.RadioButton1.TabIndex = 24
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "Place 1"
         Me.RadioButton1.UseVisualStyleBackColor = True
@@ -829,7 +853,7 @@ Partial Class PlacesDir
         Me.Button7.Location = New System.Drawing.Point(803, 350)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(129, 31)
-        Me.Button7.TabIndex = 83
+        Me.Button7.TabIndex = 5
         Me.Button7.Text = "Más resultados"
         Me.Button7.UseVisualStyleBackColor = True
         '
