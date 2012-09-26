@@ -26,14 +26,32 @@
         Try
             Me.Text = datos(0)
             lblNombre.Text = datos(0)
-            Label1.Text = maps.UnixToTime(time(contador))
-            Label2.Text = autor(contador)
-            If autor(contador) = "Un usuario de Google" Then
-                Label3.Text = "Sin página Google"
+            'Label1.Text = maps.UnixToTime(time(contador))
+            Dim tiempo = maps.DiasRestantes(time(contador))
+            If tiempo(0) > 1 Then
+                If tiempo(1) = "días" Then
+                    Label1.Text = "Hace " & tiempo(0) & " " & tiempo(1)
+                Else
+                    Label1.Text = "Hace más de " & tiempo(0) & " " & tiempo(1)
+                End If
             Else
-                Label3.Text = URLautor(contadorUrl)
+                Select Case tiempo(1)
+                    Case "años"
+                        Label1.Text = "Hace más de " & tiempo(0) & " " & "año"
+                    Case "meses"
+                        Label1.Text = "Hace más de " & tiempo(0) & " " & "mes"
+                    Case "días"
+                        Label1.Text = "Hace " & tiempo(0) & " " & "días"
+                End Select
+                Label1.Text = "Hace más de " & tiempo(0) & " " & tiempo(1)
             End If
-            Label4.Text = textoReview(contador)
+                Label2.Text = autor(contador)
+                If autor(contador) = "Un usuario de Google" Then
+                    Label3.Text = "Sin página Google"
+                Else
+                    Label3.Text = URLautor(contadorUrl)
+                End If
+                Label4.Text = textoReview(contador)
         Catch
             contador = 0
             contadorUrl = 0
@@ -90,7 +108,25 @@
         contador += 1
         contadorUrl += 1
         Try
-            Label1.Text = maps.UnixToTime(time(contador))
+            'Label1.Text = maps.UnixToTime(time(contador))
+            Dim tiempo = maps.DiasRestantes(time(contador))
+            If tiempo(0) > 1 Then
+                If tiempo(1) = "días" Then
+                    Label1.Text = "Hace " & tiempo(0) & " " & tiempo(1)
+                Else
+                    Label1.Text = "Hace más de " & tiempo(0) & " " & tiempo(1)
+                End If
+            Else
+                Select Case tiempo(1)
+                    Case "años"
+                        Label1.Text = "Hace más de " & tiempo(0) & " " & "año"
+                    Case "meses"
+                        Label1.Text = "Hace más de " & tiempo(0) & " " & "mes"
+                    Case "días"
+                        Label1.Text = "Hace " & tiempo(0) & " " & "días"
+                End Select
+            End If
+
             Label2.Text = autor(contador)
             If autor(contador) = "Un usuario de Google" Then
                 Label3.Text = "Sin página Google"

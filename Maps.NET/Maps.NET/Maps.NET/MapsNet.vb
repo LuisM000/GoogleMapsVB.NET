@@ -687,7 +687,27 @@ Public Class MapsNet
 
 
 
+    Public Function DiasRestantes(ByVal FechaUnix As String)  'Cálculo días restantes con respecto a hoy
+        Dim Diferencia(1) As String
 
+        Try
+            Dim Tim1 As Date = Now
+            Dim Tim2 As Date = Me.UnixToTime(FechaUnix)
+            If DateDiff(DateInterval.Year, Tim2, Tim1) > 0 Then
+                Diferencia(0) = DateDiff(DateInterval.Year, Tim2, Tim1)
+                Diferencia(1) = "años"
+            ElseIf DateDiff(DateInterval.Month, Tim2, Tim1) > 0 Then
+                Diferencia(0) = DateDiff(DateInterval.Month, Tim2, Tim1)
+                Diferencia(1) = "meses"
+            Else
+                Diferencia(0) = DateDiff(DateInterval.Day, Tim2, Tim1)
+                Diferencia(1) = "días"
+            End If
+        Catch
+        End Try
+        Return Diferencia
+
+    End Function
 
 
 
@@ -696,11 +716,13 @@ Public Class MapsNet
         If UnixToTime.IsDaylightSavingTime = True Then
             UnixToTime = DateAdd(DateInterval.Hour, 1, UnixToTime)
         End If
+        Return UnixToTime
     End Function
     Function TimeToUnix(ByVal dteDate As Date) As String   'Fecha a tiempo Unix
         If dteDate.IsDaylightSavingTime = True Then
             dteDate = DateAdd(DateInterval.Hour, -1, dteDate)
         End If
         TimeToUnix = DateDiff(DateInterval.Second, #1/1/1970#, dteDate)
+        Return TimeToUnix
     End Function
 End Class
