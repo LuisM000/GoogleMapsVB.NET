@@ -541,6 +541,56 @@ Public Class MapsNet
         Return datos
     End Function
 
+
+    Public Function Autocompletado(ByRef input As String, ByRef latitud As Double, ByRef longitud As Double, ByRef radio As Integer, ByRef NumeroCaracteres As Integer, Optional ByRef idioma As String = "es") 'Autocompletado
+
+        'Creamos variable input
+        input = input.Replace(" ", "+")
+        input = "input=" & input
+
+        'Creamos variable localicación
+        Dim localizacion = "&location=" & latitud & "," & longitud
+
+        'Creamos variable radio
+        Dim radioAux As String
+        radioAux = "&radius=" & radio
+
+        'Número de caracteres
+        Dim numeroCaracAux
+        numeroCaracAux = "&offset=" & NumeroCaracteres
+
+        'Creamos la url con los datos
+        Dim url = "https://maps.googleapis.com/maps/api/place/autocomplete/xml?" & input & numeroCaracAux & localizacion & radioAux & "&types=establishment&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        Dim establecimiento As New ArrayList()
+
+        Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
+        req.Timeout = 3000
+        Try
+            'Preparamos el archivo xml
+            Dim res As System.Net.WebResponse = req.GetResponse()
+            Dim responseStream As Stream = res.GetResponseStream()
+            Dim NodeIter As XPathNodeIterator
+            Dim docNav As New XPathDocument(responseStream)
+            Dim nav = docNav.CreateNavigator
+
+            Dim ExEstablecimiento As String
+
+            'Creamos los paths
+            ExEstablecimiento = "AutocompletionResponse/prediction/term/value"
+
+            'Recorremos el xml
+            NodeIter = nav.Select(ExEstablecimiento)
+            While (NodeIter.MoveNext())
+                establecimiento.Add(NodeIter.Current.Value)
+            End While
+
+            responseStream.Close()
+        Catch
+        End Try
+        Return establecimiento
+    End Function
+
+
     Public Function UnixToTime(ByVal strUnixTime As String) As Date  'Tiempo Unix a fecha
         UnixToTime = DateAdd(DateInterval.Second, Val(strUnixTime), #1/1/1970#)
         If UnixToTime.IsDaylightSavingTime = True Then

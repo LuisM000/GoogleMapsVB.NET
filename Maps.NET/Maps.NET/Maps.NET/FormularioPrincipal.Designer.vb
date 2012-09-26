@@ -54,6 +54,7 @@ Partial Class FormularioPrincipal
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarServicioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.AutocomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer1.SuspendLayout()
@@ -299,12 +300,18 @@ Partial Class FormularioPrincipal
         'MenuStrip1
         '
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.CodificaciónGeográficaToolStripMenuItem, Me.PlacesToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.CodificaciónGeográficaToolStripMenuItem, Me.PlacesToolStripMenuItem, Me.AutocomToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(866, 25)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'AutocomToolStripMenuItem
+        '
+        Me.AutocomToolStripMenuItem.Name = "AutocomToolStripMenuItem"
+        Me.AutocomToolStripMenuItem.Size = New System.Drawing.Size(71, 21)
+        Me.AutocomToolStripMenuItem.Text = "autocom"
         '
         'FormularioPrincipal
         '
@@ -364,5 +371,6 @@ Partial Class FormularioPrincipal
     Friend WithEvents BuscarServicioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents AutocomToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

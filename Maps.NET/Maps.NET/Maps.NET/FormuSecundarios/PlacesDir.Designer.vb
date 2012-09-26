@@ -90,6 +90,7 @@ Partial Class PlacesDir
         Me.pc2 = New System.Windows.Forms.PictureBox()
         Me.pc1 = New System.Windows.Forms.PictureBox()
         Me.Button7 = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -857,12 +858,22 @@ Partial Class PlacesDir
         Me.Button7.Text = "Más resultados"
         Me.Button7.UseVisualStyleBackColor = True
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(219, 277)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(94, 13)
+        Me.Label5.TabIndex = 83
+        Me.Label5.Text = "Quizá quiso decir: "
+        '
         'PlacesDir
         '
         Me.AcceptButton = Me.Button2
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(944, 512)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.RadioButton4)
         Me.Controls.Add(Me.RadioButton3)
@@ -995,4 +1006,5 @@ Partial Class PlacesDir
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents TabPage12 As System.Windows.Forms.TabPage
     Friend WithEvents ListBox13 As System.Windows.Forms.ListBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
 End Class

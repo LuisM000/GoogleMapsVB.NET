@@ -19,6 +19,10 @@
             Button6.Enabled = True : Button7.Enabled = True 'Habilitamos los botones siguiente y todos resultados
             datosPlaces = objetoMaps.PlacesLatLong(txtlatitud.Text, txtlongitud.Text, NumericUpDown1.Value, TiposSeleccionados, txtestablecimiento.Text, ) 'String con la direccion
             rellenarTXT(datosPlaces)
+            If txtplace1.Text = "Sin datos. Sin datos (Sin datos,Sin datos)" And txtestablecimiento.Text <> "" Then   'Si no hay resultados en el establecimiento
+                autocompletado()
+            End If
+
         Else
             If aspectoFormu.verificarnumeros(txtlatitud.Text) = False Then txtlatitud.ForeColor = Color.Red
             If aspectoFormu.verificarnumeros(txtlongitud.Text) = False Then txtlongitud.ForeColor = Color.Red
@@ -121,7 +125,15 @@
     End Sub
 
 
-
+    Sub autocompletado()
+        Dim maps As New MapsNet
+        Dim texto = txtestablecimiento.Text
+        Dim autoc = maps.Autocompletado(txtestablecimiento.Text, txtlatitud.Text, txtlongitud.Text, NumericUpDown1.Value, txtestablecimiento.Text.Length)
+        Try
+            Label5.Text = autoc(0)
+        Catch
+        End Try
+    End Sub
 
 
 
