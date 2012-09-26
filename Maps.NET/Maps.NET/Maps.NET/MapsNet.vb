@@ -591,6 +591,106 @@ Public Class MapsNet
     End Function
 
 
+
+
+    Public Function Rutas(ByVal DireccionOrigen As String, ByVal DireccionDestino As String, Optional TipoTransporte As Integer = 0, Optional ByVal Hitos As ArrayList = Nothing, Optional ByVal region As String = ".es", Optional ByVal idioma As String = "es")
+
+        'Tipo de transporte
+        Dim transporte As String = TipoTransporte
+        Select Case TipoTransporte
+            Case 0
+                transporte = "&mode=driving"
+            Case 1
+                transporte = "&mode=walking"
+            Case 2
+                transporte = "&mode=bicycling"
+            Case Else
+                transporte = "&mode=driving"
+        End Select
+
+        'Dirección origen
+        DireccionOrigen = DireccionOrigen.Replace(" ", "+")
+        DireccionOrigen = "&origin=" & DireccionOrigen
+
+        'Dirección destino
+        DireccionDestino = DireccionDestino.Replace(" ", "+")
+        DireccionDestino = "&destination=" & DireccionDestino
+
+        'Hitos
+        Dim todosHitos As String = "&waypoints="
+        Dim separador As String = "|"
+        If Hitos IsNot Nothing Then
+            For Each item As Object In Hitos
+                todosHitos = todosHitos & item & separador
+            Next
+        Else
+            todosHitos = ""
+        End If
+
+        'Region
+        region = "&region=" & region
+
+        'Idioma
+        idioma = "&language=" & idioma
+       
+        'Creamos la url con los datos
+        Dim url = "https://maps.googleapis.com/maps/api/directions/xml?" & DireccionOrigen & DireccionDestino & todosHitos & transporte & region & idioma & "&sensor=false"
+        Dim DatosRuta As New ArrayList()
+
+        Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
+        req.Timeout = 4000
+        Try
+            'Preparamos el archivo xml
+            Dim res As System.Net.WebResponse = req.GetResponse()
+            Dim responseStream As Stream = res.GetResponseStream()
+            Dim NodeIter As XPathNodeIterator
+            Dim docNav As New XPathDocument(responseStream)
+            Dim nav = docNav.CreateNavigator
+
+            Dim Exruta, Extiempo, Exdistancia, Exindicaciones As String
+
+            'Creamos los paths
+            Exruta = "DirectionsResponse/route/summary"
+            Extiempo = "DirectionsResponse/route/leg/step/duration/text"
+            Exdistancia = "DirectionsResponse/route/leg/step/distance/text"
+            Exindicaciones = "DirectionsResponse/route/leg/step/html_instructions"
+
+            'Recorremos el xml
+            NodeIter = nav.Select(Exruta)
+            While (NodeIter.MoveNext())
+                DatosRuta.Add(NodeIter.Current.Value)
+            End While
+
+            NodeIter = nav.Select(Extiempo)
+            While (NodeIter.MoveNext())
+                DatosRuta.Add(NodeIter.Current.Value)
+            End While
+
+
+            NodeIter = nav.Select(Exdistancia)
+            While (NodeIter.MoveNext())
+                DatosRuta.Add(NodeIter.Current.Value)
+            End While
+
+
+            NodeIter = nav.Select(Exindicaciones)
+            While (NodeIter.MoveNext())
+                DatosRuta.Add(NodeIter.Current.Value)
+            End While
+
+
+            responseStream.Close()
+        Catch
+        End Try
+        Return DatosRuta
+    End Function
+
+
+
+
+
+
+
     Public Function UnixToTime(ByVal strUnixTime As String) As Date  'Tiempo Unix a fecha
         UnixToTime = DateAdd(DateInterval.Second, Val(strUnixTime), #1/1/1970#)
         If UnixToTime.IsDaylightSavingTime = True Then

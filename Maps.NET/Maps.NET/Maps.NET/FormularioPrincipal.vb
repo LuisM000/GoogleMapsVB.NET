@@ -41,4 +41,8 @@
         PlacesDir.Show()
     End Sub
 
+    Private Sub AutocomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AutocomToolStripMenuItem.Click
+        Dim mas As New MapsNet
+        Dim ss = mas.Rutas("monasterio de carracedo, ponferrada", "madrid", , , , )
+    End Sub
 End Class
