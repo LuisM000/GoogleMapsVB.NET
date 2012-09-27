@@ -22,15 +22,23 @@ Partial Class Rutas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgvTiempo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvDistancia = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvIndicaciones = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvLatitutd = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvLongitud = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RichTextBox1
         '
         Me.RichTextBox1.Location = New System.Drawing.Point(12, 84)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(772, 242)
+        Me.RichTextBox1.Size = New System.Drawing.Size(772, 117)
         Me.RichTextBox1.TabIndex = 0
         Me.RichTextBox1.Text = ""
         '
@@ -43,18 +51,69 @@ Partial Class Rutas
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvTiempo, Me.dgvDistancia, Me.dgvIndicaciones, Me.dgvLatitutd, Me.dgvLongitud})
+        Me.DataGridView1.Location = New System.Drawing.Point(6, 240)
+        Me.DataGridView1.Name = "DataGridView1"
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView1.Size = New System.Drawing.Size(1133, 316)
+        Me.DataGridView1.TabIndex = 2
+        '
+        'dgvTiempo
+        '
+        Me.dgvTiempo.HeaderText = "Duración tramo"
+        Me.dgvTiempo.Name = "dgvTiempo"
+        '
+        'dgvDistancia
+        '
+        Me.dgvDistancia.HeaderText = "Distancia tramo"
+        Me.dgvDistancia.Name = "dgvDistancia"
+        '
+        'dgvIndicaciones
+        '
+        Me.dgvIndicaciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.dgvIndicaciones.HeaderText = "Indicaciones tramo"
+        Me.dgvIndicaciones.Name = "dgvIndicaciones"
+        '
+        'dgvLatitutd
+        '
+        Me.dgvLatitutd.HeaderText = "Latitud"
+        Me.dgvLatitutd.Name = "dgvLatitutd"
+        '
+        'dgvLongitud
+        '
+        Me.dgvLongitud.HeaderText = "Longitud"
+        Me.dgvLongitud.Name = "dgvLongitud"
+        '
         'Rutas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(836, 405)
+        Me.ClientSize = New System.Drawing.Size(1250, 568)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Name = "Rutas"
         Me.Text = "Rutas"
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvTiempo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents dgvDistancia As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents dgvIndicaciones As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents dgvLatitutd As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents dgvLongitud As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
