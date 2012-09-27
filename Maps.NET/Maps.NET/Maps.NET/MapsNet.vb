@@ -593,7 +593,7 @@ Public Class MapsNet
 
 
 
-    Public Function Rutas(ByVal DireccionOrigen As String, ByVal DireccionDestino As String, Optional TipoTransporte As Integer = 0, Optional ByVal Hitos As ArrayList = Nothing, Optional ByVal region As String = ".es", Optional ByVal idioma As String = "es")
+    Public Function Rutas(ByVal DireccionOrigen As String, ByVal DireccionDestino As String, Optional TipoTransporte As Integer = 0, Optional ByVal Hitos As ArrayList = Nothing, Optional ByVal optimizar As Boolean = False, Optional ByVal peajes As Integer = 0, Optional ByVal region As String = "es", Optional ByVal idioma As String = "es")
 
         'Tipo de transporte
         Dim transporte As String = TipoTransporte
@@ -618,6 +618,12 @@ Public Class MapsNet
 
         'Hitos
         Dim todosHitos As String = "&waypoints="
+        If optimizar = True Then
+            todosHitos = "&waypoints=optimize:true|"
+        Else
+            todosHitos = "&waypoints="
+        End If
+
         Dim separador As String = "|"
         If Hitos IsNot Nothing Then
             For Each item As Object In Hitos
@@ -627,18 +633,35 @@ Public Class MapsNet
             todosHitos = ""
         End If
 
+
+        'Peajes
+        Dim peajesFin As String = ""
+        Select Case peajes
+            Case 0  'No evitamos peajes
+                peajesFin = ""
+            Case 1 'evitar los peajes de carretera y de puentes.
+                peajesFin = "&avoid=tolls"
+            Case 2 'evitar las autopistas y las autovías
+                peajesFin = "&avoid=highways"
+            Case Else
+
+        End Select
+
+
         'Region
         region = "&region=" & region
 
         'Idioma
         idioma = "&language=" & idioma
-       
+
         'Creamos la url con los datos
-        Dim url = "https://maps.googleapis.com/maps/api/directions/xml?" & DireccionOrigen & DireccionDestino & todosHitos & transporte & region & idioma & "&sensor=false"
+        Dim url = "https://maps.googleapis.com/maps/api/directions/xml?" & DireccionOrigen & DireccionDestino & todosHitos & transporte & peajesFin & region & idioma & "&sensor=false"
         Dim DatosRuta As New ArrayList()
+        Dim auxiliar(0) As String
+        auxiliar(0) = "sin datos"
 
         Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
-        req.Timeout = 4000
+        req.Timeout = 5000
         Try
             'Preparamos el archivo xml
             Dim res As System.Net.WebResponse = req.GetResponse()
@@ -647,16 +670,32 @@ Public Class MapsNet
             Dim docNav As New XPathDocument(responseStream)
             Dim nav = docNav.CreateNavigator
 
-            Dim Exruta, Extiempo, Exdistancia, Exindicaciones As String
+            Dim Exruta, Extiempo, Exdistancia, Exindicaciones, Exlatitud, Exlongitud, Excopyrights, ExordenRuta As String
 
             'Creamos los paths
-            Exruta = "DirectionsResponse/route/summary"
+            Exlatitud = "DirectionsResponse/route/leg/step/start_location/lat"
+            Exlongitud = "DirectionsResponse/route/leg/step/start_location/lng"
             Extiempo = "DirectionsResponse/route/leg/step/duration/text"
             Exdistancia = "DirectionsResponse/route/leg/step/distance/text"
             Exindicaciones = "DirectionsResponse/route/leg/step/html_instructions"
+            Exruta = "DirectionsResponse/route/summary" 'Lo asignamos a variables globales
+            Excopyrights = "DirectionsResponse/route/copyrights" 'Lo asignamos a variables globales
+            ExordenRuta = "DirectionsResponse/route/waypoint_index" 'Lo asignamos a variables globales
+
+            'borramos las variables globales
+            copyRuta.Clear()
+            ordenRuta.Clear()
+            rutaID.Clear()
+
 
             'Recorremos el xml
-            NodeIter = nav.Select(Exruta)
+           
+            NodeIter = nav.Select(Exlatitud)
+            While (NodeIter.MoveNext())
+                DatosRuta.Add(NodeIter.Current.Value)
+            End While
+
+            NodeIter = nav.Select(Exlongitud)
             While (NodeIter.MoveNext())
                 DatosRuta.Add(NodeIter.Current.Value)
             End While
@@ -678,12 +717,45 @@ Public Class MapsNet
                 DatosRuta.Add(NodeIter.Current.Value)
             End While
 
+            NodeIter = nav.Select(Excopyrights)
+            While (NodeIter.MoveNext())
+                copyRuta.Add(NodeIter.Current.Value)
+            End While
+
+            NodeIter = nav.Select(ExordenRuta)
+            While (NodeIter.MoveNext())
+                ordenRuta.Add(NodeIter.Current.Value)
+            End While
+
+            NodeIter = nav.Select(Exruta)
+            While (NodeIter.MoveNext())
+                rutaID.Add(NodeIter.Current.Value)
+            End While
+
+            ReDim auxiliar(DatosRuta.Count - 1)
+            Dim tamaño = CInt(DatosRuta.Count / 5)
+            Dim contador As Integer = 0
+            For i = 0 To tamaño - 1
+                auxiliar(contador) = DatosRuta(i)
+                auxiliar(contador + 1) = DatosRuta(i + tamaño)
+                auxiliar(contador + 2) = DatosRuta(i + tamaño + tamaño)
+                auxiliar(contador + 3) = DatosRuta(i + tamaño + tamaño + tamaño)
+                auxiliar(contador + 4) = DatosRuta(i + tamaño + tamaño + tamaño + tamaño)
+                contador += 5
+            Next
+
 
             responseStream.Close()
         Catch
         End Try
-        Return DatosRuta
+
+       
+        Return auxiliar
     End Function
+
+
+
+
 
 
 
