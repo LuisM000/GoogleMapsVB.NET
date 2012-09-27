@@ -133,6 +133,12 @@
     <Compile Include="FormuSecundarios\PlacesDir.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormuSecundarios\mostrarRuta.Designer.vb">
+      <DependentUpon>mostrarRuta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormuSecundarios\mostrarRuta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormuSecundarios\Rutas.Designer.vb">
       <DependentUpon>Rutas.vb</DependentUpon>
     </Compile>
@@ -194,6 +200,9 @@
     <EmbeddedResource Include="FormuSecundarios\PlacesDir.resx">
       <DependentUpon>PlacesDir.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormuSecundarios\mostrarRuta.resx">
+      <DependentUpon>mostrarRuta.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\Rutas.resx">
       <DependentUpon>Rutas.vb</DependentUpon>
     </EmbeddedResource>
@@ -242,6 +251,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\medalla-de-plata.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

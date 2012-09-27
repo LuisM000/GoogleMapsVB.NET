@@ -88,7 +88,7 @@ Public Class MapsNet
     Public Function CodificacionGeografica(ByVal direccion As String, Optional ByVal regionBusqueda As String = "es") 'busca latitud/longitud a partir de dirección
 
         'Creamos la url con los datso
-        Dim url = "http://maps.googleapis.com/maps/api/geocode/xml?address=" & direccion & "&sensor=false" & "&region=" & regionBusqueda
+        Dim url = "http://maps.googleapis.com/maps/api/geocode/xml?address=" & direccion & "&region=" & regionBusqueda & "&sensor=false"
         Dim LatLong As New ArrayList()
 
         Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
@@ -593,7 +593,6 @@ Public Class MapsNet
 
 
 
-
     Public Function Rutas(ByVal DireccionOrigen As String, ByVal DireccionDestino As String, Optional TipoTransporte As Integer = 0, Optional ByVal Hitos As ArrayList = Nothing, Optional ByVal optimizar As Boolean = False, Optional ByVal peajes As Integer = 0, Optional ByVal region As String = "es", Optional ByVal idioma As String = "es")
 
         'Tipo de transporte
@@ -655,7 +654,7 @@ Public Class MapsNet
         'Idioma
         idioma = "&language=" & idioma
 
-        'Creamos la url con los datos
+        'Creamos la url con los datos'
         Dim url = "https://maps.googleapis.com/maps/api/directions/xml?" & DireccionOrigen & DireccionDestino & todosHitos & transporte & peajesFin & region & idioma & "&sensor=false"
         Dim DatosRuta As New ArrayList()
         Dim auxiliar(0) As String
@@ -671,9 +670,10 @@ Public Class MapsNet
             Dim docNav As New XPathDocument(responseStream)
             Dim nav = docNav.CreateNavigator
 
-            Dim Exruta, Extiempo, Exdistancia, Exindicaciones, Exlatitud, Exlongitud, Excopyrights, ExordenRuta As String
+            Dim Exruta, Extiempo, Exdistancia, Exindicaciones, Exlatitud, Exlongitud, Excopyrights, ExordenRuta, Exstatus, ExduracionTot, ExdistanciTot As String
 
             'Creamos los paths
+            Exstatus = "DirectionsResponse/status"
             Exlatitud = "DirectionsResponse/route/leg/step/start_location/lat"
             Exlongitud = "DirectionsResponse/route/leg/step/start_location/lng"
             Extiempo = "DirectionsResponse/route/leg/step/duration/text"
@@ -682,14 +682,25 @@ Public Class MapsNet
             Exruta = "DirectionsResponse/route/summary" 'Lo asignamos a variables globales
             Excopyrights = "DirectionsResponse/route/copyrights" 'Lo asignamos a variables globales
             ExordenRuta = "DirectionsResponse/route/waypoint_index" 'Lo asignamos a variables globales
+            ExduracionTot = "DirectionsResponse/route/leg/duration/value" 'Lo asignamos a variables globales
+            ExdistanciTot = "DirectionsResponse/route/leg/distance/value" 'Lo asignamos a variables globales
+
 
             'borramos las variables globales
             copyRuta.Clear()
             ordenRuta.Clear()
             rutaID.Clear()
-
+            DuraciTotal.Clear()
+            DistanciaTotal.Clear()
+            statusRuta = "UNKNOWN_ERROR"
 
             'Recorremos el xml
+
+
+            NodeIter = nav.Select(Exstatus)
+            While (NodeIter.MoveNext())
+                statusRuta = (NodeIter.Current.Value)
+            End While
 
             NodeIter = nav.Select(Exlatitud)
             While (NodeIter.MoveNext())
@@ -731,6 +742,16 @@ Public Class MapsNet
             NodeIter = nav.Select(Exruta)
             While (NodeIter.MoveNext())
                 rutaID.Add(NodeIter.Current.Value)
+            End While
+
+            NodeIter = nav.Select(ExduracionTot)
+            While (NodeIter.MoveNext())
+                DuraciTotal.Add(NodeIter.Current.Value)
+            End While
+
+            NodeIter = nav.Select(ExdistanciTot)
+            While (NodeIter.MoveNext())
+                DistanciaTotal.Add(NodeIter.Current.Value)
             End While
 
             ReDim auxiliar(DatosRuta.Count - 1)
