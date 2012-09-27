@@ -2,6 +2,7 @@
 Imports System.IO
 Imports System.Xml
 Imports System.Xml.XPath
+Imports System.Text.RegularExpressions
 
 Public Class MapsNet
 
@@ -689,7 +690,7 @@ Public Class MapsNet
 
 
             'Recorremos el xml
-           
+
             NodeIter = nav.Select(Exlatitud)
             While (NodeIter.MoveNext())
                 DatosRuta.Add(NodeIter.Current.Value)
@@ -749,7 +750,7 @@ Public Class MapsNet
         Catch
         End Try
 
-       
+
         Return auxiliar
     End Function
 
@@ -782,7 +783,30 @@ Public Class MapsNet
     End Function
 
 
+    Public Function QuitarEtiqueta(ByVal str As String) As String 'Eliminamos etiquetas HTML y ponemos en mayúsculas
+        Dim RegExp As String = "<b[^>]*>[^<]*</b>"
+        Dim RegExp2 As String = "<div[^>]*>[^<]*</div>"
+        Dim R As New Regex(RegExp)
+        Dim R2 As New Regex(RegExp2)
 
+        Dim mc As MatchCollection = R.Matches(str)
+        If mc.Count > 0 Then
+            For Each m In mc
+                Dim cadena = ((m.Result("$0").ToString))
+                str = str.Replace(cadena, cadena.ToString.ToUpper)
+            Next
+        End If
+
+        Dim mc2 As MatchCollection = R2.Matches(str)
+        If mc.Count > 0 Then
+            For Each m In mc2
+                Dim cadena = ((m.Result("$0").ToString))
+                str = str.Replace(cadena, cadena.ToString.ToUpper)
+            Next
+        End If
+        str = str.Replace("<B>", "").Replace("</B>", "").Replace("<DIV STYLE=""FONT-SIZE:0.9EM"">", " ").Replace("</DIV>", "")
+        Return str
+    End Function
     Public Function UnixToTime(ByVal strUnixTime As String) As Date  'Tiempo Unix a fecha
         UnixToTime = DateAdd(DateInterval.Second, Val(strUnixTime), #1/1/1970#)
         If UnixToTime.IsDaylightSavingTime = True Then
