@@ -17,11 +17,11 @@ Public Class mostrarRuta
         If statusRuta = "OK" Then
             Try
                 For i = 0 To UBound(datosRutaE) - 1 Step 5
-                    RichTextBox1.Text = RichTextBox1.Text & datosRutaE(i) & "||| "
-                    RichTextBox1.Text = RichTextBox1.Text & datosRutaE(i + 1) & "||| "
-                    RichTextBox1.Text = RichTextBox1.Text & datosRutaE(i + 2) & "||| "
-                    RichTextBox1.Text = RichTextBox1.Text & datosRutaE(i + 3) & "||| "
-                    RichTextBox1.Text = RichTextBox1.Text & datosRutaE(i + 4) & "||| " & vbCrLf
+                    'RichTextBox1.Text = RichTextBox1.Text & datosRutaE(i) & "||| "
+                    'RichTextBox1.Text = RichTextBox1.Text & datosRutaE(i + 1) & "||| "
+                    'RichTextBox1.Text = RichTextBox1.Text & datosRutaE(i + 2) & "||| "
+                    'RichTextBox1.Text = RichTextBox1.Text & datosRutaE(i + 3) & "||| "
+                    'RichTextBox1.Text = RichTextBox1.Text & datosRutaE(i + 4) & "||| " & vbCrLf
                 Next
                 RichTextBox1.Text = mas.QuitarEtiqueta(RichTextBox1.Text)
                 With DataGridView1
@@ -50,12 +50,8 @@ Public Class mostrarRuta
         End If
 
     End Sub
+
+
 End Class
 
 
-
-
-'Private Sub Rutas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-'    
-'End Sub

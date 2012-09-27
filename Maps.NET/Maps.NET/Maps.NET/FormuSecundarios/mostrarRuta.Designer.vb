@@ -24,7 +24,6 @@ Partial Class mostrarRuta
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.dgvTiempo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvDistancia = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -43,15 +42,6 @@ Partial Class mostrarRuta
         Me.RichTextBox1.Size = New System.Drawing.Size(772, 117)
         Me.RichTextBox1.TabIndex = 0
         Me.RichTextBox1.Text = ""
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(306, 25)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(28, 16)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'DataGridView1
         '
@@ -120,7 +110,6 @@ Partial Class mostrarRuta
         Me.Controls.Add(Me.txttiempo)
         Me.Controls.Add(Me.txtdistancia)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Name = "mostrarRuta"
         Me.Text = "Rutas"
@@ -130,7 +119,6 @@ Partial Class mostrarRuta
 
     End Sub
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents dgvTiempo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents dgvDistancia As System.Windows.Forms.DataGridViewTextBoxColumn

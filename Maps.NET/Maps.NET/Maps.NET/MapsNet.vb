@@ -610,10 +610,12 @@ Public Class MapsNet
 
         'Dirección origen
         DireccionOrigen = DireccionOrigen.Replace(" ", "+")
+        DireccionOrigen = DireccionOrigen.Replace("  ", "+")
         DireccionOrigen = "&origin=" & DireccionOrigen
 
         'Dirección destino
         DireccionDestino = DireccionDestino.Replace(" ", "+")
+        DireccionDestino = DireccionDestino.Replace("  ", "+")
         DireccionDestino = "&destination=" & DireccionDestino
 
         'Hitos
@@ -627,6 +629,7 @@ Public Class MapsNet
         Dim separador As String = "|"
         If Hitos IsNot Nothing Then
             For Each item As Object In Hitos
+                item = item.ToString.Replace(" ", "+")
                 todosHitos = todosHitos & item & separador
             Next
         Else
@@ -670,7 +673,7 @@ Public Class MapsNet
             Dim docNav As New XPathDocument(responseStream)
             Dim nav = docNav.CreateNavigator
 
-            Dim Exruta, Extiempo, Exdistancia, Exindicaciones, Exlatitud, Exlongitud, Excopyrights, ExordenRuta, Exstatus, ExduracionTot, ExdistanciTot As String
+            Dim Exruta, Extiempo, Exdistancia, Exindicaciones, Exlatitud, Exlongitud, Excopyrights, ExordenRuta, Exstatus, ExduracionTot, ExdistanciTot, Extravel As String
 
             'Creamos los paths
             Exstatus = "DirectionsResponse/status"
@@ -684,7 +687,7 @@ Public Class MapsNet
             ExordenRuta = "DirectionsResponse/route/waypoint_index" 'Lo asignamos a variables globales
             ExduracionTot = "DirectionsResponse/route/leg/duration/value" 'Lo asignamos a variables globales
             ExdistanciTot = "DirectionsResponse/route/leg/distance/value" 'Lo asignamos a variables globales
-
+            Extravel = "DirectionsResponse/route/leg/step/travel_mode" 'Lo asignamos a variables globales
 
             'borramos las variables globales
             copyRuta.Clear()
@@ -695,6 +698,15 @@ Public Class MapsNet
             statusRuta = "UNKNOWN_ERROR"
 
             'Recorremos el xml
+
+            Dim ss As String
+
+            NodeIter = nav.Select(Extravel)
+            While (NodeIter.MoveNext())
+                ss = (NodeIter.Current.Value)
+            End While
+
+
 
 
             NodeIter = nav.Select(Exstatus)
