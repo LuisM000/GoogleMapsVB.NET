@@ -145,6 +145,16 @@ Public Class Rutas
                     Next
                 End If
             Next
+
+            'Coordenadas inicio/fin recorrido
+            Dim coord As New ArrayList
+            coord.Add(txtlatOrigen.Text)
+            coord.Add(txtlngOrigen.Text)
+            coord.Add(txtlatDestin.Text)
+            coord.Add(txtlngDestin.Text)
+
+
+
             '---------------------------
             Dim datosruta = maps.Rutas(txtdirorigen.Text, txtdirdestin.Text, transporte, hitos, optimizar, peajes, , )
             Select Case statusRuta
@@ -164,7 +174,7 @@ Public Class Rutas
                     MessageBox.Show("Error del servidor. Inténtelo de nuevo", "UNKNOWN_ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Case "OK"
                     Try
-                        Dim frm As New mostrarRuta(datosruta)
+                        Dim frm As New mostrarRuta(datosruta, coord)
                         frm.Show()
                     Catch
                     End Try

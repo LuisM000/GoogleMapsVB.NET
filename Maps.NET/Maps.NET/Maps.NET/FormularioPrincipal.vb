@@ -41,7 +41,17 @@
         PlacesDir.Show()
     End Sub
 
-    Private Sub AutocomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AutocomToolStripMenuItem.Click
+   
+    Private Sub CalcularRutaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CalcularRutaToolStripMenuItem.Click
         Rutas.Show()
     End Sub
+    Private Sub AutocomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AutocomToolStripMenuItem.Click
+        Dim maps As New MapsNet
+        Dim loco As New ArrayList
+        loco.Add("23")
+        loco.Add("33")
+      
+        maps.Elevacion(loco)
+    End Sub
+
 End Class

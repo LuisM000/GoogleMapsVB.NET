@@ -789,6 +789,46 @@ Public Class MapsNet
 
 
 
+    Public Function Elevacion(ByVal latlong As ArrayList) 'Enviar datos como lat/long/lat/long
+
+        'lista de datos
+        Dim elev As String = ""
+        For i = 0 To latlong.Count - 1 Step 2
+            elev += latlong(i) & "," & latlong(i + 1) & "|"
+        Next
+        elev = elev.Substring(0, elev.Count - 1)
+
+        'Creamos la url con los datos
+        Dim url = "http://maps.googleapis.com/maps/api/elevation/xml?locations=" & elev & "&sensor=false"
+
+        Dim elevaciones As New ArrayList()
+
+        Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
+        req.Timeout = 3000
+        Try
+            'Preparamos el archivo xml
+            Dim res As System.Net.WebResponse = req.GetResponse()
+            Dim responseStream As Stream = res.GetResponseStream()
+            Dim NodeIter As XPathNodeIterator
+            Dim docNav As New XPathDocument(responseStream)
+            Dim nav = docNav.CreateNavigator
+
+            Dim Exelevacion As String
+
+            'Creamos los paths
+            Exelevacion = "ElevationResponse/result/elevation"
+
+            'Recorremos el xml
+            NodeIter = nav.Select(Exelevacion)
+            While (NodeIter.MoveNext())
+                elevaciones.Add(NodeIter.Current.Value)
+            End While
+
+            responseStream.Close()
+        Catch
+        End Try
+        Return elevaciones
+    End Function
 
 
 

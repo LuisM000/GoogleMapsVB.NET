@@ -461,6 +461,7 @@ Partial Class Rutas
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(194, 23)
         Me.ComboBox1.TabIndex = 6
+        Me.ComboBox1.TabStop = False
         Me.ComboBox1.Text = "Medio de transporte"
         '
         'ComboBox2
@@ -472,6 +473,7 @@ Partial Class Rutas
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(194, 23)
         Me.ComboBox2.TabIndex = 5
+        Me.ComboBox2.TabStop = False
         Me.ComboBox2.Text = "Peajes"
         '
         'Rutas

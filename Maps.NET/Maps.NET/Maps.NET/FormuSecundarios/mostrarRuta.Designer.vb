@@ -39,6 +39,8 @@ Partial Class mostrarRuta
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtalt = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -89,15 +91,15 @@ Partial Class mostrarRuta
         'txtdistancia
         '
         Me.txtdistancia.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdistancia.Location = New System.Drawing.Point(191, 15)
+        Me.txtdistancia.Location = New System.Drawing.Point(218, 15)
         Me.txtdistancia.Name = "txtdistancia"
-        Me.txtdistancia.Size = New System.Drawing.Size(171, 23)
+        Me.txtdistancia.Size = New System.Drawing.Size(222, 23)
         Me.txtdistancia.TabIndex = 3
         '
         'txttiempo
         '
         Me.txttiempo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txttiempo.Location = New System.Drawing.Point(191, 45)
+        Me.txttiempo.Location = New System.Drawing.Point(218, 49)
         Me.txttiempo.Name = "txttiempo"
         Me.txttiempo.Size = New System.Drawing.Size(222, 23)
         Me.txttiempo.TabIndex = 4
@@ -116,7 +118,7 @@ Partial Class mostrarRuta
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(21, 46)
+        Me.Label1.Location = New System.Drawing.Point(21, 50)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(147, 17)
         Me.Label1.TabIndex = 57
@@ -157,28 +159,48 @@ Partial Class mostrarRuta
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(21, 76)
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(1041, 125)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(78, 17)
+        Me.Label4.Size = New System.Drawing.Size(69, 15)
         Me.Label4.TabIndex = 62
         Me.Label4.Text = "Color salida"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(21, 93)
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(1142, 125)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(125, 17)
+        Me.Label5.Size = New System.Drawing.Size(113, 15)
         Me.Label5.TabIndex = 63
         Me.Label5.Text = "Color incorporación"
+        '
+        'txtalt
+        '
+        Me.txtalt.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtalt.Location = New System.Drawing.Point(218, 83)
+        Me.txtalt.Name = "txtalt"
+        Me.txtalt.Size = New System.Drawing.Size(222, 23)
+        Me.txtalt.TabIndex = 64
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(21, 84)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(195, 17)
+        Me.Label6.TabIndex = 65
+        Me.Label6.Text = "Diferencia altitud origen destino"
         '
         'mostrarRuta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1304, 737)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.txtalt)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -217,4 +239,6 @@ Partial Class mostrarRuta
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents ColorDialog1 As System.Windows.Forms.ColorDialog
     Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents txtalt As System.Windows.Forms.TextBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
 End Class

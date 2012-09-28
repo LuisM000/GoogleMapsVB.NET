@@ -3,11 +3,13 @@
 Public Class mostrarRuta
 
     Dim datosRutaE
-    Sub New(ByVal datosRuta() As String)  'Recibimos variables en el constructor
+    Dim datosCoordenadasElv As New ArrayList
+    Sub New(ByVal datosRuta() As String, ByVal coordOrignDestin As ArrayList)  'Recibimos variables en el constructor
         ' Llamada necesaria para el diseñador.
         InitializeComponent()
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         datosRutaE = datosRuta
+        datosCoordenadasElv = coordOrignDestin
     End Sub
 
     Dim colorDesalida = Color.White
@@ -68,10 +70,13 @@ Public Class mostrarRuta
                     Next
                     GroupBox1.Visible = True
                 End If
-
+                'Copyright
                 Label3.Text = copyRuta(0)
+                'Diferencia de altitud
+                Dim elevacion As New ArrayList
+                elevacion = maps.Elevacion(datosCoordenadasElv)
+                txtalt.Text = elevacion(1) - elevacion(0) & " metros"
             Catch
-                MessageBox.Show("")
             End Try
         End If
 
