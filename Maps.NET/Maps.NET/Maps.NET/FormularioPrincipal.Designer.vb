@@ -55,8 +55,11 @@ Partial Class FormularioPrincipal
         Me.BuscarServicioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.AutocomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ElevaciónPorDirecciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ElevaciónPorLatitudlongitudToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RutasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CalcularRutaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VerURLActualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer1.SuspendLayout()
@@ -208,6 +211,7 @@ Partial Class FormularioPrincipal
         '
         'ArchivoToolStripMenuItem
         '
+        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VerURLActualToolStripMenuItem})
         Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
         Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(63, 21)
         Me.ArchivoToolStripMenuItem.Text = "Archivo"
@@ -271,21 +275,21 @@ Partial Class FormularioPrincipal
         'DirectaToolStripMenuItem
         '
         Me.DirectaToolStripMenuItem.Name = "DirectaToolStripMenuItem"
-        Me.DirectaToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
-        Me.DirectaToolStripMenuItem.Text = "Directa"
+        Me.DirectaToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
+        Me.DirectaToolStripMenuItem.Text = "Codificación directa"
         '
         'InversaToolStripMenuItem
         '
         Me.InversaToolStripMenuItem.Name = "InversaToolStripMenuItem"
-        Me.InversaToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
-        Me.InversaToolStripMenuItem.Text = "Inversa"
+        Me.InversaToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
+        Me.InversaToolStripMenuItem.Text = "Codificación inversa"
         '
         'PlacesToolStripMenuItem
         '
         Me.PlacesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.BuscarServicioToolStripMenuItem})
         Me.PlacesToolStripMenuItem.Name = "PlacesToolStripMenuItem"
-        Me.PlacesToolStripMenuItem.Size = New System.Drawing.Size(56, 21)
-        Me.PlacesToolStripMenuItem.Text = "Places"
+        Me.PlacesToolStripMenuItem.Size = New System.Drawing.Size(63, 21)
+        Me.PlacesToolStripMenuItem.Text = "Locales"
         '
         'ToolStripMenuItem1
         '
@@ -311,9 +315,22 @@ Partial Class FormularioPrincipal
         '
         'AutocomToolStripMenuItem
         '
+        Me.AutocomToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ElevaciónPorDirecciónToolStripMenuItem, Me.ElevaciónPorLatitudlongitudToolStripMenuItem})
         Me.AutocomToolStripMenuItem.Name = "AutocomToolStripMenuItem"
-        Me.AutocomToolStripMenuItem.Size = New System.Drawing.Size(71, 21)
-        Me.AutocomToolStripMenuItem.Text = "autocom"
+        Me.AutocomToolStripMenuItem.Size = New System.Drawing.Size(74, 21)
+        Me.AutocomToolStripMenuItem.Text = "Elevación"
+        '
+        'ElevaciónPorDirecciónToolStripMenuItem
+        '
+        Me.ElevaciónPorDirecciónToolStripMenuItem.Name = "ElevaciónPorDirecciónToolStripMenuItem"
+        Me.ElevaciónPorDirecciónToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
+        Me.ElevaciónPorDirecciónToolStripMenuItem.Text = "Elevación por dirección"
+        '
+        'ElevaciónPorLatitudlongitudToolStripMenuItem
+        '
+        Me.ElevaciónPorLatitudlongitudToolStripMenuItem.Name = "ElevaciónPorLatitudlongitudToolStripMenuItem"
+        Me.ElevaciónPorLatitudlongitudToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
+        Me.ElevaciónPorLatitudlongitudToolStripMenuItem.Text = "Elevación por latitud/longitud"
         '
         'RutasToolStripMenuItem
         '
@@ -325,8 +342,14 @@ Partial Class FormularioPrincipal
         'CalcularRutaToolStripMenuItem
         '
         Me.CalcularRutaToolStripMenuItem.Name = "CalcularRutaToolStripMenuItem"
-        Me.CalcularRutaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CalcularRutaToolStripMenuItem.Size = New System.Drawing.Size(149, 22)
         Me.CalcularRutaToolStripMenuItem.Text = "Calcular ruta"
+        '
+        'VerURLActualToolStripMenuItem
+        '
+        Me.VerURLActualToolStripMenuItem.Name = "VerURLActualToolStripMenuItem"
+        Me.VerURLActualToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.VerURLActualToolStripMenuItem.Text = "Ver URL actual"
         '
         'FormularioPrincipal
         '
@@ -389,5 +412,8 @@ Partial Class FormularioPrincipal
     Friend WithEvents AutocomToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RutasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CalcularRutaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ElevaciónPorDirecciónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ElevaciónPorLatitudlongitudToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents VerURLActualToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

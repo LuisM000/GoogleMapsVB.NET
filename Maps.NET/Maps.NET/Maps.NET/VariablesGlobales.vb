@@ -13,6 +13,12 @@
     Public TiempoSegundos As New ArrayList()
     '-------
     Public statusRuta As String
+    '--------
+    'Elevación
+    Public resolucion As New ArrayList()
+
+    'Seguimiento de solicitudes HTTP
+    Public URLseguimiento As New ArrayList
 
 
 End Module

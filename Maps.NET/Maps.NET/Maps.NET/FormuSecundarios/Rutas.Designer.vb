@@ -322,7 +322,7 @@ Partial Class Rutas
         '
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.Location = New System.Drawing.Point(930, 556)
+        Me.CheckBox1.Location = New System.Drawing.Point(938, 556)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(111, 21)
         Me.CheckBox1.TabIndex = 8
@@ -331,18 +331,18 @@ Partial Class Rutas
         '
         'PictureBox2
         '
-        Me.PictureBox2.Location = New System.Drawing.Point(996, 118)
+        Me.PictureBox2.Location = New System.Drawing.Point(977, 124)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox2.Size = New System.Drawing.Size(20, 20)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 87
         Me.PictureBox2.TabStop = False
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(996, 64)
+        Me.PictureBox1.Location = New System.Drawing.Point(977, 70)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox1.Size = New System.Drawing.Size(20, 20)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 86
         Me.PictureBox1.TabStop = False

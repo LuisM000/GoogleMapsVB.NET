@@ -66,6 +66,13 @@
         End Try
 
     End Function
+
+    Function URLactual() 'Saber url de la pestaña activa
+        Dim navegador As WebBrowser
+        navegador = Me.NavegadorActual(FormularioPrincipal.TabControl1.SelectedIndex)
+        Return (navegador.Url)
+
+    End Function
     Function DevuelveEstablecimientosIngles(ByVal Establecimientos As ArrayList) 'TRasnformamos a idioma válido para places
         Dim establIngles As New ArrayList
         Dim valor As String = "establishment"

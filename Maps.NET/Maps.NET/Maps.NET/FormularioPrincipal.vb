@@ -6,6 +6,14 @@
         aspectoFormu.TabControlYpanel() 'Ajustamos el tabcontrol
     End Sub
 
+    Private Sub VerURLActualToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerURLActualToolStripMenuItem.Click
+        Try
+            Dim frm As New Dialog1(aspectoFormu.URLactual().ToString)
+            frm.Show()
+        Catch
+        End Try
+    End Sub
+
     Private Sub NuevaPestañaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles NuevaPestañaToolStripMenuItem1.Click
         aspectoFormu.NuevaFicha() 'Ajustamos el tabcontrol
     End Sub
@@ -45,13 +53,10 @@
     Private Sub CalcularRutaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CalcularRutaToolStripMenuItem.Click
         Rutas.Show()
     End Sub
-    Private Sub AutocomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AutocomToolStripMenuItem.Click
-        Dim maps As New MapsNet
-        Dim loco As New ArrayList
-        loco.Add("23")
-        loco.Add("33")
-      
-        maps.Elevacion(loco)
+
+    Private Sub ElevaciónPorDirecciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ElevaciónPorDirecciónToolStripMenuItem.Click
+        ElevacionDir.Show()
     End Sub
 
+    
 End Class
