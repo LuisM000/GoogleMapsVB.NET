@@ -22,6 +22,8 @@ Partial Class Rutas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Rutas))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtdirorigen = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -47,28 +49,33 @@ Partial Class Rutas
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton5 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton6 = New System.Windows.Forms.RadioButton()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button5 = New System.Windows.Forms.Button()
-        Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(55, 84)
+        Me.Label1.Location = New System.Drawing.Point(31, 68)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(65, 17)
         Me.Label1.TabIndex = 53
@@ -77,16 +84,16 @@ Partial Class Rutas
         'txtdirorigen
         '
         Me.txtdirorigen.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdirorigen.Location = New System.Drawing.Point(157, 83)
+        Me.txtdirorigen.Location = New System.Drawing.Point(141, 67)
         Me.txtdirorigen.Name = "txtdirorigen"
         Me.txtdirorigen.Size = New System.Drawing.Size(238, 23)
-        Me.txtdirorigen.TabIndex = 54
+        Me.txtdirorigen.TabIndex = 0
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(245, 48)
+        Me.Label2.Location = New System.Drawing.Point(150, 32)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(62, 17)
         Me.Label2.TabIndex = 55
@@ -95,35 +102,41 @@ Partial Class Rutas
         'txtlatOrigen
         '
         Me.txtlatOrigen.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlatOrigen.Location = New System.Drawing.Point(424, 83)
+        Me.txtlatOrigen.Location = New System.Drawing.Point(408, 67)
         Me.txtlatOrigen.Name = "txtlatOrigen"
         Me.txtlatOrigen.ReadOnly = True
         Me.txtlatOrigen.Size = New System.Drawing.Size(141, 23)
         Me.txtlatOrigen.TabIndex = 56
+        Me.txtlatOrigen.TabStop = False
+        Me.txtlatOrigen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtdirEncOrig
         '
         Me.txtdirEncOrig.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdirEncOrig.Location = New System.Drawing.Point(749, 84)
+        Me.txtdirEncOrig.Location = New System.Drawing.Point(733, 68)
         Me.txtdirEncOrig.Name = "txtdirEncOrig"
         Me.txtdirEncOrig.ReadOnly = True
         Me.txtdirEncOrig.Size = New System.Drawing.Size(238, 23)
         Me.txtdirEncOrig.TabIndex = 58
+        Me.txtdirEncOrig.TabStop = False
+        Me.txtdirEncOrig.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtlngOrigen
         '
         Me.txtlngOrigen.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlngOrigen.Location = New System.Drawing.Point(590, 83)
+        Me.txtlngOrigen.Location = New System.Drawing.Point(574, 67)
         Me.txtlngOrigen.Name = "txtlngOrigen"
         Me.txtlngOrigen.ReadOnly = True
         Me.txtlngOrigen.Size = New System.Drawing.Size(141, 23)
         Me.txtlngOrigen.TabIndex = 59
+        Me.txtlngOrigen.TabStop = False
+        Me.txtlngOrigen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(802, 48)
+        Me.Label3.Location = New System.Drawing.Point(786, 32)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(132, 17)
         Me.Label3.TabIndex = 60
@@ -133,7 +146,7 @@ Partial Class Rutas
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(631, 48)
+        Me.Label4.Location = New System.Drawing.Point(615, 32)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(59, 17)
         Me.Label4.TabIndex = 61
@@ -143,7 +156,7 @@ Partial Class Rutas
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(471, 48)
+        Me.Label5.Location = New System.Drawing.Point(455, 32)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(47, 17)
         Me.Label5.TabIndex = 62
@@ -152,43 +165,49 @@ Partial Class Rutas
         'txtlngDestin
         '
         Me.txtlngDestin.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlngDestin.Location = New System.Drawing.Point(590, 137)
+        Me.txtlngDestin.Location = New System.Drawing.Point(574, 121)
         Me.txtlngDestin.Name = "txtlngDestin"
         Me.txtlngDestin.ReadOnly = True
         Me.txtlngDestin.Size = New System.Drawing.Size(141, 23)
         Me.txtlngDestin.TabIndex = 67
+        Me.txtlngDestin.TabStop = False
+        Me.txtlngDestin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtdirEncDest
         '
         Me.txtdirEncDest.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdirEncDest.Location = New System.Drawing.Point(749, 138)
+        Me.txtdirEncDest.Location = New System.Drawing.Point(733, 122)
         Me.txtdirEncDest.Name = "txtdirEncDest"
         Me.txtdirEncDest.ReadOnly = True
         Me.txtdirEncDest.Size = New System.Drawing.Size(238, 23)
-        Me.txtdirEncDest.TabIndex = 66
+        Me.txtdirEncDest.TabIndex = 4
+        Me.txtdirEncDest.TabStop = False
+        Me.txtdirEncDest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtlatDestin
         '
         Me.txtlatDestin.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlatDestin.Location = New System.Drawing.Point(424, 137)
+        Me.txtlatDestin.Location = New System.Drawing.Point(408, 121)
         Me.txtlatDestin.Name = "txtlatDestin"
         Me.txtlatDestin.ReadOnly = True
         Me.txtlatDestin.Size = New System.Drawing.Size(141, 23)
         Me.txtlatDestin.TabIndex = 65
+        Me.txtlatDestin.TabStop = False
+        Me.txtlatDestin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtdirdestin
         '
         Me.txtdirdestin.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdirdestin.Location = New System.Drawing.Point(157, 137)
+        Me.txtdirdestin.Location = New System.Drawing.Point(141, 121)
         Me.txtdirdestin.Name = "txtdirdestin"
         Me.txtdirdestin.Size = New System.Drawing.Size(238, 23)
-        Me.txtdirdestin.TabIndex = 64
+        Me.txtdirdestin.TabIndex = 1
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(55, 138)
+        Me.Label6.Location = New System.Drawing.Point(31, 123)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(69, 17)
         Me.Label6.TabIndex = 63
@@ -197,95 +216,105 @@ Partial Class Rutas
         'txtlngHito
         '
         Me.txtlngHito.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlngHito.Location = New System.Drawing.Point(590, 231)
+        Me.txtlngHito.Location = New System.Drawing.Point(574, 265)
         Me.txtlngHito.Name = "txtlngHito"
         Me.txtlngHito.ReadOnly = True
         Me.txtlngHito.Size = New System.Drawing.Size(141, 23)
         Me.txtlngHito.TabIndex = 72
+        Me.txtlngHito.TabStop = False
+        Me.txtlngHito.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtdirEncHito
         '
         Me.txtdirEncHito.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdirEncHito.Location = New System.Drawing.Point(749, 232)
+        Me.txtdirEncHito.Location = New System.Drawing.Point(733, 266)
         Me.txtdirEncHito.Name = "txtdirEncHito"
         Me.txtdirEncHito.ReadOnly = True
         Me.txtdirEncHito.Size = New System.Drawing.Size(238, 23)
         Me.txtdirEncHito.TabIndex = 71
+        Me.txtdirEncHito.TabStop = False
+        Me.txtdirEncHito.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtlatHito
         '
         Me.txtlatHito.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlatHito.Location = New System.Drawing.Point(424, 231)
+        Me.txtlatHito.Location = New System.Drawing.Point(408, 265)
         Me.txtlatHito.Name = "txtlatHito"
         Me.txtlatHito.ReadOnly = True
         Me.txtlatHito.Size = New System.Drawing.Size(141, 23)
         Me.txtlatHito.TabIndex = 70
+        Me.txtlatHito.TabStop = False
+        Me.txtlatHito.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtdirhito
         '
         Me.txtdirhito.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdirhito.Location = New System.Drawing.Point(157, 231)
+        Me.txtdirhito.Location = New System.Drawing.Point(141, 265)
         Me.txtdirhito.Name = "txtdirhito"
         Me.txtdirhito.Size = New System.Drawing.Size(238, 23)
-        Me.txtdirhito.TabIndex = 69
+        Me.txtdirhito.TabIndex = 3
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(55, 232)
+        Me.Label7.Location = New System.Drawing.Point(25, 266)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(85, 17)
         Me.Label7.TabIndex = 68
-        Me.Label7.Text = "Hitos (8 max)"
+        Me.Label7.Text = "Hitos (8 máx)"
         '
         'ListBox1
         '
         Me.ListBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.ItemHeight = 17
-        Me.ListBox1.Location = New System.Drawing.Point(58, 269)
+        Me.ListBox1.Location = New System.Drawing.Point(6, 22)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(929, 89)
+        Me.ListBox1.Size = New System.Drawing.Size(937, 106)
         Me.ListBox1.TabIndex = 73
+        Me.ListBox1.TabStop = False
         '
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(1008, 223)
+        Me.Button1.Location = New System.Drawing.Point(888, 306)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(40, 40)
-        Me.Button1.TabIndex = 74
-        Me.Button1.Text = "[+]"
+        Me.Button1.Size = New System.Drawing.Size(83, 23)
+        Me.Button1.TabIndex = 4
+        Me.Button1.TabStop = False
+        Me.Button1.Text = "[+] Añadir"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(1002, 269)
+        Me.Button2.Location = New System.Drawing.Point(977, 394)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(46, 37)
+        Me.Button2.Size = New System.Drawing.Size(83, 23)
         Me.Button2.TabIndex = 75
-        Me.Button2.Text = "[-]"
+        Me.Button2.TabStop = False
+        Me.Button2.Text = "[-] Quitar"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(858, 167)
+        Me.Button3.Location = New System.Drawing.Point(842, 164)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(129, 31)
-        Me.Button3.TabIndex = 76
+        Me.Button3.TabIndex = 2
+        Me.Button3.TabStop = False
         Me.Button3.Text = "Comprobar"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(965, 499)
+        Me.Button4.Location = New System.Drawing.Point(938, 518)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(129, 31)
-        Me.Button4.TabIndex = 77
+        Me.Button4.TabIndex = 7
         Me.Button4.Text = "Calcular ruta"
         Me.Button4.UseVisualStyleBackColor = True
         '
@@ -293,112 +322,16 @@ Partial Class Rutas
         '
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.Location = New System.Drawing.Point(690, 467)
+        Me.CheckBox1.Location = New System.Drawing.Point(930, 556)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(111, 21)
-        Me.CheckBox1.TabIndex = 78
+        Me.CheckBox1.TabIndex = 8
         Me.CheckBox1.Text = "Optimizar ruta"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton1.Location = New System.Drawing.Point(20, 74)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(241, 21)
-        Me.RadioButton1.TabIndex = 80
-        Me.RadioButton1.Text = "Evitar peajes en puentes y carreteras"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Checked = True
-        Me.RadioButton2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton2.Location = New System.Drawing.Point(20, 32)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(120, 21)
-        Me.RadioButton2.TabIndex = 81
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Sin restricciones"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'RadioButton3
-        '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton3.Location = New System.Drawing.Point(20, 116)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(184, 21)
-        Me.RadioButton3.TabIndex = 82
-        Me.RadioButton3.Text = "Evitar autopistas y autovías"
-        Me.RadioButton3.UseVisualStyleBackColor = True
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.RadioButton2)
-        Me.GroupBox1.Controls.Add(Me.RadioButton3)
-        Me.GroupBox1.Controls.Add(Me.RadioButton1)
-        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(58, 392)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(290, 162)
-        Me.GroupBox1.TabIndex = 83
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Peajes"
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.RadioButton4)
-        Me.GroupBox2.Controls.Add(Me.RadioButton5)
-        Me.GroupBox2.Controls.Add(Me.RadioButton6)
-        Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(424, 392)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(223, 162)
-        Me.GroupBox2.TabIndex = 84
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Tipo de transporte"
-        '
-        'RadioButton4
-        '
-        Me.RadioButton4.AutoSize = True
-        Me.RadioButton4.Checked = True
-        Me.RadioButton4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton4.Location = New System.Drawing.Point(20, 32)
-        Me.RadioButton4.Name = "RadioButton4"
-        Me.RadioButton4.Size = New System.Drawing.Size(62, 21)
-        Me.RadioButton4.TabIndex = 81
-        Me.RadioButton4.TabStop = True
-        Me.RadioButton4.Text = "Coche"
-        Me.RadioButton4.UseVisualStyleBackColor = True
-        '
-        'RadioButton5
-        '
-        Me.RadioButton5.AutoSize = True
-        Me.RadioButton5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton5.Location = New System.Drawing.Point(20, 116)
-        Me.RadioButton5.Name = "RadioButton5"
-        Me.RadioButton5.Size = New System.Drawing.Size(56, 21)
-        Me.RadioButton5.TabIndex = 82
-        Me.RadioButton5.Text = "A pie"
-        Me.RadioButton5.UseVisualStyleBackColor = True
-        '
-        'RadioButton6
-        '
-        Me.RadioButton6.AutoSize = True
-        Me.RadioButton6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton6.Location = New System.Drawing.Point(20, 74)
-        Me.RadioButton6.Name = "RadioButton6"
-        Me.RadioButton6.Size = New System.Drawing.Size(72, 21)
-        Me.RadioButton6.TabIndex = 80
-        Me.RadioButton6.Text = "Bicicleta"
-        Me.RadioButton6.UseVisualStyleBackColor = True
-        '
         'PictureBox2
         '
-        Me.PictureBox2.Location = New System.Drawing.Point(1012, 134)
+        Me.PictureBox2.Location = New System.Drawing.Point(996, 118)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(32, 32)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -407,7 +340,7 @@ Partial Class Rutas
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(1012, 80)
+        Me.PictureBox1.Location = New System.Drawing.Point(996, 64)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -417,30 +350,154 @@ Partial Class Rutas
         'Button5
         '
         Me.Button5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(1002, 327)
+        Me.Button5.Location = New System.Drawing.Point(977, 425)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(46, 37)
+        Me.Button5.Size = New System.Drawing.Size(83, 23)
         Me.Button5.TabIndex = 88
-        Me.Button5.Text = "[X]"
+        Me.Button5.TabStop = False
+        Me.Button5.Text = "[x] Limpiar"
         Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(455, 233)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(47, 17)
+        Me.Label8.TabIndex = 92
+        Me.Label8.Text = "Latitud"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(615, 233)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(59, 17)
+        Me.Label9.TabIndex = 91
+        Me.Label9.Text = "Longitud"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(786, 233)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(132, 17)
+        Me.Label10.TabIndex = 90
+        Me.Label10.Text = "Dirección encontrada"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(150, 233)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(62, 17)
+        Me.Label11.TabIndex = 89
+        Me.Label11.Text = "Dirección"
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = Global.Maps.NET.My.Resources.Resources.help
+        Me.PictureBox3.Location = New System.Drawing.Point(110, 68)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(20, 20)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 93
+        Me.PictureBox3.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox3, "Es recomendable separar las unidades geográficas por comas." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Puerta del Sol, Madr" & _
+        "id, España")
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.Maps.NET.My.Resources.Resources.help
+        Me.PictureBox4.Location = New System.Drawing.Point(110, 265)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(20, 20)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 94
+        Me.PictureBox4.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox4, "Los hitos establecen las ubicaciones específicas por las que debe pasar la ruta e" & _
+        "ntre el" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "origen y el destino." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "El máximo de hitos posibles en una ruta es de 8.")
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.Image = Global.Maps.NET.My.Resources.Resources.help
+        Me.PictureBox5.Location = New System.Drawing.Point(1047, 556)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(20, 20)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox5.TabIndex = 95
+        Me.PictureBox5.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox5, resources.GetString("PictureBox5.ToolTip"))
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 10000
+        Me.ToolTip1.InitialDelay = 500
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip1.ToolTipTitle = "Ayuda"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.ListBox1)
+        Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox3.Location = New System.Drawing.Point(22, 346)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(949, 137)
+        Me.GroupBox3.TabIndex = 85
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Hitos incluidos"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Coche (predeterminada)", "Bicicleta", "A pie"})
+        Me.ComboBox1.Location = New System.Drawing.Point(22, 545)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(194, 23)
+        Me.ComboBox1.TabIndex = 6
+        Me.ComboBox1.Text = "Medio de transporte"
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Items.AddRange(New Object() {"Sin restricciones (predeterminada)", "Evitar peajes en puentes y carreteras", "Evitar autopista y autovías"})
+        Me.ComboBox2.Location = New System.Drawing.Point(22, 511)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(194, 23)
+        Me.ComboBox2.TabIndex = 5
+        Me.ComboBox2.Text = "Peajes"
         '
         'Rutas
         '
         Me.AcceptButton = Me.Button4
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1106, 622)
+        Me.ClientSize = New System.Drawing.Size(1079, 588)
+        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.PictureBox5)
+        Me.Controls.Add(Me.PictureBox4)
+        Me.Controls.Add(Me.PictureBox3)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.txtlngHito)
         Me.Controls.Add(Me.txtdirEncHito)
         Me.Controls.Add(Me.txtlatHito)
@@ -463,13 +520,16 @@ Partial Class Rutas
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "Rutas"
         Me.ShowIcon = False
+        Me.ShowInTaskbar = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Creador de rutas"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
+        Me.TopMost = True
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox3.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -499,15 +559,18 @@ Partial Class Rutas
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
-    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
-    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
-    Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents RadioButton4 As System.Windows.Forms.RadioButton
-    Friend WithEvents RadioButton5 As System.Windows.Forms.RadioButton
-    Friend WithEvents RadioButton6 As System.Windows.Forms.RadioButton
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
+    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
 End Class

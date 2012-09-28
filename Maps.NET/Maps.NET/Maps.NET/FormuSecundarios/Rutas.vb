@@ -100,25 +100,28 @@ Public Class Rutas
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then
             Dim maps As New MapsNet
+
             'Peajes
             Dim peajes = 0
-            If RadioButton2.Checked = True Then
+            If ComboBox2.SelectedIndex() = 0 Then
                 peajes = 0
-            ElseIf RadioButton1.Checked = True Then
+            ElseIf ComboBox2.SelectedIndex() = 1 Then
                 peajes = 1
             Else
                 peajes = 2
             End If
+            If ComboBox2.SelectedIndex() = -1 Then peajes = 0
 
             'Transporte
             Dim transporte = 0
-            If RadioButton4.Checked = True Then
+            If ComboBox1.SelectedIndex() = 0 Then
                 transporte = 0
-            ElseIf RadioButton6.Checked = True Then
-                transporte = 2
-            Else
+            ElseIf ComboBox1.SelectedIndex() = 1 Then
                 transporte = 1
+            Else
+                transporte = 2
             End If
+            If ComboBox1.SelectedIndex() = -1 Then transporte = 0
 
             'Optimizar
             Dim optimizar As Boolean = False
@@ -182,5 +185,56 @@ Public Class Rutas
     Private Sub txtdirhito_LostFocus(sender As Object, e As EventArgs) Handles txtdirhito.LostFocus 'Ponemos foco en comprobar
         Me.AcceptButton = Button4
     End Sub
+
+ 
+
+    Private Sub Rutas_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
+        'Dim myPen As New System.Drawing.Pen(System.Drawing.Color.Gray, 1)
+        'Dim formGraphics As System.Drawing.Graphics
+        'formGraphics = Me.CreateGraphics()
+        ''formGraphics.DrawLine(myPen, 127, Label2.Location.Y + 20, 957, Label2.Location.Y + 20)
+        'formGraphics.DrawLine(myPen, 100, Label11.Location.Y - 30, Me.Size.Width - 100, Label11.Location.Y - 30)
+        ''formGraphics.DrawLine(myPen, 10, ListBox1.Location.Y + ListBox1.Height + 20, Me.Size.Width - 28, ListBox1.Location.Y + ListBox1.Height + 20)
+        'myPen.Dispose()
+        'formGraphics.Dispose()
+    End Sub
+
+    Private Sub txtdirorigen_GotFocus(sender As Object, e As EventArgs) Handles txtdirorigen.GotFocus
+        Me.AcceptButton = Button3 'Foco en botón comprombar
+    End Sub
+
+    Private Sub txtdirdestin_GotFocus(sender As Object, e As EventArgs) Handles txtdirdestin.GotFocus
+        Me.AcceptButton = Button3 'Foco en botón comprombar
+    End Sub
+
+   
+    Private Sub txtdirorigen_LostFocus(sender As Object, e As EventArgs) Handles txtdirorigen.LostFocus
+        Me.AcceptButton = Button4 'Foco en botón calcular
+    End Sub
+
+    Private Sub txtdirdestin_LostFocus(sender As Object, e As EventArgs) Handles txtdirdestin.LostFocus
+        Me.AcceptButton = Button4 'Foco en botón calcular
+    End Sub
+
+
+    'PROBLEMA DEL VIAJANTE
+    Private Sub PictureBox5_Click(sender As Object, e As EventArgs) Handles PictureBox5.Click 'Abrimos wikipedia viajante
+        Dim objetoMaps As New MapsNet
+        Dim aspectoFormu As New AspectoFormulario
+        aspectoFormu.NuevaFicha("Problema del viajante") 'Abrimos una nueva pestaña          
+        Dim navegador = aspectoFormu.NavegadorActual(FormularioPrincipal.TabControl1.SelectedIndex)
+        Dim direccion As New Uri("http://es.wikipedia.org/wiki/Problema_del_viajante")
+        navegador.Url = direccion
+
+    End Sub
+
+    Private Sub PictureBox5_MouseEnter(sender As Object, e As EventArgs) Handles PictureBox5.MouseEnter
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub PictureBox5_MouseLeave(sender As Object, e As EventArgs) Handles PictureBox5.MouseLeave
+        Me.Cursor = Cursors.Default
+    End Sub
+
 
 End Class

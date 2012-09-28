@@ -10,8 +10,12 @@ Public Class mostrarRuta
         datosRutaE = datosRuta
     End Sub
 
+    Dim colorDesalida = Color.White
+    Dim colorDeincorp = Color.White
+    Dim colorDedescanso = Color.White
 
     Private Sub mostrarRuta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Dim maps As New MapsNet
         Dim hitos As New ArrayList
         If statusRuta = "OK" Then
@@ -41,7 +45,7 @@ Public Class mostrarRuta
                 Next
                 'Pintamos celdas
                 pintar(Color.PaleGreen, Color.White, Color.White)
-
+                colorDedescanso = Color.PaleGreen
                 Dim distancia = 0
                 Dim tiempo = 0
                 For Each dato In DistanciaTotal
@@ -64,7 +68,10 @@ Public Class mostrarRuta
                     Next
                     GroupBox1.Visible = True
                 End If
+
+                Label3.Text = copyRuta(0)
             Catch
+                MessageBox.Show("")
             End Try
         End If
 
@@ -83,8 +90,40 @@ Public Class mostrarRuta
     End Sub
 
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        pintar(Color.PaleGreen, Color.Red, Color.Blue)
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+        If ColorDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
+            Dim colorS = ColorDialog1.Color
+            pintar(colorDedescanso, colorS, colorDeincorp)
+            colorDesalida = colorS
+        End If
+    End Sub
+
+    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
+        If ColorDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
+            Dim colorI = ColorDialog1.Color
+            pintar(colorDedescanso, colorDesalida, colorI)
+            colorDeincorp = colorI
+        End If
+    End Sub
+
+    Private Sub Label4_MouseEnter(sender As Object, e As EventArgs) Handles Label4.MouseEnter
+        Label4.ForeColor = Color.Blue
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub Label4_MouseLeave(sender As Object, e As EventArgs) Handles Label4.MouseLeave
+        Label4.ForeColor = Color.Black
+        Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub Label5_MouseEnter(sender As Object, e As EventArgs) Handles Label5.MouseEnter
+        Label5.ForeColor = Color.Blue
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub Label5_MouseLeave(sender As Object, e As EventArgs) Handles Label5.MouseLeave
+        Label5.ForeColor = Color.Black
+        Me.Cursor = Cursors.Default
     End Sub
 End Class
 
