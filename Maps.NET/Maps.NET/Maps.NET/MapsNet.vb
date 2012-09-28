@@ -5,7 +5,7 @@ Imports System.Xml.XPath
 Imports System.Text.RegularExpressions
 
 Public Class MapsNet
-    Sub almacenarDatosHTTP(ByVal url As String, ByVal informacion As String) 'Alamacén de información de las peticiones (con variable globales)
+    Sub almacenarDatosHTTP(ByVal url As String, ByVal informacion As String, ByVal estatus As String) 'Alamacén de información de las peticiones (con variable globales)
         Try
             URLseguimiento.Add(url)
         Catch
@@ -13,21 +13,27 @@ Public Class MapsNet
         End Try
 
         Try
-            URLseguimiento.Add(informacion)
+            URLseguimiento.Add(Now.ToString & "  -  " & informacion)
         Catch
-            URLseguimiento.Add("Sin ínformación del servicio")
+            URLseguimiento.Add(Now.ToString & "  -  " & "Sin información del servicio")
+        End Try
+
+        Try
+            URLseguimiento.Add(estatus)
+        Catch
+            URLseguimiento.Add("PERDIDO")
         End Try
     End Sub
     Public Function ObtenerURLdesdeDireccion(ByVal direccion As String)
         Dim urlMaps As String 'Creamos variable para almacenar la url
         urlMaps = "http://maps.google.es/maps?q=" & direccion & "&output=embed" 'Concatenamos la dirección con la dirección del mapa
-        Me.almacenarDatosHTTP(urlMaps, "Petición de URL mediante dirección") 'Almacenamos información
+        Me.almacenarDatosHTTP(urlMaps, "Petición de URL mediante dirección", "OK") 'Almacenamos información
         Return urlMaps
     End Function
     Public Function ObtenerURLdesdelatlong(ByVal latitud As Double, ByVal longitud As Double)
         Dim urlMaps As String 'Creamos variable para almacenar la url
         urlMaps = "http://maps.google.es/maps?q=" + CStr(latitud) + "%2C" + CStr(longitud) + "&output=embed" 'Concatenamos la lat/long con la dirección del mapa
-        Me.almacenarDatosHTTP(urlMaps, "Petición de URL mediante latitud/longitud") 'Almacenamos información
+        Me.almacenarDatosHTTP(urlMaps, "Petición de URL mediante latitud/longitud", "OK") 'Almacenamos información
         Return urlMaps
     End Function
 
@@ -40,10 +46,12 @@ Public Class MapsNet
             Dim res As HttpWebResponse = req.GetResponse()
             Dim stream As Stream = res.GetResponseStream()
             Dim sr As StreamReader = New StreamReader(stream)
+            Me.almacenarDatosHTTP(url, "Petición de IP al servicio whatismyip", "OK") 'Almacenamos información
             Return (sr.ReadToEnd())
         Catch
+            Me.almacenarDatosHTTP(url, "Petición de IP al servicio whatismyip", "PERDIDO") 'Almacenamos información
         End Try
-        Me.almacenarDatosHTTP(url, "Petición de IP al servicio whatismyip") 'Almacenamos información
+
         Return "0.0.0.0"
 
     End Function
@@ -52,7 +60,7 @@ Public Class MapsNet
         Dim ip As String
         ip = Me.ObtenerIp
         Dim url As String = "http://smart-ip.net/geoip-xml/" & ip & "/auto?lang=en"
-        Me.almacenarDatosHTTP(url, "Petición de localización de IP al servicio smart-ip ") 'Almacenamos información
+
         Dim datosretorno(5) As String
         Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
         req.Timeout = 3000
@@ -94,7 +102,9 @@ Public Class MapsNet
                 datosretorno(4) = NodeIter.Current.Value
             End While
             responseStream.Close()
+            Me.almacenarDatosHTTP(url, "Petición de localización de IP al servicio smart-ip", "OK") 'Almacenamos información
         Catch
+            Me.almacenarDatosHTTP(url, "Petición de localización de IP al servicio smart-ip", "PERDIDO") 'Almacenamos información
         End Try
         datosretorno(5) = ip
         Return datosretorno
@@ -105,7 +115,6 @@ Public Class MapsNet
 
         'Creamos la url con los datso
         Dim url = "http://maps.googleapis.com/maps/api/geocode/xml?address=" & direccion & "&region=" & regionBusqueda & "&sensor=false&language=es"
-        Me.almacenarDatosHTTP(url, "Petición codificación geográfica directa") 'Almacenamos información
         Dim LatLong As New ArrayList()
 
         Dim req As HttpWebRequest = DirectCast(WebRequest.Create(url), HttpWebRequest)
@@ -143,7 +152,9 @@ Public Class MapsNet
                 'Exit While
             End While
             responseStream.Close()
+            Me.almacenarDatosHTTP(url, "Petición codificación geográfica directa", "OK") 'Almacenamos información
         Catch
+            Me.almacenarDatosHTTP(url, "Petición codificación geográfica directa", "PERDIDO") 'Almacenamos información
         End Try
         Return LatLong
     End Function
@@ -152,7 +163,6 @@ Public Class MapsNet
 
         'Creamos la url con los datso
         Dim url = "http://maps.googleapis.com/maps/api/geocode/xml?latlng=" & latitud & "," & longitud & "&sensor=false" & "&region=" & regionBusqueda & "&language=es"
-        Me.almacenarDatosHTTP(url, "Petición codificación geográfica inversa") 'Almacenamos información
         Dim direcc As New ArrayList()
 
         Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
@@ -175,9 +185,10 @@ Public Class MapsNet
             While (NodeIter.MoveNext())
                 direcc.Add(NodeIter.Current.Value)
             End While
-
             responseStream.Close()
+            Me.almacenarDatosHTTP(url, "Petición codificación geográfica inversa", "OK") 'Almacenamos información
         Catch
+            Me.almacenarDatosHTTP(url, "Petición codificación geográfica inversa", "PERDIDO") 'Almacenamos información
         End Try
         Return direcc
     End Function
@@ -210,7 +221,6 @@ Public Class MapsNet
 
         'Creamos la url con los datso
         Dim url = "https://maps.googleapis.com/maps/api/place/search/xml?location=" & latitud & "," & longitud & local & NombreEstablecimiento & radioB & idioma & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
-        Me.almacenarDatosHTTP(url, "Petición de locales (places) mediante latitud/longitud") 'Almacenamos información
         Dim datos As New ArrayList()
         Dim auxiliar(0) As String
         auxiliar(0) = "sin datos"
@@ -280,7 +290,9 @@ Public Class MapsNet
                 contador += 6
             Next
             responseStream.Close()
+            Me.almacenarDatosHTTP(url, "Petición de locales (places) mediante latitud/longitud", "OK") 'Almacenamos información
         Catch
+            Me.almacenarDatosHTTP(url, "Petición de locales (places) mediante latitud/longitud", "PERDIDO") 'Almacenamos información
         End Try
         If auxiliar.Count < 6 Then
             ReDim auxiliar(5)
@@ -298,7 +310,6 @@ Public Class MapsNet
 
         'Creamos la url con los datso
         Dim url = "https://maps.googleapis.com/maps/api/place/details/xml?reference=" & ParametroDetalles & "&language=es&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
-        Me.almacenarDatosHTTP(url, "Petición de detalles de un local (places) mediante la referencia del lugar") 'Almacenamos información
         Dim datos As New ArrayList()
 
 
@@ -399,9 +410,10 @@ Public Class MapsNet
             If WEbsite = False Then
                 datos.Add("Sin página web")
             End If
-
             responseStream.Close()
+            Me.almacenarDatosHTTP(url, "Petición de detalles de un local (places) mediante la referencia del lugar", "OK") 'Almacenamos información
         Catch
+            Me.almacenarDatosHTTP(url, "Petición de detalles de un local (places) mediante la referencia del lugar", "PERDIDO") 'Almacenamos información
         End Try
         Return datos
     End Function
@@ -412,11 +424,7 @@ Public Class MapsNet
 
         'Creamos la url con los datso
         Dim url = "https://maps.googleapis.com/maps/api/place/details/xml?reference=" & ParametroDetalles & "&language=es&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8&language=es"
-        Me.almacenarDatosHTTP(url, "Petición de detalles de un local (places) y opiniones usuarios, mediante la referencia del lugar") 'Almacenamos información
         Dim datos As New ArrayList()
-
-
-
         Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
         req.Timeout = 3000
         Try
@@ -555,10 +563,10 @@ Public Class MapsNet
                 icon = True
             End While
 
-
-
             responseStream.Close()
+            Me.almacenarDatosHTTP(url, "Petición de detalles de un local (places) y opiniones usuarios, mediante la referencia del lugar", "OK") 'Almacenamos información
         Catch
+            Me.almacenarDatosHTTP(url, "Petición de detalles de un local (places) y opiniones usuarios, mediante la referencia del lugar", "PERDIDO") 'Almacenamos información
         End Try
         Return datos
     End Function
@@ -583,7 +591,6 @@ Public Class MapsNet
 
         'Creamos la url con los datos
         Dim url = "https://maps.googleapis.com/maps/api/place/autocomplete/xml?" & input & numeroCaracAux & localizacion & radioAux & "&language=es&types=establishment&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
-        Me.almacenarDatosHTTP(url, "Petición de autocompletado para mostrar sugerencia de búsqueda") 'Almacenamos información
         Dim establecimiento As New ArrayList()
 
         Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
@@ -606,9 +613,10 @@ Public Class MapsNet
             While (NodeIter.MoveNext())
                 establecimiento.Add(NodeIter.Current.Value)
             End While
-
             responseStream.Close()
+            Me.almacenarDatosHTTP(url, "Petición de autocompletado para mostrar sugerencia de búsqueda", "OK") 'Almacenamos información
         Catch
+            Me.almacenarDatosHTTP(url, "Petición de autocompletado para mostrar sugerencia de búsqueda", "PERDIDO") 'Almacenamos información
         End Try
         Return establecimiento
     End Function
@@ -681,7 +689,6 @@ Public Class MapsNet
 
         'Creamos la url con los datos'
         Dim url = "https://maps.googleapis.com/maps/api/directions/xml?" & DireccionOrigen & DireccionDestino & todosHitos & transporte & peajesFin & region & idioma & "&sensor=false"
-        Me.almacenarDatosHTTP(url, "Petición de ruta") 'Almacenamos información
         Dim DatosRuta As New ArrayList()
         Dim auxiliar(0) As String
         auxiliar(0) = "sin datos"
@@ -801,9 +808,10 @@ Public Class MapsNet
                 contador += 5
             Next
 
-
             responseStream.Close()
+            Me.almacenarDatosHTTP(url, "Petición de ruta", "OK") 'Almacenamos información
         Catch
+            Me.almacenarDatosHTTP(url, "Petición de ruta", "PERDIDO") 'Almacenamos información
         End Try
 
 
@@ -823,7 +831,7 @@ Public Class MapsNet
 
         'Creamos la url con los datos
         Dim url = "http://maps.googleapis.com/maps/api/elevation/xml?locations=" & elev & "&sensor=false"
-        Me.almacenarDatosHTTP(url, "Petición de elevación") 'Almacenamos información
+
 
         Dim elevaciones As New ArrayList()
 
@@ -854,9 +862,10 @@ Public Class MapsNet
             While (NodeIter.MoveNext())
                 resolucion.Add(NodeIter.Current.Value)
             End While
-
             responseStream.Close()
+            Me.almacenarDatosHTTP(url, "Petición de elevación", "OK") 'Almacenamos información
         Catch
+            Me.almacenarDatosHTTP(url, "Petición de elevación", "PERDIDO") 'Almacenamos información
         End Try
         Return elevaciones
     End Function

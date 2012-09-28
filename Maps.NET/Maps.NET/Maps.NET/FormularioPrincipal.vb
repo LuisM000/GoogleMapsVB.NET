@@ -59,4 +59,7 @@
     End Sub
 
     
+    Private Sub SeguimientoPeticionesHTTPToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeguimientoPeticionesHTTPToolStripMenuItem.Click
+        SeguimientoURL.Show()
+    End Sub
 End Class

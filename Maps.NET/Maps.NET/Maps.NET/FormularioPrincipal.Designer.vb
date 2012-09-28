@@ -40,6 +40,7 @@ Partial Class FormularioPrincipal
         Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VerURLActualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevaPestañaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.BorrarPestañaActivarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -59,7 +60,7 @@ Partial Class FormularioPrincipal
         Me.ElevaciónPorLatitudlongitudToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RutasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CalcularRutaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.VerURLActualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SeguimientoPeticionesHTTPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer1.SuspendLayout()
@@ -127,6 +128,12 @@ Partial Class FormularioPrincipal
         Me.WebBrowser1.Size = New System.Drawing.Size(292, 108)
         Me.WebBrowser1.TabIndex = 0
         Me.WebBrowser1.Url = New System.Uri("http://maps.google.es/maps?q=España&output=embed", System.UriKind.Absolute)
+        'Hacemos seguimiento de las variables
+        URLseguimiento.Add("http://maps.google.es/maps?q=España&output=embed")
+        URLseguimiento.Add(Now.ToString & "  -  " & "URL predeterminada (España)")
+        URLseguimiento.Add("OK")
+
+
         '
         'ToolStrip1
         '
@@ -211,10 +218,16 @@ Partial Class FormularioPrincipal
         '
         'ArchivoToolStripMenuItem
         '
-        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VerURLActualToolStripMenuItem})
+        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VerURLActualToolStripMenuItem, Me.SeguimientoPeticionesHTTPToolStripMenuItem})
         Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
         Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(63, 21)
         Me.ArchivoToolStripMenuItem.Text = "Archivo"
+        '
+        'VerURLActualToolStripMenuItem
+        '
+        Me.VerURLActualToolStripMenuItem.Name = "VerURLActualToolStripMenuItem"
+        Me.VerURLActualToolStripMenuItem.Size = New System.Drawing.Size(245, 22)
+        Me.VerURLActualToolStripMenuItem.Text = "Ver URL actual"
         '
         'EditarToolStripMenuItem
         '
@@ -345,11 +358,11 @@ Partial Class FormularioPrincipal
         Me.CalcularRutaToolStripMenuItem.Size = New System.Drawing.Size(149, 22)
         Me.CalcularRutaToolStripMenuItem.Text = "Calcular ruta"
         '
-        'VerURLActualToolStripMenuItem
+        'SeguimientoPeticionesHTTPToolStripMenuItem
         '
-        Me.VerURLActualToolStripMenuItem.Name = "VerURLActualToolStripMenuItem"
-        Me.VerURLActualToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
-        Me.VerURLActualToolStripMenuItem.Text = "Ver URL actual"
+        Me.SeguimientoPeticionesHTTPToolStripMenuItem.Name = "SeguimientoPeticionesHTTPToolStripMenuItem"
+        Me.SeguimientoPeticionesHTTPToolStripMenuItem.Size = New System.Drawing.Size(245, 22)
+        Me.SeguimientoPeticionesHTTPToolStripMenuItem.Text = "Seguimiento peticiones HTTP"
         '
         'FormularioPrincipal
         '
@@ -415,5 +428,6 @@ Partial Class FormularioPrincipal
     Friend WithEvents ElevaciónPorDirecciónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ElevaciónPorLatitudlongitudToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents VerURLActualToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SeguimientoPeticionesHTTPToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

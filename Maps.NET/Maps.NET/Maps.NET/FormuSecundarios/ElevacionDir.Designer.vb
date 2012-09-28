@@ -34,12 +34,12 @@ Partial Class ElevacionDir
         Me.txtdireccion = New System.Windows.Forms.TextBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.dvgLat = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvlng = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvDuracion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvElevacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Resolución = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.txtdirEnc = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -154,16 +154,6 @@ Partial Class ElevacionDir
         Me.DataGridView1.TabIndex = 2
         Me.DataGridView1.TabStop = False
         '
-        'Button4
-        '
-        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(973, 63)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(113, 31)
-        Me.Button4.TabIndex = 1
-        Me.Button4.Text = "Calcular elevación"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
         'dvgLat
         '
         Me.dvgLat.HeaderText = "Latitud"
@@ -190,6 +180,16 @@ Partial Class ElevacionDir
         Me.Resolución.HeaderText = "Resolución"
         Me.Resolución.Name = "Resolución"
         '
+        'Button4
+        '
+        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Location = New System.Drawing.Point(973, 63)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(113, 31)
+        Me.Button4.TabIndex = 1
+        Me.Button4.Text = "Calcular elevación"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'txtdirEnc
         '
         Me.txtdirEnc.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -211,7 +211,7 @@ Partial Class ElevacionDir
         Me.Label3.TabIndex = 100
         Me.Label3.Text = "Dirección encontrada"
         '
-        'Elevacion
+        'ElevacionDir
         '
         Me.AcceptButton = Me.Button4
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -230,7 +230,7 @@ Partial Class ElevacionDir
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtdireccion)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Name = "Elevacion"
+        Me.Name = "ElevacionDir"
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.Text = "Elevación"

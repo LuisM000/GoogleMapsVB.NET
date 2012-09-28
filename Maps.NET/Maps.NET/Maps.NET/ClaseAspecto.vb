@@ -31,6 +31,9 @@
 
     Sub abrirEspaña(ByVal browser As WebBrowser) 'Abrimos España en el Webbrowser
         browser.Url = New Uri("http://maps.google.es/maps?q=España&output=embed")
+        'Seguimiento de las variables
+        URLseguimiento.Add("http://maps.google.es/maps?q=España&output=embed")
+        URLseguimiento.Add(Now.ToString & "  -  " & "URL predeterminada (España)")
     End Sub
 
     Public Function NavegadorActual(ByVal pestañaActiva As Integer) 'Enviamos el WebBrowser de la pestaña activa

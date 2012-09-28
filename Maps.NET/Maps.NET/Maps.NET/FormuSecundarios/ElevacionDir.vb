@@ -33,4 +33,17 @@
         End If
 
     End Sub
+
+    Private Sub ElevacionDir_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Aspecto del DataGridView
+        With DataGridView1
+            .BorderStyle = BorderStyle.Fixed3D
+            .CellBorderStyle = DataGridViewCellBorderStyle.Sunken
+            .RowHeadersBorderStyle = _
+                DataGridViewHeaderBorderStyle.Raised
+            .ColumnHeadersBorderStyle = _
+                DataGridViewHeaderBorderStyle.Raised
+            .AdvancedColumnHeadersBorderStyle.All = DataGridViewAdvancedCellBorderStyle.Inset
+        End With
+    End Sub
 End Class

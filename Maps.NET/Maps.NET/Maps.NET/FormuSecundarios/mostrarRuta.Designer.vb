@@ -59,7 +59,7 @@ Partial Class mostrarRuta
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridView1.Size = New System.Drawing.Size(1303, 593)
+        Me.DataGridView1.Size = New System.Drawing.Size(1139, 511)
         Me.DataGridView1.TabIndex = 2
         '
         'dgvTiempo
@@ -129,7 +129,7 @@ Partial Class mostrarRuta
         Me.ListBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.ItemHeight = 17
-        Me.ListBox1.Location = New System.Drawing.Point(6, 24)
+        Me.ListBox1.Location = New System.Drawing.Point(5, 24)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(596, 72)
         Me.ListBox1.TabIndex = 58
@@ -138,7 +138,7 @@ Partial Class mostrarRuta
         '
         Me.GroupBox1.Controls.Add(Me.ListBox1)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(683, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(525, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(608, 111)
         Me.GroupBox1.TabIndex = 59
@@ -160,7 +160,7 @@ Partial Class mostrarRuta
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(1041, 125)
+        Me.Label4.Location = New System.Drawing.Point(902, 125)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(69, 15)
         Me.Label4.TabIndex = 62
@@ -170,7 +170,7 @@ Partial Class mostrarRuta
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(1142, 125)
+        Me.Label5.Location = New System.Drawing.Point(1009, 125)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(113, 15)
         Me.Label5.TabIndex = 63
@@ -198,7 +198,7 @@ Partial Class mostrarRuta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1304, 737)
+        Me.ClientSize = New System.Drawing.Size(1138, 655)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txtalt)
         Me.Controls.Add(Me.Label5)
