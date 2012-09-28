@@ -55,7 +55,6 @@ Partial Class Rutas
         Me.RadioButton4 = New System.Windows.Forms.RadioButton()
         Me.RadioButton5 = New System.Windows.Forms.RadioButton()
         Me.RadioButton6 = New System.Windows.Forms.RadioButton()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button5 = New System.Windows.Forms.Button()
@@ -198,7 +197,7 @@ Partial Class Rutas
         'txtlngHito
         '
         Me.txtlngHito.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlngHito.Location = New System.Drawing.Point(590, 204)
+        Me.txtlngHito.Location = New System.Drawing.Point(590, 231)
         Me.txtlngHito.Name = "txtlngHito"
         Me.txtlngHito.ReadOnly = True
         Me.txtlngHito.Size = New System.Drawing.Size(141, 23)
@@ -207,7 +206,7 @@ Partial Class Rutas
         'txtdirEncHito
         '
         Me.txtdirEncHito.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdirEncHito.Location = New System.Drawing.Point(749, 205)
+        Me.txtdirEncHito.Location = New System.Drawing.Point(749, 232)
         Me.txtdirEncHito.Name = "txtdirEncHito"
         Me.txtdirEncHito.ReadOnly = True
         Me.txtdirEncHito.Size = New System.Drawing.Size(238, 23)
@@ -216,7 +215,7 @@ Partial Class Rutas
         'txtlatHito
         '
         Me.txtlatHito.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlatHito.Location = New System.Drawing.Point(424, 204)
+        Me.txtlatHito.Location = New System.Drawing.Point(424, 231)
         Me.txtlatHito.Name = "txtlatHito"
         Me.txtlatHito.ReadOnly = True
         Me.txtlatHito.Size = New System.Drawing.Size(141, 23)
@@ -225,7 +224,7 @@ Partial Class Rutas
         'txtdirhito
         '
         Me.txtdirhito.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdirhito.Location = New System.Drawing.Point(157, 204)
+        Me.txtdirhito.Location = New System.Drawing.Point(157, 231)
         Me.txtdirhito.Name = "txtdirhito"
         Me.txtdirhito.Size = New System.Drawing.Size(238, 23)
         Me.txtdirhito.TabIndex = 69
@@ -234,7 +233,7 @@ Partial Class Rutas
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(55, 205)
+        Me.Label7.Location = New System.Drawing.Point(55, 232)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(85, 17)
         Me.Label7.TabIndex = 68
@@ -242,16 +241,18 @@ Partial Class Rutas
         '
         'ListBox1
         '
+        Me.ListBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.ItemHeight = 17
         Me.ListBox1.Location = New System.Drawing.Point(58, 269)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(929, 95)
+        Me.ListBox1.Size = New System.Drawing.Size(929, 89)
         Me.ListBox1.TabIndex = 73
         '
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(1008, 196)
+        Me.Button1.Location = New System.Drawing.Point(1008, 223)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(40, 40)
         Me.Button1.TabIndex = 74
@@ -271,7 +272,7 @@ Partial Class Rutas
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(965, 450)
+        Me.Button3.Location = New System.Drawing.Point(858, 167)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(129, 31)
         Me.Button3.TabIndex = 76
@@ -395,20 +396,8 @@ Partial Class Rutas
         Me.RadioButton6.Text = "Bicicleta"
         Me.RadioButton6.UseVisualStyleBackColor = True
         '
-        'ComboBox1
-        '
-        Me.ComboBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Texto plano", "Tabla"})
-        Me.ComboBox1.Location = New System.Drawing.Point(690, 508)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(167, 25)
-        Me.ComboBox1.TabIndex = 85
-        Me.ComboBox1.Text = "Formato de visualización"
-        '
         'PictureBox2
         '
-        Me.PictureBox2.Image = Global.Maps.NET.My.Resources.Resources.cancel
         Me.PictureBox2.Location = New System.Drawing.Point(1012, 134)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(32, 32)
@@ -418,7 +407,6 @@ Partial Class Rutas
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.Maps.NET.My.Resources.Resources.cancel
         Me.PictureBox1.Location = New System.Drawing.Point(1012, 80)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
@@ -438,13 +426,13 @@ Partial Class Rutas
         '
         'Rutas
         '
+        Me.AcceptButton = Me.Button4
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1106, 622)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.CheckBox1)
@@ -519,7 +507,6 @@ Partial Class Rutas
     Friend WithEvents RadioButton4 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton5 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton6 As System.Windows.Forms.RadioButton
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents Button5 As System.Windows.Forms.Button

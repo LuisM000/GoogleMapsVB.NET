@@ -10,6 +10,7 @@
     Public rutaID As New ArrayList()
     Public DuraciTotal As New ArrayList()
     Public DistanciaTotal As New ArrayList()
+    Public TiempoSegundos As New ArrayList()
     '-------
     Public statusRuta As String
 

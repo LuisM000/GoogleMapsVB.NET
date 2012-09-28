@@ -21,9 +21,11 @@ Public Class Rutas
 
 
         If txtdirEncHito.Text <> "" Then
+            txtdirhito.Text = ""
             Dim aspecto As New AspectoFormulario
             If txtdirEncHito.Text <> "" Then
-                Dim cadena As String = "Hito - " & "<coordenadas>" & txtlatHito.Text & "," & txtlngHito.Text & "</coordenadas>" & " - " & "<hito>" & txtdirEncHito.Text & "</hito>"
+                Dim contador = ListBox1.Items.Count + 1
+                Dim cadena As String = "Punto " & contador & " - " & "<coordenadas>" & txtlatHito.Text & "," & txtlngHito.Text & "</coordenadas>" & " - " & "<hito>" & txtdirEncHito.Text & "</hito>"
                 ListBox1.Items.Add(cadena)
             End If
         End If
@@ -66,6 +68,8 @@ Public Class Rutas
                 txtdirEncOrig.Text = ""
                 PictureBox1.Image = My.Resources.cancel
             End Try
+        Else
+            PictureBox1.Image = My.Resources.cancel
         End If
 
         'Dirección destino
@@ -82,6 +86,8 @@ Public Class Rutas
                 txtdirEncDest.Text = ""
                 PictureBox2.Image = My.Resources.cancel
             End Try
+        Else
+            PictureBox2.Image = My.Resources.cancel
         End If
 
 
@@ -160,8 +166,21 @@ Public Class Rutas
                     Catch
                     End Try
             End Select
+        Else
+            Button3_Click(sender, e) 'Comprobamos
+            If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then 'Si se han creado bien, calculamos ruta
+                Button4_Click(sender, e)
+            End If
 
         End If
+    End Sub
+
+    Private Sub txtdirhito_GotFocus(sender As Object, e As EventArgs) Handles txtdirhito.GotFocus 'Ponemos foco en añadir hito
+        Me.AcceptButton = Button1
+    End Sub
+
+    Private Sub txtdirhito_LostFocus(sender As Object, e As EventArgs) Handles txtdirhito.LostFocus 'Ponemos foco en comprobar
+        Me.AcceptButton = Button4
     End Sub
 
 End Class

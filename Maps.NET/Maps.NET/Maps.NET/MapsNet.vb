@@ -88,10 +88,10 @@ Public Class MapsNet
     Public Function CodificacionGeografica(ByVal direccion As String, Optional ByVal regionBusqueda As String = "es") 'busca latitud/longitud a partir de dirección
 
         'Creamos la url con los datso
-        Dim url = "http://maps.googleapis.com/maps/api/geocode/xml?address=" & direccion & "&region=" & regionBusqueda & "&sensor=false"
+        Dim url = "http://maps.googleapis.com/maps/api/geocode/xml?address=" & direccion & "&region=" & regionBusqueda & "&sensor=false&language=es"
         Dim LatLong As New ArrayList()
 
-        Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
+        Dim req As HttpWebRequest = DirectCast(WebRequest.Create(url), HttpWebRequest)
         req.Timeout = 3000
         Try
             'Preparamos el archivo xml
@@ -134,7 +134,7 @@ Public Class MapsNet
     Public Function CodificacionGeograficaInversa(ByVal latitud As Double, ByVal longitud As Double, Optional ByVal regionBusqueda As String = "es") 'busca latitud/longitud a partir de dirección
 
         'Creamos la url con los datso
-        Dim url = "http://maps.googleapis.com/maps/api/geocode/xml?latlng=" & latitud & "," & longitud & "&sensor=false" & "&region=" & regionBusqueda
+        Dim url = "http://maps.googleapis.com/maps/api/geocode/xml?latlng=" & latitud & "," & longitud & "&sensor=false" & "&region=" & regionBusqueda & "&language=es"
         Dim direcc As New ArrayList()
 
         Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
@@ -278,7 +278,7 @@ Public Class MapsNet
     Public Function DetallesLugar(ByVal ParametroDetalles As String) 'Enviamos los detalles del lugar
 
         'Creamos la url con los datso
-        Dim url = "https://maps.googleapis.com/maps/api/place/details/xml?reference=" & ParametroDetalles & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        Dim url = "https://maps.googleapis.com/maps/api/place/details/xml?reference=" & ParametroDetalles & "&language=es&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
         Dim datos As New ArrayList()
 
 
@@ -391,7 +391,7 @@ Public Class MapsNet
     Public Function DetallesRestaurante(ByVal ParametroDetalles As String) 'Enviamos los detalles del lugar
 
         'Creamos la url con los datso
-        Dim url = "https://maps.googleapis.com/maps/api/place/details/xml?reference=" & ParametroDetalles & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8&language=es"
+        Dim url = "https://maps.googleapis.com/maps/api/place/details/xml?reference=" & ParametroDetalles & "&language=es&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8&language=es"
         Dim datos As New ArrayList()
 
 
@@ -561,7 +561,7 @@ Public Class MapsNet
         numeroCaracAux = "&offset=" & NumeroCaracteres
 
         'Creamos la url con los datos
-        Dim url = "https://maps.googleapis.com/maps/api/place/autocomplete/xml?" & input & numeroCaracAux & localizacion & radioAux & "&types=establishment&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        Dim url = "https://maps.googleapis.com/maps/api/place/autocomplete/xml?" & input & numeroCaracAux & localizacion & radioAux & "&language=es&types=establishment&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
         Dim establecimiento As New ArrayList()
 
         Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
@@ -673,7 +673,7 @@ Public Class MapsNet
             Dim docNav As New XPathDocument(responseStream)
             Dim nav = docNav.CreateNavigator
 
-            Dim Exruta, Extiempo, Exdistancia, Exindicaciones, Exlatitud, Exlongitud, Excopyrights, ExordenRuta, Exstatus, ExduracionTot, ExdistanciTot, Extravel As String
+            Dim Exruta, Extiempo, Exdistancia, Exindicaciones, Exlatitud, Exlongitud, Excopyrights, ExordenRuta, Exstatus, ExduracionTot, ExdistanciTot, Extiemposeg As String
 
             'Creamos los paths
             Exstatus = "DirectionsResponse/status"
@@ -687,7 +687,8 @@ Public Class MapsNet
             ExordenRuta = "DirectionsResponse/route/waypoint_index" 'Lo asignamos a variables globales
             ExduracionTot = "DirectionsResponse/route/leg/duration/value" 'Lo asignamos a variables globales
             ExdistanciTot = "DirectionsResponse/route/leg/distance/value" 'Lo asignamos a variables globales
-            Extravel = "DirectionsResponse/route/leg/step/travel_mode" 'Lo asignamos a variables globales
+            Extiemposeg = "DirectionsResponse/route/leg/step/duration/value" 'Lo asignamos a variables globales
+
 
             'borramos las variables globales
             copyRuta.Clear()
@@ -695,18 +696,10 @@ Public Class MapsNet
             rutaID.Clear()
             DuraciTotal.Clear()
             DistanciaTotal.Clear()
+            TiempoSegundos.Clear()
             statusRuta = "UNKNOWN_ERROR"
 
             'Recorremos el xml
-
-            Dim ss As String
-
-            NodeIter = nav.Select(Extravel)
-            While (NodeIter.MoveNext())
-                ss = (NodeIter.Current.Value)
-            End While
-
-
 
 
             NodeIter = nav.Select(Exstatus)
@@ -765,6 +758,13 @@ Public Class MapsNet
             While (NodeIter.MoveNext())
                 DistanciaTotal.Add(NodeIter.Current.Value)
             End While
+
+
+            NodeIter = nav.Select(Extiemposeg)
+            While (NodeIter.MoveNext())
+                TiempoSegundos.Add(NodeIter.Current.Value)
+            End While
+
 
             ReDim auxiliar(DatosRuta.Count - 1)
             Dim tamaño = CInt(DatosRuta.Count / 5)
@@ -853,5 +853,11 @@ Public Class MapsNet
         End If
         TimeToUnix = DateDiff(DateInterval.Second, #1/1/1970#, dteDate)
         Return TimeToUnix
+    End Function
+
+    Function SegundosAHorMinSeg(ByVal segundos As Long) 'Segundos a días horas min y seg
+        Dim t2 As TimeSpan = TimeSpan.FromSeconds(segundos)
+        Dim resultado = t2.Days.ToString() & " días, " & t2.Hours.ToString() & " horas, " & t2.Minutes.ToString() & " minutos, " & t2.Seconds.ToString() & " segundos "
+        Return resultado
     End Function
 End Class
