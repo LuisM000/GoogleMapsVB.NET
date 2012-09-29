@@ -23,50 +23,36 @@ Partial Class SeguimientoURL
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.dvgLat = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Estatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvURL = New System.Windows.Forms.DataGridViewLinkColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtpeticion = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.peti = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.hora = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Estatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dvgLat = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvURL = New System.Windows.Forms.DataGridViewLinkColumn()
+        Me.txtperdidas = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtperdidasporc = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGridView1
         '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dvgLat, Me.Estatus, Me.dgvURL})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.peti, Me.hora, Me.Estatus, Me.dvgLat, Me.dgvURL})
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(890, 233)
         Me.DataGridView1.TabIndex = 3
         Me.DataGridView1.TabStop = False
-        '
-        'dvgLat
-        '
-        Me.dvgLat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.dvgLat.HeaderText = "Servicio que realiza la petición"
-        Me.dvgLat.Name = "dvgLat"
-        Me.dvgLat.Width = 134
-        '
-        'Estatus
-        '
-        Me.Estatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Estatus.HeaderText = "Estatus"
-        Me.Estatus.Name = "Estatus"
-        Me.Estatus.Width = 69
-        '
-        'dgvURL
-        '
-        Me.dgvURL.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.dgvURL.HeaderText = "URL"
-        Me.dgvURL.Name = "dgvURL"
-        Me.dgvURL.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvURL.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.dgvURL.Width = 53
         '
         'Panel1
         '
@@ -98,29 +84,110 @@ Partial Class SeguimientoURL
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(621, 27)
+        Me.Button1.Location = New System.Drawing.Point(619, 26)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(74, 29)
         Me.Button1.TabIndex = 101
         Me.Button1.Text = "Recargar"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'peti
+        '
+        Me.peti.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.peti.HeaderText = "Número petición"
+        Me.peti.Name = "peti"
+        Me.peti.ReadOnly = True
+        Me.peti.Width = 112
+        '
+        'hora
+        '
+        Me.hora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.hora.HeaderText = "Hora de la petición"
+        Me.hora.Name = "hora"
+        Me.hora.ReadOnly = True
+        Me.hora.Width = 121
+        '
+        'Estatus
+        '
+        Me.Estatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Estatus.HeaderText = "Estatus"
+        Me.Estatus.Name = "Estatus"
+        Me.Estatus.ReadOnly = True
+        Me.Estatus.Width = 69
+        '
+        'dvgLat
+        '
+        Me.dvgLat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.dvgLat.HeaderText = "Servicio que realiza la petición"
+        Me.dvgLat.Name = "dvgLat"
+        Me.dvgLat.ReadOnly = True
+        Me.dvgLat.Width = 134
+        '
+        'dgvURL
+        '
+        Me.dgvURL.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.dgvURL.HeaderText = "URL"
+        Me.dgvURL.Name = "dgvURL"
+        Me.dgvURL.ReadOnly = True
+        Me.dgvURL.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvURL.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.dgvURL.Width = 53
+        '
+        'txtperdidas
+        '
+        Me.txtperdidas.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtperdidas.Location = New System.Drawing.Point(477, 13)
+        Me.txtperdidas.Name = "txtperdidas"
+        Me.txtperdidas.ReadOnly = True
+        Me.txtperdidas.Size = New System.Drawing.Size(113, 23)
+        Me.txtperdidas.TabIndex = 103
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(336, 14)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(122, 17)
+        Me.Label1.TabIndex = 102
+        Me.Label1.Text = "Peticiones perdidas"
+        '
+        'txtperdidasporc
+        '
+        Me.txtperdidasporc.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtperdidasporc.Location = New System.Drawing.Point(477, 43)
+        Me.txtperdidasporc.Name = "txtperdidasporc"
+        Me.txtperdidasporc.ReadOnly = True
+        Me.txtperdidasporc.Size = New System.Drawing.Size(113, 23)
+        Me.txtperdidasporc.TabIndex = 105
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(336, 44)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(129, 17)
+        Me.Label3.TabIndex = 104
+        Me.Label3.Text = "Porcentaje perdidas "
+        '
         'SeguimientoURL
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(957, 360)
+        Me.Controls.Add(Me.txtperdidasporc)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.txtperdidas)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtpeticion)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "SeguimientoURL"
-        Me.ShowIcon = False
-        Me.ShowInTaskbar = False
         Me.Text = "Seguimiento peticiones HTTP"
-        Me.TopMost = True
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
@@ -133,7 +200,13 @@ Partial Class SeguimientoURL
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txtpeticion As System.Windows.Forms.TextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents dvgLat As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents peti As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents hora As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Estatus As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents dvgLat As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents dgvURL As System.Windows.Forms.DataGridViewLinkColumn
+    Friend WithEvents txtperdidas As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents txtperdidasporc As System.Windows.Forms.TextBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class

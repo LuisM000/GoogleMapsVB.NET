@@ -19,6 +19,7 @@
 
     'Seguimiento de solicitudes HTTP
     Public URLseguimiento As New ArrayList
+    Public numeroInstancia As Long
 
 
 End Module

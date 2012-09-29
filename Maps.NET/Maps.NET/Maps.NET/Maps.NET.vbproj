@@ -231,6 +231,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\Rutas.resx">
       <DependentUpon>Rutas.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\SeguimientoURL.resx">
       <DependentUpon>SeguimientoURL.vb</DependentUpon>

@@ -1,7 +1,8 @@
 ﻿Public Class SeguimientoURL
 
     Private Sub SeguimientoURL_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Panel1.Size = New Size(Me.Width - 20, Me.Height - 130)
+        Button1.Focus()
+        Panel1.Size = New Size(Me.Width - 20, Me.Height - 150)
         Panel1.Location = New Size(Me.Location.X + 10, Me.Location.Y + 86)
         DataGridView1.Rows.Clear()
         'Aspecto del DataGridView
@@ -16,11 +17,18 @@
         End With
 
         Try
-            For i = 0 To URLseguimiento.Count - 1 Step 3
-                DataGridView1.Rows.Add(URLseguimiento(i + 1), URLseguimiento(i + 2), URLseguimiento(i))
+            Dim paquetesPerdidos As Long = 0
+            For i = 0 To URLseguimiento.Count - 1 Step 5
+                DataGridView1.Rows.Add(URLseguimiento(i), URLseguimiento(i + 1), URLseguimiento(i + 2), URLseguimiento(i + 3), URLseguimiento(i + 4))
+                If URLseguimiento(i + 2).ToString = "PERDIDO" Then
+                    DataGridView1.Rows(DataGridView1.Rows.Count - 1).DefaultCellStyle.BackColor = Color.Red
+                    paquetesPerdidos += 1
+                End If
             Next
-            Dim peticiones As Long = CLng(URLseguimiento.Count / 3)
+            Dim peticiones As Long = CLng(URLseguimiento.Count / 5)
             txtpeticion.Text = peticiones
+            txtperdidas.Text = paquetesPerdidos
+            txtperdidasporc.Text = FormatNumber((paquetesPerdidos * 100) / peticiones, 2) & "%"
         Catch
         End Try
     End Sub

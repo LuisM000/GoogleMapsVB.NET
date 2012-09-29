@@ -41,6 +41,7 @@ Partial Class FormularioPrincipal
         Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VerURLActualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SeguimientoPeticionesHTTPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevaPestañaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.BorrarPestañaActivarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -60,7 +61,6 @@ Partial Class FormularioPrincipal
         Me.ElevaciónPorLatitudlongitudToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RutasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CalcularRutaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SeguimientoPeticionesHTTPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer1.SuspendLayout()
@@ -127,13 +127,7 @@ Partial Class FormularioPrincipal
         Me.WebBrowser1.Name = "WebBrowser1"
         Me.WebBrowser1.Size = New System.Drawing.Size(292, 108)
         Me.WebBrowser1.TabIndex = 0
-        Me.WebBrowser1.Url = New System.Uri("http://maps.google.es/maps?q=España&output=embed", System.UriKind.Absolute)
-        'Hacemos seguimiento de las variables
-        URLseguimiento.Add("http://maps.google.es/maps?q=España&output=embed")
-        URLseguimiento.Add(Now.ToString & "  -  " & "URL predeterminada (España)")
-        URLseguimiento.Add("OK")
-
-
+        Me.WebBrowser1.Url = New System.Uri("", System.UriKind.Relative)
         '
         'ToolStrip1
         '
@@ -228,6 +222,12 @@ Partial Class FormularioPrincipal
         Me.VerURLActualToolStripMenuItem.Name = "VerURLActualToolStripMenuItem"
         Me.VerURLActualToolStripMenuItem.Size = New System.Drawing.Size(245, 22)
         Me.VerURLActualToolStripMenuItem.Text = "Ver URL actual"
+        '
+        'SeguimientoPeticionesHTTPToolStripMenuItem
+        '
+        Me.SeguimientoPeticionesHTTPToolStripMenuItem.Name = "SeguimientoPeticionesHTTPToolStripMenuItem"
+        Me.SeguimientoPeticionesHTTPToolStripMenuItem.Size = New System.Drawing.Size(245, 22)
+        Me.SeguimientoPeticionesHTTPToolStripMenuItem.Text = "Seguimiento peticiones HTTP"
         '
         'EditarToolStripMenuItem
         '
@@ -357,12 +357,6 @@ Partial Class FormularioPrincipal
         Me.CalcularRutaToolStripMenuItem.Name = "CalcularRutaToolStripMenuItem"
         Me.CalcularRutaToolStripMenuItem.Size = New System.Drawing.Size(149, 22)
         Me.CalcularRutaToolStripMenuItem.Text = "Calcular ruta"
-        '
-        'SeguimientoPeticionesHTTPToolStripMenuItem
-        '
-        Me.SeguimientoPeticionesHTTPToolStripMenuItem.Name = "SeguimientoPeticionesHTTPToolStripMenuItem"
-        Me.SeguimientoPeticionesHTTPToolStripMenuItem.Size = New System.Drawing.Size(245, 22)
-        Me.SeguimientoPeticionesHTTPToolStripMenuItem.Text = "Seguimiento peticiones HTTP"
         '
         'FormularioPrincipal
         '

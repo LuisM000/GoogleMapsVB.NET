@@ -289,7 +289,7 @@ Partial Class Rutas
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(977, 394)
+        Me.Button2.Location = New System.Drawing.Point(977, 423)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(83, 23)
         Me.Button2.TabIndex = 75
@@ -350,7 +350,7 @@ Partial Class Rutas
         'Button5
         '
         Me.Button5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(977, 425)
+        Me.Button5.Location = New System.Drawing.Point(977, 394)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(83, 23)
         Me.Button5.TabIndex = 88
@@ -408,7 +408,7 @@ Partial Class Rutas
         Me.PictureBox3.TabIndex = 93
         Me.PictureBox3.TabStop = False
         Me.ToolTip1.SetToolTip(Me.PictureBox3, "Es recomendable separar las unidades geográficas por comas." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Puerta del Sol, Madr" & _
-        "id, España")
+        "id,España")
         '
         'PictureBox4
         '

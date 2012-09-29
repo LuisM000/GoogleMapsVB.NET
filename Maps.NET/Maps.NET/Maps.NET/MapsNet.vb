@@ -5,24 +5,31 @@ Imports System.Xml.XPath
 Imports System.Text.RegularExpressions
 
 Public Class MapsNet
-    Sub almacenarDatosHTTP(ByVal url As String, ByVal informacion As String, ByVal estatus As String) 'Alamacén de información de las peticiones (con variable globales)
-        Try
-            URLseguimiento.Add(url)
-        Catch
-            URLseguimiento.Add("Datos perdidos")
-        End Try
 
-        Try
-            URLseguimiento.Add(Now.ToString & "  -  " & informacion)
-        Catch
-            URLseguimiento.Add(Now.ToString & "  -  " & "Sin información del servicio")
-        End Try
+    Sub almacenarDatosHTTP(ByVal url As String, ByVal informacion As String, ByVal estatus As String) 'Alamacén de información de las peticiones (con variable globales)
+        numeroInstancia += 1
+        URLseguimiento.Add(numeroInstancia)
+        URLseguimiento.Add(Now)
 
         Try
             URLseguimiento.Add(estatus)
         Catch
             URLseguimiento.Add("PERDIDO")
         End Try
+        Try
+            URLseguimiento.Add(informacion)
+        Catch
+            URLseguimiento.Add("Sin información del servicio")
+        End Try
+
+    
+        Try
+            URLseguimiento.Add(url)
+        Catch
+            URLseguimiento.Add("Datos perdidos")
+        End Try
+
+
     End Sub
     Public Function ObtenerURLdesdeDireccion(ByVal direccion As String)
         Dim urlMaps As String 'Creamos variable para almacenar la url

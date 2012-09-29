@@ -47,10 +47,13 @@ Partial Class mostrarRuta
         '
         'DataGridView1
         '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvTiempo, Me.dgvDistancia, Me.dgvIndicaciones, Me.dgvLatitutd, Me.dgvLongitud})
         Me.DataGridView1.Location = New System.Drawing.Point(0, 144)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -66,27 +69,32 @@ Partial Class mostrarRuta
         '
         Me.dgvTiempo.HeaderText = "Duración tramo"
         Me.dgvTiempo.Name = "dgvTiempo"
+        Me.dgvTiempo.ReadOnly = True
         '
         'dgvDistancia
         '
         Me.dgvDistancia.HeaderText = "Distancia tramo"
         Me.dgvDistancia.Name = "dgvDistancia"
+        Me.dgvDistancia.ReadOnly = True
         '
         'dgvIndicaciones
         '
         Me.dgvIndicaciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.dgvIndicaciones.HeaderText = "Indicaciones tramo"
         Me.dgvIndicaciones.Name = "dgvIndicaciones"
+        Me.dgvIndicaciones.ReadOnly = True
         '
         'dgvLatitutd
         '
         Me.dgvLatitutd.HeaderText = "Latitud"
         Me.dgvLatitutd.Name = "dgvLatitutd"
+        Me.dgvLatitutd.ReadOnly = True
         '
         'dgvLongitud
         '
         Me.dgvLongitud.HeaderText = "Longitud"
         Me.dgvLongitud.Name = "dgvLongitud"
+        Me.dgvLongitud.ReadOnly = True
         '
         'txtdistancia
         '

@@ -4,6 +4,7 @@
 
     Private Sub FormularioPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         aspectoFormu.TabControlYpanel() 'Ajustamos el tabcontrol
+        aspectoFormu.abrirEspaña(aspectoFormu.NavegadorActual(Me.TabControl1.SelectedIndex))
     End Sub
 
     Private Sub VerURLActualToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerURLActualToolStripMenuItem.Click
