@@ -6,41 +6,25 @@ Imports System.Text.RegularExpressions
 
 Public Class MapsNet
 
-    Sub almacenarDatosHTTP(ByVal url As String, ByVal informacion As String, ByVal estatus As String) 'Alamacén de información de las peticiones (con variable globales)
+    Sub almacenarDatosHTTP(ByVal url As String, ByVal informacion As String, ByVal estatus As String, Optional ByVal excepcion As String = "sin excepción") 'Alamacén de información de las peticiones (con variable globales)
         numeroInstancia += 1
         URLseguimiento.Add(numeroInstancia)
         URLseguimiento.Add(Now)
-
-        Try
-            URLseguimiento.Add(estatus)
-        Catch
-            URLseguimiento.Add("PERDIDO")
-        End Try
-        Try
-            URLseguimiento.Add(informacion)
-        Catch
-            URLseguimiento.Add("Sin información del servicio")
-        End Try
-
-    
-        Try
-            URLseguimiento.Add(url)
-        Catch
-            URLseguimiento.Add("Datos perdidos")
-        End Try
-
-
+        URLseguimiento.Add(estatus)
+        URLseguimiento.Add(informacion)
+        URLseguimiento.Add(url)
+        URLseguimiento.Add(excepcion)
     End Sub
     Public Function ObtenerURLdesdeDireccion(ByVal direccion As String)
         Dim urlMaps As String 'Creamos variable para almacenar la url
         urlMaps = "http://maps.google.es/maps?q=" & direccion & "&output=embed" 'Concatenamos la dirección con la dirección del mapa
-        Me.almacenarDatosHTTP(urlMaps, "Petición de URL mediante dirección", "OK") 'Almacenamos información
+        Me.almacenarDatosHTTP(urlMaps, "Petición posición mediante dirección", "OK") 'Almacenamos información
         Return urlMaps
     End Function
     Public Function ObtenerURLdesdelatlong(ByVal latitud As Double, ByVal longitud As Double)
         Dim urlMaps As String 'Creamos variable para almacenar la url
         urlMaps = "http://maps.google.es/maps?q=" + CStr(latitud) + "%2C" + CStr(longitud) + "&output=embed" 'Concatenamos la lat/long con la dirección del mapa
-        Me.almacenarDatosHTTP(urlMaps, "Petición de URL mediante latitud/longitud", "OK") 'Almacenamos información
+        Me.almacenarDatosHTTP(urlMaps, "Petición posición mediante latitud/longitud", "OK") 'Almacenamos información
         Return urlMaps
     End Function
 
@@ -55,8 +39,8 @@ Public Class MapsNet
             Dim sr As StreamReader = New StreamReader(stream)
             Me.almacenarDatosHTTP(url, "Petición de IP al servicio whatismyip", "OK") 'Almacenamos información
             Return (sr.ReadToEnd())
-        Catch
-            Me.almacenarDatosHTTP(url, "Petición de IP al servicio whatismyip", "PERDIDO") 'Almacenamos información
+        Catch ex As Exception
+            Me.almacenarDatosHTTP(url, "Petición de IP al servicio whatismyip", "PERDIDO", ex.ToString) 'Almacenamos información
         End Try
 
         Return "0.0.0.0"
@@ -110,8 +94,8 @@ Public Class MapsNet
             End While
             responseStream.Close()
             Me.almacenarDatosHTTP(url, "Petición de localización de IP al servicio smart-ip", "OK") 'Almacenamos información
-        Catch
-            Me.almacenarDatosHTTP(url, "Petición de localización de IP al servicio smart-ip", "PERDIDO") 'Almacenamos información
+        Catch ex As Exception
+            Me.almacenarDatosHTTP(url, "Petición de localización de IP al servicio smart-ip", "PERDIDO", ex.ToString) 'Almacenamos información
         End Try
         datosretorno(5) = ip
         Return datosretorno
@@ -160,8 +144,8 @@ Public Class MapsNet
             End While
             responseStream.Close()
             Me.almacenarDatosHTTP(url, "Petición codificación geográfica directa", "OK") 'Almacenamos información
-        Catch
-            Me.almacenarDatosHTTP(url, "Petición codificación geográfica directa", "PERDIDO") 'Almacenamos información
+        Catch ex As Exception
+            Me.almacenarDatosHTTP(url, "Petición codificación geográfica directa", "PERDIDO", ex.ToString) 'Almacenamos información
         End Try
         Return LatLong
     End Function
@@ -194,8 +178,8 @@ Public Class MapsNet
             End While
             responseStream.Close()
             Me.almacenarDatosHTTP(url, "Petición codificación geográfica inversa", "OK") 'Almacenamos información
-        Catch
-            Me.almacenarDatosHTTP(url, "Petición codificación geográfica inversa", "PERDIDO") 'Almacenamos información
+        Catch ex As Exception
+            Me.almacenarDatosHTTP(url, "Petición codificación geográfica inversa", "PERDIDO", ex.ToString) 'Almacenamos información
         End Try
         Return direcc
     End Function
@@ -298,8 +282,8 @@ Public Class MapsNet
             Next
             responseStream.Close()
             Me.almacenarDatosHTTP(url, "Petición de locales (places) mediante latitud/longitud", "OK") 'Almacenamos información
-        Catch
-            Me.almacenarDatosHTTP(url, "Petición de locales (places) mediante latitud/longitud", "PERDIDO") 'Almacenamos información
+        Catch ex As Exception
+            Me.almacenarDatosHTTP(url, "Petición de locales (places) mediante latitud/longitud", "PERDIDO", ex.ToString) 'Almacenamos información
         End Try
         If auxiliar.Count < 6 Then
             ReDim auxiliar(5)
@@ -419,8 +403,8 @@ Public Class MapsNet
             End If
             responseStream.Close()
             Me.almacenarDatosHTTP(url, "Petición de detalles de un local (places) mediante la referencia del lugar", "OK") 'Almacenamos información
-        Catch
-            Me.almacenarDatosHTTP(url, "Petición de detalles de un local (places) mediante la referencia del lugar", "PERDIDO") 'Almacenamos información
+        Catch ex As Exception
+            Me.almacenarDatosHTTP(url, "Petición de detalles de un local (places) mediante la referencia del lugar", "PERDIDO", ex.ToString) 'Almacenamos información
         End Try
         Return datos
     End Function
@@ -572,8 +556,8 @@ Public Class MapsNet
 
             responseStream.Close()
             Me.almacenarDatosHTTP(url, "Petición de detalles de un local (places) y opiniones usuarios, mediante la referencia del lugar", "OK") 'Almacenamos información
-        Catch
-            Me.almacenarDatosHTTP(url, "Petición de detalles de un local (places) y opiniones usuarios, mediante la referencia del lugar", "PERDIDO") 'Almacenamos información
+        Catch ex As Exception
+            Me.almacenarDatosHTTP(url, "Petición de detalles de un local (places) y opiniones usuarios, mediante la referencia del lugar", "PERDIDO", ex.ToString) 'Almacenamos información
         End Try
         Return datos
     End Function
@@ -622,8 +606,8 @@ Public Class MapsNet
             End While
             responseStream.Close()
             Me.almacenarDatosHTTP(url, "Petición de autocompletado para mostrar sugerencia de búsqueda", "OK") 'Almacenamos información
-        Catch
-            Me.almacenarDatosHTTP(url, "Petición de autocompletado para mostrar sugerencia de búsqueda", "PERDIDO") 'Almacenamos información
+        Catch ex As Exception
+            Me.almacenarDatosHTTP(url, "Petición de autocompletado para mostrar sugerencia de búsqueda", "PERDIDO", ex.ToString) 'Almacenamos información
         End Try
         Return establecimiento
     End Function
@@ -817,8 +801,8 @@ Public Class MapsNet
 
             responseStream.Close()
             Me.almacenarDatosHTTP(url, "Petición de ruta", "OK") 'Almacenamos información
-        Catch
-            Me.almacenarDatosHTTP(url, "Petición de ruta", "PERDIDO") 'Almacenamos información
+        Catch ex As Exception
+            Me.almacenarDatosHTTP(url, "Petición de ruta", "PERDIDO", ex.ToString) 'Almacenamos información
         End Try
 
 
@@ -871,8 +855,8 @@ Public Class MapsNet
             End While
             responseStream.Close()
             Me.almacenarDatosHTTP(url, "Petición de elevación", "OK") 'Almacenamos información
-        Catch
-            Me.almacenarDatosHTTP(url, "Petición de elevación", "PERDIDO") 'Almacenamos información
+        Catch ex As Exception
+            Me.almacenarDatosHTTP(url, "Petición de elevación", "PERDIDO", ex.ToString) 'Almacenamos información
         End Try
         Return elevaciones
     End Function

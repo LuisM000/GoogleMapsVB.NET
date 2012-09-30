@@ -319,7 +319,7 @@ Partial Class FormularioPrincipal
         'MenuStrip1
         '
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.CodificaciónGeográficaToolStripMenuItem, Me.PlacesToolStripMenuItem, Me.AutocomToolStripMenuItem, Me.RutasToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.CodificaciónGeográficaToolStripMenuItem, Me.AutocomToolStripMenuItem, Me.PlacesToolStripMenuItem, Me.RutasToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(866, 25)

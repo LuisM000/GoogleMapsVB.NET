@@ -27,15 +27,16 @@ Partial Class SeguimientoURL
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtpeticion = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.txtperdidas = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtperdidasporc = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.peti = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.hora = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Estatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dvgLat = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvURL = New System.Windows.Forms.DataGridViewLinkColumn()
-        Me.txtperdidas = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtperdidasporc = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.excep = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -45,7 +46,7 @@ Partial Class SeguimientoURL
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.peti, Me.hora, Me.Estatus, Me.dvgLat, Me.dgvURL})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.peti, Me.hora, Me.Estatus, Me.dvgLat, Me.dgvURL, Me.excep})
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
@@ -91,6 +92,44 @@ Partial Class SeguimientoURL
         Me.Button1.Text = "Recargar"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'txtperdidas
+        '
+        Me.txtperdidas.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtperdidas.Location = New System.Drawing.Point(477, 13)
+        Me.txtperdidas.Name = "txtperdidas"
+        Me.txtperdidas.ReadOnly = True
+        Me.txtperdidas.Size = New System.Drawing.Size(113, 23)
+        Me.txtperdidas.TabIndex = 103
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(336, 14)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(122, 17)
+        Me.Label1.TabIndex = 102
+        Me.Label1.Text = "Peticiones perdidas"
+        '
+        'txtperdidasporc
+        '
+        Me.txtperdidasporc.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtperdidasporc.Location = New System.Drawing.Point(477, 43)
+        Me.txtperdidasporc.Name = "txtperdidasporc"
+        Me.txtperdidasporc.ReadOnly = True
+        Me.txtperdidasporc.Size = New System.Drawing.Size(113, 23)
+        Me.txtperdidasporc.TabIndex = 105
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(336, 44)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(129, 17)
+        Me.Label3.TabIndex = 104
+        Me.Label3.Text = "Porcentaje perdidas "
+        '
         'peti
         '
         Me.peti.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -133,43 +172,13 @@ Partial Class SeguimientoURL
         Me.dgvURL.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.dgvURL.Width = 53
         '
-        'txtperdidas
+        'excep
         '
-        Me.txtperdidas.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtperdidas.Location = New System.Drawing.Point(477, 13)
-        Me.txtperdidas.Name = "txtperdidas"
-        Me.txtperdidas.ReadOnly = True
-        Me.txtperdidas.Size = New System.Drawing.Size(113, 23)
-        Me.txtperdidas.TabIndex = 103
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(336, 14)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(122, 17)
-        Me.Label1.TabIndex = 102
-        Me.Label1.Text = "Peticiones perdidas"
-        '
-        'txtperdidasporc
-        '
-        Me.txtperdidasporc.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtperdidasporc.Location = New System.Drawing.Point(477, 43)
-        Me.txtperdidasporc.Name = "txtperdidasporc"
-        Me.txtperdidasporc.ReadOnly = True
-        Me.txtperdidasporc.Size = New System.Drawing.Size(113, 23)
-        Me.txtperdidasporc.TabIndex = 105
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(336, 44)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(129, 17)
-        Me.Label3.TabIndex = 104
-        Me.Label3.Text = "Porcentaje perdidas "
+        Me.excep.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.excep.HeaderText = "Excepción"
+        Me.excep.Name = "excep"
+        Me.excep.ReadOnly = True
+        Me.excep.Width = 85
         '
         'SeguimientoURL
         '
@@ -200,13 +209,14 @@ Partial Class SeguimientoURL
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txtpeticion As System.Windows.Forms.TextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents txtperdidas As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents txtperdidasporc As System.Windows.Forms.TextBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents peti As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents hora As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Estatus As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents dvgLat As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents dgvURL As System.Windows.Forms.DataGridViewLinkColumn
-    Friend WithEvents txtperdidas As System.Windows.Forms.TextBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents txtperdidasporc As System.Windows.Forms.TextBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents excep As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

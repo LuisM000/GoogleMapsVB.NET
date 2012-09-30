@@ -121,6 +121,12 @@
     <Compile Include="FormuSecundarios\ElevacionDir.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormuSecundarios\ElevacionesLat.Designer.vb">
+      <DependentUpon>ElevacionesLat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormuSecundarios\ElevacionesLat.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormuSecundarios\ISP.Designer.vb">
       <DependentUpon>ISP.vb</DependentUpon>
     </Compile>
@@ -212,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\ElevacionDir.resx">
       <DependentUpon>ElevacionDir.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormuSecundarios\ElevacionesLat.resx">
+      <DependentUpon>ElevacionesLat.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\ISP.resx">
       <DependentUpon>ISP.vb</DependentUpon>

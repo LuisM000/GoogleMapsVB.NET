@@ -63,4 +63,8 @@
     Private Sub SeguimientoPeticionesHTTPToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeguimientoPeticionesHTTPToolStripMenuItem.Click
         SeguimientoURL.Show()
     End Sub
+
+    Private Sub ElevaciónPorLatitudlongitudToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ElevaciónPorLatitudlongitudToolStripMenuItem.Click
+        ElevacionesLat.Show()
+    End Sub
 End Class

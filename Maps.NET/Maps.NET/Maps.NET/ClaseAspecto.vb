@@ -38,6 +38,8 @@
         URLseguimiento.Add("OK")
         URLseguimiento.Add("URL predeterminada (España)")
         URLseguimiento.Add("http://maps.google.es/maps?q=España&output=embed")
+        URLseguimiento.Add("sin excepción")
+
 
     End Sub
 

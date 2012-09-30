@@ -18,14 +18,14 @@
 
         Try
             Dim paquetesPerdidos As Long = 0
-            For i = 0 To URLseguimiento.Count - 1 Step 5
-                DataGridView1.Rows.Add(URLseguimiento(i), URLseguimiento(i + 1), URLseguimiento(i + 2), URLseguimiento(i + 3), URLseguimiento(i + 4))
+            For i = 0 To URLseguimiento.Count - 1 Step 6
+                DataGridView1.Rows.Add(URLseguimiento(i), URLseguimiento(i + 1), URLseguimiento(i + 2), URLseguimiento(i + 3), URLseguimiento(i + 4), URLseguimiento(i + 5))
                 If URLseguimiento(i + 2).ToString = "PERDIDO" Then
                     DataGridView1.Rows(DataGridView1.Rows.Count - 1).DefaultCellStyle.BackColor = Color.Red
                     paquetesPerdidos += 1
                 End If
             Next
-            Dim peticiones As Long = CLng(URLseguimiento.Count / 5)
+            Dim peticiones As Long = CLng(URLseguimiento.Count / 6)
             txtpeticion.Text = peticiones
             txtperdidas.Text = paquetesPerdidos
             txtperdidasporc.Text = FormatNumber((paquetesPerdidos * 100) / peticiones, 2) & "%"
