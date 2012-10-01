@@ -67,4 +67,8 @@
     Private Sub ElevaciónPorLatitudlongitudToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ElevaciónPorLatitudlongitudToolStripMenuItem.Click
         ElevacionesLat.Show()
     End Sub
+
+    Private Sub StreetViewPorDirecciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StreetViewPorDirecciónToolStripMenuItem.Click
+        StreetViewDIr.Show()
+    End Sub
 End Class

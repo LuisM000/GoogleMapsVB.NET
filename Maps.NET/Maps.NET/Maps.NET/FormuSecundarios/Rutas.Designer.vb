@@ -63,6 +63,7 @@ Partial Class Rutas
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Button6 = New System.Windows.Forms.Button()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -311,10 +312,10 @@ Partial Class Rutas
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(938, 518)
+        Me.Button4.Location = New System.Drawing.Point(938, 526)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(129, 31)
-        Me.Button4.TabIndex = 7
+        Me.Button4.TabIndex = 6
         Me.Button4.Text = "Calcular ruta"
         Me.Button4.UseVisualStyleBackColor = True
         '
@@ -322,10 +323,11 @@ Partial Class Rutas
         '
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.Location = New System.Drawing.Point(938, 556)
+        Me.CheckBox1.Location = New System.Drawing.Point(938, 564)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(111, 21)
         Me.CheckBox1.TabIndex = 8
+        Me.CheckBox1.TabStop = False
         Me.CheckBox1.Text = "Optimizar ruta"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
@@ -425,7 +427,7 @@ Partial Class Rutas
         'PictureBox5
         '
         Me.PictureBox5.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox5.Location = New System.Drawing.Point(1047, 556)
+        Me.PictureBox5.Location = New System.Drawing.Point(1047, 564)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(20, 20)
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -457,7 +459,7 @@ Partial Class Rutas
         Me.ComboBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Coche (predeterminada)", "Bicicleta", "A pie"})
-        Me.ComboBox1.Location = New System.Drawing.Point(22, 545)
+        Me.ComboBox1.Location = New System.Drawing.Point(22, 553)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(194, 23)
         Me.ComboBox1.TabIndex = 6
@@ -469,19 +471,30 @@ Partial Class Rutas
         Me.ComboBox2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Items.AddRange(New Object() {"Sin restricciones (predeterminada)", "Evitar peajes en puentes y carreteras", "Evitar autopista y autovías"})
-        Me.ComboBox2.Location = New System.Drawing.Point(22, 511)
+        Me.ComboBox2.Location = New System.Drawing.Point(22, 519)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(194, 23)
         Me.ComboBox2.TabIndex = 5
         Me.ComboBox2.TabStop = False
         Me.ComboBox2.Text = "Peajes"
         '
+        'Button6
+        '
+        Me.Button6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Location = New System.Drawing.Point(938, 489)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(129, 31)
+        Me.Button6.TabIndex = 5
+        Me.Button6.Text = "Ver ruta Street View"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
         'Rutas
         '
         Me.AcceptButton = Me.Button4
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1079, 588)
+        Me.ClientSize = New System.Drawing.Size(1079, 597)
+        Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.GroupBox3)
@@ -575,4 +588,5 @@ Partial Class Rutas
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
+    Friend WithEvents Button6 As System.Windows.Forms.Button
 End Class

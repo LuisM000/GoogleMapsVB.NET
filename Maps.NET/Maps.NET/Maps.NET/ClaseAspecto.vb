@@ -345,4 +345,36 @@
         Next
         Return establIngles
     End Function
+
+    Sub guardarcomo(ByVal bmp As Bitmap, ByVal nombre As String, Optional ByVal filtrado As Integer = 3) 'Guardar imagen
+        Dim salvar As New SaveFileDialog
+        With salvar
+            .Filter = "Ficheros BMP|*.bmp" & _
+                      "|Ficheros GIF|*.gif" & _
+                      "|Ficheros JPG o JPEG|*.jpg;*.jpeg" & _
+                      "|Ficheros PNG|*.png" & _
+                      "|Ficheros TIFF|*.tif"
+            .FilterIndex = filtrado
+            .FileName = nombre
+            If (.ShowDialog() = Windows.Forms.DialogResult.OK) Then
+
+                If salvar.FileName <> "" Then
+                    Dim fs As System.IO.FileStream = CType(salvar.OpenFile(), System.IO.FileStream)
+                    Select Case salvar.FilterIndex
+                        Case 1
+                            bmp.Save(fs, System.Drawing.Imaging.ImageFormat.Bmp)
+                        Case 2
+                            bmp.Save(fs, System.Drawing.Imaging.ImageFormat.Gif)
+                        Case 3
+                            bmp.Save(fs, System.Drawing.Imaging.ImageFormat.Jpeg)
+                        Case 4
+                            bmp.Save(fs, System.Drawing.Imaging.ImageFormat.Png)
+                        Case 5
+                            bmp.Save(fs, System.Drawing.Imaging.ImageFormat.Tiff)
+                    End Select
+                    fs.Close()
+                End If
+            End If
+        End With
+    End Sub
 End Class

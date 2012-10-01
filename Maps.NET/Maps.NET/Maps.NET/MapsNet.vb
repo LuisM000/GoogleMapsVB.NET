@@ -863,6 +863,98 @@ Public Class MapsNet
 
 
 
+    Public Function StreetView(ByVal direccion As String, ByVal tamañoImagen() As Integer, Optional ByVal GiroHorizontal As Integer = -1, Optional ByVal GiroVertical As Integer = 0, Optional ByVal zoom As Integer = 90) 'Crear imagen streetVIew
+        Dim imagenStreet As New Bitmap(tamañoImagen(0), tamañoImagen(1)) 'Variable con tamaño imagen
+
+        'Creamos variable tamaño
+        Dim tamaño As String
+        tamaño = "size=" & tamañoImagen(0) & "x" & tamañoImagen(1)
+
+        'Creamos variable direccion
+        direccion = direccion.Replace(" ", "+")
+        direccion = "&location=" & direccion
+
+        'Creamos variable giro horizontal
+        Dim horizontal As String
+        If GiroHorizontal <> -1 Then
+            horizontal = "&heading=" & GiroHorizontal
+        Else
+            horizontal = ""
+        End If
+
+        'Creamos variable giro vertical
+        Dim vertical As String
+        vertical = "&pitch=" & GiroVertical
+
+        'Creamos variable zoom
+        Dim zoomS As String
+        zoomS = "&fov=" & zoom
+
+        'Creamos la url con los datos
+        Dim url = "http://maps.googleapis.com/maps/api/streetview?" & tamaño & direccion & horizontal & vertical & zoomS & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        imagenStreet = ImagenDesdeURL(url)
+
+        Return imagenStreet
+    End Function
+
+
+    Public Function StreetView(ByVal latLong() As Double, ByVal tamañoImagen() As Integer, Optional ByVal GiroHorizontal As Integer = -1, Optional ByVal GiroVertical As Integer = 0, Optional ByVal zoom As Integer = 90) 'Crear imagen streetVIew con lat/long
+        Dim imagenStreet As New Bitmap(tamañoImagen(0), tamañoImagen(1)) 'Variable con tamaño imagen
+
+
+
+        'Creamos variable tamaño
+        Dim tamaño As String
+        tamaño = "size=" & tamañoImagen(0) & "x" & tamañoImagen(1)
+
+        'Creamos variable direccion
+        Dim latitudLong As String
+        latitudLong = "&location=" & latLong(0) & "," & latLong(1)
+
+
+        'Creamos variable giro horizontal
+        Dim horizontal As String
+        If GiroHorizontal <> -1 Then
+            horizontal = "&heading=" & GiroHorizontal
+        Else
+            horizontal = ""
+        End If
+
+        'Creamos variable giro vertical
+        Dim vertical As String
+        vertical = "&pitch=" & GiroVertical
+
+        'Creamos variable zoom
+        Dim zoomS As String
+        zoomS = "&fov=" & zoom
+
+
+
+        'Creamos la url con los datos
+        Dim url = "http://maps.googleapis.com/maps/api/streetview?" & tamaño & latitudLong & horizontal & vertical & zoomS & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+
+        imagenStreet = ImagenDesdeURL(url)
+
+        Return imagenStreet
+    End Function
+
+
+    Public Function ImagenDesdeURL(ByVal URL As String)  'Cargar imagen desde URl, devuelve un bitmap
+        Dim BItmapOriginal As New Bitmap(My.Resources.cancel)
+        System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor
+        Try
+            Dim request As System.Net.WebRequest = System.Net.WebRequest.Create(URL)
+            Dim response As System.Net.WebResponse = request.GetResponse()
+            Dim responseStream As System.IO.Stream = response.GetResponseStream()
+            Dim bmp As New Bitmap(responseStream)
+            Me.almacenarDatosHTTP(URL, "Petición de imagen street view", "OK") 'Almacenamos información
+            Return bmp
+        Catch ex As Exception
+            Me.almacenarDatosHTTP(URL, "Petición de imagen street view", "PERDIDO", ex.ToString) 'Almacenamos información
+            Return BItmapOriginal
+        End Try
+
+    End Function
 
     Public Function DiasRestantes(ByVal FechaUnix As String)  'Cálculo días restantes con respecto a hoy
         Dim Diferencia(1) As String
