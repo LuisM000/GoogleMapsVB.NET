@@ -939,6 +939,8 @@ Public Class MapsNet
     End Function
 
 
+
+
     Public Function ImagenDesdeURL(ByVal URL As String)  'Cargar imagen desde URl, devuelve un bitmap
         Dim BItmapOriginal As New Bitmap(My.Resources.cancel)
         System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor
@@ -955,6 +957,11 @@ Public Class MapsNet
         End Try
 
     End Function
+
+
+
+
+
 
     Public Function DiasRestantes(ByVal FechaUnix As String)  'Cálculo días restantes con respecto a hoy
         Dim Diferencia(1) As String

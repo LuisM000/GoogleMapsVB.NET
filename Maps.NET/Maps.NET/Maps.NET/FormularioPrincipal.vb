@@ -71,4 +71,8 @@
     Private Sub StreetViewPorDirecciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StreetViewPorDirecciónToolStripMenuItem.Click
         StreetViewDIr.Show()
     End Sub
+
+    Private Sub AsdadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsdadToolStripMenuItem.Click
+        'MostarTodosStreetViewvb.Show()
+    End Sub
 End Class

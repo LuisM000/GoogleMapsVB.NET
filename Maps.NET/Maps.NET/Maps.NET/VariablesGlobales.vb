@@ -21,5 +21,6 @@
     Public URLseguimiento As New ArrayList
     Public numeroInstancia As Long
 
-
+    'Hilo
+    Public hiloImagenes As Threading.Thread
 End Module

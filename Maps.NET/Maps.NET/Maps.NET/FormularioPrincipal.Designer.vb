@@ -64,6 +64,7 @@ Partial Class FormularioPrincipal
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
+        Me.AsdadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer1.SuspendLayout()
@@ -250,7 +251,7 @@ Partial Class FormularioPrincipal
         'MenuStrip1
         '
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.CodificaciónGeográficaToolStripMenuItem, Me.AutocomToolStripMenuItem, Me.PlacesToolStripMenuItem, Me.RutasToolStripMenuItem, Me.StreetViewToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.CodificaciónGeográficaToolStripMenuItem, Me.AutocomToolStripMenuItem, Me.PlacesToolStripMenuItem, Me.RutasToolStripMenuItem, Me.StreetViewToolStripMenuItem, Me.AsdadToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(866, 25)
@@ -380,6 +381,12 @@ Partial Class FormularioPrincipal
         Me.ToolStripButton8.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton8.Text = "ToolStripButton8"
         '
+        'AsdadToolStripMenuItem
+        '
+        Me.AsdadToolStripMenuItem.Name = "AsdadToolStripMenuItem"
+        Me.AsdadToolStripMenuItem.Size = New System.Drawing.Size(56, 21)
+        Me.AsdadToolStripMenuItem.Text = "asdad"
+        '
         'FormularioPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -448,5 +455,6 @@ Partial Class FormularioPrincipal
     Friend WithEvents StreetViewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StreetViewPorDirecciónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StreetViewPorLatitudlongitudToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AsdadToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
