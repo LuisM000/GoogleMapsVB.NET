@@ -509,10 +509,10 @@ Partial Class Rutas
         '
         'PictureBox6
         '
-        Me.PictureBox6.Image = Global.Maps.NET.My.Resources.Resources.constructor
-        Me.PictureBox6.Location = New System.Drawing.Point(818, 526)
+        Me.PictureBox6.Image = Global.Maps.NET.My.Resources.Resources.cargando
+        Me.PictureBox6.Location = New System.Drawing.Point(891, 532)
         Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(100, 105)
+        Me.PictureBox6.Size = New System.Drawing.Size(20, 20)
         Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox6.TabIndex = 97
         Me.PictureBox6.TabStop = False
@@ -521,11 +521,11 @@ Partial Class Rutas
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(401, 577)
+        Me.Label12.Location = New System.Drawing.Point(425, 532)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(411, 17)
+        Me.Label12.Size = New System.Drawing.Size(460, 17)
         Me.Label12.TabIndex = 98
-        Me.Label12.Text = "Las imágenes se abrirán en segundo plano. Puede seguir trabajando"
+        Me.Label12.Text = "Las imágenes se están cargando en segundo plano. Puede seguir trabajando"
         '
         'Rutas
         '
@@ -576,11 +576,8 @@ Partial Class Rutas
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "Rutas"
-        Me.ShowIcon = False
-        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Creador de rutas"
-        Me.TopMost = True
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()

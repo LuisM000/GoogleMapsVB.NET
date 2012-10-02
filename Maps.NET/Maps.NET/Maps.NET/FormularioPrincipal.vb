@@ -72,7 +72,7 @@
         StreetViewDIr.Show()
     End Sub
 
-    Private Sub AsdadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsdadToolStripMenuItem.Click
-        'MostarTodosStreetViewvb.Show()
+    Private Sub StreetViewPorLatitudlongitudToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StreetViewPorLatitudlongitudToolStripMenuItem.Click
+        StreetViewlat.Show()
     End Sub
 End Class

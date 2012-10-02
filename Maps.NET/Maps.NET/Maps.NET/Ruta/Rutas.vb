@@ -326,6 +326,7 @@ Public Class Rutas
                     Try
                         Dim frm As New StreetViewRuta(datosruta, direccionOrDe)
                         frm.Show()
+                        frm.TopLevel = True
                     Catch
                     End Try
             End Select

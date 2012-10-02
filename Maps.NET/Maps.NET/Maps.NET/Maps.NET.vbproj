@@ -90,6 +90,12 @@
     <Compile Include="FormuSecundarios\DatosLocal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormuSecundarios\StreetViewlat.Designer.vb">
+      <DependentUpon>StreetViewlat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormuSecundarios\StreetViewlat.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Places\DetallesLugarComida.Designer.vb">
       <DependentUpon>DetallesLugarComida.vb</DependentUpon>
     </Compile>
@@ -222,6 +228,9 @@
     <EmbeddedResource Include="FormuSecundarios\DatosLocal.resx">
       <DependentUpon>DatosLocal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormuSecundarios\StreetViewlat.resx">
+      <DependentUpon>StreetViewlat.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Places\DetallesLugarComida.resx">
       <DependentUpon>DetallesLugarComida.vb</DependentUpon>
     </EmbeddedResource>
@@ -323,6 +332,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\constructor.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cargando.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
