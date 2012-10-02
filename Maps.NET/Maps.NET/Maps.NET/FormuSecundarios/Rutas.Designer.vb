@@ -277,7 +277,7 @@ Partial Class Rutas
         Me.ListBox1.ItemHeight = 17
         Me.ListBox1.Location = New System.Drawing.Point(6, 22)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(937, 106)
+        Me.ListBox1.Size = New System.Drawing.Size(937, 140)
         Me.ListBox1.TabIndex = 73
         Me.ListBox1.TabStop = False
         '
@@ -317,7 +317,7 @@ Partial Class Rutas
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(938, 580)
+        Me.Button4.Location = New System.Drawing.Point(938, 600)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(129, 31)
         Me.Button4.TabIndex = 5
@@ -328,7 +328,7 @@ Partial Class Rutas
         '
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.Location = New System.Drawing.Point(938, 618)
+        Me.CheckBox1.Location = New System.Drawing.Point(938, 638)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(111, 21)
         Me.CheckBox1.TabIndex = 8
@@ -398,7 +398,7 @@ Partial Class Rutas
         'PictureBox5
         '
         Me.PictureBox5.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox5.Location = New System.Drawing.Point(1047, 618)
+        Me.PictureBox5.Location = New System.Drawing.Point(1047, 638)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(20, 20)
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -436,7 +436,7 @@ Partial Class Rutas
         Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(22, 346)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(949, 137)
+        Me.GroupBox3.Size = New System.Drawing.Size(949, 169)
         Me.GroupBox3.TabIndex = 85
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Hitos incluidos"
@@ -468,7 +468,7 @@ Partial Class Rutas
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(938, 543)
+        Me.Button6.Location = New System.Drawing.Point(938, 563)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(129, 31)
         Me.Button6.TabIndex = 4
@@ -478,7 +478,7 @@ Partial Class Rutas
         'Button7
         '
         Me.Button7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(938, 506)
+        Me.Button7.Location = New System.Drawing.Point(938, 526)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(129, 31)
         Me.Button7.TabIndex = 3
@@ -510,7 +510,7 @@ Partial Class Rutas
         'PictureBox6
         '
         Me.PictureBox6.Image = Global.Maps.NET.My.Resources.Resources.constructor
-        Me.PictureBox6.Location = New System.Drawing.Point(818, 506)
+        Me.PictureBox6.Location = New System.Drawing.Point(818, 526)
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.Size = New System.Drawing.Size(100, 105)
         Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -521,7 +521,7 @@ Partial Class Rutas
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(401, 557)
+        Me.Label12.Location = New System.Drawing.Point(401, 577)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(411, 17)
         Me.Label12.TabIndex = 98
@@ -532,7 +532,7 @@ Partial Class Rutas
         Me.AcceptButton = Me.Button4
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1079, 650)
+        Me.ClientSize = New System.Drawing.Size(1079, 670)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.PictureBox6)
         Me.Controls.Add(Me.Button7)

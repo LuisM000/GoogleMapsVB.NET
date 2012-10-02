@@ -427,18 +427,17 @@ Public Class Rutas
                     Case "UNKNOWN_ERROR"
                         MessageBox.Show("Error del servidor. Inténtelo de nuevo", "UNKNOWN_ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Case "OK"
-
+                        If hiloImagenes.ThreadState = Threading.ThreadState.Aborted Or hiloImagenes.ThreadState = Threading.ThreadState.AbortRequested Then
+                            Exit Do
+                        End If
+                        Dim frm As New MostarTodosStreetViewvb(datosruta, direccionOrDe)
+                        frm.ShowDialog()
                 End Select
-
-
-                If hiloImagenes.ThreadState = Threading.ThreadState.Aborted Or hiloImagenes.ThreadState = Threading.ThreadState.AbortRequested Then
-                    Exit Do
-                End If
-                Dim frm As New MostarTodosStreetViewvb(datosruta, direccionOrDe)
-                frm.ShowDialog()
                 PictureBox6.Visible = False
                 Label12.Visible = False
                 hiloImagenes.Abort()
+
+                
             Catch
             End Try
 
