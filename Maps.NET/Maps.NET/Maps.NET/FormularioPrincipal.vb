@@ -75,4 +75,9 @@
     Private Sub StreetViewPorLatitudlongitudToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StreetViewPorLatitudlongitudToolStripMenuItem.Click
         StreetViewlat.Show()
     End Sub
+
+   
+    Private Sub GeneradorBásicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GeneradorBásicoToolStripMenuItem.Click
+        MapasSencillos.Show()
+    End Sub
 End Class

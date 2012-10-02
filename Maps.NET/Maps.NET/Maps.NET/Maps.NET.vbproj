@@ -96,6 +96,12 @@
     <Compile Include="FormuSecundarios\StreetViewlat.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Mapas\MapasSencillos.Designer.vb">
+      <DependentUpon>MapasSencillos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Mapas\MapasSencillos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Places\DetallesLugarComida.Designer.vb">
       <DependentUpon>DetallesLugarComida.vb</DependentUpon>
     </Compile>
@@ -230,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\StreetViewlat.resx">
       <DependentUpon>StreetViewlat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapas\MapasSencillos.resx">
+      <DependentUpon>MapasSencillos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Places\DetallesLugarComida.resx">
       <DependentUpon>DetallesLugarComida.vb</DependentUpon>

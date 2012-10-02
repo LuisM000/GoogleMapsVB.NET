@@ -932,12 +932,10 @@ Public Class MapsNet
 
         'Creamos la url con los datos
         Dim url = "http://maps.googleapis.com/maps/api/streetview?" & tamaño & latitudLong & horizontal & vertical & zoomS & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
-
         imagenStreet = ImagenDesdeURL(url)
 
         Return imagenStreet
     End Function
-
 
 
 
@@ -957,6 +955,71 @@ Public Class MapsNet
         End Try
 
     End Function
+
+
+
+    Public Function MapasEstaticos(ByVal centro As String, ByVal zoom As Integer, ByVal size() As Integer, Optional ByVal formatoImagen As Integer = 0, Optional ByVal maptype As Integer = 0, Optional ByRef idioma As String = "es", Optional ByVal marcadores As String = "")
+
+        'NO SE OLVIDE DE DEJAR EL RASTRO HTTP
+
+        'Variable direccion
+        Dim centroM As String = "&center=" & centro.Replace(" ", "+")
+
+
+        'Variable zoom
+        Dim zoomM As String = ""
+        Select Case zoom
+            Case -1
+                zoomM = ""
+            Case Else
+                zoomM = "&zoom=" & zoom
+        End Select
+
+        'Variable size
+        Dim sizeM As String
+        sizeM = "&size=" & size(0) & "x" & size(1)
+
+        'Variable formato de imagen
+        Dim formatoM As String = "&format=png"
+        Select Case formatoImagen
+            Case 0
+                formatoM = "&format=png"
+            Case 1
+                formatoM = "&format=png32"
+            Case 2
+                formatoM = "&format=gif"
+            Case 3
+                formatoM = "&format=jpg"
+            Case 4
+                formatoM = "&format=jpg-baseline"
+        End Select
+
+        'Variable tipo de mapa
+        Dim maptypeM As String = "&maptype=roadmap"
+        Select Case maptype
+            Case 0
+                maptypeM = "&maptype=roadmap"
+            Case 1
+                maptypeM = "&maptype=satellite"
+            Case 2
+                maptypeM = "&maptype=terrain"
+            Case 3
+                maptypeM = "&maptype=hybrid"
+        End Select
+
+
+        'Variable idioma
+        Dim idiomaM As String
+        idiomaM = "&language=" & idioma
+
+        'Creamos url
+        Dim url = "http://maps.google.com/maps/api/staticmap?" & centroM & zoomM & sizeM & formatoM & maptypeM & idiomaM & marcadores & "&sensor=false"
+        Me.almacenarDatosHTTP(url, "Petición de imagen street view", "OK") 'Almacenamos información
+        Return url
+    End Function
+
+
+
 
 
 
