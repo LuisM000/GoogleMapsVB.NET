@@ -176,12 +176,11 @@ Partial Class StreetViewDIr
         'HScrollBar1
         '
         Me.HScrollBar1.Location = New System.Drawing.Point(243, 83)
-        Me.HScrollBar1.Maximum = 120
         Me.HScrollBar1.Minimum = 10
         Me.HScrollBar1.Name = "HScrollBar1"
         Me.HScrollBar1.Size = New System.Drawing.Size(206, 17)
         Me.HScrollBar1.TabIndex = 52
-        Me.HScrollBar1.Value = 10
+        Me.HScrollBar1.Value = 30
         '
         'Button2
         '

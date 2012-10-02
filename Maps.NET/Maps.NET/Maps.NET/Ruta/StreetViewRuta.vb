@@ -13,7 +13,7 @@
 
 
     Sub ponerContadores()
-        Label1.Text = 90
+        Label1.Text = 120-90
         Label2.Text = 20
         Label3.Text = 0
         HScrollBar1.Value = CInt(Label1.Text)
@@ -123,7 +123,7 @@
         Label1.Text = HScrollBar1.Value
         Dim mapas As New MapsNet
         Dim tamaño() As Integer = {(500), (300)}
-        PictureBox1.Image = mapas.StreetView(direccionACtual, tamaño, HScrollBar2.Value, HScrollBar3.Value, HScrollBar1.Value)
+        PictureBox1.Image = mapas.StreetView(direccionACtual, tamaño, HScrollBar2.Value, HScrollBar3.Value, 120 - HScrollBar1.Value)
     End Sub
 
 
@@ -131,14 +131,14 @@
         Label2.Text = HScrollBar2.Value
         Dim mapas As New MapsNet
         Dim tamaño() As Integer = {(500), (300)}
-        PictureBox1.Image = mapas.StreetView(direccionACtual, tamaño, HScrollBar2.Value, HScrollBar3.Value, HScrollBar1.Value)
+        PictureBox1.Image = mapas.StreetView(direccionACtual, tamaño, HScrollBar2.Value, HScrollBar3.Value, 120 - HScrollBar1.Value)
     End Sub
 
     Private Sub HScrollBar3_Scroll(sender As Object, e As ScrollEventArgs) Handles HScrollBar3.Scroll
         Label3.Text = HScrollBar3.Value
         Dim mapas As New MapsNet
         Dim tamaño() As Integer = {(500), (300)}
-        PictureBox1.Image = mapas.StreetView(direccionACtual, tamaño, HScrollBar2.Value, HScrollBar3.Value, HScrollBar1.Value)
+        PictureBox1.Image = mapas.StreetView(direccionACtual, tamaño, HScrollBar2.Value, HScrollBar3.Value, 120 - HScrollBar1.Value)
     End Sub
 
 

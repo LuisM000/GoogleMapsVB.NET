@@ -155,7 +155,6 @@ Partial Class StreetViewRuta
         'HScrollBar1
         '
         Me.HScrollBar1.Location = New System.Drawing.Point(752, 140)
-        Me.HScrollBar1.Maximum = 120
         Me.HScrollBar1.Minimum = 10
         Me.HScrollBar1.Name = "HScrollBar1"
         Me.HScrollBar1.Size = New System.Drawing.Size(206, 17)

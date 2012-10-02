@@ -1,7 +1,7 @@
 ﻿Public Class StreetViewDIr
 
     Private Sub StreetViewDIr_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Label1.Text = 90
+        Label1.Text = 120 - 90
         Label2.Text = 165
         Label3.Text = 0
         HScrollBar1.Value = CInt(Label1.Text)
@@ -16,7 +16,7 @@
         Dim mapas As New MapsNet
         Dim tamaño() As Integer = {(600), (400)}
         Dim direccion As String = txtdireccion.Text.Replace(" ", "+")
-        PictureBox2.Image = mapas.StreetView(txtdireccion.Text, tamaño, HScrollBar2.Value, HScrollBar3.Value, HScrollBar1.Value) 'Asignamos la imagen al picture
+        PictureBox2.Image = mapas.StreetView(txtdireccion.Text, tamaño, HScrollBar2.Value, HScrollBar3.Value, 120 - HScrollBar1.Value) 'Asignamos la imagen al picture
     End Sub
 
 
@@ -24,7 +24,7 @@
         Label1.Text = HScrollBar1.Value
         Dim mapas As New MapsNet
         Dim tamaño() As Integer = {(600), (400)}
-        PictureBox2.Image = mapas.StreetView(txtdireccion.Text, tamaño, HScrollBar2.Value, HScrollBar3.Value, HScrollBar1.Value)
+        PictureBox2.Image = mapas.StreetView(txtdireccion.Text, tamaño, HScrollBar2.Value, HScrollBar3.Value, 120 - HScrollBar1.Value)
     End Sub
 
 
@@ -32,14 +32,14 @@
         Label2.Text = HScrollBar2.Value
         Dim mapas As New MapsNet
         Dim tamaño() As Integer = {(600), (400)}
-        PictureBox2.Image = mapas.StreetView(txtdireccion.Text, tamaño, HScrollBar2.Value, HScrollBar3.Value, HScrollBar1.Value)
+        PictureBox2.Image = mapas.StreetView(txtdireccion.Text, tamaño, HScrollBar2.Value, HScrollBar3.Value, 120 - HScrollBar1.Value)
     End Sub
 
     Private Sub HScrollBar3_Scroll(sender As Object, e As ScrollEventArgs) Handles HScrollBar3.Scroll
         Label3.Text = HScrollBar3.Value
         Dim mapas As New MapsNet
         Dim tamaño() As Integer = {(600), (400)}
-        PictureBox2.Image = mapas.StreetView(txtdireccion.Text, tamaño, HScrollBar2.Value, HScrollBar3.Value, HScrollBar1.Value)
+        PictureBox2.Image = mapas.StreetView(txtdireccion.Text, tamaño, HScrollBar2.Value, HScrollBar3.Value, 120 - HScrollBar1.Value)
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
