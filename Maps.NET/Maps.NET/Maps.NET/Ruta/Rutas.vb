@@ -436,8 +436,6 @@ Public Class Rutas
                 PictureBox6.Visible = False
                 Label12.Visible = False
                 hiloImagenes.Abort()
-
-                
             Catch
             End Try
 
