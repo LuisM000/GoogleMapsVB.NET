@@ -1097,11 +1097,24 @@ Public Class MapsNet
             For i = 0 To rutas.Count - 1
                 rutasM = rutasM & rutas(i)
             Next
+        End If
+
+        'Variable visible
+        Dim visibleM As String = ""
+        If visible.Count > 0 Then
+            visibleM = "&visible="
+            'Eliminamos las variables centro y zoon
+            centroM = ""
+            zoomM = ""
+
+            For i = 0 To visible.Count - 1
+                visibleM = visibleM & visible(i)
+            Next
 
         End If
 
         'Creamos url
-        Dim url = "http://maps.google.com/maps/api/staticmap?" & centroM & zoomM & sizeM & formatoM & maptypeM & idiomaM & marcadoresM & rutasM & "&sensor=false"
+        Dim url = "http://maps.google.com/maps/api/staticmap?" & centroM & zoomM & sizeM & formatoM & maptypeM & idiomaM & marcadoresM & rutasM & visibleM & "&sensor=false"
         Me.almacenarDatosHTTP(url, "Petición de imagen street view", "OK") 'Almacenamos información
         Return url
     End Function

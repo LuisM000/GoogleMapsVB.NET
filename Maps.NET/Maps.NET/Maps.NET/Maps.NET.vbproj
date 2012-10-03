@@ -108,6 +108,12 @@
     <Compile Include="Mapas\MapasSencillos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Mapas\MostrarMapa.Designer.vb">
+      <DependentUpon>MostrarMapa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Mapas\MostrarMapa.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Places\DetallesLugarComida.Designer.vb">
       <DependentUpon>DetallesLugarComida.vb</DependentUpon>
     </Compile>
@@ -249,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mapas\MapasSencillos.resx">
       <DependentUpon>MapasSencillos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapas\MostrarMapa.resx">
+      <DependentUpon>MostrarMapa.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Places\DetallesLugarComida.resx">
       <DependentUpon>DetallesLugarComida.vb</DependentUpon>
