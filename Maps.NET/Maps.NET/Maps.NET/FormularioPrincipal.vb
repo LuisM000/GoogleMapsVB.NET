@@ -80,4 +80,8 @@
     Private Sub GeneradorBásicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GeneradorBásicoToolStripMenuItem.Click
         MapasSencillos.Show()
     End Sub
+
+    Private Sub GeneradorCompletoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GeneradorCompletoToolStripMenuItem.Click
+        MapasCompleto.Show()
+    End Sub
 End Class
