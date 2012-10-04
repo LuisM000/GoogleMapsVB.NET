@@ -225,4 +225,98 @@
         End If
     End Sub
 
+  
+    Private Sub MapasCompleto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        For Each c As Object In Me.Controls
+            If c.GetType Is GetType(Label) Then
+                If c.ToString = Label18.ToString Or c.ToString = Label19.ToString Or c.ToString = Label20.ToString Or c.ToString = Label21.ToString Then
+                    AddHandler DirectCast(c, Label).MouseEnter, AddressOf conFoco
+                    AddHandler DirectCast(c, Label).MouseLeave, AddressOf sinFoco
+                End If
+            End If
+        Next
+      
+    End Sub
+
+    Private Sub MapasCompleto_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
+        Dim myPen As New System.Drawing.Pen(System.Drawing.Color.Black, 2)
+        Dim formGraphics As System.Drawing.Graphics
+        formGraphics = Me.CreateGraphics()
+        formGraphics.DrawLine(myPen, 10, 60, Me.Size.Width - 28, 60)
+        formGraphics.DrawLine(myPen, 10, 300, Me.Size.Width - 28, 300)
+        myPen.Dispose()
+        formGraphics.Dispose()
+    End Sub
+
+    Private Sub conFoco(ByVal sender As Object, ByVal e As System.EventArgs)
+        DirectCast(sender, Label).ForeColor = Color.Blue
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+
+    Private Sub sinFoco(ByVal sender As Object, ByVal e As System.EventArgs)
+        DirectCast(sender, Label).ForeColor = Color.Black
+        Me.Cursor = Cursors.Default
+    End Sub
+
+
+    Private Sub Label18_Click(sender As Object, e As EventArgs) Handles Label18.Click
+        Timer2.Enabled = True
+        panelAct = Panel1
+        Panel1.Location = New Size(25, 87)
+    End Sub
+    Private Sub Label19_Click(sender As Object, e As EventArgs) Handles Label19.Click
+        Timer2.Enabled = True
+        panelAct = Panel2
+        Panel2.Location = New Size(25, 87)
+    End Sub
+    Private Sub Label20_Click(sender As Object, e As EventArgs) Handles Label20.Click
+        Timer2.Enabled = True
+        panelAct = Panel3
+        Panel3.Location = New Size(25, 87)
+    End Sub
+
+    Private Sub Label21_Click(sender As Object, e As EventArgs) Handles Label21.Click
+        Timer2.Enabled = True
+        panelAct = Panel4
+        Panel4.Location = New Size(25, 87)
+    End Sub
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        If Me.Height < 400 Then
+            Me.Height = Me.Height + 10
+            Me.Location = New Size(Me.Location.X, Me.Location.Y - 4)
+            Button2.Location = New Size(Button2.Location.X, Button2.Location.Y + 10)
+            panelVisible()
+        Else
+            Timer1.Enabled = False
+        End If
+    End Sub
+
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        If Me.Height > 130 Then
+            Me.Height = Me.Height - 10
+            Me.Location = New Size(Me.Location.X, Me.Location.Y + 4)
+            Button2.Location = New Size(Button2.Location.X, Button2.Location.Y - 10)
+        Else
+            limpiarPaneles()
+            Timer2.Enabled = False
+            Timer1.Enabled = True
+        End If
+    End Sub
+
+    Dim panelAct As Panel
+    Sub panelVisible()
+        panelAct.Visible = True
+    End Sub
+
+    Sub limpiarPaneles()
+        Panel1.Visible = False
+        Panel2.Visible = False
+        Panel3.Visible = False
+        Panel4.Visible = False
+    End Sub
+
+    
+   
+  
 End Class

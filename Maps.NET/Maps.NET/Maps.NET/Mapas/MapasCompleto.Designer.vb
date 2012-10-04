@@ -61,7 +61,6 @@ Partial Class MapasCompleto
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.txtruta = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.NumericUpDown4 = New System.Windows.Forms.NumericUpDown()
@@ -83,9 +82,20 @@ Partial Class MapasCompleto
         Me.txtvisible = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtvisibleENC = New System.Windows.Forms.TextBox()
         Me.Button10 = New System.Windows.Forms.Button()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.txtruta = New System.Windows.Forms.TextBox()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -98,12 +108,16 @@ Partial Class MapasCompleto
         CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(891, 642)
+        Me.Button2.Location = New System.Drawing.Point(857, 69)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(129, 31)
         Me.Button2.TabIndex = 78
@@ -115,7 +129,7 @@ Partial Class MapasCompleto
         Me.ComboBox2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Items.AddRange(New Object() {"png8 (predeterminado)", "png32", "gif", "jpg", "jpg-basiline"})
-        Me.ComboBox2.Location = New System.Drawing.Point(826, 600)
+        Me.ComboBox2.Location = New System.Drawing.Point(15, 89)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(194, 23)
         Me.ComboBox2.TabIndex = 76
@@ -127,7 +141,7 @@ Partial Class MapasCompleto
         Me.ComboBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Roadmap (predeterminado) ", "Satellite ", "Terrain ", "Hybrid "})
-        Me.ComboBox1.Location = New System.Drawing.Point(826, 559)
+        Me.ComboBox1.Location = New System.Drawing.Point(240, 89)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(194, 23)
         Me.ComboBox1.TabIndex = 77
@@ -138,7 +152,7 @@ Partial Class MapasCompleto
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(726, 20)
+        Me.Label5.Location = New System.Drawing.Point(708, 12)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(31, 17)
         Me.Label5.TabIndex = 75
@@ -148,7 +162,7 @@ Partial Class MapasCompleto
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(601, 20)
+        Me.Label4.Location = New System.Drawing.Point(583, 12)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(44, 17)
         Me.Label4.TabIndex = 74
@@ -157,7 +171,7 @@ Partial Class MapasCompleto
         'NumericUpDown3
         '
         Me.NumericUpDown3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumericUpDown3.Location = New System.Drawing.Point(705, 48)
+        Me.NumericUpDown3.Location = New System.Drawing.Point(687, 40)
         Me.NumericUpDown3.Maximum = New Decimal(New Integer() {700, 0, 0, 0})
         Me.NumericUpDown3.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown3.Name = "NumericUpDown3"
@@ -168,7 +182,7 @@ Partial Class MapasCompleto
         'NumericUpDown2
         '
         Me.NumericUpDown2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumericUpDown2.Location = New System.Drawing.Point(590, 48)
+        Me.NumericUpDown2.Location = New System.Drawing.Point(572, 40)
         Me.NumericUpDown2.Maximum = New Decimal(New Integer() {700, 0, 0, 0})
         Me.NumericUpDown2.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown2.Name = "NumericUpDown2"
@@ -180,7 +194,7 @@ Partial Class MapasCompleto
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(452, 48)
+        Me.Label3.Location = New System.Drawing.Point(434, 40)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(102, 17)
         Me.Label3.TabIndex = 71
@@ -189,7 +203,7 @@ Partial Class MapasCompleto
         'NumericUpDown1
         '
         Me.NumericUpDown1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumericUpDown1.Location = New System.Drawing.Point(889, 51)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(871, 43)
         Me.NumericUpDown1.Maximum = New Decimal(New Integer() {21, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(81, 23)
@@ -199,7 +213,7 @@ Partial Class MapasCompleto
         'txtdireccion
         '
         Me.txtdireccion.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdireccion.Location = New System.Drawing.Point(168, 47)
+        Me.txtdireccion.Location = New System.Drawing.Point(150, 39)
         Me.txtdireccion.Name = "txtdireccion"
         Me.txtdireccion.Size = New System.Drawing.Size(238, 23)
         Me.txtdireccion.TabIndex = 69
@@ -208,7 +222,7 @@ Partial Class MapasCompleto
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(30, 48)
+        Me.Label1.Location = New System.Drawing.Point(12, 40)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(106, 17)
         Me.Label1.TabIndex = 67
@@ -218,7 +232,7 @@ Partial Class MapasCompleto
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(838, 51)
+        Me.Label2.Location = New System.Drawing.Point(820, 43)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(42, 17)
         Me.Label2.TabIndex = 79
@@ -227,7 +241,7 @@ Partial Class MapasCompleto
         'txtmarcador
         '
         Me.txtmarcador.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtmarcador.Location = New System.Drawing.Point(142, 119)
+        Me.txtmarcador.Location = New System.Drawing.Point(124, 42)
         Me.txtmarcador.Name = "txtmarcador"
         Me.txtmarcador.Size = New System.Drawing.Size(238, 23)
         Me.txtmarcador.TabIndex = 82
@@ -236,7 +250,7 @@ Partial Class MapasCompleto
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(30, 120)
+        Me.Label6.Location = New System.Drawing.Point(12, 43)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(66, 17)
         Me.Label6.TabIndex = 80
@@ -253,7 +267,7 @@ Partial Class MapasCompleto
         'PictureBox5
         '
         Me.PictureBox5.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox5.Location = New System.Drawing.Point(116, 334)
+        Me.PictureBox5.Location = New System.Drawing.Point(92, 32)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(20, 20)
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -264,7 +278,7 @@ Partial Class MapasCompleto
         'PictureBox3
         '
         Me.PictureBox3.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox3.Location = New System.Drawing.Point(763, 120)
+        Me.PictureBox3.Location = New System.Drawing.Point(745, 43)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(20, 20)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -276,7 +290,7 @@ Partial Class MapasCompleto
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox2.Location = New System.Drawing.Point(116, 120)
+        Me.PictureBox2.Location = New System.Drawing.Point(98, 43)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(20, 20)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -287,7 +301,7 @@ Partial Class MapasCompleto
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox1.Location = New System.Drawing.Point(142, 48)
+        Me.PictureBox1.Location = New System.Drawing.Point(124, 40)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(20, 20)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -300,7 +314,7 @@ Partial Class MapasCompleto
         'PictureBox4
         '
         Me.PictureBox4.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox4.Location = New System.Drawing.Point(116, 548)
+        Me.PictureBox4.Location = New System.Drawing.Point(96, 32)
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.Size = New System.Drawing.Size(20, 20)
         Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -312,7 +326,7 @@ Partial Class MapasCompleto
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(230, 88)
+        Me.Label7.Location = New System.Drawing.Point(212, 11)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(62, 17)
         Me.Label7.TabIndex = 83
@@ -322,7 +336,7 @@ Partial Class MapasCompleto
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(601, 121)
+        Me.Label8.Location = New System.Drawing.Point(583, 44)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(40, 17)
         Me.Label8.TabIndex = 85
@@ -333,7 +347,7 @@ Partial Class MapasCompleto
         Me.ComboBox3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox3.FormattingEnabled = True
         Me.ComboBox3.Items.AddRange(New Object() {"Muy pequeño", "Pequeño", "Normal", "Grande (predeterminado)"})
-        Me.ComboBox3.Location = New System.Drawing.Point(412, 120)
+        Me.ComboBox3.Location = New System.Drawing.Point(394, 43)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(163, 23)
         Me.ComboBox3.TabIndex = 86
@@ -343,7 +357,7 @@ Partial Class MapasCompleto
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button1.Location = New System.Drawing.Point(647, 119)
+        Me.Button1.Location = New System.Drawing.Point(629, 42)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(26, 22)
         Me.Button1.TabIndex = 87
@@ -353,7 +367,7 @@ Partial Class MapasCompleto
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(702, 120)
+        Me.Label9.Location = New System.Drawing.Point(684, 43)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(55, 17)
         Me.Label9.TabIndex = 88
@@ -362,7 +376,7 @@ Partial Class MapasCompleto
         'txtlabel
         '
         Me.txtlabel.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlabel.Location = New System.Drawing.Point(789, 119)
+        Me.txtlabel.Location = New System.Drawing.Point(771, 42)
         Me.txtlabel.Name = "txtlabel"
         Me.txtlabel.Size = New System.Drawing.Size(37, 23)
         Me.txtlabel.TabIndex = 89
@@ -370,7 +384,7 @@ Partial Class MapasCompleto
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(841, 120)
+        Me.Button3.Location = New System.Drawing.Point(823, 43)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(83, 23)
         Me.Button3.TabIndex = 91
@@ -382,7 +396,7 @@ Partial Class MapasCompleto
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dire, Me.tam, Me.col, Me.lab})
-        Me.DataGridView1.Location = New System.Drawing.Point(33, 190)
+        Me.DataGridView1.Location = New System.Drawing.Point(15, 113)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(793, 92)
         Me.DataGridView1.TabIndex = 92
@@ -418,7 +432,7 @@ Partial Class MapasCompleto
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(925, 335)
+        Me.Button4.Location = New System.Drawing.Point(901, 33)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(83, 23)
         Me.Button4.TabIndex = 103
@@ -429,7 +443,7 @@ Partial Class MapasCompleto
         'Button5
         '
         Me.Button5.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button5.Location = New System.Drawing.Point(600, 333)
+        Me.Button5.Location = New System.Drawing.Point(576, 31)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(26, 22)
         Me.Button5.TabIndex = 99
@@ -439,7 +453,7 @@ Partial Class MapasCompleto
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(554, 335)
+        Me.Label11.Location = New System.Drawing.Point(530, 33)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(40, 17)
         Me.Label11.TabIndex = 97
@@ -449,25 +463,17 @@ Partial Class MapasCompleto
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(230, 302)
+        Me.Label12.Location = New System.Drawing.Point(206, 0)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(62, 17)
         Me.Label12.TabIndex = 96
         Me.Label12.Text = "Dirección"
         '
-        'txtruta
-        '
-        Me.txtruta.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtruta.Location = New System.Drawing.Point(142, 333)
-        Me.txtruta.Name = "txtruta"
-        Me.txtruta.Size = New System.Drawing.Size(238, 23)
-        Me.txtruta.TabIndex = 95
-        '
         'Label13
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(30, 334)
+        Me.Label13.Location = New System.Drawing.Point(6, 32)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(40, 17)
         Me.Label13.TabIndex = 93
@@ -477,7 +483,7 @@ Partial Class MapasCompleto
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(409, 335)
+        Me.Label14.Location = New System.Drawing.Point(385, 33)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(49, 17)
         Me.Label14.TabIndex = 105
@@ -486,7 +492,7 @@ Partial Class MapasCompleto
         'NumericUpDown4
         '
         Me.NumericUpDown4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumericUpDown4.Location = New System.Drawing.Point(464, 335)
+        Me.NumericUpDown4.Location = New System.Drawing.Point(440, 33)
         Me.NumericUpDown4.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
         Me.NumericUpDown4.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown4.Name = "NumericUpDown4"
@@ -498,7 +504,7 @@ Partial Class MapasCompleto
         '
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3})
-        Me.DataGridView2.Location = New System.Drawing.Point(33, 411)
+        Me.DataGridView2.Location = New System.Drawing.Point(9, 109)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.Size = New System.Drawing.Size(793, 92)
         Me.DataGridView2.TabIndex = 106
@@ -527,7 +533,7 @@ Partial Class MapasCompleto
         'Button8
         '
         Me.Button8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.Location = New System.Drawing.Point(841, 442)
+        Me.Button8.Location = New System.Drawing.Point(817, 140)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(83, 23)
         Me.Button8.TabIndex = 110
@@ -538,7 +544,7 @@ Partial Class MapasCompleto
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(841, 221)
+        Me.Button6.Location = New System.Drawing.Point(823, 144)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(83, 23)
         Me.Button6.TabIndex = 108
@@ -550,7 +556,7 @@ Partial Class MapasCompleto
         '
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.Location = New System.Drawing.Point(666, 335)
+        Me.CheckBox1.Location = New System.Drawing.Point(642, 33)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(91, 21)
         Me.CheckBox1.TabIndex = 111
@@ -561,7 +567,7 @@ Partial Class MapasCompleto
         '
         Me.Button7.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Button7.Enabled = False
-        Me.Button7.Location = New System.Drawing.Point(709, 364)
+        Me.Button7.Location = New System.Drawing.Point(685, 62)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(26, 22)
         Me.Button7.TabIndex = 113
@@ -572,7 +578,7 @@ Partial Class MapasCompleto
         Me.Label10.AutoSize = True
         Me.Label10.Enabled = False
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(663, 366)
+        Me.Label10.Location = New System.Drawing.Point(639, 64)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(40, 17)
         Me.Label10.TabIndex = 112
@@ -582,7 +588,7 @@ Partial Class MapasCompleto
         '
         Me.CheckBox2.AutoSize = True
         Me.CheckBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox2.Location = New System.Drawing.Point(780, 335)
+        Me.CheckBox2.Location = New System.Drawing.Point(756, 33)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(139, 21)
         Me.CheckBox2.TabIndex = 114
@@ -593,7 +599,7 @@ Partial Class MapasCompleto
         '
         Me.Button9.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Button9.Enabled = False
-        Me.Button9.Location = New System.Drawing.Point(823, 364)
+        Me.Button9.Location = New System.Drawing.Point(799, 62)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(26, 22)
         Me.Button9.TabIndex = 116
@@ -604,7 +610,7 @@ Partial Class MapasCompleto
         Me.Label15.AutoSize = True
         Me.Label15.Enabled = False
         Me.Label15.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(777, 366)
+        Me.Label15.Location = New System.Drawing.Point(753, 64)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(40, 17)
         Me.Label15.TabIndex = 115
@@ -614,7 +620,7 @@ Partial Class MapasCompleto
         '
         Me.txtrutaEnc.Enabled = False
         Me.txtrutaEnc.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtrutaEnc.Location = New System.Drawing.Point(142, 366)
+        Me.txtrutaEnc.Location = New System.Drawing.Point(118, 64)
         Me.txtrutaEnc.Name = "txtrutaEnc"
         Me.txtrutaEnc.ReadOnly = True
         Me.txtrutaEnc.Size = New System.Drawing.Size(238, 23)
@@ -624,7 +630,7 @@ Partial Class MapasCompleto
         '
         Me.txtmarcadorENC.Enabled = False
         Me.txtmarcadorENC.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtmarcadorENC.Location = New System.Drawing.Point(142, 148)
+        Me.txtmarcadorENC.Location = New System.Drawing.Point(124, 71)
         Me.txtmarcadorENC.Name = "txtmarcadorENC"
         Me.txtmarcadorENC.ReadOnly = True
         Me.txtmarcadorENC.Size = New System.Drawing.Size(238, 23)
@@ -634,7 +640,7 @@ Partial Class MapasCompleto
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(230, 516)
+        Me.Label16.Location = New System.Drawing.Point(210, 0)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(62, 17)
         Me.Label16.TabIndex = 122
@@ -643,7 +649,7 @@ Partial Class MapasCompleto
         'txtvisible
         '
         Me.txtvisible.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtvisible.Location = New System.Drawing.Point(142, 547)
+        Me.txtvisible.Location = New System.Drawing.Point(122, 31)
         Me.txtvisible.Name = "txtvisible"
         Me.txtvisible.Size = New System.Drawing.Size(238, 23)
         Me.txtvisible.TabIndex = 121
@@ -652,7 +658,7 @@ Partial Class MapasCompleto
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(30, 548)
+        Me.Label17.Location = New System.Drawing.Point(10, 32)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(46, 17)
         Me.Label17.TabIndex = 119
@@ -662,31 +668,10 @@ Partial Class MapasCompleto
         '
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4})
-        Me.DataGridView3.Location = New System.Drawing.Point(33, 617)
+        Me.DataGridView3.Location = New System.Drawing.Point(13, 101)
         Me.DataGridView3.Name = "DataGridView3"
         Me.DataGridView3.Size = New System.Drawing.Size(480, 92)
         Me.DataGridView3.TabIndex = 123
-        '
-        'txtvisibleENC
-        '
-        Me.txtvisibleENC.Enabled = False
-        Me.txtvisibleENC.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtvisibleENC.Location = New System.Drawing.Point(142, 576)
-        Me.txtvisibleENC.Name = "txtvisibleENC"
-        Me.txtvisibleENC.ReadOnly = True
-        Me.txtvisibleENC.Size = New System.Drawing.Size(238, 23)
-        Me.txtvisibleENC.TabIndex = 124
-        '
-        'Button10
-        '
-        Me.Button10.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button10.Location = New System.Drawing.Point(471, 545)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(83, 23)
-        Me.Button10.TabIndex = 125
-        Me.Button10.TabStop = False
-        Me.Button10.Text = "[+] Añadir"
-        Me.Button10.UseVisualStyleBackColor = True
         '
         'DataGridViewTextBoxColumn4
         '
@@ -695,66 +680,188 @@ Partial Class MapasCompleto
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.Width = 80
         '
+        'txtvisibleENC
+        '
+        Me.txtvisibleENC.Enabled = False
+        Me.txtvisibleENC.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtvisibleENC.Location = New System.Drawing.Point(122, 60)
+        Me.txtvisibleENC.Name = "txtvisibleENC"
+        Me.txtvisibleENC.ReadOnly = True
+        Me.txtvisibleENC.Size = New System.Drawing.Size(238, 23)
+        Me.txtvisibleENC.TabIndex = 124
+        '
+        'Button10
+        '
+        Me.Button10.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button10.Location = New System.Drawing.Point(451, 29)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(83, 23)
+        Me.Button10.TabIndex = 125
+        Me.Button10.TabStop = False
+        Me.Button10.Text = "[+] Añadir"
+        Me.Button10.UseVisualStyleBackColor = True
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Controls.Add(Me.txtdireccion)
+        Me.Panel1.Controls.Add(Me.NumericUpDown1)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.ComboBox2)
+        Me.Panel1.Controls.Add(Me.ComboBox1)
+        Me.Panel1.Controls.Add(Me.NumericUpDown2)
+        Me.Panel1.Controls.Add(Me.NumericUpDown3)
+        Me.Panel1.Controls.Add(Me.Label4)
+        Me.Panel1.Controls.Add(Me.Label5)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Location = New System.Drawing.Point(15, 198)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(975, 128)
+        Me.Panel1.TabIndex = 126
+        Me.Panel1.Visible = False
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.DataGridView1)
+        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Controls.Add(Me.PictureBox2)
+        Me.Panel2.Controls.Add(Me.txtmarcador)
+        Me.Panel2.Controls.Add(Me.Label7)
+        Me.Panel2.Controls.Add(Me.Label8)
+        Me.Panel2.Controls.Add(Me.ComboBox3)
+        Me.Panel2.Controls.Add(Me.Button1)
+        Me.Panel2.Controls.Add(Me.Label9)
+        Me.Panel2.Controls.Add(Me.txtmarcadorENC)
+        Me.Panel2.Controls.Add(Me.txtlabel)
+        Me.Panel2.Controls.Add(Me.PictureBox3)
+        Me.Panel2.Controls.Add(Me.Button3)
+        Me.Panel2.Controls.Add(Me.Button6)
+        Me.Panel2.Location = New System.Drawing.Point(29, 318)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(958, 208)
+        Me.Panel2.TabIndex = 127
+        Me.Panel2.Visible = False
+        '
+        'txtruta
+        '
+        Me.txtruta.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtruta.Location = New System.Drawing.Point(118, 31)
+        Me.txtruta.Name = "txtruta"
+        Me.txtruta.Size = New System.Drawing.Size(238, 23)
+        Me.txtruta.TabIndex = 95
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.txtrutaEnc)
+        Me.Panel3.Controls.Add(Me.Button9)
+        Me.Panel3.Controls.Add(Me.Label15)
+        Me.Panel3.Controls.Add(Me.CheckBox2)
+        Me.Panel3.Controls.Add(Me.Button7)
+        Me.Panel3.Controls.Add(Me.Label10)
+        Me.Panel3.Controls.Add(Me.CheckBox1)
+        Me.Panel3.Controls.Add(Me.Button8)
+        Me.Panel3.Controls.Add(Me.DataGridView2)
+        Me.Panel3.Controls.Add(Me.Label14)
+        Me.Panel3.Controls.Add(Me.NumericUpDown4)
+        Me.Panel3.Controls.Add(Me.Button4)
+        Me.Panel3.Controls.Add(Me.Button5)
+        Me.Panel3.Controls.Add(Me.Label11)
+        Me.Panel3.Controls.Add(Me.Label12)
+        Me.Panel3.Controls.Add(Me.txtruta)
+        Me.Panel3.Controls.Add(Me.PictureBox5)
+        Me.Panel3.Controls.Add(Me.Label13)
+        Me.Panel3.Location = New System.Drawing.Point(29, 532)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(987, 208)
+        Me.Panel3.TabIndex = 128
+        Me.Panel3.Visible = False
+        '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.Button10)
+        Me.Panel4.Controls.Add(Me.txtvisibleENC)
+        Me.Panel4.Controls.Add(Me.DataGridView3)
+        Me.Panel4.Controls.Add(Me.Label16)
+        Me.Panel4.Controls.Add(Me.txtvisible)
+        Me.Panel4.Controls.Add(Me.PictureBox4)
+        Me.Panel4.Controls.Add(Me.Label17)
+        Me.Panel4.Location = New System.Drawing.Point(29, 743)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(686, 225)
+        Me.Panel4.TabIndex = 129
+        Me.Panel4.Visible = False
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(12, 18)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(132, 17)
+        Me.Label18.TabIndex = 130
+        Me.Label18.Text = "Opciones básicas [+]"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(203, 18)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(100, 17)
+        Me.Label19.TabIndex = 131
+        Me.Label19.Text = "Marcadores [+]"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(354, 18)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(90, 17)
+        Me.Label20.TabIndex = 132
+        Me.Label20.Text = "Crear ruta [+]"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(486, 18)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(113, 17)
+        Me.Label21.TabIndex = 133
+        Me.Label21.Text = "Zonas visibles [+]"
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1
+        '
+        'Timer2
+        '
+        Me.Timer2.Interval = 1
+        '
         'MapasCompleto
         '
+        Me.AcceptButton = Me.Button2
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1032, 747)
-        Me.Controls.Add(Me.Button10)
-        Me.Controls.Add(Me.txtvisibleENC)
-        Me.Controls.Add(Me.DataGridView3)
-        Me.Controls.Add(Me.Label16)
-        Me.Controls.Add(Me.txtvisible)
-        Me.Controls.Add(Me.PictureBox4)
-        Me.Controls.Add(Me.Label17)
-        Me.Controls.Add(Me.txtmarcadorENC)
-        Me.Controls.Add(Me.txtrutaEnc)
-        Me.Controls.Add(Me.Button9)
-        Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.CheckBox2)
-        Me.Controls.Add(Me.Button7)
-        Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.CheckBox1)
-        Me.Controls.Add(Me.Button8)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.DataGridView2)
-        Me.Controls.Add(Me.Label14)
-        Me.Controls.Add(Me.NumericUpDown4)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.txtruta)
-        Me.Controls.Add(Me.PictureBox5)
-        Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.PictureBox3)
-        Me.Controls.Add(Me.txtlabel)
-        Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.ComboBox3)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.txtmarcador)
-        Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label2)
+        Me.ClientSize = New System.Drawing.Size(998, 112)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.NumericUpDown3)
-        Me.Controls.Add(Me.NumericUpDown2)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.NumericUpDown1)
-        Me.Controls.Add(Me.txtdireccion)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Label21)
+        Me.Controls.Add(Me.Label20)
+        Me.Controls.Add(Me.Label19)
+        Me.Controls.Add(Me.Label18)
+        Me.Controls.Add(Me.Panel4)
+        Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "MapasCompleto"
+        Me.ShowIcon = False
+        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Generador de mapas completo"
+        Me.TopMost = True
         CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -767,6 +874,14 @@ Partial Class MapasCompleto
         CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -806,7 +921,6 @@ Partial Class MapasCompleto
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents txtruta As System.Windows.Forms.TextBox
     Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
@@ -833,4 +947,15 @@ Partial Class MapasCompleto
     Friend WithEvents txtvisibleENC As System.Windows.Forms.TextBox
     Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Button10 As System.Windows.Forms.Button
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents txtruta As System.Windows.Forms.TextBox
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents Panel4 As System.Windows.Forms.Panel
+    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents Timer2 As System.Windows.Forms.Timer
 End Class
