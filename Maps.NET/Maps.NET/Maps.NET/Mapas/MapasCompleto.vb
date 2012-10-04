@@ -65,6 +65,7 @@
             Dim color As Color = Button1.BackColor
             Dim hexa As String = String.Format("{0:X2}{1:X2}{2:X2}", color.R, color.G, color.B)
             DataGridView1.Rows.Add(txtmarcadorENC.Text, ComboBox3.SelectedIndex, "0x" & hexa, txtlabel.Text)
+            txtmarcador.Text = ""
         End If
     End Sub
 
@@ -147,6 +148,7 @@
             Dim color As Color = Button5.BackColor
             Dim hexa As String = String.Format("{0:X2}{1:X2}{2:X2}", color.R, color.G, color.B)
             DataGridView2.Rows.Add(txtrutaEnc.Text, NumericUpDown4.Value, "0x" & hexa)
+            txtruta.Text = ""
         End If
     End Sub
 
@@ -222,20 +224,38 @@
             direccionAux = mapas.CodificacionGeografica(txtvisible.Text)
             txtvisibleENC.Text = direccionAux(2)
             DataGridView3.Rows.Add(txtvisibleENC.Text)
+            txtvisible.Text = ""
         End If
     End Sub
+    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
+        DataGridView3.Rows.Clear()
+    End Sub
 
+
+
+    '********PARTE DE DISEÑO***************************************************
   
     Private Sub MapasCompleto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        panelAct = Panel1
+        Panel1.Location = New Size(30, 94)
+        limpiarColores(Label18)
         For Each c As Object In Me.Controls
-            If c.GetType Is GetType(Label) Then
-                If c.ToString = Label18.ToString Or c.ToString = Label19.ToString Or c.ToString = Label20.ToString Or c.ToString = Label21.ToString Then
+            If (c.ToString = Label18.ToString Or c.ToString = Label20.ToString Or c.ToString = Label19.ToString Or c.ToString = Label21.ToString) Then
+                If c.GetType Is GetType(Label) Then
                     AddHandler DirectCast(c, Label).MouseEnter, AddressOf conFoco
                     AddHandler DirectCast(c, Label).MouseLeave, AddressOf sinFoco
                 End If
             End If
         Next
-      
+        txtdireccion.Focus() : tabuladores() : txtdireccion.TabStop = True
+    End Sub
+    Private Sub conFoco(ByVal sender As Object, ByVal e As System.EventArgs)
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+
+    Private Sub sinFoco(ByVal sender As Object, ByVal e As System.EventArgs)
+        Me.Cursor = Cursors.Default
     End Sub
 
     Private Sub MapasCompleto_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
@@ -248,75 +268,152 @@
         formGraphics.Dispose()
     End Sub
 
-    Private Sub conFoco(ByVal sender As Object, ByVal e As System.EventArgs)
-        DirectCast(sender, Label).ForeColor = Color.Blue
-        Me.Cursor = Cursors.Hand
-    End Sub
-
-
-    Private Sub sinFoco(ByVal sender As Object, ByVal e As System.EventArgs)
-        DirectCast(sender, Label).ForeColor = Color.Black
-        Me.Cursor = Cursors.Default
-    End Sub
-
-
+    Dim panelAct As Panel
+    Dim panelActSec As Panel
+    Dim panelAct2 As Panel
     Private Sub Label18_Click(sender As Object, e As EventArgs) Handles Label18.Click
-        Timer2.Enabled = True
-        panelAct = Panel1
-        Panel1.Location = New Size(25, 87)
+        If (Timer1.Enabled = False And Timer2.Enabled = False) Then 'Evita que se pulse dos veces y se colapsen los paneles
+            If panelAct IsNot Panel1 Then
+                txtdireccion.Focus()
+                limpiarColores(Label18)
+                Timer1.Enabled = True
+                panelAct2 = Panel1
+                tabuladores() : txtdireccion.TabStop = True
+            End If
+        End If
+       
     End Sub
     Private Sub Label19_Click(sender As Object, e As EventArgs) Handles Label19.Click
-        Timer2.Enabled = True
-        panelAct = Panel2
-        Panel2.Location = New Size(25, 87)
+        If (Timer1.Enabled = False And Timer2.Enabled = False) Then
+            If panelAct IsNot Panel2 Then
+                txtmarcador.Focus()
+                limpiarColores(Label19)
+                Timer1.Enabled = True
+                panelAct2 = Panel2
+                tabuladores() : txtmarcador.TabStop = True : Button3.TabStop = True
+
+            End If
+        End If
     End Sub
+
+
     Private Sub Label20_Click(sender As Object, e As EventArgs) Handles Label20.Click
-        Timer2.Enabled = True
-        panelAct = Panel3
-        Panel3.Location = New Size(25, 87)
+        If (Timer1.Enabled = False And Timer2.Enabled = False) Then
+            If panelAct IsNot Panel3 Then
+                txtruta.Focus()
+                limpiarColores(Label20)
+                Timer1.Enabled = True
+                panelAct2 = Panel3
+                tabuladores() : txtruta.TabStop = True : Button4.TabStop = True
+            End If
+        End If
     End Sub
 
     Private Sub Label21_Click(sender As Object, e As EventArgs) Handles Label21.Click
-        Timer2.Enabled = True
-        panelAct = Panel4
-        Panel4.Location = New Size(25, 87)
+        If (Timer1.Enabled = False And Timer2.Enabled = False) Then
+            If panelAct IsNot Panel4 Then
+                txtvisible.Focus()
+                limpiarColores(Label21)
+                Timer1.Enabled = True
+                panelAct2 = Panel4
+                tabuladores() : txtvisible.TabStop = True : Button10.TabStop = True
+            End If
+        End If
     End Sub
+
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        If Me.Height < 400 Then
-            Me.Height = Me.Height + 10
-            Me.Location = New Size(Me.Location.X, Me.Location.Y - 4)
-            Button2.Location = New Size(Button2.Location.X, Button2.Location.Y + 10)
-            panelVisible()
+        If panelAct.Location.X > -1000 Then
+            panelAct.Location = New Size(panelAct.Location.X - 20, panelAct.Location.Y)
         Else
+            panelAct.Location = New Size(1000, panelAct.Location.Y)
+
             Timer1.Enabled = False
+            Timer2.Enabled = True
         End If
     End Sub
 
-    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
-        If Me.Height > 130 Then
-            Me.Height = Me.Height - 10
-            Me.Location = New Size(Me.Location.X, Me.Location.Y + 4)
-            Button2.Location = New Size(Button2.Location.X, Button2.Location.Y - 10)
-        Else
-            limpiarPaneles()
-            Timer2.Enabled = False
-            Timer1.Enabled = True
-        End If
-    End Sub
-
-    Dim panelAct As Panel
-    Sub panelVisible()
-        panelAct.Visible = True
-    End Sub
-
-    Sub limpiarPaneles()
-        Panel1.Visible = False
-        Panel2.Visible = False
-        Panel3.Visible = False
-        Panel4.Visible = False
-    End Sub
-
-    
    
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        If panelAct2.Location.X > 30 Then
+            panelAct2.Location = New Size(panelAct2.Location.X - 20, panelAct2.Location.Y)
+        Else
+            panelAct = panelAct2
+            Timer2.Enabled = False
+        End If
+    End Sub
+
+    Sub limpiarColores(ByVal labelACtivo As Label)
+        Label18.ForeColor = Color.Black
+        Label19.ForeColor = Color.Black
+        Label20.ForeColor = Color.Black
+        Label21.ForeColor = Color.Black
+        labelACtivo.ForeColor = Color.Blue
+    End Sub
+
+    Sub tabuladores()
+        For i = 0 To Panel1.Controls.Count - 1
+            Panel1.Controls(i).TabStop = False
+        Next
+        For i = 0 To Panel2.Controls.Count - 1
+            Panel2.Controls(i).TabStop = False
+        Next
+        For i = 0 To Panel3.Controls.Count - 1
+            Panel3.Controls(i).TabStop = False
+        Next
+        For i = 0 To Panel4.Controls.Count - 1
+            Panel4.Controls(i).TabStop = False
+        Next
+    End Sub
+
+    Private Sub txtmarcador_GotFocus(sender As Object, e As EventArgs) Handles txtmarcador.GotFocus
+        Me.AcceptButton = Button3
+    End Sub
+
+    Private Sub txtruta_GotFocus(sender As Object, e As EventArgs) Handles txtruta.GotFocus
+        Me.AcceptButton = Button4
+    End Sub
+
+    Private Sub txtvisible_GotFocus(sender As Object, e As EventArgs) Handles txtvisible.GotFocus
+        Me.AcceptButton = Button10
+    End Sub
+
+    Private Sub txtdireccion_GotFocus(sender As Object, e As EventArgs) Handles txtdireccion.GotFocus
+           Me.AcceptButton = Button2
+    End Sub
+
+    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
+        'panel 1
+        txtdireccion.Text = ""
+        NumericUpDown3.Value = 650
+        NumericUpDown2.Value = 650
+        NumericUpDown1.Value = 14
+        ComboBox1.SelectedIndex = 0
+        ComboBox2.SelectedIndex = 0
+
+        'panel2
+        txtmarcador.Text = ""
+        txtmarcadorENC.Text = ""
+        ComboBox3.SelectedIndex = 3
+        Button1.BackColor = Color.Black
+        txtlabel.Text = ""
+        Button6_Click_1(sender, e)
+
+        'panel3
+        txtruta.Text = ""
+        txtrutaEnc.Text = ""
+        NumericUpDown4.Value = 5
+        Button5.BackColor = Color.Black
+        Button7.BackColor = Color.Black
+        Button9.BackColor = Color.Black
+        CheckBox1.Checked = False
+        CheckBox2.Checked = False
+        Button8_Click(sender, e)
+
+        'panel4
+        txtvisible.Text = ""
+        txtvisibleENC.Text = ""
+        Button12_Click(sender, e)
+    End Sub
+
   
 End Class
