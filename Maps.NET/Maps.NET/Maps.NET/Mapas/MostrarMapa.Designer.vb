@@ -40,7 +40,11 @@ Partial Class MostrarMapa
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(684, 661)
         Me.Controls.Add(Me.WebBrowser1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "MostrarMapa"
+        Me.ShowIcon = False
+        Me.ShowInTaskbar = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Mapa"
         Me.TopMost = True
         Me.ResumeLayout(False)

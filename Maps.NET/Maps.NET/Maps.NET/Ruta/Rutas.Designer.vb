@@ -68,6 +68,7 @@ Partial Class Rutas
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.Label12 = New System.Windows.Forms.Label()
+        Me.Button8 = New System.Windows.Forms.Button()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -527,12 +528,23 @@ Partial Class Rutas
         Me.Label12.TabIndex = 98
         Me.Label12.Text = "Las imágenes se están cargando en segundo plano. Puede seguir trabajando"
         '
+        'Button8
+        '
+        Me.Button8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.Location = New System.Drawing.Point(681, 600)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(129, 31)
+        Me.Button8.TabIndex = 99
+        Me.Button8.Text = "Mapa de ruta"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
         'Rutas
         '
         Me.AcceptButton = Me.Button4
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1079, 670)
+        Me.Controls.Add(Me.Button8)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.PictureBox6)
         Me.Controls.Add(Me.Button7)
@@ -633,4 +645,5 @@ Partial Class Rutas
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents PictureBox6 As System.Windows.Forms.PictureBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents Button8 As System.Windows.Forms.Button
 End Class

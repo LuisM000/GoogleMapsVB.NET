@@ -11,6 +11,7 @@
     Public DuraciTotal As New ArrayList()
     Public DistanciaTotal As New ArrayList()
     Public TiempoSegundos As New ArrayList()
+    Public Polilineas As New ArrayList()
     '-------
     Public statusRuta As String
     '--------
@@ -23,4 +24,5 @@
 
     'Hilo
     Public hiloImagenes As Threading.Thread
+    Public hiloMapas As Threading.Thread
 End Module

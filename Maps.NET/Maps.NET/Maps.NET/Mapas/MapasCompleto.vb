@@ -129,7 +129,7 @@
         Dim maps As New MapsNet
         Dim direccionURL As String = maps.MapasEstaticosCompletos(direccion, zoom, size, tipoFormato, tipoMapa, , marcadores, rutas, visibles)
         Try
-            Dim frm As New MostrarMapa(direccionURL)
+            Dim frm As New MostrarMapa(direccionURL, size)
             frm.Show()
         Catch
         End Try
@@ -323,7 +323,7 @@
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If panelAct.Location.X > -1000 Then
-            panelAct.Location = New Size(panelAct.Location.X - 20, panelAct.Location.Y)
+            panelAct.Location = New Size(panelAct.Location.X - 50, panelAct.Location.Y)
         Else
             panelAct.Location = New Size(1000, panelAct.Location.Y)
 
@@ -335,7 +335,7 @@
    
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
         If panelAct2.Location.X > 30 Then
-            panelAct2.Location = New Size(panelAct2.Location.X - 20, panelAct2.Location.Y)
+            panelAct2.Location = New Size(panelAct2.Location.X - 50, panelAct2.Location.Y)
         Else
             panelAct = panelAct2
             Timer2.Enabled = False

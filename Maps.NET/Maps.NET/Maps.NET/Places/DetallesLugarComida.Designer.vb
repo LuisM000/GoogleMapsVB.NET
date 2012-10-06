@@ -77,7 +77,7 @@ Partial Class DetallesLugarComida
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(101, 78)
+        Me.Label1.Location = New System.Drawing.Point(124, 78)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(47, 21)
         Me.Label1.TabIndex = 1
@@ -87,7 +87,7 @@ Partial Class DetallesLugarComida
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(101, 4)
+        Me.Label2.Location = New System.Drawing.Point(124, 4)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(49, 21)
         Me.Label2.TabIndex = 2
@@ -97,7 +97,7 @@ Partial Class DetallesLugarComida
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(101, 41)
+        Me.Label3.Location = New System.Drawing.Point(124, 41)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(80, 21)
         Me.Label3.TabIndex = 3
@@ -106,7 +106,7 @@ Partial Class DetallesLugarComida
         'Label4
         '
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(101, 115)
+        Me.Label4.Location = New System.Drawing.Point(124, 115)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(568, 161)
         Me.Label4.TabIndex = 4
@@ -301,7 +301,7 @@ Partial Class DetallesLugarComida
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(3, 41)
+        Me.Label13.Location = New System.Drawing.Point(26, 41)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(92, 21)
         Me.Label13.TabIndex = 57
@@ -311,7 +311,7 @@ Partial Class DetallesLugarComida
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(3, 4)
+        Me.Label14.Location = New System.Drawing.Point(26, 4)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(61, 21)
         Me.Label14.TabIndex = 56
@@ -321,7 +321,7 @@ Partial Class DetallesLugarComida
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(5, 78)
+        Me.Label15.Location = New System.Drawing.Point(28, 78)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(52, 21)
         Me.Label15.TabIndex = 55
@@ -331,7 +331,7 @@ Partial Class DetallesLugarComida
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(3, 115)
+        Me.Label16.Location = New System.Drawing.Point(26, 115)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(66, 21)
         Me.Label16.TabIndex = 58

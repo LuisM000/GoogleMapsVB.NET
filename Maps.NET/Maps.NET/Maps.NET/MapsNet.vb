@@ -694,7 +694,7 @@ Public Class MapsNet
             Dim docNav As New XPathDocument(responseStream)
             Dim nav = docNav.CreateNavigator
 
-            Dim Exruta, Extiempo, Exdistancia, Exindicaciones, Exlatitud, Exlongitud, Excopyrights, ExordenRuta, Exstatus, ExduracionTot, ExdistanciTot, Extiemposeg As String
+            Dim Exruta, Extiempo, Exdistancia, Exindicaciones, Exlatitud, Exlongitud, Excopyrights, ExordenRuta, Exstatus, ExduracionTot, ExdistanciTot, Extiemposeg, ExPolilineas As String
 
             'Creamos los paths
             Exstatus = "DirectionsResponse/status"
@@ -709,6 +709,7 @@ Public Class MapsNet
             ExduracionTot = "DirectionsResponse/route/leg/duration/value" 'Lo asignamos a variables globales
             ExdistanciTot = "DirectionsResponse/route/leg/distance/value" 'Lo asignamos a variables globales
             Extiemposeg = "DirectionsResponse/route/leg/step/duration/value" 'Lo asignamos a variables globales
+            ExPolilineas = "DirectionsResponse/route/leg/step/polyline/points" 'Lo asignamos a variables globales
 
 
             'borramos las variables globales
@@ -718,6 +719,7 @@ Public Class MapsNet
             DuraciTotal.Clear()
             DistanciaTotal.Clear()
             TiempoSegundos.Clear()
+            Polilineas.Clear()
             statusRuta = "UNKNOWN_ERROR"
 
             'Recorremos el xml
@@ -786,6 +788,20 @@ Public Class MapsNet
                 TiempoSegundos.Add(NodeIter.Current.Value)
             End While
 
+
+            ExPolilineas = "DirectionsResponse/route/leg/step/polyline/points" 'Guardamos polilínea general
+            NodeIter = nav.Select(ExPolilineas)
+            While (NodeIter.MoveNext())
+                Polilineas.Add(NodeIter.Current.Value)
+            End While
+
+            ExPolilineas = "DirectionsResponse/route/overview_polyline/points" 'Guardamos polilíneas de tramos
+            NodeIter = nav.Select(ExPolilineas)
+            While (NodeIter.MoveNext())
+                Polilineas.Add(NodeIter.Current.Value)
+            End While
+
+   
 
             ReDim auxiliar(DatosRuta.Count - 1)
             Dim tamaño = CInt(DatosRuta.Count / 5)
@@ -1013,8 +1029,8 @@ Public Class MapsNet
         idiomaM = "&language=" & idioma
 
         'Creamos url
-        Dim url = "http://maps.google.com/maps/api/staticmap?" & centroM & zoomM & sizeM & formatoM & maptypeM & idiomaM & marcadores & "&sensor=false"
-        Me.almacenarDatosHTTP(url, "Petición de imagen street view", "OK") 'Almacenamos información
+        Dim url = "http://maps.google.com/maps/api/staticmap?" & centroM & zoomM & sizeM & formatoM & maptypeM & idiomaM & marcadores & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        Me.almacenarDatosHTTP(url, "Petición de mapa estático", "OK") 'Almacenamos información
         Return url
     End Function
 
@@ -1114,8 +1130,8 @@ Public Class MapsNet
         End If
 
         'Creamos url
-        Dim url = "http://maps.google.com/maps/api/staticmap?" & centroM & zoomM & sizeM & formatoM & maptypeM & idiomaM & marcadoresM & rutasM & visibleM & "&sensor=false"
-        Me.almacenarDatosHTTP(url, "Petición de imagen street view", "OK") 'Almacenamos información
+        Dim url = "http://maps.google.com/maps/api/staticmap?" & centroM & zoomM & sizeM & formatoM & maptypeM & idiomaM & marcadoresM & rutasM & visibleM & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        Me.almacenarDatosHTTP(url, "Petición de mapa estático", "OK") 'Almacenamos información
         Return url
     End Function
 

@@ -87,7 +87,7 @@
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick 'Movemos panel a la izquierda
         If Panel2.Location.X > -700 Then
-            Panel2.Location = New Size(Panel2.Location.X - 20, Panel2.Location.Y)
+            Panel2.Location = New Size(Panel2.Location.X - 40, Panel2.Location.Y)
         Else
             Panel2.Location = New Size(1000, Panel2.Location.Y)
             Timer1.Enabled = False
@@ -97,7 +97,7 @@
     End Sub
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick 'Movemos panel desde la izquierda
         If Panel2.Location.X > 20 Then
-            Panel2.Location = New Size(Panel2.Location.X - 20, Panel2.Location.Y)
+            Panel2.Location = New Size(Panel2.Location.X - 40, Panel2.Location.Y)
         Else
             Timer2.Enabled = False
         End If
@@ -173,7 +173,7 @@
     Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick 'Movemos las info del local
         Panel2.Visible = False 'El panel con la info review lo ponemos en false
         If Panel1.Location.X > 160 Then
-            Panel1.Location = New Size(Panel1.Location.X - 20, Panel1.Location.Y)
+            Panel1.Location = New Size(Panel1.Location.X - 40, Panel1.Location.Y)
         Else
             Timer3.Enabled = False
         End If
@@ -181,7 +181,7 @@
 
     Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick 'Sacamos la info del local
         If Panel1.Location.X > -450 Then
-            Panel1.Location = New Size(Panel1.Location.X - 20, Panel1.Location.Y)
+            Panel1.Location = New Size(Panel1.Location.X - 40, Panel1.Location.Y)
         Else
             Panel1.Location = New Size(721, Panel1.Location.Y)
             menosDetalles() 'OCultamos panel info local
