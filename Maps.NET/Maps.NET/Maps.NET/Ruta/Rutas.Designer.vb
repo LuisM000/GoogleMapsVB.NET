@@ -69,6 +69,7 @@ Partial Class Rutas
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button9 = New System.Windows.Forms.Button()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -511,7 +512,7 @@ Partial Class Rutas
         'PictureBox6
         '
         Me.PictureBox6.Image = Global.Maps.NET.My.Resources.Resources.cargando
-        Me.PictureBox6.Location = New System.Drawing.Point(891, 532)
+        Me.PictureBox6.Location = New System.Drawing.Point(744, 532)
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.Size = New System.Drawing.Size(20, 20)
         Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -522,7 +523,7 @@ Partial Class Rutas
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(425, 532)
+        Me.Label12.Location = New System.Drawing.Point(278, 532)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(460, 17)
         Me.Label12.TabIndex = 98
@@ -531,12 +532,22 @@ Partial Class Rutas
         'Button8
         '
         Me.Button8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.Location = New System.Drawing.Point(681, 600)
+        Me.Button8.Location = New System.Drawing.Point(803, 526)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(129, 31)
         Me.Button8.TabIndex = 99
         Me.Button8.Text = "Mapa de ruta"
         Me.Button8.UseVisualStyleBackColor = True
+        '
+        'Button9
+        '
+        Me.Button9.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button9.Location = New System.Drawing.Point(803, 563)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(129, 31)
+        Me.Button9.TabIndex = 100
+        Me.Button9.Text = "Ver ruta mapas"
+        Me.Button9.UseVisualStyleBackColor = True
         '
         'Rutas
         '
@@ -544,6 +555,7 @@ Partial Class Rutas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1079, 670)
+        Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.Button8)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.PictureBox6)
@@ -646,4 +658,5 @@ Partial Class Rutas
     Friend WithEvents PictureBox6 As System.Windows.Forms.PictureBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Button8 As System.Windows.Forms.Button
+    Friend WithEvents Button9 As System.Windows.Forms.Button
 End Class

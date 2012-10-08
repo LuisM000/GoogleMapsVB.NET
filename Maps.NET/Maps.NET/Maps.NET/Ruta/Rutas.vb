@@ -453,6 +453,119 @@ Public Class Rutas
 
    
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        Button3_Click(sender, e)
+        If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then
+            PictureBox6.Visible = True
+            Label12.Visible = True
+            hiloMapas = New Threading.Thread(AddressOf mostrarmapas) 'Es variable global
+            If hiloMapas.ThreadState <> Threading.ThreadState.Running Then
+                hiloMapas.ApartmentState = Threading.ApartmentState.STA 'Esto hace que no aparezca excepción ya que los componentes ActiveX (webbrowser por ejemlplo) la producen al crear hilos
+                hiloMapas.Start()
+            End If
+        End If
+    End Sub
+
+
+
+
+
+    Sub mostrarmapas() 'Gestionamos hilo
+        Do
+            Try
+                Dim maps As New MapsNet
+
+                'Peajes
+                Dim peajes = 0
+                If ComboBox2.SelectedIndex() = 0 Then
+                    peajes = 0
+                ElseIf ComboBox2.SelectedIndex() = 1 Then
+                    peajes = 1
+                Else
+                    peajes = 2
+                End If
+                If ComboBox2.SelectedIndex() = -1 Then peajes = 0
+
+                'Transporte
+                Dim transporte = 0
+                If ComboBox1.SelectedIndex() = 0 Then
+                    transporte = 0
+                ElseIf ComboBox1.SelectedIndex() = 1 Then
+                    transporte = 1
+                Else
+                    transporte = 2
+                End If
+                If ComboBox1.SelectedIndex() = -1 Then transporte = 0
+
+                'Optimizar
+                Dim optimizar As Boolean = False
+                If CheckBox1.Checked = True Then
+                    optimizar = True
+                Else
+                    optimizar = False
+                End If
+
+                'Guardamos en un arraylist los hitos
+                Dim lista = ListBox1.Items
+                Dim RegExp As String = "<hito[^>]*>[^<]*</hito>"
+                Dim R As New Regex(RegExp)
+                hitos.Clear()
+                For Each item In lista
+                    Dim mc As MatchCollection = R.Matches(item)
+                    If mc.Count > 0 Then
+                        For Each m In mc
+                            Dim cadena = ((m.Result("$0").ToString))
+                            hitos.Add(cadena.ToString.Replace("<hito>", "").Replace("</hito>", ""))
+                        Next
+                    End If
+                Next
+
+                'Coordenadas inicio/fin recorrido
+                Dim direccionOrDe As New ArrayList
+                direccionOrDe.Add(txtdirEncOrig.Text)
+                direccionOrDe.Add(txtdirEncDest.Text)
+
+
+                '---------------------------
+                Dim datosruta = maps.Rutas(txtdirorigen.Text, txtdirdestin.Text, transporte, hitos, optimizar, peajes, , )
+                Select Case statusRuta
+                    Case "NOT_FOUND"
+                        MessageBox.Show("Una de las ubicaciones especificadas en los orígenes, el destino o los hitos de la solicitud no se pudo codificar de forma geográfica.", "NOT_FOUND", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Case "ZERO_RESULTS"
+                        MessageBox.Show("No se pudo encontrar ninguna ruta entre el origen y el destino", "ZERO_RESULTS", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Case "MAX_WAYPOINTS_EXCEEDED"
+                        MessageBox.Show("Excedido el número de hitos. El máximo permitido son 8.", "MAX_WAYPOINTS_EXCEEDED", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Case "INVALID_REQUEST"
+                        MessageBox.Show("Solicitud enviada no válida. Contacte con el desarrollador", "INVALID_REQUEST", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Case "OVER_QUERY_LIMIT"
+                        MessageBox.Show("Revasado número de peticiones", "OVER_QUERY_LIMIT", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Case "REQUEST_DENIED"
+                        MessageBox.Show("Se ha denegado el uso del servicio de rutas a la aplicación", "REQUEST_DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Case "UNKNOWN_ERROR"
+                        MessageBox.Show("Error del servidor. Inténtelo de nuevo", "UNKNOWN_ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Case "OK"
+
+                        If hiloMapas.ThreadState = Threading.ThreadState.Aborted Or hiloMapas.ThreadState = Threading.ThreadState.AbortRequested Then
+                            Exit Do
+                        End If
+                Dim indicaciones As New ArrayList
+                        For i = 4 To UBound(datosruta) Step 5
+                            indicaciones.Add(maps.QuitarEtiqueta(datosruta(i)))
+                        Next
+                Dim frm As New MapasRuta(Polilineas, indicaciones)
+                frm.ShowDialog()
+                End Select
+                PictureBox6.Visible = False
+                Label12.Visible = False
+                hiloMapas.Abort()
+            Catch
+            End Try
+        Loop
+        hiloMapas = Nothing
+
+
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         Button3_Click(sender, e) 'Comprobamos
         If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then
             Dim maps As New MapsNet
@@ -509,8 +622,7 @@ Public Class Rutas
 
 
             '---------------------------
-            Dim datosruta() As String
-            datosruta = maps.Rutas(txtdirorigen.Text, txtdirdestin.Text, transporte, hitos, optimizar, peajes, , )
+            Dim datosruta = maps.Rutas(txtdirorigen.Text, txtdirdestin.Text, transporte, hitos, optimizar, peajes, , )
             Select Case statusRuta
                 Case "NOT_FOUND"
                     MessageBox.Show("Una de las ubicaciones especificadas en los orígenes, el destino o los hitos de la solicitud no se pudo codificar de forma geográfica.", "NOT_FOUND", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -528,123 +640,23 @@ Public Class Rutas
                     MessageBox.Show("Error del servidor. Inténtelo de nuevo", "UNKNOWN_ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Case "OK"
                     Try
-                        'Extraemos indicaciones
                         Dim indicaciones As New ArrayList
-                        For i = 4 To (datosruta.Count - 1) Step 5
+                        For i = 4 To UBound(datosruta) Step 5
                             indicaciones.Add(maps.QuitarEtiqueta(datosruta(i)))
                         Next
-
-
-                        Dim frm As New MapasRuta(Polilineas, indicaciones)
+                        Dim frm As New MapasRutaPasoaPaso(Polilineas, indicaciones)
                         frm.Show()
-                        frm.TopLevel = True
+                        frm.TopMost = True
+
                     Catch
                     End Try
             End Select
         Else
             Button3_Click(sender, e) 'Comprobamos
             If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then 'Si se han creado bien, calculamos ruta
-                Button8_Click(sender, e)
+                Button9_Click(sender, e)
             End If
 
         End If
     End Sub
-
-
-
-
-
-    'Sub mostrarmapas() 'Gestionamos hilo
-    '    Do
-    '        Try
-
-
-    '            Dim maps As New MapsNet
-
-    '            'Peajes
-    '            Dim peajes = 0
-    '            If ComboBox2.SelectedIndex() = 0 Then
-    '                peajes = 0
-    '            ElseIf ComboBox2.SelectedIndex() = 1 Then
-    '                peajes = 1
-    '            Else
-    '                peajes = 2
-    '            End If
-    '            If ComboBox2.SelectedIndex() = -1 Then peajes = 0
-
-    '            'Transporte
-    '            Dim transporte = 0
-    '            If ComboBox1.SelectedIndex() = 0 Then
-    '                transporte = 0
-    '            ElseIf ComboBox1.SelectedIndex() = 1 Then
-    '                transporte = 1
-    '            Else
-    '                transporte = 2
-    '            End If
-    '            If ComboBox1.SelectedIndex() = -1 Then transporte = 0
-
-    '            'Optimizar
-    '            Dim optimizar As Boolean = False
-    '            If CheckBox1.Checked = True Then
-    '                optimizar = True
-    '            Else
-    '                optimizar = False
-    '            End If
-
-    '            'Guardamos en un arraylist los hitos
-    '            Dim lista = ListBox1.Items
-    '            Dim RegExp As String = "<hito[^>]*>[^<]*</hito>"
-    '            Dim R As New Regex(RegExp)
-    '            hitos.Clear()
-    '            For Each item In lista
-    '                Dim mc As MatchCollection = R.Matches(item)
-    '                If mc.Count > 0 Then
-    '                    For Each m In mc
-    '                        Dim cadena = ((m.Result("$0").ToString))
-    '                        hitos.Add(cadena.ToString.Replace("<hito>", "").Replace("</hito>", ""))
-    '                    Next
-    '                End If
-    '            Next
-
-    '            'Coordenadas inicio/fin recorrido
-    '            Dim direccionOrDe As New ArrayList
-    '            direccionOrDe.Add(txtdirEncOrig.Text)
-    '            direccionOrDe.Add(txtdirEncDest.Text)
-
-
-    '            '---------------------------
-    '            Dim datosruta = maps.Rutas(txtdirorigen.Text, txtdirdestin.Text, transporte, hitos, optimizar, peajes, , )
-    '            Select Case statusRuta
-    '                Case "NOT_FOUND"
-    '                    MessageBox.Show("Una de las ubicaciones especificadas en los orígenes, el destino o los hitos de la solicitud no se pudo codificar de forma geográfica.", "NOT_FOUND", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '                Case "ZERO_RESULTS"
-    '                    MessageBox.Show("No se pudo encontrar ninguna ruta entre el origen y el destino", "ZERO_RESULTS", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '                Case "MAX_WAYPOINTS_EXCEEDED"
-    '                    MessageBox.Show("Excedido el número de hitos. El máximo permitido son 8.", "MAX_WAYPOINTS_EXCEEDED", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '                Case "INVALID_REQUEST"
-    '                    MessageBox.Show("Solicitud enviada no válida. Contacte con el desarrollador", "INVALID_REQUEST", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '                Case "OVER_QUERY_LIMIT"
-    '                    MessageBox.Show("Revasado número de peticiones", "OVER_QUERY_LIMIT", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '                Case "REQUEST_DENIED"
-    '                    MessageBox.Show("Se ha denegado el uso del servicio de rutas a la aplicación", "REQUEST_DENIED", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '                Case "UNKNOWN_ERROR"
-    '                    MessageBox.Show("Error del servidor. Inténtelo de nuevo", "UNKNOWN_ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '                Case "OK"
-    '                    If hiloMapas.ThreadState = Threading.ThreadState.Aborted Or hiloMapas.ThreadState = Threading.ThreadState.AbortRequested Then
-    '                        Exit Do
-    '                    End If
-    '                    Dim frm As New MapasRuta(Polilineas)
-    '                    frm.ShowDialog()
-    '            End Select
-    '            PictureBox6.Visible = False
-    '            Label12.Visible = False
-    '            hiloMapas.Abort()
-    '        Catch
-    '        End Try
-
-    '    Loop
-    '    hiloImagenes = Nothing
-
-
-    'End Sub
 End Class

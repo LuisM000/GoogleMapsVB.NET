@@ -169,6 +169,12 @@
     <Compile Include="Ruta\MapasRuta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ruta\MapasRutaPasoaPaso.Designer.vb">
+      <DependentUpon>MapasRutaPasoaPaso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ruta\MapasRutaPasoaPaso.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ruta\MostarTodosStreetViewvb.Designer.vb">
       <DependentUpon>MostarTodosStreetViewvb.vb</DependentUpon>
     </Compile>
@@ -291,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ruta\MapasRuta.resx">
       <DependentUpon>MapasRuta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ruta\MapasRutaPasoaPaso.resx">
+      <DependentUpon>MapasRutaPasoaPaso.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ruta\MostarTodosStreetViewvb.resx">
       <DependentUpon>MostarTodosStreetViewvb.vb</DependentUpon>
