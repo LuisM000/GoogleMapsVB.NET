@@ -143,6 +143,7 @@ Partial Class MapasRutaPasoaPaso
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "MapasRutaPasoaPaso"
         Me.ShowIcon = False
+        Me.ShowInTaskbar = False
         Me.Text = "Mapas de ruta"
         Me.TopMost = True
         Me.MenuStrip1.ResumeLayout(False)

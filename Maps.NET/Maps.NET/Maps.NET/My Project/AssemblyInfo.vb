@@ -1,4 +1,6 @@
-﻿Imports System
+﻿Imports System.Resources
+
+Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 
@@ -9,13 +11,13 @@ Imports System.Runtime.InteropServices
 ' Revisar los valores de los atributos del ensamblado
 
 <Assembly: AssemblyTitle("Maps.NET")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyDescription("Programa para la creación de mapas e información geográfica a partir del API de Google Maps. Desarrollado íntegramente con Visual Basic (Visual Studio Express Desktop 2012). Más información en www.algoimagen.blogspot.com. Contacto luis.marcos.rivera@gmail.com")> 
+<Assembly: AssemblyCompany("Luis Marcos Rivera")> 
 <Assembly: AssemblyProduct("Maps.NET")> 
-<Assembly: AssemblyCopyright("Copyright ©  2012")> 
+<Assembly: AssemblyCopyright("Copyleft ↄ 2012")> 
 <Assembly: AssemblyTrademark("")> 
 
-<Assembly: ComVisible(False)>
+<Assembly: ComVisible(False)> 
 
 'El siguiente GUID sirve como identificador de typelib si este proyecto se expone a COM
 <Assembly: Guid("e5ecfb20-6a66-41ab-87a0-d23df05fa5ca")> 
@@ -31,5 +33,7 @@ Imports System.Runtime.InteropServices
 ' mediante el asterisco ('*'), como se muestra a continuación:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")> 
-<Assembly: AssemblyFileVersion("1.0.0.0")> 
+<Assembly: AssemblyVersion("0.9.0.0")> 
+<Assembly: AssemblyFileVersion("0.9.0.0")> 
+
+<Assembly: NeutralResourcesLanguageAttribute("es")> 

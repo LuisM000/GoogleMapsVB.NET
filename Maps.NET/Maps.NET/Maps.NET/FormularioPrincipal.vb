@@ -100,6 +100,9 @@
         MapasCompleto.Show()
     End Sub
 
+    Private Sub AcercaDeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcercaDeToolStripMenuItem.Click
+        AboutBox1.Show()
+    End Sub
 
     ''***ACCESOS RÁPIDOS DESDE BARRA HERRAMIENTAS****'''
 
@@ -143,4 +146,5 @@
         CuadroDeHerramientasToolStripMenuItem_Click(sender, e)
     End Sub
  
+    
 End Class
