@@ -29,6 +29,13 @@
         End If
     End Sub
 
+    Sub CerrarTodasFicha() 'Cerramos tasodas las fichas
+        For i = 1 To FormularioPrincipal.TabControl1.TabCount - 1
+            Me.CerrarFicha(FormularioPrincipal.TabControl1.SelectedTab)
+        Next
+    End Sub
+
+
     Sub abrirEspaña(ByVal browser As WebBrowser) 'Abrimos España en el Webbrowser
         browser.Url = New Uri("http://maps.google.es/maps?q=España&output=embed")
         'Seguimiento de las variables

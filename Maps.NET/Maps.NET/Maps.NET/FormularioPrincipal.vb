@@ -16,11 +16,26 @@
     End Sub
 
     Private Sub NuevaPestañaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles NuevaPestañaToolStripMenuItem1.Click
-        aspectoFormu.NuevaFicha() 'Ajustamos el tabcontrol
+        aspectoFormu.NuevaFicha() 'Abrimos nueva pestaña
     End Sub
 
     Private Sub BorrarPestañaActivarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles BorrarPestañaActivarToolStripMenuItem1.Click
-        aspectoFormu.CerrarFicha(TabControl1.SelectedTab) 'Ajustamos el tabcontrol
+        aspectoFormu.CerrarFicha(TabControl1.SelectedTab) 'Cerramos pestaña actual
+    End Sub
+
+    Private Sub CerrarTodasLasPestañasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarTodasLasPestañasToolStripMenuItem.Click
+        aspectoFormu.CerrarTodasFicha() 'Cerramos todas las fichas
+    End Sub
+
+    'Abrimos/cerramos cuadro de herramientas
+    Private Sub CuadroDeHerramientasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CuadroDeHerramientasToolStripMenuItem.Click
+        If ToolStrip1.Visible = True Then
+            ToolStrip1.Visible = False
+            CuadroDeHerramientasToolStripMenuItem.Checked = False
+        Else
+            ToolStrip1.Visible = True
+            CuadroDeHerramientasToolStripMenuItem.Checked = True
+        End If
     End Sub
 
     Private Sub DirecciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DirecciónToolStripMenuItem.Click
@@ -84,4 +99,48 @@
     Private Sub GeneradorCompletoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GeneradorCompletoToolStripMenuItem.Click
         MapasCompleto.Show()
     End Sub
+
+
+    ''***ACCESOS RÁPIDOS DESDE BARRA HERRAMIENTAS****'''
+
+    'Abrir pestaña
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+        NuevaPestañaToolStripMenuItem1_Click(sender, e)
+    End Sub
+
+    'Cerrar pestaña
+    Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs) Handles ToolStripButton2.Click
+        BorrarPestañaActivarToolStripMenuItem1_Click(sender, e)
+    End Sub
+
+    'Buscar dirección
+    Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
+        DirecciónToolStripMenuItem_Click(sender, e)
+    End Sub
+
+    'Buscar locañ
+    Private Sub ToolStripButton5_Click(sender As Object, e As EventArgs) Handles ToolStripButton5.Click
+        ToolStripMenuItem1_Click(sender, e)
+    End Sub
+
+    'Calcular ruta
+    Private Sub ToolStripButton6_Click(sender As Object, e As EventArgs) Handles ToolStripButton6.Click
+        CalcularRutaToolStripMenuItem_Click(sender, e)
+    End Sub
+
+    'Generador mapa
+    Private Sub ToolStripButton4_Click(sender As Object, e As EventArgs) Handles ToolStripButton4.Click
+        GeneradorCompletoToolStripMenuItem_Click(sender, e)
+    End Sub
+
+    'Peticiones HTTP
+    Private Sub ToolStripButton7_Click(sender As Object, e As EventArgs) Handles ToolStripButton7.Click
+        SeguimientoPeticionesHTTPToolStripMenuItem_Click(sender, e)
+    End Sub
+
+    'Abrimos/cerramos cuadro de herramientas
+    Private Sub ToolStripButton8_Click(sender As Object, e As EventArgs) Handles ToolStripButton8.Click
+        CuadroDeHerramientasToolStripMenuItem_Click(sender, e)
+    End Sub
+ 
 End Class

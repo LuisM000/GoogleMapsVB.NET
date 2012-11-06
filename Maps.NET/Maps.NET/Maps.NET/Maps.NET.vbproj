@@ -382,6 +382,30 @@
   <ItemGroup>
     <None Include="Resources\cargando.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layer_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layer_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\google_map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
