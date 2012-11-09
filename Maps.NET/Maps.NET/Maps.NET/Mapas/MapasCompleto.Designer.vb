@@ -99,6 +99,36 @@ Partial Class MapasCompleto
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Button11 = New System.Windows.Forms.Button()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Button13 = New System.Windows.Forms.Button()
+        Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.Button14 = New System.Windows.Forms.Button()
+        Me.Button15 = New System.Windows.Forms.Button()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.Button16 = New System.Windows.Forms.Button()
+        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
+        Me.Button17 = New System.Windows.Forms.Button()
+        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
+        Me.Button18 = New System.Windows.Forms.Button()
+        Me.HScrollBar1 = New System.Windows.Forms.HScrollBar()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.HScrollBar2 = New System.Windows.Forms.HScrollBar()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.HScrollBar3 = New System.Windows.Forms.HScrollBar()
+        Me.lblGamma = New System.Windows.Forms.Label()
+        Me.lblSaturacion = New System.Windows.Forms.Label()
+        Me.lblBrillo = New System.Windows.Forms.Label()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Brillo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Saturación = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Gamma = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Visibilidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -115,6 +145,8 @@ Partial Class MapasCompleto
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        Me.Panel5.SuspendLayout()
+        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button2
@@ -830,7 +862,7 @@ Partial Class MapasCompleto
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(82, 18)
+        Me.Label18.Location = New System.Drawing.Point(45, 18)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(132, 17)
         Me.Label18.TabIndex = 130
@@ -840,7 +872,7 @@ Partial Class MapasCompleto
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(347, 18)
+        Me.Label19.Location = New System.Drawing.Point(278, 18)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(100, 17)
         Me.Label19.TabIndex = 131
@@ -850,7 +882,7 @@ Partial Class MapasCompleto
         '
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(580, 18)
+        Me.Label20.Location = New System.Drawing.Point(479, 18)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(90, 17)
         Me.Label20.TabIndex = 132
@@ -860,7 +892,7 @@ Partial Class MapasCompleto
         '
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(803, 18)
+        Me.Label21.Location = New System.Drawing.Point(670, 18)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(113, 17)
         Me.Label21.TabIndex = 133
@@ -884,12 +916,314 @@ Partial Class MapasCompleto
         Me.Button11.Text = "Restablecer campos"
         Me.Button11.UseVisualStyleBackColor = True
         '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(884, 18)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(67, 17)
+        Me.Label23.TabIndex = 135
+        Me.Label23.Text = "Estilos [+]"
+        '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.CheckBox3)
+        Me.Panel5.Controls.Add(Me.lblGamma)
+        Me.Panel5.Controls.Add(Me.DataGridView4)
+        Me.Panel5.Controls.Add(Me.lblSaturacion)
+        Me.Panel5.Controls.Add(Me.lblBrillo)
+        Me.Panel5.Controls.Add(Me.Label27)
+        Me.Panel5.Controls.Add(Me.HScrollBar3)
+        Me.Panel5.Controls.Add(Me.Label26)
+        Me.Panel5.Controls.Add(Me.HScrollBar2)
+        Me.Panel5.Controls.Add(Me.Label24)
+        Me.Panel5.Controls.Add(Me.HScrollBar1)
+        Me.Panel5.Controls.Add(Me.Button17)
+        Me.Panel5.Controls.Add(Me.ComboBox5)
+        Me.Panel5.Controls.Add(Me.Button18)
+        Me.Panel5.Controls.Add(Me.ComboBox4)
+        Me.Panel5.Controls.Add(Me.Button16)
+        Me.Panel5.Controls.Add(Me.ListBox1)
+        Me.Panel5.Controls.Add(Me.Button13)
+        Me.Panel5.Controls.Add(Me.ListBox2)
+        Me.Panel5.Controls.Add(Me.Button14)
+        Me.Panel5.Controls.Add(Me.Button15)
+        Me.Panel5.Location = New System.Drawing.Point(1000, 54)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(909, 258)
+        Me.Panel5.TabIndex = 136
+        '
+        'Button13
+        '
+        Me.Button13.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button13.Location = New System.Drawing.Point(219, 121)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(67, 44)
+        Me.Button13.TabIndex = 35
+        Me.Button13.TabStop = False
+        Me.Button13.Text = "Borrar selección"
+        Me.Button13.UseVisualStyleBackColor = True
+        '
+        'ListBox2
+        '
+        Me.ListBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox2.FormattingEnabled = True
+        Me.ListBox2.ItemHeight = 17
+        Me.ListBox2.Location = New System.Drawing.Point(292, 8)
+        Me.ListBox2.Name = "ListBox2"
+        Me.ListBox2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
+        Me.ListBox2.Size = New System.Drawing.Size(132, 157)
+        Me.ListBox2.TabIndex = 34
+        Me.ListBox2.TabStop = False
+        '
+        'Button14
+        '
+        Me.Button14.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button14.Location = New System.Drawing.Point(219, 66)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(67, 44)
+        Me.Button14.TabIndex = 33
+        Me.Button14.TabStop = False
+        Me.Button14.Text = "<<"
+        Me.Button14.UseVisualStyleBackColor = True
+        '
+        'Button15
+        '
+        Me.Button15.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button15.Location = New System.Drawing.Point(219, 11)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(67, 44)
+        Me.Button15.TabIndex = 32
+        Me.Button15.TabStop = False
+        Me.Button15.Text = ">>"
+        Me.Button15.UseVisualStyleBackColor = True
+        '
+        'ListBox1
+        '
+        Me.ListBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.ItemHeight = 17
+        Me.ListBox1.Items.AddRange(New Object() {"administrative" & Global.Microsoft.VisualBasic.ChrW(9), "administrative.country ", "administrative.land_parcel ", "administrative.locality ", "administrative.neighborhood  ", "administrative.province" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "all" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "landscape" & Global.Microsoft.VisualBasic.ChrW(9), "landscape.man_made" & Global.Microsoft.VisualBasic.ChrW(9), "landscape.natural" & Global.Microsoft.VisualBasic.ChrW(9), "landscape.natural.landcover" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "landscape.natural.terrain" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "poi" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "poi.attraction" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "poi.business ", "poi.government ", "poi.medical" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "poi.park" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "poi.place_of_worship" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "poi.school" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "poi.sports_complex" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "road" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "road.arterial" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "road.highway ", "road.highway.controlled_access" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "road.local" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "transit" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "transit.line" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "transit.station" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "transit.station.airport" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "transit.station.bus" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "transit.station.rail" & Global.Microsoft.VisualBasic.ChrW(9) & " ", "water" & Global.Microsoft.VisualBasic.ChrW(9)})
+        Me.ListBox1.Location = New System.Drawing.Point(12, 7)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
+        Me.ListBox1.Size = New System.Drawing.Size(201, 157)
+        Me.ListBox1.TabIndex = 36
+        Me.ListBox1.TabStop = False
+        '
+        'Button16
+        '
+        Me.Button16.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Button16.Enabled = False
+        Me.Button16.Location = New System.Drawing.Point(507, 55)
+        Me.Button16.Name = "Button16"
+        Me.Button16.Size = New System.Drawing.Size(26, 22)
+        Me.Button16.TabIndex = 104
+        Me.Button16.TabStop = False
+        Me.Button16.UseVisualStyleBackColor = False
+        '
+        'ComboBox4
+        '
+        Me.ComboBox4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox4.FormattingEnabled = True
+        Me.ComboBox4.Items.AddRange(New Object() {"On (predeterminada)", "Off", "Simplificada"})
+        Me.ComboBox4.Location = New System.Drawing.Point(601, 11)
+        Me.ComboBox4.Name = "ComboBox4"
+        Me.ComboBox4.Size = New System.Drawing.Size(137, 25)
+        Me.ComboBox4.TabIndex = 106
+        Me.ComboBox4.Text = "Visibilidad"
+        '
+        'ComboBox5
+        '
+        Me.ComboBox5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox5.FormattingEnabled = True
+        Me.ComboBox5.Items.AddRange(New Object() {"Todos (predeterminada)", "Geometría", "Etiquetas"})
+        Me.ComboBox5.Location = New System.Drawing.Point(442, 11)
+        Me.ComboBox5.Name = "ComboBox5"
+        Me.ComboBox5.Size = New System.Drawing.Size(137, 25)
+        Me.ComboBox5.TabIndex = 137
+        Me.ComboBox5.Text = "Elementos"
+        '
+        'Button17
+        '
+        Me.Button17.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button17.Location = New System.Drawing.Point(442, 109)
+        Me.Button17.Name = "Button17"
+        Me.Button17.Size = New System.Drawing.Size(83, 23)
+        Me.Button17.TabIndex = 140
+        Me.Button17.TabStop = False
+        Me.Button17.Text = "[x] Limpiar"
+        Me.Button17.UseVisualStyleBackColor = True
+        '
+        'DataGridView4
+        '
+        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView4.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.Brillo, Me.Saturación, Me.Gamma, Me.Visibilidad})
+        Me.DataGridView4.Location = New System.Drawing.Point(430, 138)
+        Me.DataGridView4.Name = "DataGridView4"
+        Me.DataGridView4.Size = New System.Drawing.Size(462, 112)
+        Me.DataGridView4.TabIndex = 139
+        Me.DataGridView4.TabStop = False
+        '
+        'Button18
+        '
+        Me.Button18.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button18.Location = New System.Drawing.Point(442, 81)
+        Me.Button18.Name = "Button18"
+        Me.Button18.Size = New System.Drawing.Size(83, 23)
+        Me.Button18.TabIndex = 138
+        Me.Button18.Text = "[+] Añadir"
+        Me.Button18.UseVisualStyleBackColor = True
+        '
+        'HScrollBar1
+        '
+        Me.HScrollBar1.Location = New System.Drawing.Point(614, 55)
+        Me.HScrollBar1.Maximum = 109
+        Me.HScrollBar1.Minimum = -100
+        Me.HScrollBar1.Name = "HScrollBar1"
+        Me.HScrollBar1.Size = New System.Drawing.Size(174, 17)
+        Me.HScrollBar1.TabIndex = 141
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(542, 55)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(37, 17)
+        Me.Label24.TabIndex = 142
+        Me.Label24.Text = "Brillo"
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.Location = New System.Drawing.Point(542, 83)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(69, 17)
+        Me.Label26.TabIndex = 144
+        Me.Label26.Text = "Saturación"
+        '
+        'HScrollBar2
+        '
+        Me.HScrollBar2.Location = New System.Drawing.Point(614, 83)
+        Me.HScrollBar2.Maximum = 109
+        Me.HScrollBar2.Minimum = -100
+        Me.HScrollBar2.Name = "HScrollBar2"
+        Me.HScrollBar2.Size = New System.Drawing.Size(174, 17)
+        Me.HScrollBar2.TabIndex = 143
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.Location = New System.Drawing.Point(542, 111)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(53, 17)
+        Me.Label27.TabIndex = 146
+        Me.Label27.Text = "Gamma"
+        '
+        'HScrollBar3
+        '
+        Me.HScrollBar3.Location = New System.Drawing.Point(614, 111)
+        Me.HScrollBar3.Maximum = 1009
+        Me.HScrollBar3.Minimum = 1
+        Me.HScrollBar3.Name = "HScrollBar3"
+        Me.HScrollBar3.Size = New System.Drawing.Size(174, 17)
+        Me.HScrollBar3.TabIndex = 145
+        Me.HScrollBar3.Value = 100
+        '
+        'lblGamma
+        '
+        Me.lblGamma.AutoSize = True
+        Me.lblGamma.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblGamma.Location = New System.Drawing.Point(799, 111)
+        Me.lblGamma.Name = "lblGamma"
+        Me.lblGamma.Size = New System.Drawing.Size(15, 17)
+        Me.lblGamma.TabIndex = 149
+        Me.lblGamma.Text = "1"
+        '
+        'lblSaturacion
+        '
+        Me.lblSaturacion.AutoSize = True
+        Me.lblSaturacion.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSaturacion.Location = New System.Drawing.Point(799, 83)
+        Me.lblSaturacion.Name = "lblSaturacion"
+        Me.lblSaturacion.Size = New System.Drawing.Size(15, 17)
+        Me.lblSaturacion.TabIndex = 148
+        Me.lblSaturacion.Text = "0"
+        '
+        'lblBrillo
+        '
+        Me.lblBrillo.AutoSize = True
+        Me.lblBrillo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBrillo.Location = New System.Drawing.Point(799, 55)
+        Me.lblBrillo.Name = "lblBrillo"
+        Me.lblBrillo.Size = New System.Drawing.Size(15, 17)
+        Me.lblBrillo.TabIndex = 147
+        Me.lblBrillo.Text = "0"
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Recursos afectados"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.Width = 116
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Elementos"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.Width = 81
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Color"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.Width = 56
+        '
+        'Brillo
+        '
+        Me.Brillo.HeaderText = "Brillo"
+        Me.Brillo.Name = "Brillo"
+        '
+        'Saturación
+        '
+        Me.Saturación.HeaderText = "Saturación"
+        Me.Saturación.Name = "Saturación"
+        '
+        'Gamma
+        '
+        Me.Gamma.HeaderText = "Gamma"
+        Me.Gamma.Name = "Gamma"
+        '
+        'Visibilidad
+        '
+        Me.Visibilidad.HeaderText = "Visibilidad"
+        Me.Visibilidad.Name = "Visibilidad"
+        '
+        'CheckBox3
+        '
+        Me.CheckBox3.AutoSize = True
+        Me.CheckBox3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox3.Location = New System.Drawing.Point(442, 56)
+        Me.CheckBox3.Name = "CheckBox3"
+        Me.CheckBox3.Size = New System.Drawing.Size(59, 21)
+        Me.CheckBox3.TabIndex = 150
+        Me.CheckBox3.Text = "Color"
+        Me.CheckBox3.UseVisualStyleBackColor = True
+        '
         'MapasCompleto
         '
         Me.AcceptButton = Me.Button2
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(994, 361)
+        Me.Controls.Add(Me.Panel5)
+        Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.Button11)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label21)
@@ -927,6 +1261,9 @@ Partial Class MapasCompleto
         Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
+        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1006,4 +1343,34 @@ Partial Class MapasCompleto
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents Button11 As System.Windows.Forms.Button
     Friend WithEvents Button12 As System.Windows.Forms.Button
+    Friend WithEvents Label23 As System.Windows.Forms.Label
+    Friend WithEvents Panel5 As System.Windows.Forms.Panel
+    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
+    Friend WithEvents Button13 As System.Windows.Forms.Button
+    Friend WithEvents ListBox2 As System.Windows.Forms.ListBox
+    Friend WithEvents Button14 As System.Windows.Forms.Button
+    Friend WithEvents Button15 As System.Windows.Forms.Button
+    Friend WithEvents Button16 As System.Windows.Forms.Button
+    Friend WithEvents ComboBox5 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBox4 As System.Windows.Forms.ComboBox
+    Friend WithEvents lblGamma As System.Windows.Forms.Label
+    Friend WithEvents lblSaturacion As System.Windows.Forms.Label
+    Friend WithEvents lblBrillo As System.Windows.Forms.Label
+    Friend WithEvents Label27 As System.Windows.Forms.Label
+    Friend WithEvents HScrollBar3 As System.Windows.Forms.HScrollBar
+    Friend WithEvents Label26 As System.Windows.Forms.Label
+    Friend WithEvents HScrollBar2 As System.Windows.Forms.HScrollBar
+    Friend WithEvents Label24 As System.Windows.Forms.Label
+    Friend WithEvents HScrollBar1 As System.Windows.Forms.HScrollBar
+    Friend WithEvents Button17 As System.Windows.Forms.Button
+    Friend WithEvents Button18 As System.Windows.Forms.Button
+    Friend WithEvents DataGridView4 As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Brillo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Saturación As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Gamma As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Visibilidad As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
 End Class

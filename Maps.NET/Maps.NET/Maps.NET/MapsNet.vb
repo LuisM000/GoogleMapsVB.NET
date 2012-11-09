@@ -1030,12 +1030,17 @@ Public Class MapsNet
 
         'Creamos url
         Dim url = "http://maps.google.com/maps/api/staticmap?" & centroM & zoomM & sizeM & formatoM & maptypeM & idiomaM & marcadores & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
-        Me.almacenarDatosHTTP(url, "Petición de mapa estático", "OK") 'Almacenamos información
+        If url.Length >= 2048 Then
+            Me.almacenarDatosHTTP(url, "Petición de mapa estático", "PERDIDO", "Superado el límite de 2048 caracteres") 'Almacenamos información
+        Else
+            Me.almacenarDatosHTTP(url, "Petición de mapa estático", "OK") 'Almacenamos información
+        End If
+
         Return url
     End Function
 
 
-    Public Function MapasEstaticosCompletos(ByVal centro As String, ByVal zoom As Integer, ByVal size() As Integer, Optional ByVal formatoImagen As Integer = 0, Optional ByVal maptype As Integer = 0, Optional ByRef idioma As String = "es", Optional ByVal marcadores As ArrayList = Nothing, Optional ByVal rutas As ArrayList = Nothing, Optional ByVal visible As ArrayList = Nothing)
+    Public Function MapasEstaticosCompletos(ByVal centro As String, ByVal zoom As Integer, ByVal size() As Integer, Optional ByVal formatoImagen As Integer = 0, Optional ByVal maptype As Integer = 0, Optional ByRef idioma As String = "es", Optional ByVal marcadores As ArrayList = Nothing, Optional ByVal rutas As ArrayList = Nothing, Optional ByVal visible As ArrayList = Nothing, Optional ByVal estilos As ArrayList = Nothing)
 
         'NO SE OLVIDE DE DEJAR EL RASTRO HTTP
 
@@ -1115,6 +1120,15 @@ Public Class MapsNet
             Next
         End If
 
+        'Variable estilos
+        Dim estilosM As String = ""
+        If estilos.Count > 0 Then
+
+            For i = 0 To estilos.Count - 1
+                estilosM = estilosM & estilos(i)
+            Next
+        End If
+
         'Variable visible
         Dim visibleM As String = ""
         If visible.Count > 0 Then
@@ -1130,8 +1144,13 @@ Public Class MapsNet
         End If
 
         'Creamos url
-        Dim url = "http://maps.google.com/maps/api/staticmap?" & centroM & zoomM & sizeM & formatoM & maptypeM & idiomaM & marcadoresM & rutasM & visibleM & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
-        Me.almacenarDatosHTTP(url, "Petición de mapa estático", "OK") 'Almacenamos información
+        Dim url = "http://maps.google.com/maps/api/staticmap?" & centroM & zoomM & sizeM & formatoM & maptypeM & idiomaM & marcadoresM & rutasM & estilosM & visibleM & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        If url.Length >= 2048 Then
+            Me.almacenarDatosHTTP(url, "Petición de mapa estático", "PERDIDO", "Superado el límite de 2048 caracteres") 'Almacenamos información
+        Else
+            Me.almacenarDatosHTTP(url, "Petición de mapa estático", "OK") 'Almacenamos información
+        End If
+
         Return url
     End Function
 

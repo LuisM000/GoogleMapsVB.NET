@@ -124,10 +124,14 @@
         Next
 
 
+        Dim estilos As New ArrayList
+        If DataGridView4.Rows.Count - 1 > 0 Then
+            estilos.Add(cadenasDatagridEstilos())
+        End If
 
 
         Dim maps As New MapsNet
-        Dim direccionURL As String = maps.MapasEstaticosCompletos(direccion, zoom, size, tipoFormato, tipoMapa, , marcadores, rutas, visibles)
+        Dim direccionURL As String = maps.MapasEstaticosCompletos(direccion, zoom, size, tipoFormato, tipoMapa, , marcadores, rutas, visibles, estilos)
         Try
             Dim frm As New MostrarMapa(direccionURL, size)
             frm.Show()
@@ -240,7 +244,7 @@
         Panel1.Location = New Size(30, 94)
         limpiarColores(Label18)
         For Each c As Object In Me.Controls
-            If (c.ToString = Label18.ToString Or c.ToString = Label20.ToString Or c.ToString = Label19.ToString Or c.ToString = Label21.ToString) Then
+            If (c.ToString = Label18.ToString Or c.ToString = Label20.ToString Or c.ToString = Label19.ToString Or c.ToString = Label21.ToString Or c.ToString = Label23.ToString) Then
                 If c.GetType Is GetType(Label) Then
                     AddHandler DirectCast(c, Label).MouseEnter, AddressOf conFoco
                     AddHandler DirectCast(c, Label).MouseLeave, AddressOf sinFoco
@@ -321,6 +325,19 @@
         End If
     End Sub
 
+    Private Sub Label23_Click(sender As Object, e As EventArgs) Handles Label23.Click
+        If (Timer1.Enabled = False And Timer2.Enabled = False) Then
+            If panelAct IsNot Panel5 Then
+                'txtmarcador.Focus()
+                limpiarColores(Label23)
+                Timer1.Enabled = True
+                panelAct2 = Panel5
+                'tabuladores() : txtmarcador.TabStop = True : Button3.TabStop = True
+
+            End If
+        End If
+    End Sub
+
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If panelAct.Location.X > -1000 Then
             panelAct.Location = New Size(panelAct.Location.X - 50, panelAct.Location.Y)
@@ -347,6 +364,7 @@
         Label19.ForeColor = Color.Black
         Label20.ForeColor = Color.Black
         Label21.ForeColor = Color.Black
+        Label23.ForeColor = Color.Black
         labelACtivo.ForeColor = Color.Blue
     End Sub
 
@@ -413,7 +431,159 @@
         txtvisible.Text = ""
         txtvisibleENC.Text = ""
         Button12_Click(sender, e)
+
+        'panel5
+        ListBox2.Items.Clear()
+        Button13_Click(sender, e)
+        ComboBox4.SelectedIndex = 0
+        ComboBox5.SelectedIndex = 0
+        Button16.BackColor = Color.Black
+        HScrollBar1.Value = 0
+        HScrollBar2.Value = 0
+        HScrollBar3.Value = 100
+        lblBrillo.Text = 0
+        lblSaturacion.Text = 0
+        lblGamma.Text = 1
+        Button17_Click(sender, e)
+        CheckBox3.Checked = False
+        Button16.Enabled = False
     End Sub
 
   
+    'ESTILOS************************************
+
+    'Añadir selección
+    Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
+        For Each elemento In ListBox1.SelectedItems
+            ListBox2.Items.Add(elemento)
+        Next
+    End Sub
+
+    'Borrar elemento
+    Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
+        While ListBox2.SelectedIndex <> -1
+            For Each elemento In ListBox2.SelectedIndices
+                ListBox2.Items.RemoveAt(elemento)
+            Next
+        End While
+    End Sub
+
+    'Borrar selección listbox
+    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
+        ListBox1.ClearSelected()
+    End Sub
+
+    Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
+        Dim cuadroCOlor As New ColorDialog
+        cuadroCOlor.FullOpen = True
+        If cuadroCOlor.ShowDialog = Windows.Forms.DialogResult.OK Then
+            Dim colorS2 = cuadroCOlor.Color
+            Button16.BackColor = colorS2
+        End If
+    End Sub
+
+    'Scroll del brillo
+    Private Sub HScrollBar1_Scroll(sender As Object, e As ScrollEventArgs) Handles HScrollBar1.Scroll
+        lblBrillo.Text = HScrollBar1.Value
+    End Sub
+
+    Private Sub HScrollBar2_Scroll(sender As Object, e As ScrollEventArgs) Handles HScrollBar2.Scroll
+        lblSaturacion.Text = HScrollBar2.Value
+    End Sub
+
+    Private Sub HScrollBar3_Scroll(sender As Object, e As ScrollEventArgs) Handles HScrollBar3.Scroll
+        lblGamma.Text = CDbl(HScrollBar3.Value / 100)
+    End Sub
+
+    'Añadir elemento
+    Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click
+
+        Dim elementos As String = ""
+        Select Case ComboBox5.SelectedIndex
+            Case 0
+                elementos = "all"
+            Case 1
+                elementos = "geometry"
+            Case 2
+                elementos = "labels"
+            Case Else
+                elementos = "all"
+        End Select
+
+        Dim visibilidad As String = ""
+        Select Case ComboBox4.SelectedIndex
+            Case 0
+                visibilidad = "on"
+            Case 1
+                visibilidad = "off"
+            Case 2
+                visibilidad = "simplified"
+            Case Else
+                visibilidad = "on"
+        End Select
+
+        Dim hexa As String = ""
+        If CheckBox3.Checked = True Then 'Si se ha puesto un color en concreto
+            Dim color As Color = Button16.BackColor
+            hexa = "0x" & String.Format("{0:X2}{1:X2}{2:X2}", color.R, color.G, color.B)
+        Else
+            hexa = ""
+        End If
+        Dim recursos As String = ""
+        For i = 0 To ListBox2.Items.Count - 1
+            recursos = ListBox2.Items(i)
+            DataGridView4.Rows.Add(recursos, elementos, hexa, lblBrillo.Text, lblSaturacion.Text, lblGamma.Text, visibilidad)
+        Next
+
+
+
+
+
+    End Sub
+
+    'Limpiar registros
+    Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
+        DataGridView4.Rows.Clear()
+    End Sub
+
+    Function cadenasDatagridEstilos()
+        Dim cadenaEst As String = ""
+
+        For i = 0 To DataGridView4.Rows.Count - 2
+
+            'Feature
+            Dim feature As String = "feature:" & DataGridView4.Item(0, i).Value.ToString.Replace(vbTab, "").Replace(" ", "")
+            cadenaEst = cadenaEst & "&style=" & feature & "|"
+
+            'Element
+            cadenaEst = cadenaEst & "element:" & DataGridView4.Item(1, i).Value.ToString & "|"
+
+            'Color
+            cadenaEst = cadenaEst & "hue:" & DataGridView4.Item(2, i).Value.ToString & "|"
+
+            'Brillo
+            cadenaEst = cadenaEst & "lightness:" & DataGridView4.Item(3, i).Value.ToString & "|"
+
+            'Saturación
+            cadenaEst = cadenaEst & "saturation:" & DataGridView4.Item(4, i).Value.ToString & "|"
+
+            'Gamma
+            cadenaEst = cadenaEst & "gamma:" & DataGridView4.Item(5, i).Value.ToString & "|"
+
+            'Visibilidad
+            cadenaEst = cadenaEst & "visibility:" & DataGridView4.Item(6, i).Value.ToString
+
+        Next
+
+        Return cadenaEst
+    End Function
+
+    'Habilitar color
+    Private Sub CheckBox3_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
+        If CheckBox3.Checked = True Then
+            Button16.Enabled = True
+        Else
+            Button16.Enabled = False
+        End If
+    End Sub
 End Class
