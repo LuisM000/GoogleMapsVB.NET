@@ -100,8 +100,14 @@
         MapasCompleto.Show()
     End Sub
 
+    'Cuadro acerca de
     Private Sub AcercaDeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcercaDeToolStripMenuItem.Click
         AboutBox1.Show()
+    End Sub
+
+    'Formulario feedbacl
+    Private Sub FeedbackToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FeedbackToolStripMenuItem.Click
+        Formulario.Show()
     End Sub
 
     ''***ACCESOS RÁPIDOS DESDE BARRA HERRAMIENTAS****'''
@@ -146,5 +152,4 @@
         CuadroDeHerramientasToolStripMenuItem_Click(sender, e)
     End Sub
  
-    
 End Class

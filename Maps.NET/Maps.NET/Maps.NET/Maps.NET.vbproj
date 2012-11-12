@@ -119,6 +119,12 @@
     <Compile Include="FormuSecundarios\DatosLocal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormuSecundarios\Formulario.Designer.vb">
+      <DependentUpon>Formulario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormuSecundarios\Formulario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormuSecundarios\StreetViewlat.Designer.vb">
       <DependentUpon>StreetViewlat.vb</DependentUpon>
     </Compile>
@@ -289,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\DatosLocal.resx">
       <DependentUpon>DatosLocal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormuSecundarios\Formulario.resx">
+      <DependentUpon>Formulario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\StreetViewlat.resx">
       <DependentUpon>StreetViewlat.vb</DependentUpon>
