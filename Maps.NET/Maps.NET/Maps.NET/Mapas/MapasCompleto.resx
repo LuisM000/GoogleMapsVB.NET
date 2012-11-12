@@ -200,6 +200,45 @@ Si se establecen ubicaciones visibles, se omiten los datos de centro de mapa y z
   <metadata name="Timer2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>328, 17</value>
   </metadata>
+  <metadata name="ToolTip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>417, 17</value>
+  </metadata>
+  <data name="PictureBox6.ToolTip" xml:space="preserve">
+    <value>Áreas de actuación:
+Administrativas: Aplica la regla a las áreas administrativas.
+Administrativas_países: Aplica la regla a los países.
+Administrativas_parcela tierra: Aplica la regla a las parcelas de tierra.
+Administrativas_localidad: Aplica la regla a las localidades.	
+Administrativas_vecindad: Aplica la regla a las vecindades.
+Administrative_provincia: Aplica la regla a las provincias.	
+Todo: Aplica la regla a todos los tipos.		
+Paisaje: Aplica la regla a los paisajes.		
+Paisajes_humanos: Aplica la regla a los paisajes creados por el hombre.	
+Paisajes_naturales: Aplica la regla a las características naturales.
+Paisajes_naturales_cubierta terrestre: Aplica la regla a la cubierta terrestre.
+Paisajes_naturales_terreno: Aplica la regla al terreno.
+Punto de interés: Aplica la regla a los puntos de interés.	
+Punto de interés_turístico: Aplica la regla a los puntos de interés turísticos.
+Punto de interés_negocios: Aplica la regla a los negocios.
+Punto de interés_edificios estatales: Aplica la regla a los edificios del gobierno.		
+Puntos de interés_médicos: Aplica la regla a los servicios de emergencia (hospitales, farmacias, médicos, policías, etc).
+Punto de interés_parques: Aplica la regla a los parques.		
+Punto de interés_lugares de culto: Aplica la regla a los lugares de culto, como la iglesia, templo o mezquita.    
+Punto de interés_escuelas: Aplica la regla a las escuelas.			
+Punto de interés_instalaciones deportivas: Aplica la regla a las instalaciones deportivas.
+Carreteras: Aplica la regla a todas las carreteras.			
+Carreteras_principales: Aplica la regla a las principales carreteras.	
+Carreteras_autopistas: Aplica la regla a las autopistas.		
+Carreteras_acceso controlado: Aplica la regla a las carreteras de acceso controlado.
+Carreteras_locales: Aplica la regla a las carreteras locales.		
+Transportes: Aplica la regla a los transportes.
+Transportes_línea: Aplica la regla a las líneas de transporte público.		
+Transportes_estación: Aplica la regla a todas las estaciones de transporte.
+Transportes_estación_aeropuerto: Aplica la regla a los aeropuertos.
+Transportes_estación_bus: Aplica la regla a las paradas de bus.
+Transportes_estación_tren: Aplica la regla a las estaciones de ferrocarril.
+Agua: Aplica la regla a todas las zonas con agua.</value>
+  </data>
   <metadata name="DataGridViewTextBoxColumn5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -241,5 +280,11 @@ Si se establecen ubicaciones visibles, se omiten los datos de centro de mapa y z
   </metadata>
   <metadata name="Visibilidad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="ToolTip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>417, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>76</value>
   </metadata>
 </root>

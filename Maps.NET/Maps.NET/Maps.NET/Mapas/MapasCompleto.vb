@@ -52,7 +52,39 @@
         Return cadena
     End Function
 
+    Function cadenasDatagridEstilos()
+        Dim cadenaEst As String = ""
 
+        For i = 0 To DataGridView4.Rows.Count - 2
+
+            'Feature
+            Dim feature As String = "feature:" & DataGridView4.Item(0, i).Value.ToString.Replace(vbTab, "").Replace(" ", "")
+            cadenaEst = cadenaEst & "&style=" & feature & "|"
+
+            'Element
+            cadenaEst = cadenaEst & "element:" & DataGridView4.Item(1, i).Value.ToString & "|"
+
+            'Color
+            cadenaEst = cadenaEst & "hue:" & DataGridView4.Item(2, i).Value.ToString & "|"
+
+            'Brillo
+            cadenaEst = cadenaEst & "lightness:" & DataGridView4.Item(3, i).Value.ToString & "|"
+
+            'Saturación
+            cadenaEst = cadenaEst & "saturation:" & DataGridView4.Item(4, i).Value.ToString & "|"
+
+            'Gamma
+            cadenaEst = cadenaEst & "gamma:" & DataGridView4.Item(5, i).Value.ToString & "|"
+
+            'Visibilidad
+            cadenaEst = cadenaEst & "visibility:" & DataGridView4.Item(6, i).Value.ToString
+
+        Next
+
+        Return cadenaEst
+    End Function
+
+    
 
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click 'Añadir marcador a datagridview
@@ -486,18 +518,28 @@
     Private Sub HScrollBar1_Scroll(sender As Object, e As ScrollEventArgs) Handles HScrollBar1.Scroll
         lblBrillo.Text = HScrollBar1.Value
     End Sub
-
+    'Scroll del saturación
     Private Sub HScrollBar2_Scroll(sender As Object, e As ScrollEventArgs) Handles HScrollBar2.Scroll
         lblSaturacion.Text = HScrollBar2.Value
     End Sub
-
+    'Scroll del gamma
     Private Sub HScrollBar3_Scroll(sender As Object, e As ScrollEventArgs) Handles HScrollBar3.Scroll
         lblGamma.Text = CDbl(HScrollBar3.Value / 100)
     End Sub
 
+    'Restablecer scroll
+    Private Sub Button19_Click(sender As Object, e As EventArgs) Handles Button19.Click
+        HScrollBar1.Value = 0
+        HScrollBar2.Value = 0
+        HScrollBar3.Value = 100
+        lblBrillo.Text = 0
+        lblSaturacion.Text = 0
+        lblGamma.Text = 1
+    End Sub
+
     'Añadir elemento
     Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click
-
+        Dim ObjAspecto As New AspectoFormulario
         Dim elementos As String = ""
         Select Case ComboBox5.SelectedIndex
             Case 0
@@ -532,11 +574,8 @@
         Dim recursos As String = ""
         For i = 0 To ListBox2.Items.Count - 1
             recursos = ListBox2.Items(i)
-            DataGridView4.Rows.Add(recursos, elementos, hexa, lblBrillo.Text, lblSaturacion.Text, lblGamma.Text, visibilidad)
+            DataGridView4.Rows.Add(ObjAspecto.traducirRecursos(recursos), elementos, hexa, lblBrillo.Text, lblSaturacion.Text, lblGamma.Text, visibilidad)
         Next
-
-
-
 
 
     End Sub
@@ -546,37 +585,7 @@
         DataGridView4.Rows.Clear()
     End Sub
 
-    Function cadenasDatagridEstilos()
-        Dim cadenaEst As String = ""
-
-        For i = 0 To DataGridView4.Rows.Count - 2
-
-            'Feature
-            Dim feature As String = "feature:" & DataGridView4.Item(0, i).Value.ToString.Replace(vbTab, "").Replace(" ", "")
-            cadenaEst = cadenaEst & "&style=" & feature & "|"
-
-            'Element
-            cadenaEst = cadenaEst & "element:" & DataGridView4.Item(1, i).Value.ToString & "|"
-
-            'Color
-            cadenaEst = cadenaEst & "hue:" & DataGridView4.Item(2, i).Value.ToString & "|"
-
-            'Brillo
-            cadenaEst = cadenaEst & "lightness:" & DataGridView4.Item(3, i).Value.ToString & "|"
-
-            'Saturación
-            cadenaEst = cadenaEst & "saturation:" & DataGridView4.Item(4, i).Value.ToString & "|"
-
-            'Gamma
-            cadenaEst = cadenaEst & "gamma:" & DataGridView4.Item(5, i).Value.ToString & "|"
-
-            'Visibilidad
-            cadenaEst = cadenaEst & "visibility:" & DataGridView4.Item(6, i).Value.ToString
-
-        Next
-
-        Return cadenaEst
-    End Function
+   
 
     'Habilitar color
     Private Sub CheckBox3_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
@@ -585,5 +594,44 @@
         Else
             Button16.Enabled = False
         End If
+    End Sub
+
+    'ESTILOS PREDETERMINADOS
+   
+    Private Sub CheckBox4_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
+        If CheckBox4.Enabled = True Then
+            CheckBox5.Enabled = False
+            EstilosPredeterminados("caso1")
+        End If
+        If CheckBox4.Checked = False Then
+            CheckBox5.Enabled = True
+        End If
+    End Sub
+
+    Private Sub CheckBox5_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox5.CheckedChanged
+        If CheckBox5.Enabled = True Then
+            CheckBox4.Enabled = False
+            EstilosPredeterminados("caso2")
+        End If
+        If CheckBox5.Checked = False Then
+            CheckBox4.Enabled = True
+        End If
+    End Sub
+
+    Sub EstilosPredeterminados(ByVal estilo As String)
+        DataGridView4.Rows.Clear() 'Borramos los campos del datagridview
+        Select Case estilo
+            Case "caso1"
+                DataGridView4.Rows.Add("road.local", "geometry", "0x00ff00", "0", "100", "1", "on")
+                DataGridView4.Rows.Add("landscape", "geometry", "", "-100", "0", "1", "on")
+            Case "caso2"
+                DataGridView4.Rows.Add("road.highway", "geometry", "0xff0022", "-20", "60", "", "")
+                DataGridView4.Rows.Add("road.arterial", "geometry", "0x2200ff", "", "30", "", "simplified")
+                DataGridView4.Rows.Add("road.local", "", "0xf6ff00", "", "60", "0.7", "simplified")
+                DataGridView4.Rows.Add("water", "geometry", "", "40", "40", "", "")
+                DataGridView4.Rows.Add("road.highway", "labels", "", "", "98", "", "")
+                DataGridView4.Rows.Add("administrative.locality", "labels", "0x0022ff", "-10", "50", "0.9", "")
+                DataGridView4.Rows.Add("transit.line", "geometry", "0xff0000", "-70", "", "", "on")
+        End Select
     End Sub
 End Class
