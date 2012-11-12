@@ -11,7 +11,7 @@ Imports System.Runtime.InteropServices
 ' Revisar los valores de los atributos del ensamblado
 
 <Assembly: AssemblyTitle("Maps.NET")> 
-<Assembly: AssemblyDescription("Programa para la creación de mapas e información geográfica a partir del API de Google Maps. Desarrollado íntegramente con Visual Basic (Visual Studio Express Desktop 2012). Más información en www.algoimagen.blogspot.com. Contacto luis.marcos.rivera@gmail.com")> 
+<Assembly: AssemblyDescription("Programa para la creación de mapas e información geográfica a partir del API de Google Maps. Desarrollado con Visual Basic (Visual Studio Express Desktop 2012).                                                           Más información en: http://www.algoimagen.blogspot.com.                  Contacto: luis.marcos.rivera@gmail.com          Descarga el código fuente: https://github.com/LuisM000/GoogleMapsVB.NET/tree/MapsNET")> 
 <Assembly: AssemblyCompany("Luis Marcos Rivera")> 
 <Assembly: AssemblyProduct("Maps.NET")> 
 <Assembly: AssemblyCopyright("Copyleft ↄ 2012")> 

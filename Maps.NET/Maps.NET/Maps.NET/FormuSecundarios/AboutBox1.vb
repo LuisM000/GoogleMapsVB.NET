@@ -16,11 +16,19 @@
         Me.LabelVersion.Text = String.Format("Versión {0}", My.Application.Info.Version.ToString)
         Me.LabelCopyright.Text = My.Application.Info.Copyright
         Me.LabelCompanyName.Text = My.Application.Info.CompanyName
-        Me.TextBoxDescription.Text = My.Application.Info.Description
+        Me.RichTextBox1.Text = My.Application.Info.Description
     End Sub
 
     Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OKButton.Click
         Me.Close()
     End Sub
 
+    Private Sub RichTextBox1_LinkClicked(sender As Object, e As LinkClickedEventArgs) Handles RichTextBox1.LinkClicked
+        Dim aspectoFormu As New AspectoFormulario
+        aspectoFormu.NuevaFicha("Acerca de") 'Abrimos una nueva pestaña
+        'Este código sirve para seleccionar el navegador de la pestaña activa
+        Dim navegador = aspectoFormu.NavegadorActual(FormularioPrincipal.TabControl1.SelectedIndex)
+        Dim direccion As New Uri(e.LinkText.ToString)
+        navegador.Url = direccion
+    End Sub
 End Class

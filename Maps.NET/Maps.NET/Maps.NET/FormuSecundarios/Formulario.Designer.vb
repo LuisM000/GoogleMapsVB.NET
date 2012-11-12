@@ -22,7 +22,9 @@ Partial Class Formulario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'WebBrowser1
@@ -33,6 +35,11 @@ Partial Class Formulario
         Me.WebBrowser1.Name = "WebBrowser1"
         Me.WebBrowser1.Size = New System.Drawing.Size(476, 336)
         Me.WebBrowser1.TabIndex = 0
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 1000
         '
         'Formulario
         '
@@ -49,4 +56,5 @@ Partial Class Formulario
 
     End Sub
     Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

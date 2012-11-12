@@ -600,10 +600,4 @@
         cJWw3xX9u6JfoPW7on9X9Ku1flf074p+tdbviv5d0a/S+r//+/8BPTxUq6Ub7iwAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="TextBoxDescription.Text" xml:space="preserve">
-    <value>Descripción:
-
-(En tiempo de ejecución, el texto de la etiqueta se reemplazará con la información de ensamblado de la aplicación.
-Personalice la información de ensamblado de la aplicación en el panel Aplicación del Diseñador de proyectos).</value>
-  </data>
 </root>
