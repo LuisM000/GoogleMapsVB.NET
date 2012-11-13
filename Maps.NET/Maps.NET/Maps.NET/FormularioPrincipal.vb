@@ -1,7 +1,8 @@
 ﻿Public Class FormularioPrincipal
 
     Dim aspectoFormu As New AspectoFormulario 'Variable para manejar aspecto formulario
-
+    
+    
     Private Sub FormularioPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         aspectoFormu.TabControlYpanel() 'Ajustamos el tabcontrol
         aspectoFormu.abrirEspaña(aspectoFormu.NavegadorActual(Me.TabControl1.SelectedIndex))
@@ -26,6 +27,13 @@
 
     Private Sub CerrarTodasLasPestañasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarTodasLasPestañasToolStripMenuItem.Click
         aspectoFormu.CerrarTodasFicha() 'Cerramos todas las fichas
+    End Sub
+
+    Private Sub SiguientePestañaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SiguientePestañaToolStripMenuItem.Click
+        aspectoFormu.SiguienteFicha(TabControl1.SelectedTab) 'Siguiente pestaña
+    End Sub
+    Private Sub AnteriorPestañaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AnteriorPestañaToolStripMenuItem.Click
+        aspectoFormu.AnteriorFicha(TabControl1.SelectedTab) 'Anterior pestaña
     End Sub
 
     'Abrimos/cerramos cuadro de herramientas
@@ -152,5 +160,8 @@
     Private Sub ToolStripButton8_Click(sender As Object, e As EventArgs) Handles ToolStripButton8.Click
         CuadroDeHerramientasToolStripMenuItem_Click(sender, e)
     End Sub
+ 
+    
+    
  
 End Class

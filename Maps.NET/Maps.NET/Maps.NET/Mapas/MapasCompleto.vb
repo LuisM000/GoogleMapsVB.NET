@@ -266,12 +266,24 @@
         DataGridView3.Rows.Clear()
     End Sub
 
+    
+
    
 
 
 
 
     '********PARTE DE DISEÑO***************************************************
+
+    'Private Sub MapasCompleto_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+    '    If e.Shift And e.KeyCode.ToString = "tab" Then
+    '        ' When the user presses both the 'ALT' key and 'F' key,
+    '        ' KeyPreview is set to False, and a message appears.
+    '        ' This message is only displayed when KeyPreview is set to True.
+    '        Me.KeyPreview = False
+    '        MsgBox("KeyPreview is True, and this is from the FORM.")
+    '    End If
+    'End Sub
 
     Private Sub MapasCompleto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         panelAct = Panel1
@@ -637,5 +649,32 @@
         End Select
     End Sub
 
-  
+    'Hacemos avance de pestaña con un menustrip invisible para aprovecha los shortcutkeys
+    Private Sub SiguienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SiguienteToolStripMenuItem.Click
+        If Label18.ForeColor = Color.Blue Then
+            Label19_Click(sender, e)
+        ElseIf Label19.ForeColor = Color.Blue Then
+            Label20_Click(sender, e)
+        ElseIf Label20.ForeColor = Color.Blue Then
+            Label21_Click(sender, e)
+        ElseIf Label21.ForeColor = Color.Blue Then
+            Label23_Click(sender, e)
+        ElseIf Label23.ForeColor = Color.Blue Then
+            Label18_Click(sender, e)
+        End If
+    End Sub
+    'Hacemos retroceso de pestaña con un menustrip invisible para aprovecha los shortcutkeys
+    Private Sub AnteriorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AnteriorToolStripMenuItem.Click
+        If Label18.ForeColor = Color.Blue Then
+            Label23_Click(sender, e)
+        ElseIf Label19.ForeColor = Color.Blue Then
+            Label18_Click(sender, e)
+        ElseIf Label20.ForeColor = Color.Blue Then
+            Label19_Click(sender, e)
+        ElseIf Label21.ForeColor = Color.Blue Then
+            Label20_Click(sender, e)
+        ElseIf Label23.ForeColor = Color.Blue Then
+            Label21_Click(sender, e)
+        End If
+    End Sub
 End Class

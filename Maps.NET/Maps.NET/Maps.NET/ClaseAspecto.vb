@@ -19,6 +19,25 @@
         abrirEspaña(WebBrowser1)
         WebBrowser1.Dock = DockStyle.Fill
     End Sub
+    Sub SiguienteFicha(ByVal PestañaActual As TabPage) 'Siguiente ficha
+        Dim paginaActual = FormularioPrincipal.TabControl1.SelectedIndex
+        Try
+            FormularioPrincipal.TabControl1.SelectedTab = FormularioPrincipal.TabControl1.TabPages(paginaActual + 1)
+        Catch
+            'Si hay error está en la última pestaña y lo pasamos a la primera
+            FormularioPrincipal.TabControl1.SelectedTab = FormularioPrincipal.TabControl1.TabPages(0)
+        End Try
+    End Sub
+    Sub AnteriorFicha(ByVal PestañaActual As TabPage) 'Siguiente ficha
+        Dim numeroFIchas = FormularioPrincipal.TabControl1.TabCount
+        Dim paginaActual = FormularioPrincipal.TabControl1.SelectedIndex
+        Try
+            FormularioPrincipal.TabControl1.SelectedTab = FormularioPrincipal.TabControl1.TabPages(paginaActual - 1)
+        Catch
+            'Si hay error está en la última pestaña y lo pasamos a la primera
+            FormularioPrincipal.TabControl1.SelectedTab = FormularioPrincipal.TabControl1.TabPages(numeroFIchas - 1)
+        End Try
+    End Sub
     Sub CerrarFicha(ByVal PestañaActual As TabPage) 'Cerramos ficha
         Dim paginaActual = FormularioPrincipal.TabControl1.SelectedIndex
         If paginaActual > 0 Then

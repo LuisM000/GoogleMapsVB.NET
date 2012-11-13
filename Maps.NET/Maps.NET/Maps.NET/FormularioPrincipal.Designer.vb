@@ -48,6 +48,8 @@ Partial Class FormularioPrincipal
         Me.BorrarPestañaActivarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CerrarTodasLasPestañasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CuadroDeHerramientasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SiguientePestañaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AnteriorPestañaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DirecciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LatitudLongitudToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -147,7 +149,7 @@ Partial Class FormularioPrincipal
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripSeparator1, Me.ToolStripButton3, Me.ToolStripButton5, Me.ToolStripButton6, Me.ToolStripButton4, Me.ToolStripSeparator2, Me.ToolStripButton7, Me.ToolStripButton8})
         Me.ToolStrip1.Location = New System.Drawing.Point(3, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(829, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(798, 25)
         Me.ToolStrip1.TabIndex = 0
         '
         'ToolStripButton1
@@ -245,7 +247,7 @@ Partial Class FormularioPrincipal
         '
         'EditarToolStripMenuItem
         '
-        Me.EditarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaPestañaToolStripMenuItem1, Me.BorrarPestañaActivarToolStripMenuItem1, Me.CerrarTodasLasPestañasToolStripMenuItem, Me.CuadroDeHerramientasToolStripMenuItem})
+        Me.EditarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaPestañaToolStripMenuItem1, Me.BorrarPestañaActivarToolStripMenuItem1, Me.CerrarTodasLasPestañasToolStripMenuItem, Me.CuadroDeHerramientasToolStripMenuItem, Me.SiguientePestañaToolStripMenuItem, Me.AnteriorPestañaToolStripMenuItem})
         Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
         Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(54, 21)
         Me.EditarToolStripMenuItem.Text = "Editar"
@@ -278,6 +280,20 @@ Partial Class FormularioPrincipal
         Me.CuadroDeHerramientasToolStripMenuItem.Name = "CuadroDeHerramientasToolStripMenuItem"
         Me.CuadroDeHerramientasToolStripMenuItem.Size = New System.Drawing.Size(226, 22)
         Me.CuadroDeHerramientasToolStripMenuItem.Text = "Cuadro de herramientas"
+        '
+        'SiguientePestañaToolStripMenuItem
+        '
+        Me.SiguientePestañaToolStripMenuItem.Name = "SiguientePestañaToolStripMenuItem"
+        Me.SiguientePestañaToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
+        Me.SiguientePestañaToolStripMenuItem.Size = New System.Drawing.Size(226, 22)
+        Me.SiguientePestañaToolStripMenuItem.Text = "Siguiente pestaña"
+        '
+        'AnteriorPestañaToolStripMenuItem
+        '
+        Me.AnteriorPestañaToolStripMenuItem.Name = "AnteriorPestañaToolStripMenuItem"
+        Me.AnteriorPestañaToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
+        Me.AnteriorPestañaToolStripMenuItem.Size = New System.Drawing.Size(226, 22)
+        Me.AnteriorPestañaToolStripMenuItem.Text = "Anterior pestaña"
         '
         'BuscarToolStripMenuItem
         '
@@ -450,6 +466,7 @@ Partial Class FormularioPrincipal
         Me.ClientSize = New System.Drawing.Size(866, 556)
         Me.Controls.Add(Me.ToolStripContainer1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.KeyPreview = True
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FormularioPrincipal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -521,5 +538,7 @@ Partial Class FormularioPrincipal
     Friend WithEvents AyudaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AcercaDeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FeedbackToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SiguientePestañaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AnteriorPestañaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

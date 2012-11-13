@@ -143,6 +143,9 @@ Partial Class MapasCompleto
         Me.Button14 = New System.Windows.Forms.Button()
         Me.Button15 = New System.Windows.Forms.Button()
         Me.ToolTip2 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.SiguienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AnteriorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -164,6 +167,7 @@ Partial Class MapasCompleto
         Me.Panel5.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button2
@@ -1403,6 +1407,30 @@ Partial Class MapasCompleto
         Me.ToolTip2.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
         Me.ToolTip2.ToolTipTitle = "Información"
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SiguienteToolStripMenuItem, Me.AnteriorToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(994, 24)
+        Me.MenuStrip1.TabIndex = 137
+        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.MenuStrip1.Visible = False
+        '
+        'SiguienteToolStripMenuItem
+        '
+        Me.SiguienteToolStripMenuItem.Name = "SiguienteToolStripMenuItem"
+        Me.SiguienteToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
+        Me.SiguienteToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
+        Me.SiguienteToolStripMenuItem.Text = "Siguiente"
+        '
+        'AnteriorToolStripMenuItem
+        '
+        Me.AnteriorToolStripMenuItem.Name = "AnteriorToolStripMenuItem"
+        Me.AnteriorToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
+        Me.AnteriorToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
+        Me.AnteriorToolStripMenuItem.Text = "Anterior"
+        '
         'MapasCompleto
         '
         Me.AcceptButton = Me.Button2
@@ -1421,8 +1449,10 @@ Partial Class MapasCompleto
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.KeyPreview = True
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "MapasCompleto"
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
@@ -1457,6 +1487,8 @@ Partial Class MapasCompleto
         Me.Panel5.PerformLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1580,4 +1612,7 @@ Partial Class MapasCompleto
     Friend WithEvents RBjpg As System.Windows.Forms.RadioButton
     Friend WithEvents RBgif As System.Windows.Forms.RadioButton
     Friend WithEvents RBpng8 As System.Windows.Forms.RadioButton
+    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents SiguienteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AnteriorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
