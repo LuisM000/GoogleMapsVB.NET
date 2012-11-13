@@ -7,6 +7,7 @@
         aspectoFormu.abrirEspaña(aspectoFormu.NavegadorActual(Me.TabControl1.SelectedIndex))
     End Sub
 
+
     Private Sub VerURLActualToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerURLActualToolStripMenuItem.Click
         Try
             Dim frm As New Dialog1(aspectoFormu.URLactual().ToString)

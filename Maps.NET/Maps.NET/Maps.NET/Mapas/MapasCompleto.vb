@@ -116,29 +116,28 @@
         size(0) = NumericUpDown2.Value
         size(1) = NumericUpDown3.Value
         Dim tipoMapa As Integer 'Tipo de mapa
-        Select Case ComboBox1.SelectedIndex
-            Case 0
-                tipoMapa = 0
-            Case 1
-                tipoMapa = 1
-            Case 2
-                tipoMapa = 2
-            Case 3
-                tipoMapa = 3
-        End Select
+        If RBroadmap.Checked = True Then
+            tipoMapa = 0
+        ElseIf RBsatellite.Checked = True Then
+            tipoMapa = 1
+        ElseIf RBterrain.Checked = True Then
+            tipoMapa = 2
+        ElseIf RBhybrid.Checked = True Then
+            tipoMapa = 3
+        End If
+        
         Dim tipoFormato As Integer 'Tipo de formato
-        Select Case ComboBox2.SelectedIndex
-            Case 0
-                tipoFormato = 0
-            Case 1
-                tipoFormato = 1
-            Case 2
-                tipoFormato = 2
-            Case 3
-                tipoFormato = 3
-            Case 4
-                tipoFormato = 4
-        End Select
+        If RBpng8.Checked = True Then
+            tipoFormato = 0
+        ElseIf RBpng32.Checked = True Then
+            tipoFormato = 1
+        ElseIf RBgif.Checked = True Then
+            tipoFormato = 2
+        ElseIf RBjpg.Checked = True Then
+            tipoFormato = 3
+        ElseIf RBjpgBase.Checked = True Then
+            tipoFormato = 4
+        End If
 
         Dim marcadores As New ArrayList
         For i = 0 To DataGridView1.Rows.Count - 2
@@ -267,10 +266,13 @@
         DataGridView3.Rows.Clear()
     End Sub
 
+   
+
+
 
 
     '********PARTE DE DISEÑO***************************************************
-  
+
     Private Sub MapasCompleto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         panelAct = Panel1
         Panel1.Location = New Size(30, 94)
@@ -298,8 +300,8 @@
         Dim myPen As New System.Drawing.Pen(System.Drawing.Color.Black, 2)
         Dim formGraphics As System.Drawing.Graphics
         formGraphics = Me.CreateGraphics()
-        formGraphics.DrawLine(myPen, 10, 60, Me.Size.Width - 28, 60)
-        formGraphics.DrawLine(myPen, 10, 300, Me.Size.Width - 28, 300)
+        formGraphics.DrawLine(myPen, 10, 50, Me.Size.Width - 28, 50)
+        formGraphics.DrawLine(myPen, 10, 359, Me.Size.Width - 28, 359)
         myPen.Dispose()
         formGraphics.Dispose()
     End Sub
@@ -360,11 +362,11 @@
     Private Sub Label23_Click(sender As Object, e As EventArgs) Handles Label23.Click
         If (Timer1.Enabled = False And Timer2.Enabled = False) Then
             If panelAct IsNot Panel5 Then
-                'txtmarcador.Focus()
+                Button18.Focus()
                 limpiarColores(Label23)
                 Timer1.Enabled = True
                 panelAct2 = Panel5
-                'tabuladores() : txtmarcador.TabStop = True : Button3.TabStop = True
+                tabuladores()
 
             End If
         End If
@@ -437,8 +439,8 @@
         NumericUpDown3.Value = 650
         NumericUpDown2.Value = 650
         NumericUpDown1.Value = 14
-        ComboBox1.SelectedIndex = 0
-        ComboBox2.SelectedIndex = 0
+        RBroadmap.Checked = True
+        RBjpg.Checked = True
 
         'panel2
         txtmarcador.Text = ""
@@ -597,8 +599,8 @@
     End Sub
 
     'ESTILOS PREDETERMINADOS
-   
-    Private Sub CheckBox4_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
+
+    Private Sub CheckBox4_CheckedChanged_1(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
         If CheckBox4.Enabled = True Then
             CheckBox5.Enabled = False
             EstilosPredeterminados("caso1")
@@ -608,7 +610,7 @@
         End If
     End Sub
 
-    Private Sub CheckBox5_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox5.CheckedChanged
+    Private Sub CheckBox5_CheckedChanged_1(sender As Object, e As EventArgs) Handles CheckBox5.CheckedChanged
         If CheckBox5.Enabled = True Then
             CheckBox4.Enabled = False
             EstilosPredeterminados("caso2")
@@ -617,7 +619,7 @@
             CheckBox4.Enabled = True
         End If
     End Sub
-
+   
     Sub EstilosPredeterminados(ByVal estilo As String)
         DataGridView4.Rows.Clear() 'Borramos los campos del datagridview
         Select Case estilo
@@ -634,4 +636,6 @@
                 DataGridView4.Rows.Add("transit.line", "geometry", "0xff0000", "-70", "", "", "on")
         End Select
     End Sub
+
+  
 End Class
