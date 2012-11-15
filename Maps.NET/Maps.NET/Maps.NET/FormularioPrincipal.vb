@@ -67,6 +67,10 @@
         CodifInversa.Show()
     End Sub
 
+    Private Sub CódigoPostalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CódigoPostalToolStripMenuItem.Click
+        CodigoPostal.Show()
+    End Sub
+
     Private Sub BuscarServicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BuscarServicioToolStripMenuItem.Click
         Places.Show()
     End Sub
@@ -160,8 +164,5 @@
     Private Sub ToolStripButton8_Click(sender As Object, e As EventArgs) Handles ToolStripButton8.Click
         CuadroDeHerramientasToolStripMenuItem_Click(sender, e)
     End Sub
- 
-    
-    
  
 End Class

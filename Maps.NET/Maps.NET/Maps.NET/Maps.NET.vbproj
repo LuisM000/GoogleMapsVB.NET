@@ -113,6 +113,12 @@
     <Compile Include="FormuSecundarios\CodifInversa.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormuSecundarios\CodigoPostal.Designer.vb">
+      <DependentUpon>CodigoPostal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormuSecundarios\CodigoPostal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormuSecundarios\DatosLocal.Designer.vb">
       <DependentUpon>DatosLocal.vb</DependentUpon>
     </Compile>
@@ -129,6 +135,12 @@
       <DependentUpon>StreetViewlat.vb</DependentUpon>
     </Compile>
     <Compile Include="FormuSecundarios\StreetViewlat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mapas\ImportarXML.Designer.vb">
+      <DependentUpon>ImportarXML.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Mapas\ImportarXML.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Mapas\MapasCompleto.Designer.vb">
@@ -293,6 +305,9 @@
     <EmbeddedResource Include="FormuSecundarios\CodifInversa.resx">
       <DependentUpon>CodifInversa.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormuSecundarios\CodigoPostal.resx">
+      <DependentUpon>CodigoPostal.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\DatosLocal.resx">
       <DependentUpon>DatosLocal.vb</DependentUpon>
     </EmbeddedResource>
@@ -301,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\StreetViewlat.resx">
       <DependentUpon>StreetViewlat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapas\ImportarXML.resx">
+      <DependentUpon>ImportarXML.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mapas\MapasCompleto.resx">
       <DependentUpon>MapasCompleto.vb</DependentUpon>

@@ -55,7 +55,7 @@
     Function cadenasDatagridEstilos()
         Dim cadenaEst As String = ""
 
-        For i = 0 To DataGridView4.Rows.Count - 2
+        For i = 0 To DataGridView4.Rows.Count - 1
 
             'Feature
             Dim feature As String = "feature:" & DataGridView4.Item(0, i).Value.ToString.Replace(vbTab, "").Replace(" ", "")
@@ -156,7 +156,7 @@
 
 
         Dim estilos As New ArrayList
-        If DataGridView4.Rows.Count - 1 > 0 Then
+        If DataGridView4.Rows.Count > 0 Then
             estilos.Add(cadenasDatagridEstilos())
         End If
 
@@ -675,6 +675,47 @@
             Label20_Click(sender, e)
         ElseIf Label23.ForeColor = Color.Blue Then
             Label21_Click(sender, e)
+        End If
+    End Sub
+
+    'Abrir el formulario donde importar xml con la configuración para el datagridview
+    Private Sub Button21_Click(sender As Object, e As EventArgs) Handles Button21.Click
+        rutaArchivoimportar = ""
+        ImportarXML.ShowDialog()
+        If rutaArchivoimportar <> "" Then
+            DataGridView4.Rows.Clear()
+            Dim aspectoFormu As New AspectoFormulario
+            aspectoFormu.rellenarGRidconXML(DataGridView4, rutaArchivoimportar)
+        End If
+    End Sub
+
+    'Guardar una configuración del datagridview
+    Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
+        If DataGridView4.Rows.Count = 0 Then 'Comprobamos si hay algo en el datagridview
+            MessageBox.Show("No hay ningún estilo añadido, por favor, añada alguno.", "Ayuda", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Exit Sub
+        End If
+        Dim aspectoform As New AspectoFormulario
+        Dim nombre As String
+        Me.TopMost = False
+        nombre = (InputBox("Introduzca el nombre de su configuración", "Guardar configuración", "Configuración_personalizada"))
+        Me.TopMost = True
+        If nombre <> "" Then 'Comprobamos que el nombre no está vacío
+
+            'Comprobamos que no haya un archivo igual en el directorio
+            If aspectoform.verificarNombreArchivo(nombre) = False Then
+                Dim respuesta As DialogResult = MessageBox.Show("Esta configuración ya existe, ¿desea sobreescribirla?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error)
+                Select Case respuesta
+                    Case Windows.Forms.DialogResult.Yes
+                        aspectoform.guardarDataGrid(DataGridView4, nombre)
+                    Case Windows.Forms.DialogResult.No
+                        Exit Sub
+                End Select
+            End If
+            aspectoform.guardarDataGrid(DataGridView4, nombre)
+
+        Else
+            MessageBox.Show("Por favor, escriba un nombre válido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 End Class

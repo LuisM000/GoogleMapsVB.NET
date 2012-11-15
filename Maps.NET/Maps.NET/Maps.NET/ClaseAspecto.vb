@@ -1,4 +1,8 @@
-﻿Public Class AspectoFormulario
+﻿Imports System.Xml
+Imports System.IO
+Imports System.Xml.XPath
+
+Public Class AspectoFormulario
 
 
     Sub TabControlYpanel() 'Ajustamos el tabcontrol al panel
@@ -75,7 +79,7 @@
         navegador = NavegadorActivo(0)
         Return navegador
     End Function
-  
+
     Public Function verificarnumeros(ByVal datos As String) 'Enviamos True si el dato es número
         Dim dato As Boolean = False
         If IsNumeric(datos) Then
@@ -109,6 +113,209 @@
         Return (navegador.Url)
 
     End Function
+
+
+    Function listaXML(ByVal rutaDirectorio As String) 'Listar los archivos xml de un directorio
+        Dim folder As New DirectoryInfo(rutaDirectorio) 'Directorio
+        Dim listaDearchivos As New ArrayList
+        For Each file As FileInfo In folder.GetFiles() 'Comprobamos si los archivos xml
+            If file.ToString.EndsWith(".xml") = True Then
+                listaDearchivos.Add(file.ToString)
+            End If
+        Next
+        Return listaDearchivos
+    End Function
+
+
+    'IMPORTAR XML Y CREAR XML *********************************
+    '**********************************************************
+
+    Private Function comprobarDato(ByVal cadena As String)
+        If cadena = "" Then
+            comprobarDato = "NO_DATA"
+        Else
+            comprobarDato = cadena
+        End If
+    End Function
+
+    Private Function comprobarDatoInversa(ByVal cadena As String)
+        If cadena = "NO_DATA" Then
+            comprobarDatoInversa = ""
+        Else
+            comprobarDatoInversa = cadena
+        End If
+    End Function
+
+    Public Function verificarNombreArchivo(ByVal nombreArchivo As String) As Boolean
+        verificarNombreArchivo = True
+
+        Dim folder As New DirectoryInfo(System.IO.Directory.GetCurrentDirectory()) 'Directorio
+        For Each file As FileInfo In folder.GetFiles() 'Comprobamos si hay un archivo igual
+            If file.ToString = nombreArchivo & ".xml" Then
+                verificarNombreArchivo = False
+            End If
+        Next
+
+    End Function
+
+    Public Sub guardarDataGrid(ByVal data As DataGridView, ByVal nombreArchivo As String)
+
+        Try
+            Dim myXmlTextWriter As XmlTextWriter = New XmlTextWriter(nombreArchivo & ".xml", System.Text.Encoding.UTF8)
+            myXmlTextWriter.Formatting = System.Xml.Formatting.Indented
+            myXmlTextWriter.WriteStartDocument(False)
+            'Crear el elemento de documento principal.
+            myXmlTextWriter.WriteStartElement("config_maps_styles")
+            myXmlTextWriter.WriteStartElement("styles")
+
+
+            For filas As Integer = 0 To data.RowCount - 1
+                myXmlTextWriter.WriteStartElement("style")
+
+                'Crear un elemento llamado 'feature' con un nodo de texto
+                ' y cerrar el elemento.
+                myXmlTextWriter.WriteStartElement("feature")
+                myXmlTextWriter.WriteString(comprobarDato(data.Item(0, filas).Value))
+                myXmlTextWriter.WriteEndElement()
+
+
+                myXmlTextWriter.WriteStartElement("element")
+                myXmlTextWriter.WriteString(comprobarDato(data.Item(1, filas).Value))
+                myXmlTextWriter.WriteEndElement()
+
+                myXmlTextWriter.WriteStartElement("hue")
+                myXmlTextWriter.WriteString(comprobarDato(data.Item(2, filas).Value))
+                myXmlTextWriter.WriteEndElement()
+
+                myXmlTextWriter.WriteStartElement("lightness")
+                myXmlTextWriter.WriteString(comprobarDato(data.Item(3, filas).Value))
+                myXmlTextWriter.WriteEndElement()
+
+                myXmlTextWriter.WriteStartElement("saturation")
+                myXmlTextWriter.WriteString(comprobarDato(data.Item(4, filas).Value))
+                myXmlTextWriter.WriteEndElement()
+
+                myXmlTextWriter.WriteStartElement("gamma")
+                myXmlTextWriter.WriteString(comprobarDato(data.Item(5, filas).Value))
+                myXmlTextWriter.WriteEndElement()
+
+
+                myXmlTextWriter.WriteStartElement("visibility")
+                myXmlTextWriter.WriteString(comprobarDato(data.Item(6, filas).Value))
+                myXmlTextWriter.WriteEndElement()
+
+
+                'Cerramos style
+                myXmlTextWriter.WriteEndElement()
+            Next
+
+            'Cerrar el elemento style.
+            myXmlTextWriter.WriteEndElement()
+            'Cerrar el elemento primario config_maps_styles.
+            myXmlTextWriter.WriteEndElement()
+            myXmlTextWriter.Flush()
+            myXmlTextWriter.Close()
+
+        Catch e As System.ArgumentException
+            MessageBox.Show("Caraceteres no válidos en el nombre del archivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+    End Sub
+
+    Public Sub rellenarGRidconXML(ByVal grid As DataGridView, ByVal rutaArchivo As String)
+        'Preparamos el xml
+        Dim NodeIter As XPathNodeIterator
+        Dim docNav As New XPathDocument(rutaArchivo)
+        Dim nav = docNav.CreateNavigator
+
+        'Preparamos las rutas
+        Dim Exfeature, Exelement, Exhue, Exlightness, Exsaturation, Exgamma, Exvisibility As String
+
+        Exfeature = "config_maps_styles/styles/style/feature"
+        Exelement = "config_maps_styles/styles/style/element"
+        Exhue = "config_maps_styles/styles/style/hue"
+        Exlightness = "config_maps_styles/styles/style/lightness"
+        Exsaturation = "config_maps_styles/styles/style/saturation"
+        Exgamma = "config_maps_styles/styles/style/gamma"
+        Exvisibility = "config_maps_styles/styles/style/visibility"
+
+        Dim features, elements, hues, lightness, saturations, gammas, visibilities As New ArrayList
+
+        'Recorremos el xml
+        NodeIter = nav.Select(Exfeature)
+        While (NodeIter.MoveNext())
+            features.Add(NodeIter.Current.Value)
+        End While
+
+        NodeIter = nav.Select(Exelement)
+        While (NodeIter.MoveNext())
+            elements.Add(NodeIter.Current.Value)
+        End While
+
+        NodeIter = nav.Select(Exhue)
+        While (NodeIter.MoveNext())
+            hues.Add(NodeIter.Current.Value)
+        End While
+
+        NodeIter = nav.Select(Exlightness)
+        While (NodeIter.MoveNext())
+            lightness.Add(NodeIter.Current.Value)
+        End While
+
+        NodeIter = nav.Select(Exsaturation)
+        While (NodeIter.MoveNext())
+            saturations.Add(NodeIter.Current.Value)
+        End While
+
+        NodeIter = nav.Select(Exgamma)
+        While (NodeIter.MoveNext())
+            gammas.Add(NodeIter.Current.Value)
+        End While
+
+        NodeIter = nav.Select(Exvisibility)
+        While (NodeIter.MoveNext())
+            visibilities.Add(NodeIter.Current.Value)
+        End While
+
+        For i = 0 To features.Count - 1
+            grid.Rows.Add(comprobarDatoInversa(features(i)), comprobarDatoInversa(elements(i)), comprobarDatoInversa(hues(i)), comprobarDatoInversa(lightness(i)), comprobarDatoInversa(saturations(i)), comprobarDatoInversa(gammas(i)), comprobarDatoInversa(visibilities(i)))
+        Next
+
+
+    End Sub
+
+    Public Function comprobarEstilo(ByVal rutaArchivo As String)
+        Try
+
+            'Preparamos el archivo xml
+            Dim NodeIter As XPathNodeIterator
+            Dim docNav As New XPathDocument(rutaArchivo)
+            Dim nav = docNav.CreateNavigator
+            Dim ExBuscar As String
+            ExBuscar = "config_maps_styles"
+
+
+            Dim buscar As New ArrayList
+            'Recorremos el xml
+            NodeIter = nav.Select(ExBuscar)
+            While (NodeIter.MoveNext())
+                buscar.Add(NodeIter.Current.Value)
+            End While
+
+            If buscar.Count = 0 Then
+                Return False
+            Else
+                Return True
+            End If
+        Catch
+            Return False
+        End Try
+    End Function
+
+
+
+    'FIN DE IMPORTAR/CREAR XML *************************
+    '***************************************************
     Function DevuelveEstablecimientosIngles(ByVal Establecimientos As ArrayList) 'TRasnformamos a idioma válido para places
         Dim establIngles As New ArrayList
         Dim valor As String = "establishment"

@@ -25,4 +25,7 @@
     'Hilo
     Public hiloImagenes As Threading.Thread
     Public hiloMapas As Threading.Thread
+
+    'Mapas completos (importar xml)
+    Public rutaArchivoimportar As String
 End Module

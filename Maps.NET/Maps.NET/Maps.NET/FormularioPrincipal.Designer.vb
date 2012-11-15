@@ -75,6 +75,7 @@ Partial Class FormularioPrincipal
         Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AcercaDeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FeedbackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CódigoPostalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer1.SuspendLayout()
@@ -324,7 +325,7 @@ Partial Class FormularioPrincipal
         '
         'CodificaciónGeográficaToolStripMenuItem
         '
-        Me.CodificaciónGeográficaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DirectaToolStripMenuItem, Me.InversaToolStripMenuItem})
+        Me.CodificaciónGeográficaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DirectaToolStripMenuItem, Me.InversaToolStripMenuItem, Me.CódigoPostalToolStripMenuItem})
         Me.CodificaciónGeográficaToolStripMenuItem.Name = "CodificaciónGeográficaToolStripMenuItem"
         Me.CodificaciónGeográficaToolStripMenuItem.Size = New System.Drawing.Size(158, 21)
         Me.CodificaciónGeográficaToolStripMenuItem.Text = "Codificación geográfica"
@@ -450,14 +451,20 @@ Partial Class FormularioPrincipal
         'AcercaDeToolStripMenuItem
         '
         Me.AcercaDeToolStripMenuItem.Name = "AcercaDeToolStripMenuItem"
-        Me.AcercaDeToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.AcercaDeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AcercaDeToolStripMenuItem.Text = "Acerca de"
         '
         'FeedbackToolStripMenuItem
         '
         Me.FeedbackToolStripMenuItem.Name = "FeedbackToolStripMenuItem"
-        Me.FeedbackToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.FeedbackToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.FeedbackToolStripMenuItem.Text = "Feedback "
+        '
+        'CódigoPostalToolStripMenuItem
+        '
+        Me.CódigoPostalToolStripMenuItem.Name = "CódigoPostalToolStripMenuItem"
+        Me.CódigoPostalToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
+        Me.CódigoPostalToolStripMenuItem.Text = "Código postal"
         '
         'FormularioPrincipal
         '
@@ -540,5 +547,6 @@ Partial Class FormularioPrincipal
     Friend WithEvents FeedbackToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SiguientePestañaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AnteriorPestañaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CódigoPostalToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

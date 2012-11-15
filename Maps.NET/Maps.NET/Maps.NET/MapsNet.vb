@@ -184,6 +184,49 @@ Public Class MapsNet
         Return direcc
     End Function
 
+
+    Public Function CodigoPostal(ByVal direccion As String, Optional ByVal regionBusqueda As String = "es") 'busca latitud/longitud a partir de dirección
+
+        'Creamos la url con los datso
+        Dim url = "http://maps.googleapis.com/maps/api/geocode/xml?address=" & direccion & "&region=" & regionBusqueda & "&sensor=false&language=es"
+        Dim adress As New ArrayList()
+
+        Dim req As HttpWebRequest = DirectCast(WebRequest.Create(url), HttpWebRequest)
+        req.Timeout = 3000
+        Try
+            'Preparamos el archivo xml
+            Dim res As System.Net.WebResponse = req.GetResponse()
+            Dim responseStream As Stream = res.GetResponseStream()
+            Dim NodeIter As XPathNodeIterator
+            Dim docNav As New XPathDocument(responseStream)
+            Dim nav = docNav.CreateNavigator
+
+            Dim Exadress As String
+            Dim CP As String = ""
+            'Creamos los paths
+            Exadress = "/GeocodeResponse/result/address_component"
+
+           
+            'Recorremos el xml
+            NodeIter = nav.Select(Exadress)
+            While (NodeIter.MoveNext())
+                If NodeIter.Current.Value.Contains("postal_code") Then
+                    CP = NodeIter.Current.Value.Substring(0, 5)
+                    Exit While
+                End If
+            End While
+
+            Return CP
+            responseStream.Close()
+            Me.almacenarDatosHTTP(url, "Petición de código postal", "OK") 'Almacenamos información
+        Catch ex As Exception
+            Me.almacenarDatosHTTP(url, "Petición de código postal", "PERDIDO", ex.ToString) 'Almacenamos información
+        End Try
+        Return adress
+    End Function
+
+
+
     Public Function PlacesLatLong(ByVal latitud As Double, ByVal longitud As Double, Optional ByVal radio As Integer = 3000, Optional tipoLocal As ArrayList = Nothing, Optional NombreEstablecimiento As String = "", Optional idioma As String = "es") 'busca un place desde lat/long
         'Creamos las variables desde las opcionales
 

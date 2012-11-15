@@ -37,11 +37,6 @@ Partial Class MapasCompleto
         Me.txtmarcador = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
@@ -112,7 +107,6 @@ Partial Class MapasCompleto
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.CheckBox5 = New System.Windows.Forms.CheckBox()
         Me.CheckBox4 = New System.Windows.Forms.CheckBox()
-        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.Button19 = New System.Windows.Forms.Button()
         Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.lblGamma = New System.Windows.Forms.Label()
@@ -146,14 +140,17 @@ Partial Class MapasCompleto
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.SiguienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AnteriorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Button20 = New System.Windows.Forms.Button()
+        Me.Button21 = New System.Windows.Forms.Button()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -165,9 +162,14 @@ Partial Class MapasCompleto
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel5.SuspendLayout()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button2
@@ -298,62 +300,6 @@ Partial Class MapasCompleto
         Me.ToolTip1.ReshowDelay = 100
         Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
         Me.ToolTip1.ToolTipTitle = "Ayuda"
-        '
-        'PictureBox5
-        '
-        Me.PictureBox5.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox5.Location = New System.Drawing.Point(75, 32)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(20, 20)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox5.TabIndex = 94
-        Me.PictureBox5.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.PictureBox5, resources.GetString("PictureBox5.ToolTip"))
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox3.Location = New System.Drawing.Point(783, 48)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(20, 20)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 90
-        Me.PictureBox3.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.PictureBox3, "Especifica un único carácter alfanumérico en mayúscula del conjunto {A-Z, 0-9} y " & _
-        "se " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "incluye en el interior del marcador.")
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox2.Location = New System.Drawing.Point(136, 48)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(20, 20)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 81
-        Me.PictureBox2.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.PictureBox2, resources.GetString("PictureBox2.ToolTip"))
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox1.Location = New System.Drawing.Point(210, 4)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(20, 20)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 68
-        Me.PictureBox1.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.PictureBox1, resources.GetString("PictureBox1.ToolTip"))
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox4.Location = New System.Drawing.Point(171, 26)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(20, 20)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 120
-        Me.PictureBox4.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.PictureBox4, resources.GetString("PictureBox4.ToolTip"))
         '
         'Label7
         '
@@ -1058,6 +1004,8 @@ Partial Class MapasCompleto
         '
         'Panel5
         '
+        Me.Panel5.Controls.Add(Me.Button21)
+        Me.Panel5.Controls.Add(Me.Button20)
         Me.Panel5.Controls.Add(Me.CheckBox5)
         Me.Panel5.Controls.Add(Me.CheckBox4)
         Me.Panel5.Controls.Add(Me.PictureBox6)
@@ -1112,21 +1060,10 @@ Partial Class MapasCompleto
         Me.CheckBox4.Text = "Estilo predeterminado 1"
         Me.CheckBox4.UseVisualStyleBackColor = True
         '
-        'PictureBox6
-        '
-        Me.PictureBox6.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox6.Location = New System.Drawing.Point(446, 2)
-        Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(20, 20)
-        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox6.TabIndex = 152
-        Me.PictureBox6.TabStop = False
-        Me.ToolTip2.SetToolTip(Me.PictureBox6, resources.GetString("PictureBox6.ToolTip"))
-        '
         'Button19
         '
         Me.Button19.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button19.Location = New System.Drawing.Point(692, 137)
+        Me.Button19.Location = New System.Drawing.Point(682, 139)
         Me.Button19.Name = "Button19"
         Me.Button19.Size = New System.Drawing.Size(83, 23)
         Me.Button19.TabIndex = 151
@@ -1150,7 +1087,7 @@ Partial Class MapasCompleto
         '
         Me.lblGamma.AutoSize = True
         Me.lblGamma.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblGamma.Location = New System.Drawing.Point(946, 109)
+        Me.lblGamma.Location = New System.Drawing.Point(936, 109)
         Me.lblGamma.Name = "lblGamma"
         Me.lblGamma.Size = New System.Drawing.Size(15, 17)
         Me.lblGamma.TabIndex = 149
@@ -1158,6 +1095,7 @@ Partial Class MapasCompleto
         '
         'DataGridView4
         '
+        Me.DataGridView4.AllowUserToAddRows = False
         Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView4.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.Brillo, Me.Saturación, Me.Gamma, Me.Visibilidad})
         Me.DataGridView4.Location = New System.Drawing.Point(24, 182)
@@ -1211,7 +1149,7 @@ Partial Class MapasCompleto
         '
         Me.lblSaturacion.AutoSize = True
         Me.lblSaturacion.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSaturacion.Location = New System.Drawing.Point(946, 59)
+        Me.lblSaturacion.Location = New System.Drawing.Point(936, 59)
         Me.lblSaturacion.Name = "lblSaturacion"
         Me.lblSaturacion.Size = New System.Drawing.Size(15, 17)
         Me.lblSaturacion.TabIndex = 148
@@ -1221,7 +1159,7 @@ Partial Class MapasCompleto
         '
         Me.lblBrillo.AutoSize = True
         Me.lblBrillo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBrillo.Location = New System.Drawing.Point(946, 9)
+        Me.lblBrillo.Location = New System.Drawing.Point(936, 9)
         Me.lblBrillo.Name = "lblBrillo"
         Me.lblBrillo.Size = New System.Drawing.Size(15, 17)
         Me.lblBrillo.TabIndex = 147
@@ -1231,7 +1169,7 @@ Partial Class MapasCompleto
         '
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(689, 109)
+        Me.Label27.Location = New System.Drawing.Point(679, 109)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(53, 17)
         Me.Label27.TabIndex = 146
@@ -1239,7 +1177,7 @@ Partial Class MapasCompleto
         '
         'HScrollBar3
         '
-        Me.HScrollBar3.Location = New System.Drawing.Point(761, 109)
+        Me.HScrollBar3.Location = New System.Drawing.Point(751, 109)
         Me.HScrollBar3.Maximum = 1009
         Me.HScrollBar3.Minimum = 1
         Me.HScrollBar3.Name = "HScrollBar3"
@@ -1251,7 +1189,7 @@ Partial Class MapasCompleto
         '
         Me.Label26.AutoSize = True
         Me.Label26.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(689, 59)
+        Me.Label26.Location = New System.Drawing.Point(679, 59)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(69, 17)
         Me.Label26.TabIndex = 144
@@ -1259,7 +1197,7 @@ Partial Class MapasCompleto
         '
         'HScrollBar2
         '
-        Me.HScrollBar2.Location = New System.Drawing.Point(761, 59)
+        Me.HScrollBar2.Location = New System.Drawing.Point(751, 59)
         Me.HScrollBar2.Maximum = 109
         Me.HScrollBar2.Minimum = -100
         Me.HScrollBar2.Name = "HScrollBar2"
@@ -1270,7 +1208,7 @@ Partial Class MapasCompleto
         '
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(689, 9)
+        Me.Label24.Location = New System.Drawing.Point(679, 9)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(37, 17)
         Me.Label24.TabIndex = 142
@@ -1278,7 +1216,7 @@ Partial Class MapasCompleto
         '
         'HScrollBar1
         '
-        Me.HScrollBar1.Location = New System.Drawing.Point(761, 9)
+        Me.HScrollBar1.Location = New System.Drawing.Point(751, 9)
         Me.HScrollBar1.Maximum = 109
         Me.HScrollBar1.Minimum = -100
         Me.HScrollBar1.Name = "HScrollBar1"
@@ -1431,6 +1369,93 @@ Partial Class MapasCompleto
         Me.AnteriorToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
         Me.AnteriorToolStripMenuItem.Text = "Anterior"
         '
+        'Button20
+        '
+        Me.Button20.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button20.Location = New System.Drawing.Point(882, 182)
+        Me.Button20.Name = "Button20"
+        Me.Button20.Size = New System.Drawing.Size(83, 23)
+        Me.Button20.TabIndex = 157
+        Me.Button20.Text = "Guardar"
+        Me.Button20.UseVisualStyleBackColor = True
+        '
+        'Button21
+        '
+        Me.Button21.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button21.Location = New System.Drawing.Point(882, 210)
+        Me.Button21.Name = "Button21"
+        Me.Button21.Size = New System.Drawing.Size(83, 23)
+        Me.Button21.TabIndex = 158
+        Me.Button21.Text = "Importar"
+        Me.Button21.UseVisualStyleBackColor = True
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.Image = Global.Maps.NET.My.Resources.Resources.help
+        Me.PictureBox6.Location = New System.Drawing.Point(446, 2)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(20, 20)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox6.TabIndex = 152
+        Me.PictureBox6.TabStop = False
+        Me.ToolTip2.SetToolTip(Me.PictureBox6, resources.GetString("PictureBox6.ToolTip"))
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.Maps.NET.My.Resources.Resources.help
+        Me.PictureBox4.Location = New System.Drawing.Point(171, 26)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(20, 20)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 120
+        Me.PictureBox4.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox4, resources.GetString("PictureBox4.ToolTip"))
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.Image = Global.Maps.NET.My.Resources.Resources.help
+        Me.PictureBox5.Location = New System.Drawing.Point(75, 32)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(20, 20)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox5.TabIndex = 94
+        Me.PictureBox5.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox5, resources.GetString("PictureBox5.ToolTip"))
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.Maps.NET.My.Resources.Resources.help
+        Me.PictureBox2.Location = New System.Drawing.Point(136, 48)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(20, 20)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 81
+        Me.PictureBox2.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox2, resources.GetString("PictureBox2.ToolTip"))
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = Global.Maps.NET.My.Resources.Resources.help
+        Me.PictureBox3.Location = New System.Drawing.Point(783, 48)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(20, 20)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 90
+        Me.PictureBox3.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox3, "Especifica un único carácter alfanumérico en mayúscula del conjunto {A-Z, 0-9} y " & _
+        "se " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "incluye en el interior del marcador.")
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Maps.NET.My.Resources.Resources.help
+        Me.PictureBox1.Location = New System.Drawing.Point(210, 4)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(20, 20)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 68
+        Me.PictureBox1.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox1, resources.GetString("PictureBox1.ToolTip"))
+        '
         'MapasCompleto
         '
         Me.AcceptButton = Me.Button2
@@ -1462,11 +1487,6 @@ Partial Class MapasCompleto
         CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1485,10 +1505,15 @@ Partial Class MapasCompleto
         Me.Panel4.PerformLayout()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1615,4 +1640,6 @@ Partial Class MapasCompleto
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents SiguienteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AnteriorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Button21 As System.Windows.Forms.Button
+    Friend WithEvents Button20 As System.Windows.Forms.Button
 End Class

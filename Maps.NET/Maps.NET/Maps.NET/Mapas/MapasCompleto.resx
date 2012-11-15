@@ -120,29 +120,6 @@
   <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="PictureBox5.ToolTip" xml:space="preserve">
-    <value>Define un conjunto de una o varias ubicaciones conectadas por una ruta que se deben superponer a la imagen del mapa.
-Las ubicaciones se pueden definir por su dirección o latitud,longitud.
-Si se establecen marcadores, se omiten los datos de centro de mapa y zoom, ya que se establecen automáticamente.
-</value>
-  </data>
-  <data name="PictureBox2.ToolTip" xml:space="preserve">
-    <value>Los marcadores son un conjunto de uno o varias marcas en un conjunto de ubicaciones determinadas.
-Las ubicaciones se pueden definir por su dirección o latitud,longitud.
-Si se establecen marcadores, se omiten los datos de centro de mapa y zoom, ya que se establecen automáticamente.</value>
-  </data>
-  <data name="PictureBox1.ToolTip" xml:space="preserve">
-    <value>Puede introducir directamente una dirección: Puerta del Sol, Madrid, España
-Puede introducir directamente latitud,longitud: 40.4168762,-3.7033046
-Ambas posibilidades son equivalentes.
-Si establece una ruta o un marcador, el centro del mapa y zoom serán obviados</value>
-  </data>
-  <data name="PictureBox4.ToolTip" xml:space="preserve">
-    <value>Especifica una o varias ubicaciones que deben estar visibles en el mapa, aunque no se muestre ningún marcador o ningún indicador.
-Las ubicaciones se pueden definir por su dirección o latitud,longitud.
-Si se establecen ubicaciones visibles, se omiten los datos de centro de mapa y zoom, ya que se establecen automáticamente.
-</value>
-  </data>
   <metadata name="ColorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>116, 17</value>
   </metadata>
@@ -287,6 +264,29 @@ Agua: Aplica la regla a todas las zonas con agua.</value>
   <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>516, 17</value>
   </metadata>
+  <data name="PictureBox4.ToolTip" xml:space="preserve">
+    <value>Especifica una o varias ubicaciones que deben estar visibles en el mapa, aunque no se muestre ningún marcador o ningún indicador.
+Las ubicaciones se pueden definir por su dirección o latitud,longitud.
+Si se establecen ubicaciones visibles, se omiten los datos de centro de mapa y zoom, ya que se establecen automáticamente.
+</value>
+  </data>
+  <data name="PictureBox5.ToolTip" xml:space="preserve">
+    <value>Define un conjunto de una o varias ubicaciones conectadas por una ruta que se deben superponer a la imagen del mapa.
+Las ubicaciones se pueden definir por su dirección o latitud,longitud.
+Si se establecen marcadores, se omiten los datos de centro de mapa y zoom, ya que se establecen automáticamente.
+</value>
+  </data>
+  <data name="PictureBox2.ToolTip" xml:space="preserve">
+    <value>Los marcadores son un conjunto de uno o varias marcas en un conjunto de ubicaciones determinadas.
+Las ubicaciones se pueden definir por su dirección o latitud,longitud.
+Si se establecen marcadores, se omiten los datos de centro de mapa y zoom, ya que se establecen automáticamente.</value>
+  </data>
+  <data name="PictureBox1.ToolTip" xml:space="preserve">
+    <value>Puede introducir directamente una dirección: Puerta del Sol, Madrid, España
+Puede introducir directamente latitud,longitud: 40.4168762,-3.7033046
+Ambas posibilidades son equivalentes.
+Si establece una ruta o un marcador, el centro del mapa y zoom serán obviados</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>31</value>
   </metadata>
