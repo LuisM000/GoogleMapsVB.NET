@@ -14,6 +14,9 @@
             'Este código sirve para seleccionar el navegador de la pestaña activa
             Dim navegador = aspectoFormu.NavegadorActual(FormularioPrincipal.TabControl1.SelectedIndex)
             navegador.Url = direccion
+            'Añadir al autocompletado
+            aspectoFormu.autocompletar(txtlatitud.Text)
+            aspectoFormu.autocompletar(txtlongitud.Text)
         Else
             If aspectoFormu.verificarnumeros(txtlatitud.Text) = False Then txtlatitud.ForeColor = Color.Red
             If aspectoFormu.verificarnumeros(txtlongitud.Text) = False Then txtlongitud.ForeColor = Color.Red
@@ -35,5 +38,20 @@
 
     Private Sub txtlongitud_KeyDown(sender As Object, e As KeyEventArgs) Handles txtlongitud.KeyDown
         txtlongitud.ForeColor = Color.Black 'Pintamos de negro para actualizar
+    End Sub
+
+    Private Sub Latitud_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Indicamos que el txt admite autocompletado
+        With txtlatitud
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
+        'Indicamos que el txt admite autocompletado
+        With txtlongitud
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
     End Sub
 End Class

@@ -12,6 +12,17 @@
         'Este código sirve para seleccionar el navegador de la pestaña activa
         Dim navegador = aspectoFormu.NavegadorActual(FormularioPrincipal.TabControl1.SelectedIndex)
         navegador.Url = direccion
+        'Añadir al autocompletado
+        aspectoFormu.autocompletar(txtdireccion.Text)
 
+    End Sub
+
+    Private Sub Dirección_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Indicamos que el txt admite autocompletado
+        With txtdireccion
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
     End Sub
 End Class

@@ -28,10 +28,15 @@
             Catch
                 txtdireccion3.Text = "No se han encontrado resultados"
             End Try
+
+            'Añadir al autocompletado
+            aspectoFormu.autocompletar(txtlatitud.Text)
+            aspectoFormu.autocompletar(txtlongitud.Text)
         Else
             If aspectoFormu.verificarnumeros(txtlatitud.Text) = False Then txtlatitud.ForeColor = Color.Red
             If aspectoFormu.verificarnumeros(txtlongitud.Text) = False Then txtlongitud.ForeColor = Color.Red
         End If
+
     End Sub
 
 
@@ -129,4 +134,17 @@
         End If
     End Sub
 
+    Private Sub CodifInversa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Indicamos que el txt admite autocompletado
+        With txtlatitud
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
+        With txtlongitud
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
+    End Sub
 End Class

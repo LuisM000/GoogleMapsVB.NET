@@ -40,11 +40,11 @@
     End Sub
 
     Private Sub CodificacionGeo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Indicamos que el txt admite autocompletado
         With txtdireccion
             .AutoCompleteCustomSource = MySource
             .AutoCompleteMode = AutoCompleteMode.SuggestAppend
             .AutoCompleteSource = AutoCompleteSource.CustomSource
-
         End With
     End Sub
 End Class
