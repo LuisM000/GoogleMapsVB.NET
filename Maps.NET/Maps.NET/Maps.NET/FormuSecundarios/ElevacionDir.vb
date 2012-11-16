@@ -28,6 +28,9 @@
                 Dim datosElevacion = objetoMaps.Elevacion(coordenadas)
                 DataGridView1.Rows.Add(txtlat.Text, txtlng.Text, txtdirEnc.Text, FormatNumber(datosElevacion(0), 3) & " metros", resolucion(0))
                 PictureBox1.Image = My.Resources.check
+
+                'Añadir al autocompletado
+                aspectoFormu.autocompletar(txtdireccion.Text)
             Catch
             End Try
         End If
@@ -35,6 +38,12 @@
     End Sub
 
     Private Sub ElevacionDir_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Indicamos que el txt admite autocompletado
+        With txtdireccion
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
         'Aspecto del DataGridView
         With DataGridView1
             .BorderStyle = BorderStyle.Fixed3D

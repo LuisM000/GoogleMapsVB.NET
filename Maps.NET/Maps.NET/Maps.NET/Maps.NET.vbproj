@@ -93,6 +93,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuracion\Opciones.Designer.vb">
+      <DependentUpon>Opciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\Opciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormuSecundarios\AboutBox1.Designer.vb">
       <DependentUpon>AboutBox1.vb</DependentUpon>
     </Compile>
@@ -295,6 +301,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Configuracion\Opciones.resx">
+      <DependentUpon>Opciones.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\AboutBox1.resx">
       <DependentUpon>AboutBox1.vb</DependentUpon>
     </EmbeddedResource>

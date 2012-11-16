@@ -5,6 +5,7 @@ Public Class Rutas
 
     'MANEJO DE HITOS****************************************************************************
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click 'Añadimos hito
+        Dim aspectoFormu As New AspectoFormulario
         Dim mapas As New MapsNet
         txtdirEncHito.Text = ""
         'Comprobamos hito
@@ -13,6 +14,9 @@ Public Class Rutas
             txtlatHito.Text = datosOrigen(0)
             txtlngHito.Text = datosOrigen(1)
             txtdirEncHito.Text = datosOrigen(2)
+            'Añadir al autocompletado
+            aspectoFormu.autocompletar(txtdirhito.Text)
+
         Catch ex As Exception
             txtlatHito.Text = "No encontrado"
             txtlngHito.Text = "No encontrado"
@@ -52,7 +56,7 @@ Public Class Rutas
 
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-
+        Dim aspectoFormu As New AspectoFormulario
         Dim mapas As New MapsNet
         'Dirección origen
         If txtdirorigen.Text <> "" Then
@@ -62,6 +66,10 @@ Public Class Rutas
                 txtlngOrigen.Text = datosOrigen(1)
                 txtdirEncOrig.Text = datosOrigen(2)
                 PictureBox1.Image = My.Resources.check
+
+                'Añadir al autocompletado
+                aspectoFormu.autocompletar(txtdirorigen.Text)
+
             Catch ex As Exception
                 txtlatOrigen.Text = "No encontrado"
                 txtlngOrigen.Text = "No encontrado"
@@ -80,6 +88,10 @@ Public Class Rutas
                 txtlngDestin.Text = datosOrigen(1)
                 txtdirEncDest.Text = datosOrigen(2)
                 PictureBox2.Image = My.Resources.check
+
+                'Añadir al autocompletado
+                aspectoFormu.autocompletar(txtdirdestin.Text)
+
             Catch ex As Exception
                 txtlatDestin.Text = "No encontrado"
                 txtlngDestin.Text = "No encontrado"
@@ -98,10 +110,9 @@ Public Class Rutas
 
    
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-
+        Dim aspectoFormu As New AspectoFormulario
         If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then
             Dim maps As New MapsNet
-
             'Peajes
             Dim peajes = 0
             If ComboBox2.SelectedIndex() = 0 Then
@@ -180,6 +191,9 @@ Public Class Rutas
                     Catch
                     End Try
             End Select
+            'Añadir al autocompletado
+            aspectoFormu.autocompletar(txtdirorigen.Text)
+            aspectoFormu.autocompletar(txtdirdestin.Text)
         Else
             Button3_Click(sender, e) 'Comprobamos
             If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then 'Si se han creado bien, calculamos ruta
@@ -250,6 +264,7 @@ Public Class Rutas
 
    
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim aspectoFormu As New AspectoFormulario
         Button3_Click(sender, e) 'Comprobamos
         If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then
             Dim maps As New MapsNet
@@ -330,6 +345,9 @@ Public Class Rutas
                     Catch
                     End Try
             End Select
+            'Añadir al autocompletado
+            aspectoFormu.autocompletar(txtdirorigen.Text)
+            aspectoFormu.autocompletar(txtdirdestin.Text)
         Else
             Button3_Click(sender, e) 'Comprobamos
             If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then 'Si se han creado bien, calculamos ruta
@@ -342,8 +360,14 @@ Public Class Rutas
 
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click 'Lanzamos hilo para abrir las imágenes
+        Dim aspectoFormu As New AspectoFormulario
         Button3_Click(sender, e)
         If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then
+
+            'Añadir al autocompletado
+            aspectoFormu.autocompletar(txtdirorigen.Text)
+            aspectoFormu.autocompletar(txtdirdestin.Text)
+
             PictureBox6.Visible = True
             Label12.Visible = True
             hiloImagenes = New Threading.Thread(AddressOf mostrarstreet) 'Es variable global
@@ -449,12 +473,36 @@ Public Class Rutas
         PictureBox6.Visible = False
         Label12.Visible = False
         Control.CheckForIllegalCrossThreadCalls = False
+
+        'Indicamos que el txt admite autocompletado
+        With txtdirorigen
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
+        With txtdirdestin
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
+        With txtdirhito
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
+
     End Sub
 
    
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        Dim aspectoFormu As New AspectoFormulario
         Button3_Click(sender, e)
         If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then
+
+            'Añadir al autocompletado
+            aspectoFormu.autocompletar(txtdirorigen.Text)
+            aspectoFormu.autocompletar(txtdirdestin.Text)
+
             PictureBox6.Visible = True
             Label12.Visible = True
             hiloMapas = New Threading.Thread(AddressOf mostrarmapas) 'Es variable global
@@ -566,6 +614,7 @@ Public Class Rutas
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        Dim aspectoFormu As New AspectoFormulario
         Button3_Click(sender, e) 'Comprobamos
         If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then
             Dim maps As New MapsNet
@@ -651,6 +700,9 @@ Public Class Rutas
                     Catch
                     End Try
             End Select
+            'Añadir al autocompletado
+            aspectoFormu.autocompletar(txtdirorigen.Text)
+            aspectoFormu.autocompletar(txtdirdestin.Text)
         Else
             Button3_Click(sender, e) 'Comprobamos
             If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then 'Si se han creado bien, calculamos ruta

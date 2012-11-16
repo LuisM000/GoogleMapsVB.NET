@@ -1,6 +1,14 @@
 ﻿Public Class StreetViewDIr
-
+    Dim aspectoFormu As New AspectoFormulario
     Private Sub StreetViewDIr_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        'Indicamos que el txt admite autocompletado
+        With txtdireccion
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
+
         Label1.Text = 120 - 90
         Label2.Text = 165
         Label3.Text = 0
@@ -17,6 +25,8 @@
         Dim tamaño() As Integer = {(600), (400)}
         Dim direccion As String = txtdireccion.Text.Replace(" ", "+")
         PictureBox2.Image = mapas.StreetView(txtdireccion.Text, tamaño, HScrollBar2.Value, HScrollBar3.Value, 120 - HScrollBar1.Value) 'Asignamos la imagen al picture
+        'Añadir al autocompletado
+        aspectoFormu.autocompletar(txtdireccion.Text)
     End Sub
 
 

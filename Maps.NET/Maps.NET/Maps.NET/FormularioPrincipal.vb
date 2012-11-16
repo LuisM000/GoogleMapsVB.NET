@@ -1,11 +1,17 @@
 ﻿Public Class FormularioPrincipal
 
     Dim aspectoFormu As New AspectoFormulario 'Variable para manejar aspecto formulario
+
+    Private Sub FormularioPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        aspectoFormu.GuardarAutocompletarXML()
+    End Sub
     
     
     Private Sub FormularioPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         aspectoFormu.TabControlYpanel() 'Ajustamos el tabcontrol
         aspectoFormu.abrirEspaña(aspectoFormu.NavegadorActual(Me.TabControl1.SelectedIndex))
+        aspectoFormu.cargarAutocompletado() 'Cargamos los datos del autocompletado en el arraylist
+        aspectoFormu.precargaAutocompletar()
     End Sub
 
 
@@ -165,4 +171,7 @@
         CuadroDeHerramientasToolStripMenuItem_Click(sender, e)
     End Sub
  
+    Private Sub OpcionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpcionesToolStripMenuItem.Click
+        Opciones.Show()
+    End Sub
 End Class

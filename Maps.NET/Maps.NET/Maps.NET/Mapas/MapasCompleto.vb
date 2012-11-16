@@ -88,6 +88,7 @@
 
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click 'Añadir marcador a datagridview
+        Dim aspectoFormu As New AspectoFormulario
         If txtmarcador.Text <> "" Then
             Dim mapas As New MapsNet
             If ComboBox3.SelectedIndex = -1 Then ComboBox3.SelectedIndex = 3 'Si no hay seleccionado tamaño
@@ -97,6 +98,10 @@
             Dim color As Color = Button1.BackColor
             Dim hexa As String = String.Format("{0:X2}{1:X2}{2:X2}", color.R, color.G, color.B)
             DataGridView1.Rows.Add(txtmarcadorENC.Text, ComboBox3.SelectedIndex, "0x" & hexa, txtlabel.Text)
+
+            'Añadir al autocompletado
+            aspectoFormu.autocompletar(txtmarcador.Text)
+
             txtmarcador.Text = ""
         End If
     End Sub
@@ -109,7 +114,7 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
+        Dim aspectoFormu As New AspectoFormulario
         Dim direccion As String = txtdireccion.Text 'Variable direccion
         Dim zoom As Integer = NumericUpDown1.Value 'Variable zoom
         Dim size(1) As Integer 'Variable tamaño imagen
@@ -166,6 +171,9 @@
         Try
             Dim frm As New MostrarMapa(direccionURL, size)
             frm.Show()
+
+            'Añadir al autocompletado
+            If txtdireccion.Text <> "" Then aspectoFormu.autocompletar(txtdireccion.Text) 'Centro del mapa
         Catch
         End Try
 
@@ -175,6 +183,7 @@
 
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim aspectoFormu As New AspectoFormulario
         If txtruta.Text <> "" Then
             Dim mapas As New MapsNet
             Dim direccionAux As New ArrayList
@@ -183,6 +192,8 @@
             Dim color As Color = Button5.BackColor
             Dim hexa As String = String.Format("{0:X2}{1:X2}{2:X2}", color.R, color.G, color.B)
             DataGridView2.Rows.Add(txtrutaEnc.Text, NumericUpDown4.Value, "0x" & hexa)
+            'Añadir al autocompletado
+            aspectoFormu.autocompletar(txtruta.Text)
             txtruta.Text = ""
         End If
     End Sub
@@ -253,12 +264,15 @@
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        Dim aspectoFormu As New AspectoFormulario
         If txtvisible.Text <> "" Then
             Dim mapas As New MapsNet
             Dim direccionAux As New ArrayList
             direccionAux = mapas.CodificacionGeografica(txtvisible.Text)
             txtvisibleENC.Text = direccionAux(2)
             DataGridView3.Rows.Add(txtvisibleENC.Text)
+            'Añadir al autocompletado
+            aspectoFormu.autocompletar(txtvisible.Text)
             txtvisible.Text = ""
         End If
     End Sub
@@ -298,6 +312,30 @@
             End If
         Next
         txtdireccion.Focus() : tabuladores() : txtdireccion.TabStop = True
+
+        'Indicamos que el txt admite autocompletado
+        With txtdireccion
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
+        With txtmarcador
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
+        With txtruta
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
+        With txtvisible
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
+
+
     End Sub
     Private Sub conFoco(ByVal sender As Object, ByVal e As System.EventArgs)
         Me.Cursor = Cursors.Hand

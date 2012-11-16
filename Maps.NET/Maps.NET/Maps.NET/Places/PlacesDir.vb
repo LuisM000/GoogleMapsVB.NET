@@ -24,6 +24,10 @@
                 autocompletado()
             End If
 
+            'Añadir al autocompletado
+            aspectoFormu.autocompletar(txtdireccion.Text)
+            aspectoFormu.autocompletar(txtestablecimiento.Text)
+
         Else
             If aspectoFormu.verificarnumeros(txtlatitud.Text) = False Then txtlatitud.ForeColor = Color.Red
             If aspectoFormu.verificarnumeros(txtlongitud.Text) = False Then txtlongitud.ForeColor = Color.Red
@@ -266,8 +270,21 @@
 
 
 
-    'PINTAMOS LOS LABEL DE MÁS DETALLES
+
     Private Sub Places_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Indicamos que el txt admite autocompletado
+        With txtdireccion
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
+        With txtestablecimiento
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
+
+        'PINTAMOS LOS LABEL DE MÁS DETALLES
         RadioButton1.TabStop = False 'Desde el diseñador no lo reconocía bien..
         For Each c As Object In Me.Controls
             If c.GetType Is GetType(Label) Then

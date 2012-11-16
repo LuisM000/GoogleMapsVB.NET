@@ -312,23 +312,97 @@ Public Class AspectoFormulario
         End Try
     End Function
 
-    Sub autocompletar(ByVal valorGuardado As String)
+
+
+    'FIN DE IMPORTAR/CREAR XML *************************
+    '***************************************************
+
+
+    'AUTOCOMPLETADO*******************************
+    'Private Function comprobarArchivo() As Boolean
+    '    Dim folder As New DirectoryInfo(System.IO.Directory.GetCurrentDirectory()) 'Directorio
+    '    For Each file As FileInfo In folder.GetFiles() 'Comprobamos si hay un archivo igual
+    '        If file.ToString = "Autocompletado.xml" Then
+    '            Return True
+    '        End If
+    '    Next
+    '    Return False
+    'End Function
+
+    Public Sub cargarAutocompletado()
+        Try
+            'Preparamos el archivo xml
+            Dim NodeIter As XPathNodeIterator
+            Dim docNav As New XPathDocument("Autocompletado.xml")
+            Dim nav = docNav.CreateNavigator
+            Dim ExBuscar As String
+
+            ExBuscar = "autocompletado/dato"
+
+
+            Dim buscar As New ArrayList
+            'Recorremos el xml
+            NodeIter = nav.Select(ExBuscar)
+            While (NodeIter.MoveNext())
+                listaAutocompletar.Add(NodeIter.Current.Value)
+            End While
+
+        Catch
+        End Try
+    End Sub
+    
+    Public Sub precargaAutocompletar()
+        Try
+            ' Array of strings.
+            Dim autoArray() As String
+            autoArray = DirectCast(listaAutocompletar.ToArray(GetType(String)), String())
+            MySource.AddRange(autoArray)
+        Catch
+        End Try
+    End Sub
+    Public Sub autocompletar(ByVal valorGuardado As String)
         Try
             listaAutocompletar.Add(valorGuardado)
             ' Array of strings.
             Dim autoArray() As String
             autoArray = DirectCast(listaAutocompletar.ToArray(GetType(String)), String())
             MySource.AddRange(autoArray)
-            'Con esto cargamos la lista del textbox
-            Dim aspecForm As New AspectoFormulario
         Catch
         End Try
     End Sub
 
+    Sub GuardarAutocompletarXML()
+        If My.Settings.SettingAutocompletar = True Then 'Si está configurado para que se guarde
+            
+            Try
+                Dim myXmlTextWriter As XmlTextWriter = New XmlTextWriter("Autocompletado.xml", System.Text.Encoding.UTF8)
+                myXmlTextWriter.Formatting = System.Xml.Formatting.Indented
+                myXmlTextWriter.WriteStartDocument(False)
+
+                'Crear el elemento de documento principal.
+                myXmlTextWriter.WriteStartElement("autocompletado")
 
 
-    'FIN DE IMPORTAR/CREAR XML *************************
-    '***************************************************
+                For Each item In listaAutocompletar
+
+                    'Agregamos datos
+                    myXmlTextWriter.WriteStartElement("dato")
+                    myXmlTextWriter.WriteString(comprobarDato(item.ToString))
+                    myXmlTextWriter.WriteEndElement()
+
+                Next
+
+                'Cerrar el elemento primario <autocompletado>
+                myXmlTextWriter.WriteEndElement()
+                myXmlTextWriter.Flush()
+                myXmlTextWriter.Close()
+            Catch
+            End Try
+        End If
+    End Sub
+    '**********************************
+    'FIN DE AUTOCOMPLETADO***********
+
     Function DevuelveEstablecimientosIngles(ByVal Establecimientos As ArrayList) 'TRasnformamos a idioma válido para places
         Dim establIngles As New ArrayList
         Dim valor As String = "establishment"

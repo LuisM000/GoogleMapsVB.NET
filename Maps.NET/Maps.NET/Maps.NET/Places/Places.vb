@@ -17,6 +17,10 @@
             If txtplace1.Text = "Sin datos. Sin datos (Sin datos,Sin datos)" And txtestablecimiento.Text <> "" Then   'Si no hay resultados en el establecimiento
                 autocompletado()
             End If
+            'Añadir al autocompletado
+            aspectoFormu.autocompletar(txtlatitud.Text)
+            aspectoFormu.autocompletar(txtlongitud.Text)
+            aspectoFormu.autocompletar(txtestablecimiento.Text)
         Else
             If aspectoFormu.verificarnumeros(txtlatitud.Text) = False Then txtlatitud.ForeColor = Color.Red
             If aspectoFormu.verificarnumeros(txtlongitud.Text) = False Then txtlongitud.ForeColor = Color.Red
@@ -303,6 +307,25 @@
 
     'PINTAMOS LOS LABEL DE MÁS DETALLES
     Private Sub Places_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        'Indicamos que el txt admite autocompletado
+        With txtestablecimiento
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
+        With txtlatitud
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
+        With txtlongitud
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+        End With
+
+
         RadioButton1.TabStop = False 'Desde el diseñador no lo reconocía bien.
         For Each c As Object In Me.Controls
             If c.GetType Is GetType(Label) Then
