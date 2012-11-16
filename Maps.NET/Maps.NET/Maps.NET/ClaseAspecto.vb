@@ -350,13 +350,18 @@ Public Class AspectoFormulario
         Catch
         End Try
     End Sub
-    
+
     Public Sub precargaAutocompletar()
         Try
             ' Array of strings.
             Dim autoArray() As String
             autoArray = DirectCast(listaAutocompletar.ToArray(GetType(String)), String())
+
+            'Con .distinct.toarray eliminaos duplicidades
+            autoArray = autoArray.Distinct.ToArray
+            listaAutocompletar = New ArrayList(autoArray)
             MySource.AddRange(autoArray)
+
         Catch
         End Try
     End Sub
@@ -396,6 +401,8 @@ Public Class AspectoFormulario
                 myXmlTextWriter.WriteEndElement()
                 myXmlTextWriter.Flush()
                 myXmlTextWriter.Close()
+
+
             Catch
             End Try
         End If
