@@ -312,6 +312,19 @@ Public Class AspectoFormulario
         End Try
     End Function
 
+    Sub autocompletar(ByVal valorGuardado As String)
+        Try
+            listaAutocompletar.Add(valorGuardado)
+            ' Array of strings.
+            Dim autoArray() As String
+            autoArray = DirectCast(listaAutocompletar.ToArray(GetType(String)), String())
+            MySource.AddRange(autoArray)
+            'Con esto cargamos la lista del textbox
+            Dim aspecForm As New AspectoFormulario
+        Catch
+        End Try
+    End Sub
+
 
 
     'FIN DE IMPORTAR/CREAR XML *************************

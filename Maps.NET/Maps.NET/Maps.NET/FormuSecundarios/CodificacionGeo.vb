@@ -1,6 +1,7 @@
 ﻿Public Class CodificacionGeo
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
         Dim objetoMaps As New MapsNet
         Dim aspectoFormu As New AspectoFormulario
 
@@ -18,6 +19,8 @@
             txtlongitud.Text = "El servidor no responde" 'Si no hay datos
         End Try
 
+        'Añadir al autocompletado
+        aspectoFormu.autocompletar(txtdireccion.Text)
 
     End Sub
 
@@ -34,5 +37,14 @@
             Dim navegador = aspectoFormu.NavegadorActual(FormularioPrincipal.TabControl1.SelectedIndex)
             navegador.Url = direccion
         End If
+    End Sub
+
+    Private Sub CodificacionGeo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        With txtdireccion
+            .AutoCompleteCustomSource = MySource
+            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            .AutoCompleteSource = AutoCompleteSource.CustomSource
+
+        End With
     End Sub
 End Class

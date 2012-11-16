@@ -28,4 +28,9 @@
 
     'Mapas completos (importar xml)
     Public rutaArchivoimportar As String
+
+    'Autocompletar
+    Public listaAutocompletar As New ArrayList 'La lista con los datos
+    Public MySource As New AutoCompleteStringCollection()
+
 End Module

@@ -6,6 +6,8 @@ Imports System.Text.RegularExpressions
 
 Public Class MapsNet
 
+   
+
     Sub almacenarDatosHTTP(ByVal url As String, ByVal informacion As String, ByVal estatus As String, Optional ByVal excepcion As String = "sin excepción") 'Alamacén de información de las peticiones (con variable globales)
         numeroInstancia += 1
         URLseguimiento.Add(numeroInstancia)
@@ -206,7 +208,7 @@ Public Class MapsNet
             'Creamos los paths
             Exadress = "/GeocodeResponse/result/address_component"
 
-           
+
             'Recorremos el xml
             NodeIter = nav.Select(Exadress)
             While (NodeIter.MoveNext())
@@ -844,7 +846,7 @@ Public Class MapsNet
                 Polilineas.Add(NodeIter.Current.Value)
             End While
 
-   
+
 
             ReDim auxiliar(DatosRuta.Count - 1)
             Dim tamaño = CInt(DatosRuta.Count / 5)
