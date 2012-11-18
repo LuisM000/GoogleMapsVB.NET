@@ -100,7 +100,7 @@
             DataGridView1.Rows.Add(txtmarcadorENC.Text, ComboBox3.SelectedIndex, "0x" & hexa, txtlabel.Text)
 
             'Añadir al autocompletado
-            aspectoFormu.autocompletar(txtmarcador.Text)
+            aspectoFormu.autocompletar({txtmarcador.Text}, {txtmarcadorENC.Text})
 
             txtmarcador.Text = ""
         End If
@@ -173,7 +173,7 @@
             frm.Show()
 
             'Añadir al autocompletado
-            If txtdireccion.Text <> "" Then aspectoFormu.autocompletar(txtdireccion.Text) 'Centro del mapa
+            If txtdireccion.Text <> "" Then aspectoFormu.autocompletar({txtdireccion.Text}) 'Centro del mapa
         Catch
         End Try
 
@@ -193,7 +193,7 @@
             Dim hexa As String = String.Format("{0:X2}{1:X2}{2:X2}", color.R, color.G, color.B)
             DataGridView2.Rows.Add(txtrutaEnc.Text, NumericUpDown4.Value, "0x" & hexa)
             'Añadir al autocompletado
-            aspectoFormu.autocompletar(txtruta.Text)
+            aspectoFormu.autocompletar({txtruta.Text}, {txtrutaEnc.Text})
             txtruta.Text = ""
         End If
     End Sub
@@ -272,7 +272,7 @@
             txtvisibleENC.Text = direccionAux(2)
             DataGridView3.Rows.Add(txtvisibleENC.Text)
             'Añadir al autocompletado
-            aspectoFormu.autocompletar(txtvisible.Text)
+            aspectoFormu.autocompletar({txtvisible.Text}, {txtvisibleENC.Text})
             txtvisible.Text = ""
         End If
     End Sub
@@ -312,6 +312,9 @@
             End If
         Next
         txtdireccion.Focus() : tabuladores() : txtdireccion.TabStop = True
+
+        'El autocompletado en este form lo hacemos de forma manual 
+        'puesto que los textbox están dentro de paneles
 
         'Indicamos que el txt admite autocompletado
         With txtdireccion

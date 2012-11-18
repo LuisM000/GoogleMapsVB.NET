@@ -18,10 +18,8 @@
                 autocompletado()
             End If
             'Añadir al autocompletado
-            aspectoFormu.autocompletar(txtlatitud.Text)
-            aspectoFormu.autocompletar(txtlongitud.Text)
-            aspectoFormu.autocompletar(txtestablecimiento.Text)
-        Else
+            aspectoFormu.autocompletar({txtlatitud.Text, txtlongitud.Text, txtestablecimiento.Text})
+            
             If aspectoFormu.verificarnumeros(txtlatitud.Text) = False Then txtlatitud.ForeColor = Color.Red
             If aspectoFormu.verificarnumeros(txtlongitud.Text) = False Then txtlongitud.ForeColor = Color.Red
         End If
@@ -307,24 +305,11 @@
 
     'PINTAMOS LOS LABEL DE MÁS DETALLES
     Private Sub Places_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    'Indicamos que los txt admite autocompletado
+        Dim aspectoFor As New AspectoFormulario
+        aspectoFor.CargarControles(Me)
 
-        'Indicamos que el txt admite autocompletado
-        With txtestablecimiento
-            .AutoCompleteCustomSource = MySource
-            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            .AutoCompleteSource = AutoCompleteSource.CustomSource
-        End With
-        With txtlatitud
-            .AutoCompleteCustomSource = MySource
-            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            .AutoCompleteSource = AutoCompleteSource.CustomSource
-        End With
-        With txtlongitud
-            .AutoCompleteCustomSource = MySource
-            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            .AutoCompleteSource = AutoCompleteSource.CustomSource
-        End With
-
+    
 
         RadioButton1.TabStop = False 'Desde el diseñador no lo reconocía bien.
         For Each c As Object In Me.Controls
@@ -335,7 +320,9 @@
                 End If
             End If
         Next
+
     End Sub
+   
 
     Private Sub conFoco(ByVal sender As Object, ByVal e As System.EventArgs)
         DirectCast(sender, Label).ForeColor = Color.Blue
@@ -436,5 +423,5 @@
         ListBox13.ClearSelected()
     End Sub
 
-  
+
 End Class

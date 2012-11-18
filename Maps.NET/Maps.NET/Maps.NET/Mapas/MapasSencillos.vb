@@ -39,7 +39,7 @@
             Me.WebBrowser1.Url = urlMapa
 
             'Añadir al autocompletado
-            aspectoFormu.autocompletar(txtdireccion.Text)
+            aspectoFormu.autocompletar({txtdireccion.Text})
         End If
     End Sub
 
@@ -55,12 +55,9 @@
         Dim urlMapa As New Uri(direccionURL)
         Me.WebBrowser1.Url = urlMapa
 
-        'Indicamos que el txt admite autocompletado
-        With txtdireccion
-            .AutoCompleteCustomSource = MySource
-            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            .AutoCompleteSource = AutoCompleteSource.CustomSource
-        End With
+        'Indicamos que los txt admite autocompletado
+        Dim aspectoFor As New AspectoFormulario
+        aspectoFor.CargarControles(Me)
 
     End Sub
 End Class

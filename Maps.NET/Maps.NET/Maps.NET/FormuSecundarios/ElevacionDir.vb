@@ -30,7 +30,7 @@
                 PictureBox1.Image = My.Resources.check
 
                 'Añadir al autocompletado
-                aspectoFormu.autocompletar(txtdireccion.Text)
+                aspectoFormu.autocompletar({txtdireccion.Text}, {txtdirEnc.Text, txtlat.Text, txtlng.Text})
             Catch
             End Try
         End If
@@ -38,12 +38,9 @@
     End Sub
 
     Private Sub ElevacionDir_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Indicamos que el txt admite autocompletado
-        With txtdireccion
-            .AutoCompleteCustomSource = MySource
-            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            .AutoCompleteSource = AutoCompleteSource.CustomSource
-        End With
+           'Indicamos que los txt admite autocompletado
+        Dim aspectoFor As New AspectoFormulario
+        aspectoFor.CargarControles(Me)
         'Aspecto del DataGridView
         With DataGridView1
             .BorderStyle = BorderStyle.Fixed3D

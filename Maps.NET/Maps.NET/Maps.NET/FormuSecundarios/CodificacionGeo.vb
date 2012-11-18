@@ -19,8 +19,8 @@
             txtlongitud.Text = "El servidor no responde" 'Si no hay datos
         End Try
 
-        'Añadir al autocompletado
-        aspectoFormu.autocompletar(txtdireccion.Text)
+        'Añadir al autocompletado {}
+        aspectoFormu.autocompletar({txtdireccion.Text}, {txtlatitud.Text, txtlongitud.Text, txtdir.Text})
 
     End Sub
 
@@ -40,11 +40,8 @@
     End Sub
 
     Private Sub CodificacionGeo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Indicamos que el txt admite autocompletado
-        With txtdireccion
-            .AutoCompleteCustomSource = MySource
-            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            .AutoCompleteSource = AutoCompleteSource.CustomSource
-        End With
+        'Indicamos que los txt admite autocompletado
+        Dim aspectoFor As New AspectoFormulario
+        aspectoFor.CargarControles(Me)
     End Sub
 End Class

@@ -65,6 +65,42 @@ Namespace My
                 Me("SettingAutocompletar") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property SetDireccionEncontrada() As Boolean
+            Get
+                Return CType(Me("SetDireccionEncontrada"),Boolean)
+            End Get
+            Set
+                Me("SetDireccionEncontrada") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property Autocompletado() As Boolean
+            Get
+                Return CType(Me("Autocompletado"),Boolean)
+            End Get
+            Set
+                Me("Autocompletado") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property GuardarLOG() As Boolean
+            Get
+                Return CType(Me("GuardarLOG"),Boolean)
+            End Get
+            Set
+                Me("GuardarLOG") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

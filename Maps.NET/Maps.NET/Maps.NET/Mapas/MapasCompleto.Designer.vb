@@ -866,13 +866,11 @@ Partial Class MapasCompleto
         'RBjpg
         '
         Me.RBjpg.AutoSize = True
-        Me.RBjpg.Checked = True
         Me.RBjpg.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RBjpg.Location = New System.Drawing.Point(6, 114)
         Me.RBjpg.Name = "RBjpg"
         Me.RBjpg.Size = New System.Drawing.Size(42, 19)
         Me.RBjpg.TabIndex = 2
-        Me.RBjpg.TabStop = True
         Me.RBjpg.Text = "jpg"
         Me.RBjpg.UseVisualStyleBackColor = True
         '
@@ -890,11 +888,13 @@ Partial Class MapasCompleto
         'RBpng8
         '
         Me.RBpng8.AutoSize = True
+        Me.RBpng8.Checked = True
         Me.RBpng8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RBpng8.Location = New System.Drawing.Point(6, 27)
         Me.RBpng8.Name = "RBpng8"
         Me.RBpng8.Size = New System.Drawing.Size(52, 19)
         Me.RBpng8.TabIndex = 0
+        Me.RBpng8.TabStop = True
         Me.RBpng8.Text = "png8"
         Me.RBpng8.UseVisualStyleBackColor = True
         '

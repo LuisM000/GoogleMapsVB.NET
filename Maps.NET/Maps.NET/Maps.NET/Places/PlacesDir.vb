@@ -25,9 +25,7 @@
             End If
 
             'Añadir al autocompletado
-            aspectoFormu.autocompletar(txtdireccion.Text)
-            aspectoFormu.autocompletar(txtestablecimiento.Text)
-
+            aspectoFormu.autocompletar({txtdireccion.Text, txtestablecimiento.Text}, {txtlatitud.Text, txtlongitud.Text, txtdir2.Text})
         Else
             If aspectoFormu.verificarnumeros(txtlatitud.Text) = False Then txtlatitud.ForeColor = Color.Red
             If aspectoFormu.verificarnumeros(txtlongitud.Text) = False Then txtlongitud.ForeColor = Color.Red
@@ -272,17 +270,9 @@
 
 
     Private Sub Places_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Indicamos que el txt admite autocompletado
-        With txtdireccion
-            .AutoCompleteCustomSource = MySource
-            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            .AutoCompleteSource = AutoCompleteSource.CustomSource
-        End With
-        With txtestablecimiento
-            .AutoCompleteCustomSource = MySource
-            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            .AutoCompleteSource = AutoCompleteSource.CustomSource
-        End With
+        'Indicamos que los txt admite autocompletado
+        Dim aspectoFor As New AspectoFormulario
+        aspectoFor.CargarControles(Me)
 
         'PINTAMOS LOS LABEL DE MÁS DETALLES
         RadioButton1.TabStop = False 'Desde el diseñador no lo reconocía bien..

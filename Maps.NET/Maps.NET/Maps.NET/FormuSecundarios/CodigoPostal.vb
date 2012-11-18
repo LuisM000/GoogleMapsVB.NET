@@ -20,7 +20,7 @@
             txtDire.Text = direccion(2)
 
             'Añadir al autocompletado
-            aspectoFormu.autocompletar(txtdireccion.Text)
+            aspectoFormu.autocompletar({txtdireccion.Text}, {txtCP.Text, txtDire.Text})
 
         Catch
             txtCP.Text = "El servidor no responde" 'Si no hay datos
@@ -45,11 +45,8 @@
     End Sub
 
     Private Sub CodigoPostal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Indicamos que el txt admite autocompletado
-        With txtdireccion
-            .AutoCompleteCustomSource = MySource
-            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            .AutoCompleteSource = AutoCompleteSource.CustomSource
-        End With
+         'Indicamos que los txt admite autocompletado
+        Dim aspectoFor As New AspectoFormulario
+        aspectoFor.CargarControles(Me)
     End Sub
 End Class

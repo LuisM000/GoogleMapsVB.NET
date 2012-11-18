@@ -1,17 +1,9 @@
 ﻿Public Class StreetViewlat
 
     Private Sub StreetViewlat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Indicamos que el txt admite autocompletado
-        With txtlatitud
-            .AutoCompleteCustomSource = MySource
-            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            .AutoCompleteSource = AutoCompleteSource.CustomSource
-        End With
-        With txtlongitud
-            .AutoCompleteCustomSource = MySource
-            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            .AutoCompleteSource = AutoCompleteSource.CustomSource
-        End With
+            'Indicamos que los txt admite autocompletado
+        Dim aspectoFor As New AspectoFormulario
+        aspectoFor.CargarControles(Me)
         '****
 
         Label1.Text = 120 - 90
@@ -37,8 +29,7 @@
             PictureBox2.Image = mapas.StreetView(latLong, tamaño, HScrollBar2.Value, HScrollBar3.Value, 120 - HScrollBar1.Value) 'Asignamos la imagen al picture
 
             'Añadir al autocompletado
-            aspectoFormu.autocompletar(txtlatitud.Text)
-            aspectoFormu.autocompletar(txtlongitud.Text)
+            aspectoFormu.autocompletar({txtlatitud.Text, txtlongitud.Text})
         Else
             If aspectoFormu.verificarnumeros(txtlatitud.Text) = False Then txtlatitud.ForeColor = Color.Red
             If aspectoFormu.verificarnumeros(txtlongitud.Text) = False Then txtlongitud.ForeColor = Color.Red

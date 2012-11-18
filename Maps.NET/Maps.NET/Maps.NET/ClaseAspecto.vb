@@ -329,7 +329,22 @@ Public Class AspectoFormulario
     '    Return False
     'End Function
 
+    'Public Sub autocompletar(ByVal valorGuardado As String)
+    '    Try
+
+    '        listaAutocompletar.Add(valorGuardado)
+    '        ' Array of strings.
+    '        Dim autoArray() As String
+    '        autoArray = DirectCast(listaAutocompletar.ToArray(GetType(String)), String())
+    '        MySource.AddRange(autoArray)
+    '    Catch
+    '    End Try
+    'End Sub
+
+
+
     Public Sub cargarAutocompletado()
+
         Try
             'Preparamos el archivo xml
             Dim NodeIter As XPathNodeIterator
@@ -365,15 +380,51 @@ Public Class AspectoFormulario
         Catch
         End Try
     End Sub
-    Public Sub autocompletar(ByVal valorGuardado As String)
-        Try
-            listaAutocompletar.Add(valorGuardado)
-            ' Array of strings.
-            Dim autoArray() As String
-            autoArray = DirectCast(listaAutocompletar.ToArray(GetType(String)), String())
-            MySource.AddRange(autoArray)
-        Catch
-        End Try
+
+
+    Public Sub autocompletar(ByVal valorGuardado() As String, Optional ByVal valorGuardadoOpcional() As String = Nothing)
+        If My.Settings.Autocompletado = True Then 'Si la función está activada
+            Try
+                For Each item In valorGuardado
+                    listaAutocompletar.Add(item)
+                    ' Array of strings.
+                    Dim autoArray() As String
+                    autoArray = DirectCast(listaAutocompletar.ToArray(GetType(String)), String())
+                    MySource.AddRange(autoArray)
+                Next
+
+                'Si hay valor adiccional (opcional) y la variable global setDireccionEncontrada es verdadera
+                'My.Settings.SetDireccionEncontrada sirve para saber si se guardan las direcciones encontradas
+                'o sólo lo que escribe el usuario
+                If valorGuardadoOpcional IsNot Nothing And My.Settings.SetDireccionEncontrada = True Then
+                    For Each item In valorGuardadoOpcional
+                        listaAutocompletar.Add(item)
+                        ' Array of strings.
+                        Dim autoArray() As String
+                        autoArray = DirectCast(listaAutocompletar.ToArray(GetType(String)), String())
+                        MySource.AddRange(autoArray)
+                    Next
+
+                End If
+            Catch
+            End Try
+        End If
+    End Sub
+
+    Public Sub CargarControles(ByVal formulario As Form) 'Hace que los txt admitan la función de automcompletado
+        If My.Settings.Autocompletado = True Then 'Si la función está activada
+            For Each c As Control In formulario.Controls
+                If TypeOf c Is TextBox Then
+                    Dim txt As New TextBox
+                    txt = c
+                    With txt
+                        .AutoCompleteCustomSource = MySource
+                        .AutoCompleteMode = AutoCompleteMode.SuggestAppend
+                        .AutoCompleteSource = AutoCompleteSource.CustomSource
+                    End With
+                End If
+            Next
+        End If
     End Sub
 
     Sub GuardarAutocompletarXML()

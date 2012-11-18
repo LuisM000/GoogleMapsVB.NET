@@ -30,8 +30,7 @@
             End Try
 
             'Añadir al autocompletado
-            aspectoFormu.autocompletar(txtlatitud.Text)
-            aspectoFormu.autocompletar(txtlongitud.Text)
+            aspectoFormu.autocompletar({txtlatitud.Text, txtlongitud.Text}, {txtdireccion.Text})
         Else
             If aspectoFormu.verificarnumeros(txtlatitud.Text) = False Then txtlatitud.ForeColor = Color.Red
             If aspectoFormu.verificarnumeros(txtlongitud.Text) = False Then txtlongitud.ForeColor = Color.Red
@@ -135,16 +134,8 @@
     End Sub
 
     Private Sub CodifInversa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Indicamos que el txt admite autocompletado
-        With txtlatitud
-            .AutoCompleteCustomSource = MySource
-            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            .AutoCompleteSource = AutoCompleteSource.CustomSource
-        End With
-        With txtlongitud
-            .AutoCompleteCustomSource = MySource
-            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            .AutoCompleteSource = AutoCompleteSource.CustomSource
-        End With
+         'Indicamos que los txt admite autocompletado
+        Dim aspectoFor As New AspectoFormulario
+        aspectoFor.CargarControles(Me)
     End Sub
 End Class

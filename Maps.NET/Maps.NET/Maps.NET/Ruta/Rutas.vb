@@ -15,7 +15,7 @@ Public Class Rutas
             txtlngHito.Text = datosOrigen(1)
             txtdirEncHito.Text = datosOrigen(2)
             'Añadir al autocompletado
-            aspectoFormu.autocompletar(txtdirhito.Text)
+            aspectoFormu.autocompletar({txtdirhito.Text}, {txtlatHito.Text, txtlngHito.Text, txtdirEncHito.Text})
 
         Catch ex As Exception
             txtlatHito.Text = "No encontrado"
@@ -68,7 +68,7 @@ Public Class Rutas
                 PictureBox1.Image = My.Resources.check
 
                 'Añadir al autocompletado
-                aspectoFormu.autocompletar(txtdirorigen.Text)
+                aspectoFormu.autocompletar({txtdirorigen.Text}, {txtlatOrigen.Text, txtlngOrigen.Text, txtdirEncOrig.Text})
 
             Catch ex As Exception
                 txtlatOrigen.Text = "No encontrado"
@@ -90,7 +90,8 @@ Public Class Rutas
                 PictureBox2.Image = My.Resources.check
 
                 'Añadir al autocompletado
-                aspectoFormu.autocompletar(txtdirdestin.Text)
+                aspectoFormu.autocompletar({txtdirdestin.Text}, {txtlatDestin.Text, txtlngDestin.Text, txtdirEncDest.Text})
+
 
             Catch ex As Exception
                 txtlatDestin.Text = "No encontrado"
@@ -192,8 +193,9 @@ Public Class Rutas
                     End Try
             End Select
             'Añadir al autocompletado
-            aspectoFormu.autocompletar(txtdirorigen.Text)
-            aspectoFormu.autocompletar(txtdirdestin.Text)
+            aspectoFormu.autocompletar({txtdirorigen.Text, txtdirdestin.Text}, {txtlatOrigen.Text, txtlngOrigen.Text, txtdirEncOrig.Text, txtlatDestin.Text, txtlngDestin.Text, txtdirEncDest.Text})
+
+
         Else
             Button3_Click(sender, e) 'Comprobamos
             If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then 'Si se han creado bien, calculamos ruta
@@ -346,8 +348,8 @@ Public Class Rutas
                     End Try
             End Select
             'Añadir al autocompletado
-            aspectoFormu.autocompletar(txtdirorigen.Text)
-            aspectoFormu.autocompletar(txtdirdestin.Text)
+            aspectoFormu.autocompletar({txtdirorigen.Text, txtdirdestin.Text}, {txtlatOrigen.Text, txtlngOrigen.Text, txtdirEncOrig.Text, txtlatDestin.Text, txtlngDestin.Text, txtdirEncDest.Text})
+
         Else
             Button3_Click(sender, e) 'Comprobamos
             If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then 'Si se han creado bien, calculamos ruta
@@ -365,8 +367,7 @@ Public Class Rutas
         If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then
 
             'Añadir al autocompletado
-            aspectoFormu.autocompletar(txtdirorigen.Text)
-            aspectoFormu.autocompletar(txtdirdestin.Text)
+            aspectoFormu.autocompletar({txtdirorigen.Text, txtdirdestin.Text}, {txtlatOrigen.Text, txtlngOrigen.Text, txtdirEncOrig.Text, txtlatDestin.Text, txtlngDestin.Text, txtdirEncDest.Text})
 
             PictureBox6.Visible = True
             Label12.Visible = True
@@ -474,22 +475,9 @@ Public Class Rutas
         Label12.Visible = False
         Control.CheckForIllegalCrossThreadCalls = False
 
-        'Indicamos que el txt admite autocompletado
-        With txtdirorigen
-            .AutoCompleteCustomSource = MySource
-            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            .AutoCompleteSource = AutoCompleteSource.CustomSource
-        End With
-        With txtdirdestin
-            .AutoCompleteCustomSource = MySource
-            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            .AutoCompleteSource = AutoCompleteSource.CustomSource
-        End With
-        With txtdirhito
-            .AutoCompleteCustomSource = MySource
-            .AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            .AutoCompleteSource = AutoCompleteSource.CustomSource
-        End With
+           'Indicamos que los txt admite autocompletado
+        Dim aspectoFor As New AspectoFormulario
+        aspectoFor.CargarControles(Me)
 
     End Sub
 
@@ -500,8 +488,8 @@ Public Class Rutas
         If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then
 
             'Añadir al autocompletado
-            aspectoFormu.autocompletar(txtdirorigen.Text)
-            aspectoFormu.autocompletar(txtdirdestin.Text)
+            aspectoFormu.autocompletar({txtdirorigen.Text, txtdirdestin.Text}, {txtlatOrigen.Text, txtlngOrigen.Text, txtdirEncOrig.Text, txtlatDestin.Text, txtlngDestin.Text, txtdirEncDest.Text})
+
 
             PictureBox6.Visible = True
             Label12.Visible = True
@@ -701,8 +689,8 @@ Public Class Rutas
                     End Try
             End Select
             'Añadir al autocompletado
-            aspectoFormu.autocompletar(txtdirorigen.Text)
-            aspectoFormu.autocompletar(txtdirdestin.Text)
+            aspectoFormu.autocompletar({txtdirorigen.Text, txtdirdestin.Text}, {txtlatOrigen.Text, txtlngOrigen.Text, txtdirEncOrig.Text, txtlatDestin.Text, txtlngDestin.Text, txtdirEncDest.Text})
+
         Else
             Button3_Click(sender, e) 'Comprobamos
             If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then 'Si se han creado bien, calculamos ruta
