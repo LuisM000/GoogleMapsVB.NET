@@ -42,8 +42,7 @@
         If My.Settings.SetDireccionEncontrada = True Then CheckedListBox1.SetItemChecked(2, True) Else CheckedListBox1.SetItemChecked(2, False)
 
         'Comprobamos si está activado/desactivada la función de guardar registro http
-        If My.Settings.GuardarLOG = True Then CheckedListBox2.SetItemChecked(0, True) Else CheckedListBox1.SetItemChecked(0, False)
-
+        If My.Settings.GuardarLOG = True Then CheckedListBox2.SetItemChecked(0, True) Else CheckedListBox2.SetItemChecked(0, False)
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
