@@ -3,7 +3,12 @@
     Dim aspectoFormu As New AspectoFormulario 'Variable para manejar aspecto formulario
 
     Private Sub FormularioPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        aspectoFormu.guardarLOG()
         aspectoFormu.GuardarAutocompletarXML()
+
+    End Sub
+    Private Sub SToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SToolStripMenuItem.Click
+        aspectoFormu.guardarLOG()
     End Sub
     
     
@@ -174,4 +179,5 @@
     Private Sub OpcionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpcionesToolStripMenuItem.Click
         Opciones.Show()
     End Sub
+
 End Class

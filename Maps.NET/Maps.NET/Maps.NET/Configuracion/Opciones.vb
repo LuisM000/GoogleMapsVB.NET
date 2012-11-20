@@ -31,8 +31,7 @@
         End If
     End Sub
     Private Sub Opciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ListBox1.SelectedIndex = 0
-        CheckedListBox1.SelectedIndex = 0
+        
         'Activar/desactivar autocompltea
         If My.Settings.Autocompletado = True Then CheckBox1.Checked = True : activarAuto() Else CheckBox1.Checked = False : desactivarAuto()
         'Comprobamos si está activado/desactivada la función de guardar autocompletar al cerrar programa
@@ -43,6 +42,9 @@
 
         'Comprobamos si está activado/desactivada la función de guardar registro http
         If My.Settings.GuardarLOG = True Then CheckedListBox2.SetItemChecked(0, True) Else CheckedListBox2.SetItemChecked(0, False)
+
+        ListBox1.SelectedIndex = 0
+        CheckedListBox1.SelectedIndex = 0
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

@@ -129,6 +129,75 @@ Public Class AspectoFormulario
 
     'IMPORTAR XML Y CREAR XML *********************************
     '**********************************************************
+    Public Sub guardarLOG()
+
+        Try
+            Dim myXmlTextWriter As XmlTextWriter = New XmlTextWriter("LOG.xml", System.Text.Encoding.UTF8)
+            myXmlTextWriter.Formatting = System.Xml.Formatting.Indented
+            myXmlTextWriter.WriteStartDocument(False)
+            'Crear el elemento de documento principal.
+            myXmlTextWriter.WriteStartElement("PeticionesHTTP")
+            myXmlTextWriter.WriteStartElement("Bloque_peticiones")
+
+            Dim contador As Integer = 0
+
+            For i = 0 To Int((URLseguimiento.Count / 6)) - 1
+
+                myXmlTextWriter.WriteStartElement("peticion")
+
+                'Crear un elemento llamado 'feature' con un nodo de texto
+                ' y cerrar el elemento.
+                myXmlTextWriter.WriteStartElement("num_peticion")
+                myXmlTextWriter.WriteString(URLseguimiento(contador))
+                myXmlTextWriter.WriteEndElement()
+
+
+                myXmlTextWriter.WriteStartElement("hora")
+                myXmlTextWriter.WriteString(URLseguimiento(contador + 1))
+                myXmlTextWriter.WriteEndElement()
+
+                myXmlTextWriter.WriteStartElement("estatus")
+                myXmlTextWriter.WriteString(URLseguimiento(contador + 2))
+                myXmlTextWriter.WriteEndElement()
+
+                myXmlTextWriter.WriteStartElement("servicio")
+                myXmlTextWriter.WriteString(URLseguimiento(contador + 3))
+                myXmlTextWriter.WriteEndElement()
+
+                myXmlTextWriter.WriteStartElement("URL")
+                myXmlTextWriter.WriteString(URLseguimiento(contador + 4))
+                myXmlTextWriter.WriteEndElement()
+
+                myXmlTextWriter.WriteStartElement("excepcion")
+                myXmlTextWriter.WriteString(URLseguimiento(contador + 5))
+                myXmlTextWriter.WriteEndElement()
+
+
+
+                'Cerramos peticion
+                myXmlTextWriter.WriteEndElement()
+                contador += 6
+            Next
+
+            'Cerrar el elemento bloque peticion.
+            myXmlTextWriter.WriteEndElement()
+            'Cerrar el elemento primario peticionesHTTP
+            myXmlTextWriter.WriteEndElement()
+            myXmlTextWriter.Flush()
+            myXmlTextWriter.Close()
+
+        Catch e As System.ArgumentException
+
+        End Try
+
+    End Sub
+
+
+    '*************************************************
+
+
+    'IMPORTAR XML Y CREAR XML DE ESTILOS *********************************
+    '**********************************************************
 
     Private Function comprobarDato(ByVal cadena As String)
         If cadena = "" Then

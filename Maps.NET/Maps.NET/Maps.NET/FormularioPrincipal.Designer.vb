@@ -30,8 +30,16 @@ Partial Class FormularioPrincipal
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VerURLActualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SeguimientoPeticionesHTTPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -65,19 +73,12 @@ Partial Class FormularioPrincipal
         Me.MapasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GeneradorBásicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GeneradorCompletoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConfiguraciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpcionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AcercaDeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FeedbackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConfiguraciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OpcionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
+        Me.SToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer1.SuspendLayout()
@@ -155,15 +156,79 @@ Partial Class FormularioPrincipal
         Me.ToolStrip1.Size = New System.Drawing.Size(798, 25)
         Me.ToolStrip1.TabIndex = 0
         '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.Image = Global.Maps.NET.My.Resources.Resources.layer_add
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(105, 22)
+        Me.ToolStripButton1.Text = "Nueva pestaña"
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.Image = Global.Maps.NET.My.Resources.Resources.layer_remove
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(103, 22)
+        Me.ToolStripButton2.Text = "Cerrar pestaña"
+        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
         '
+        'ToolStripButton3
+        '
+        Me.ToolStripButton3.Image = Global.Maps.NET.My.Resources.Resources.map_magnify
+        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton3.Name = "ToolStripButton3"
+        Me.ToolStripButton3.Size = New System.Drawing.Size(114, 22)
+        Me.ToolStripButton3.Text = "Buscar dirección"
+        '
+        'ToolStripButton5
+        '
+        Me.ToolStripButton5.Image = Global.Maps.NET.My.Resources.Resources.google_map
+        Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton5.Name = "ToolStripButton5"
+        Me.ToolStripButton5.Size = New System.Drawing.Size(90, 22)
+        Me.ToolStripButton5.Text = "Buscar local"
+        '
+        'ToolStripButton6
+        '
+        Me.ToolStripButton6.Image = Global.Maps.NET.My.Resources.Resources.map_go
+        Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton6.Name = "ToolStripButton6"
+        Me.ToolStripButton6.Size = New System.Drawing.Size(97, 22)
+        Me.ToolStripButton6.Text = "Calcular Ruta"
+        '
+        'ToolStripButton4
+        '
+        Me.ToolStripButton4.Image = Global.Maps.NET.My.Resources.Resources.map
+        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton4.Name = "ToolStripButton4"
+        Me.ToolStripButton4.Size = New System.Drawing.Size(88, 22)
+        Me.ToolStripButton4.Text = "Crear mapa"
+        '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripButton7
+        '
+        Me.ToolStripButton7.Image = Global.Maps.NET.My.Resources.Resources.atm
+        Me.ToolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton7.Name = "ToolStripButton7"
+        Me.ToolStripButton7.Size = New System.Drawing.Size(81, 22)
+        Me.ToolStripButton7.Text = "Peticiones"
+        '
+        'ToolStripButton8
+        '
+        Me.ToolStripButton8.Image = Global.Maps.NET.My.Resources.Resources.cross
+        Me.ToolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton8.Name = "ToolStripButton8"
+        Me.ToolStripButton8.Size = New System.Drawing.Size(96, 22)
+        Me.ToolStripButton8.Text = "Ocultar barra"
         '
         'ArchivoToolStripMenuItem
         '
@@ -385,25 +450,6 @@ Partial Class FormularioPrincipal
         Me.GeneradorCompletoToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
         Me.GeneradorCompletoToolStripMenuItem.Text = "Generador completo"
         '
-        'AyudaToolStripMenuItem
-        '
-        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeToolStripMenuItem, Me.FeedbackToolStripMenuItem})
-        Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
-        Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(56, 21)
-        Me.AyudaToolStripMenuItem.Text = "Ayuda"
-        '
-        'AcercaDeToolStripMenuItem
-        '
-        Me.AcercaDeToolStripMenuItem.Name = "AcercaDeToolStripMenuItem"
-        Me.AcercaDeToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
-        Me.AcercaDeToolStripMenuItem.Text = "Acerca de"
-        '
-        'FeedbackToolStripMenuItem
-        '
-        Me.FeedbackToolStripMenuItem.Name = "FeedbackToolStripMenuItem"
-        Me.FeedbackToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
-        Me.FeedbackToolStripMenuItem.Text = "Feedback "
-        '
         'ConfiguraciónToolStripMenuItem
         '
         Me.ConfiguraciónToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpcionesToolStripMenuItem})
@@ -414,72 +460,33 @@ Partial Class FormularioPrincipal
         'OpcionesToolStripMenuItem
         '
         Me.OpcionesToolStripMenuItem.Name = "OpcionesToolStripMenuItem"
-        Me.OpcionesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OpcionesToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
         Me.OpcionesToolStripMenuItem.Text = "Opciones"
         '
-        'ToolStripButton1
+        'AyudaToolStripMenuItem
         '
-        Me.ToolStripButton1.Image = Global.Maps.NET.My.Resources.Resources.layer_add
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(105, 22)
-        Me.ToolStripButton1.Text = "Nueva pestaña"
+        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeToolStripMenuItem, Me.FeedbackToolStripMenuItem, Me.SToolStripMenuItem})
+        Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
+        Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(56, 21)
+        Me.AyudaToolStripMenuItem.Text = "Ayuda"
         '
-        'ToolStripButton2
+        'AcercaDeToolStripMenuItem
         '
-        Me.ToolStripButton2.Image = Global.Maps.NET.My.Resources.Resources.layer_remove
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(103, 22)
-        Me.ToolStripButton2.Text = "Cerrar pestaña"
+        Me.AcercaDeToolStripMenuItem.Name = "AcercaDeToolStripMenuItem"
+        Me.AcercaDeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AcercaDeToolStripMenuItem.Text = "Acerca de"
         '
-        'ToolStripButton3
+        'FeedbackToolStripMenuItem
         '
-        Me.ToolStripButton3.Image = Global.Maps.NET.My.Resources.Resources.map_magnify
-        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Size = New System.Drawing.Size(114, 22)
-        Me.ToolStripButton3.Text = "Buscar dirección"
+        Me.FeedbackToolStripMenuItem.Name = "FeedbackToolStripMenuItem"
+        Me.FeedbackToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.FeedbackToolStripMenuItem.Text = "Feedback "
         '
-        'ToolStripButton5
+        'SToolStripMenuItem
         '
-        Me.ToolStripButton5.Image = Global.Maps.NET.My.Resources.Resources.google_map
-        Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton5.Name = "ToolStripButton5"
-        Me.ToolStripButton5.Size = New System.Drawing.Size(90, 22)
-        Me.ToolStripButton5.Text = "Buscar local"
-        '
-        'ToolStripButton6
-        '
-        Me.ToolStripButton6.Image = Global.Maps.NET.My.Resources.Resources.map_go
-        Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton6.Name = "ToolStripButton6"
-        Me.ToolStripButton6.Size = New System.Drawing.Size(97, 22)
-        Me.ToolStripButton6.Text = "Calcular Ruta"
-        '
-        'ToolStripButton4
-        '
-        Me.ToolStripButton4.Image = Global.Maps.NET.My.Resources.Resources.map
-        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton4.Name = "ToolStripButton4"
-        Me.ToolStripButton4.Size = New System.Drawing.Size(88, 22)
-        Me.ToolStripButton4.Text = "Crear mapa"
-        '
-        'ToolStripButton7
-        '
-        Me.ToolStripButton7.Image = Global.Maps.NET.My.Resources.Resources.atm
-        Me.ToolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton7.Name = "ToolStripButton7"
-        Me.ToolStripButton7.Size = New System.Drawing.Size(81, 22)
-        Me.ToolStripButton7.Text = "Peticiones"
-        '
-        'ToolStripButton8
-        '
-        Me.ToolStripButton8.Image = Global.Maps.NET.My.Resources.Resources.cross
-        Me.ToolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton8.Name = "ToolStripButton8"
-        Me.ToolStripButton8.Size = New System.Drawing.Size(96, 22)
-        Me.ToolStripButton8.Text = "Ocultar barra"
+        Me.SToolStripMenuItem.Name = "SToolStripMenuItem"
+        Me.SToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SToolStripMenuItem.Text = "s"
         '
         'FormularioPrincipal
         '
@@ -565,5 +572,6 @@ Partial Class FormularioPrincipal
     Friend WithEvents CódigoPostalToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ConfiguraciónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OpcionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
