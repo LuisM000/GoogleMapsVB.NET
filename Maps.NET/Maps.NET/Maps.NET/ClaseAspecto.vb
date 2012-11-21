@@ -276,6 +276,69 @@ Public Class AspectoFormulario
         End If
     End Sub
 
+    Public Sub ExportarLOGaXML(ByVal data As DataGridView, ByVal ruta As String)
+
+        Try
+            Dim myXmlTextWriter As XmlTextWriter = New XmlTextWriter(ruta, System.Text.Encoding.UTF8)
+            myXmlTextWriter.Formatting = System.Xml.Formatting.Indented
+            myXmlTextWriter.WriteStartDocument(False)
+            'Crear el elemento de documento principal.
+            myXmlTextWriter.WriteStartElement("PeticionesHTTP")
+
+
+            For filas As Integer = 0 To data.RowCount - 1
+                myXmlTextWriter.WriteStartElement("peticion")
+                '             <num_peticion>1</num_peticion>
+                '<hora>21/11/2012 13:54:16</hora>
+                '<estatus>OK</estatus>
+                '<servicio>URL predeterminada (España)</servicio>
+                '<URL>http://maps.google.es/maps?q=España&amp;output=embed</URL>
+                '<excepcion>sin excepción</excepcion>
+                'Crear un elemento llamado 'feature' con un nodo de texto
+                ' y cerrar el elemento.
+                myXmlTextWriter.WriteStartElement("num_peticion")
+                myXmlTextWriter.WriteString(comprobarDato(data.Item(0, filas).Value))
+                myXmlTextWriter.WriteEndElement()
+
+
+                myXmlTextWriter.WriteStartElement("hora")
+                myXmlTextWriter.WriteString(comprobarDato(data.Item(1, filas).Value))
+                myXmlTextWriter.WriteEndElement()
+
+                myXmlTextWriter.WriteStartElement("estatus")
+                myXmlTextWriter.WriteString(comprobarDato(data.Item(2, filas).Value))
+                myXmlTextWriter.WriteEndElement()
+
+                myXmlTextWriter.WriteStartElement("servicio")
+                myXmlTextWriter.WriteString(comprobarDato(data.Item(3, filas).Value))
+                myXmlTextWriter.WriteEndElement()
+
+                myXmlTextWriter.WriteStartElement("URL")
+                myXmlTextWriter.WriteString(comprobarDato(data.Item(4, filas).Value))
+                myXmlTextWriter.WriteEndElement()
+
+                myXmlTextWriter.WriteStartElement("excepcion")
+                myXmlTextWriter.WriteString(comprobarDato(data.Item(5, filas).Value))
+                myXmlTextWriter.WriteEndElement()
+
+
+                'Cerramos peticion
+                myXmlTextWriter.WriteEndElement()
+            Next
+
+
+            'Cerrar el elemento primario <PeticionesHTTP>.
+            myXmlTextWriter.WriteEndElement()
+            myXmlTextWriter.Flush()
+            myXmlTextWriter.Close()
+
+        Catch
+            MessageBox.Show("Caraceteres no válidos en el nombre del archivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+
+    End Sub
+
     Public Sub rellenarGRidconXMLLOG(ByVal grid As DataGridView)
         Try
             'Preparamos el xml
@@ -330,11 +393,10 @@ Public Class AspectoFormulario
             For i = 0 To numero.Count - 1
                 grid.Rows.Add(numero(i), hora(i), estatus(i), servicio(i), URL(i), excepcion(i))
             Next
+        Catch e As System.IO.FileNotFoundException
+            MessageBox.Show("El archivo no se ha encontrado. Es posible que no haya activado la opción de guardar todas las peticiones HTTP de las diferentes sesiones." & vbCrLf & "Si desea activarlo, acceda al menú Configuración/Opciones/Registro y reinicie el programa.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Catch e As Exception
-            Select Case e
-                aqui comprobar si hay archivo y si no lanzar mensaje
-                de cómo poder guardar el log
-            End Select
+            MessageBox.Show("Algo ha ocurrido, por favor, inténtelo más tarde.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
 
 
@@ -441,64 +503,66 @@ Public Class AspectoFormulario
     End Sub
 
     Public Sub rellenarGRidconXML(ByVal grid As DataGridView, ByVal rutaArchivo As String)
-        'Preparamos el xml
-        Dim NodeIter As XPathNodeIterator
-        Dim docNav As New XPathDocument(rutaArchivo)
-        Dim nav = docNav.CreateNavigator
+        Try
+            'Preparamos el xml
+            Dim NodeIter As XPathNodeIterator
+            Dim docNav As New XPathDocument(rutaArchivo)
+            Dim nav = docNav.CreateNavigator
 
-        'Preparamos las rutas
-        Dim Exfeature, Exelement, Exhue, Exlightness, Exsaturation, Exgamma, Exvisibility As String
+            'Preparamos las rutas
+            Dim Exfeature, Exelement, Exhue, Exlightness, Exsaturation, Exgamma, Exvisibility As String
 
-        Exfeature = "config_maps_styles/styles/style/feature"
-        Exelement = "config_maps_styles/styles/style/element"
-        Exhue = "config_maps_styles/styles/style/hue"
-        Exlightness = "config_maps_styles/styles/style/lightness"
-        Exsaturation = "config_maps_styles/styles/style/saturation"
-        Exgamma = "config_maps_styles/styles/style/gamma"
-        Exvisibility = "config_maps_styles/styles/style/visibility"
+            Exfeature = "config_maps_styles/styles/style/feature"
+            Exelement = "config_maps_styles/styles/style/element"
+            Exhue = "config_maps_styles/styles/style/hue"
+            Exlightness = "config_maps_styles/styles/style/lightness"
+            Exsaturation = "config_maps_styles/styles/style/saturation"
+            Exgamma = "config_maps_styles/styles/style/gamma"
+            Exvisibility = "config_maps_styles/styles/style/visibility"
 
-        Dim features, elements, hues, lightness, saturations, gammas, visibilities As New ArrayList
+            Dim features, elements, hues, lightness, saturations, gammas, visibilities As New ArrayList
 
-        'Recorremos el xml
-        NodeIter = nav.Select(Exfeature)
-        While (NodeIter.MoveNext())
-            features.Add(NodeIter.Current.Value)
-        End While
+            'Recorremos el xml
+            NodeIter = nav.Select(Exfeature)
+            While (NodeIter.MoveNext())
+                features.Add(NodeIter.Current.Value)
+            End While
 
-        NodeIter = nav.Select(Exelement)
-        While (NodeIter.MoveNext())
-            elements.Add(NodeIter.Current.Value)
-        End While
+            NodeIter = nav.Select(Exelement)
+            While (NodeIter.MoveNext())
+                elements.Add(NodeIter.Current.Value)
+            End While
 
-        NodeIter = nav.Select(Exhue)
-        While (NodeIter.MoveNext())
-            hues.Add(NodeIter.Current.Value)
-        End While
+            NodeIter = nav.Select(Exhue)
+            While (NodeIter.MoveNext())
+                hues.Add(NodeIter.Current.Value)
+            End While
 
-        NodeIter = nav.Select(Exlightness)
-        While (NodeIter.MoveNext())
-            lightness.Add(NodeIter.Current.Value)
-        End While
+            NodeIter = nav.Select(Exlightness)
+            While (NodeIter.MoveNext())
+                lightness.Add(NodeIter.Current.Value)
+            End While
 
-        NodeIter = nav.Select(Exsaturation)
-        While (NodeIter.MoveNext())
-            saturations.Add(NodeIter.Current.Value)
-        End While
+            NodeIter = nav.Select(Exsaturation)
+            While (NodeIter.MoveNext())
+                saturations.Add(NodeIter.Current.Value)
+            End While
 
-        NodeIter = nav.Select(Exgamma)
-        While (NodeIter.MoveNext())
-            gammas.Add(NodeIter.Current.Value)
-        End While
+            NodeIter = nav.Select(Exgamma)
+            While (NodeIter.MoveNext())
+                gammas.Add(NodeIter.Current.Value)
+            End While
 
-        NodeIter = nav.Select(Exvisibility)
-        While (NodeIter.MoveNext())
-            visibilities.Add(NodeIter.Current.Value)
-        End While
+            NodeIter = nav.Select(Exvisibility)
+            While (NodeIter.MoveNext())
+                visibilities.Add(NodeIter.Current.Value)
+            End While
 
-        For i = 0 To features.Count - 1
-            grid.Rows.Add(comprobarDatoInversa(features(i)), comprobarDatoInversa(elements(i)), comprobarDatoInversa(hues(i)), comprobarDatoInversa(lightness(i)), comprobarDatoInversa(saturations(i)), comprobarDatoInversa(gammas(i)), comprobarDatoInversa(visibilities(i)))
-        Next
-
+            For i = 0 To features.Count - 1
+                grid.Rows.Add(comprobarDatoInversa(features(i)), comprobarDatoInversa(elements(i)), comprobarDatoInversa(hues(i)), comprobarDatoInversa(lightness(i)), comprobarDatoInversa(saturations(i)), comprobarDatoInversa(gammas(i)), comprobarDatoInversa(visibilities(i)))
+            Next
+        Catch
+        End Try
 
     End Sub
 

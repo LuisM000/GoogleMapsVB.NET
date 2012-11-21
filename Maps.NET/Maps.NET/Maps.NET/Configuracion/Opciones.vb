@@ -147,12 +147,12 @@
             CheckBox1.Checked = True
             CheckedListBox1.SetItemChecked(0, True)
             CheckedListBox1.SetItemChecked(1, False)
-            CheckedListBox1.SetItemChecked(2, False)
-            CheckedListBox2.SetItemChecked(0, False)
+            CheckedListBox1.SetItemChecked(2, True)
+            CheckedListBox2.SetItemChecked(0, True)
             My.Settings.Autocompletado = True
-            My.Settings.SetDireccionEncontrada = False
+            My.Settings.SetDireccionEncontrada = True
             My.Settings.SettingAutocompletar = True
-            My.Settings.GuardarLOG = False
+            My.Settings.GuardarLOG = True
         End If
 
     End Sub

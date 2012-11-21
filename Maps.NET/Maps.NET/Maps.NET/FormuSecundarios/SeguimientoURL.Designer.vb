@@ -38,6 +38,7 @@ Partial Class SeguimientoURL
         Me.txtperdidasporc = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -136,11 +137,11 @@ Partial Class SeguimientoURL
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(619, 26)
+        Me.Button1.Location = New System.Drawing.Point(607, 26)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(74, 29)
+        Me.Button1.Size = New System.Drawing.Size(190, 29)
         Me.Button1.TabIndex = 101
-        Me.Button1.Text = "Recargar"
+        Me.Button1.Text = "Recargar peticiones actuales"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'txtperdidas
@@ -184,18 +185,29 @@ Partial Class SeguimientoURL
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(699, 27)
+        Me.Button2.Location = New System.Drawing.Point(803, 27)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(74, 29)
+        Me.Button2.Size = New System.Drawing.Size(190, 29)
         Me.Button2.TabIndex = 106
-        Me.Button2.Text = "Ver LOG"
+        Me.Button2.Text = "Ver registro de peticiones"
         Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(999, 26)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(190, 29)
+        Me.Button3.TabIndex = 107
+        Me.Button3.Text = "Exportar a XML"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'SeguimientoURL
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(957, 360)
+        Me.ClientSize = New System.Drawing.Size(1227, 360)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.txtperdidasporc)
         Me.Controls.Add(Me.Label3)
@@ -232,4 +244,5 @@ Partial Class SeguimientoURL
     Friend WithEvents dgvURL As System.Windows.Forms.DataGridViewLinkColumn
     Friend WithEvents excep As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Button3 As System.Windows.Forms.Button
 End Class
