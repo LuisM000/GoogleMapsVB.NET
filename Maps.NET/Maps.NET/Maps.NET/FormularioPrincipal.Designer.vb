@@ -78,7 +78,6 @@ Partial Class FormularioPrincipal
         Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AcercaDeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FeedbackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer1.SuspendLayout()
@@ -465,7 +464,7 @@ Partial Class FormularioPrincipal
         '
         'AyudaToolStripMenuItem
         '
-        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeToolStripMenuItem, Me.FeedbackToolStripMenuItem, Me.SToolStripMenuItem})
+        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeToolStripMenuItem, Me.FeedbackToolStripMenuItem})
         Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
         Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(56, 21)
         Me.AyudaToolStripMenuItem.Text = "Ayuda"
@@ -481,12 +480,6 @@ Partial Class FormularioPrincipal
         Me.FeedbackToolStripMenuItem.Name = "FeedbackToolStripMenuItem"
         Me.FeedbackToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.FeedbackToolStripMenuItem.Text = "Feedback "
-        '
-        'SToolStripMenuItem
-        '
-        Me.SToolStripMenuItem.Name = "SToolStripMenuItem"
-        Me.SToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SToolStripMenuItem.Text = "s"
         '
         'FormularioPrincipal
         '
@@ -572,6 +565,5 @@ Partial Class FormularioPrincipal
     Friend WithEvents CódigoPostalToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ConfiguraciónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OpcionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

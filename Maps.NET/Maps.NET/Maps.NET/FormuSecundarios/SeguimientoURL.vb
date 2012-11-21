@@ -40,4 +40,9 @@
     Private Sub SeguimientoURL_Resize(sender As Object, e As EventArgs) Handles Me.Resize
         DataGridView1.Size = Panel1.Size
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim aspectoform As New AspectoFormulario
+        aspectoform.rellenarGRidconXMLLOG(DataGridView1)
+    End Sub
 End Class

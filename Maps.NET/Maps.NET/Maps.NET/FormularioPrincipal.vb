@@ -7,9 +7,7 @@
         aspectoFormu.GuardarAutocompletarXML()
 
     End Sub
-    Private Sub SToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SToolStripMenuItem.Click
-        aspectoFormu.guardarLOG()
-    End Sub
+ 
     
     
     Private Sub FormularioPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load

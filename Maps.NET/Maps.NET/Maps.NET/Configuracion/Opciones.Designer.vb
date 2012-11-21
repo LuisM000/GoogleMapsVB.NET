@@ -148,7 +148,7 @@ Partial Class Opciones
         Me.CheckedListBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.CheckedListBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckedListBox2.FormattingEnabled = True
-        Me.CheckedListBox2.Items.AddRange(New Object() {"Guardar peticiones HTTP"})
+        Me.CheckedListBox2.Items.AddRange(New Object() {"Guardar peticiones HTTP", "Borrar todos los registros de peticiones almacenados"})
         Me.CheckedListBox2.Location = New System.Drawing.Point(2, 11)
         Me.CheckedListBox2.Name = "CheckedListBox2"
         Me.CheckedListBox2.Size = New System.Drawing.Size(364, 60)

@@ -1,13 +1,27 @@
 ﻿Public Class Opciones
     Sub borrarAutocompletado()
         Dim aspectoFOrm As New AspectoFormulario
-        Dim resultado = MessageBox.Show("¿Está seguro de borrar todo el contenido de autocompletado?." & vbCrLf & "Esta opción no se puede deshacer.", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+        Dim resultado = MessageBox.Show("¿Está seguro de borrar todo el contenido de autocompletado?" & vbCrLf & "Esta opción no se puede deshacer.", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
         If resultado = vbYes Then
             'Borramos el contenido de la sesión
             listaAutocompletar.Clear() 'Borramos el arraylist
             MySource.Clear()
             Try
                 Kill("Autocompletado.xml")
+            Catch ex As Exception
+            End Try
+
+        End If
+
+    End Sub
+
+    Sub borrarLOG()
+        Dim aspectoFOrm As New AspectoFormulario
+        Dim resultado = MessageBox.Show("¿Está seguro de borrar todo el registro de peticiones almacenado?" & vbCrLf & "Esta opción no se puede deshacer.", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+        If resultado = vbYes Then
+            'Borramos el contenido del XML LOG
+            Try
+                Kill("LOG.xml")
             Catch ex As Exception
             End Try
 
@@ -73,6 +87,18 @@
             My.Settings.SetDireccionEncontrada = False
         End If
 
+        'Guardamos si está activado/desactivada la función de guardar autocompletar en direcciones encontradas
+        If CheckedListBox2.GetItemCheckState(0) = CheckState.Checked Then
+            My.Settings.GuardarLOG = True
+        Else
+            My.Settings.GuardarLOG = False
+        End If
+
+        'Borrar todo el LOG de peticiones
+        If CheckedListBox2.GetItemCheckState(1) = CheckState.Checked Then
+            borrarLOG()
+        End If
+
         Me.Close()
     End Sub
 
@@ -81,7 +107,10 @@
         DescripcionConfig(CheckedListBox1.SelectedIndex)
     End Sub
 
-    
+
+    Private Sub CheckedListBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CheckedListBox2.SelectedIndexChanged
+        DescripcionConfig(CheckedListBox2.SelectedIndex + 3)
+    End Sub
 
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
         desactivarPaneles()
@@ -144,6 +173,8 @@
                 RichTextBox1.Text = "Al activar esta opción se guardarán todas las direcciones que encuentre la aplicación. Cuando usted busca una dirección y se le sugiere o muestra una dirección encontrada, por ejemplo, ésta se mostrará en los cuadros de autocompletado."
             Case 3
                 RichTextBox1.Text = "Al activar esta opción se guardarán todas las peticiones HTTP realizadas por la aplicación. Esta opción sólo almacenará las peticiones en su pc, no las enviará a ningún servidor."
+            Case 4
+                RichTextBox1.Text = "Se eliminará todo el historial de peticiones HTTP de la aplicación. Esta opción no se puede deshacer."
 
         End Select
 

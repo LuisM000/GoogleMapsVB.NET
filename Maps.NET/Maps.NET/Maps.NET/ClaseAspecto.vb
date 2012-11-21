@@ -127,17 +127,26 @@ Public Class AspectoFormulario
     End Function
 
 
-    'IMPORTAR XML Y CREAR XML *********************************
+    'IMPORTAR XML Y CREAR XML PARA EL LOG *********************************
     '**********************************************************
-    Public Sub guardarLOG()
 
+    Private Function comprobarArchivoLOG() As Boolean
+        Dim folder As New DirectoryInfo(System.IO.Directory.GetCurrentDirectory()) 'Directorio
+        For Each file As FileInfo In folder.GetFiles() 'Comprobamos si hay un archivo igual
+            If file.ToString = "LOG.xml" Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
+
+    Private Sub crearLOG()
         Try
             Dim myXmlTextWriter As XmlTextWriter = New XmlTextWriter("LOG.xml", System.Text.Encoding.UTF8)
             myXmlTextWriter.Formatting = System.Xml.Formatting.Indented
             myXmlTextWriter.WriteStartDocument(False)
             'Crear el elemento de documento principal.
             myXmlTextWriter.WriteStartElement("PeticionesHTTP")
-            myXmlTextWriter.WriteStartElement("Bloque_peticiones")
 
             Dim contador As Integer = 0
 
@@ -179,8 +188,7 @@ Public Class AspectoFormulario
                 contador += 6
             Next
 
-            'Cerrar el elemento bloque peticion.
-            myXmlTextWriter.WriteEndElement()
+      
             'Cerrar el elemento primario peticionesHTTP
             myXmlTextWriter.WriteEndElement()
             myXmlTextWriter.Flush()
@@ -189,8 +197,149 @@ Public Class AspectoFormulario
         Catch e As System.ArgumentException
 
         End Try
+    End Sub
+
+
+    Public Sub guardarLOG()
+        If My.Settings.GuardarLOG = True Then
+            If comprobarArchivoLOG() = True Then
+                Try
+                    'Preparamos el archivo xml
+                    Dim NodeIter As XPathNodeIterator
+                    Dim docNav As New XPathDocument("LOG.xml")
+                    Dim nav = docNav.CreateNavigator
+                    Dim Exnum, Exhora, Exestatus, Exservicio, ExURL, Exexcepcion As String
+
+                    Exnum = "PeticionesHTTP/peticion/num_peticion"
+                    Exhora = "PeticionesHTTP/peticion/hora"
+                    Exestatus = "PeticionesHTTP/peticion/estatus"
+                    Exservicio = "PeticionesHTTP/peticion/servicio"
+                    ExURL = "PeticionesHTTP/peticion/URL"
+                    Exexcepcion = "PeticionesHTTP/peticion/excepcion"
+
+
+
+                    Dim numero As New ArrayList
+                    Dim hora As New ArrayList
+                    Dim estatus As New ArrayList
+                    Dim servicio As New ArrayList
+                    Dim URL As New ArrayList
+                    Dim excepcion As New ArrayList
+
+                    'Recorremos el xml
+                    NodeIter = nav.Select(Exestatus)
+                    While (NodeIter.MoveNext())
+                        estatus.Add(NodeIter.Current.Value)
+                    End While
+                    NodeIter = nav.Select(Exexcepcion)
+                    While (NodeIter.MoveNext())
+                        excepcion.Add(NodeIter.Current.Value)
+                    End While
+                    NodeIter = nav.Select(Exhora)
+                    While (NodeIter.MoveNext())
+                        hora.Add(NodeIter.Current.Value)
+                    End While
+                    NodeIter = nav.Select(Exnum)
+                    While (NodeIter.MoveNext())
+                        numero.Add(NodeIter.Current.Value)
+                    End While
+                    NodeIter = nav.Select(Exservicio)
+                    While (NodeIter.MoveNext())
+                        servicio.Add(NodeIter.Current.Value)
+                    End While
+                    NodeIter = nav.Select(ExURL)
+                    While (NodeIter.MoveNext())
+                        URL.Add(NodeIter.Current.Value)
+                    End While
+
+                    Dim seguimientoAux As New ArrayList
+                    For i = 0 To numero.Count - 1
+                        seguimientoAux.Add(numero(i))
+                        seguimientoAux.Add(hora(i))
+                        seguimientoAux.Add(estatus(i))
+                        seguimientoAux.Add(servicio(i))
+                        seguimientoAux.Add(URL(i))
+                        seguimientoAux.Add(excepcion(i))
+                    Next
+
+                    For Each item In URLseguimiento
+                        seguimientoAux.Add(item)
+                    Next
+                    URLseguimiento = seguimientoAux
+                    crearLOG() 'Creamos el archivo de LOG
+                Catch
+                End Try
+
+            Else
+                crearLOG() 'Creamos el archivo de LOG
+            End If
+        End If
+    End Sub
+
+    Public Sub rellenarGRidconXMLLOG(ByVal grid As DataGridView)
+        Try
+            'Preparamos el xml
+            Dim NodeIter As XPathNodeIterator
+            Dim docNav As New XPathDocument("LOG.XML")
+            Dim nav = docNav.CreateNavigator
+
+            Dim Exnum, Exhora, Exestatus, Exservicio, ExURL, Exexcepcion As String
+
+            Exnum = "PeticionesHTTP/peticion/num_peticion"
+            Exhora = "PeticionesHTTP/peticion/hora"
+            Exestatus = "PeticionesHTTP/peticion/estatus"
+            Exservicio = "PeticionesHTTP/peticion/servicio"
+            ExURL = "PeticionesHTTP/peticion/URL"
+            Exexcepcion = "PeticionesHTTP/peticion/excepcion"
+
+
+
+            Dim numero As New ArrayList
+            Dim hora As New ArrayList
+            Dim estatus As New ArrayList
+            Dim servicio As New ArrayList
+            Dim URL As New ArrayList
+            Dim excepcion As New ArrayList
+
+            'Recorremos el xml
+            NodeIter = nav.Select(Exestatus)
+            While (NodeIter.MoveNext())
+                estatus.Add(NodeIter.Current.Value)
+            End While
+            NodeIter = nav.Select(Exexcepcion)
+            While (NodeIter.MoveNext())
+                excepcion.Add(NodeIter.Current.Value)
+            End While
+            NodeIter = nav.Select(Exhora)
+            While (NodeIter.MoveNext())
+                hora.Add(NodeIter.Current.Value)
+            End While
+            NodeIter = nav.Select(Exnum)
+            While (NodeIter.MoveNext())
+                numero.Add(NodeIter.Current.Value)
+            End While
+            NodeIter = nav.Select(Exservicio)
+            While (NodeIter.MoveNext())
+                servicio.Add(NodeIter.Current.Value)
+            End While
+            NodeIter = nav.Select(ExURL)
+            While (NodeIter.MoveNext())
+                URL.Add(NodeIter.Current.Value)
+            End While
+
+            For i = 0 To numero.Count - 1
+                grid.Rows.Add(numero(i), hora(i), estatus(i), servicio(i), URL(i), excepcion(i))
+            Next
+        Catch e As Exception
+            Select Case e
+                aqui comprobar si hay archivo y si no lanzar mensaje
+                de cómo poder guardar el log
+            End Select
+        End Try
+
 
     End Sub
+
 
 
     '*************************************************
