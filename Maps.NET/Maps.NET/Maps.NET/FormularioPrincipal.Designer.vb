@@ -78,6 +78,9 @@ Partial Class FormularioPrincipal
         Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AcercaDeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FeedbackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InformarDeUnErrorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AsdasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer1.SuspendLayout()
@@ -459,12 +462,12 @@ Partial Class FormularioPrincipal
         'OpcionesToolStripMenuItem
         '
         Me.OpcionesToolStripMenuItem.Name = "OpcionesToolStripMenuItem"
-        Me.OpcionesToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
+        Me.OpcionesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.OpcionesToolStripMenuItem.Text = "Opciones"
         '
         'AyudaToolStripMenuItem
         '
-        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeToolStripMenuItem, Me.FeedbackToolStripMenuItem})
+        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeToolStripMenuItem, Me.FeedbackToolStripMenuItem, Me.InformarDeUnErrorToolStripMenuItem, Me.AsdasToolStripMenuItem, Me.ToolStripMenuItem3})
         Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
         Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(56, 21)
         Me.AyudaToolStripMenuItem.Text = "Ayuda"
@@ -472,14 +475,32 @@ Partial Class FormularioPrincipal
         'AcercaDeToolStripMenuItem
         '
         Me.AcercaDeToolStripMenuItem.Name = "AcercaDeToolStripMenuItem"
-        Me.AcercaDeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AcercaDeToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
         Me.AcercaDeToolStripMenuItem.Text = "Acerca de"
         '
         'FeedbackToolStripMenuItem
         '
         Me.FeedbackToolStripMenuItem.Name = "FeedbackToolStripMenuItem"
-        Me.FeedbackToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.FeedbackToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
         Me.FeedbackToolStripMenuItem.Text = "Feedback "
+        '
+        'InformarDeUnErrorToolStripMenuItem
+        '
+        Me.InformarDeUnErrorToolStripMenuItem.Name = "InformarDeUnErrorToolStripMenuItem"
+        Me.InformarDeUnErrorToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
+        Me.InformarDeUnErrorToolStripMenuItem.Text = "Informar de un error"
+        '
+        'AsdasToolStripMenuItem
+        '
+        Me.AsdasToolStripMenuItem.Name = "AsdasToolStripMenuItem"
+        Me.AsdasToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
+        Me.AsdasToolStripMenuItem.Text = "asdas"
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(197, 22)
+        Me.ToolStripMenuItem3.Text = "342"
         '
         'FormularioPrincipal
         '
@@ -565,5 +586,8 @@ Partial Class FormularioPrincipal
     Friend WithEvents CódigoPostalToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ConfiguraciónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OpcionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents InformarDeUnErrorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AsdasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem3 As System.Windows.Forms.ToolStripMenuItem
 
 End Class

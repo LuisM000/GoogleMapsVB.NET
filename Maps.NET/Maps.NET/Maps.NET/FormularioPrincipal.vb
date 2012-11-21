@@ -32,6 +32,7 @@
 
     Private Sub BorrarPestañaActivarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles BorrarPestañaActivarToolStripMenuItem1.Click
         aspectoFormu.CerrarFicha(TabControl1.SelectedTab) 'Cerramos pestaña actual
+
     End Sub
 
     Private Sub CerrarTodasLasPestañasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarTodasLasPestañasToolStripMenuItem.Click
@@ -176,6 +177,29 @@
  
     Private Sub OpcionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpcionesToolStripMenuItem.Click
         Opciones.Show()
+    End Sub
+
+    Private Sub InformarDeUnErrorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InformarDeUnErrorToolStripMenuItem.Click
+        InformarError.Show()
+    End Sub
+
+
+    'Declaración de la API
+    Private Declare Auto Function SetProcessWorkingSetSize Lib "kernel32.dll" (ByVal procHandle As IntPtr, ByVal min As Int32, ByVal max As Int32) As Boolean
+
+    'Funcion de liberacion de memoria
+    Public Sub ClearMemory()
+
+        Try
+            Dim Mem As Process
+            Mem = Process.GetCurrentProcess()
+            SetProcessWorkingSetSize(Mem.Handle, -1, -1)
+        Catch ex As Exception
+            'Control de errores
+        End Try
+    End Sub
+    Private Sub AsdasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsdasToolStripMenuItem.Click
+        ClearMemory()
     End Sub
 
 End Class

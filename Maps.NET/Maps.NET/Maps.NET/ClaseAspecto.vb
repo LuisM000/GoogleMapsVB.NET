@@ -4,7 +4,6 @@ Imports System.Xml.XPath
 
 Public Class AspectoFormulario
 
-
     Sub TabControlYpanel() 'Ajustamos el tabcontrol al panel
         FormularioPrincipal.TabControl1.Dock = DockStyle.Fill
         FormularioPrincipal.TabControl1.Padding = New Size(10, 7)
@@ -19,9 +18,11 @@ Public Class AspectoFormulario
         FormularioPrincipal.TabControl1.TabPages.Add(nombre)
         FormularioPrincipal.TabControl1.SelectedTab = FormularioPrincipal.TabControl1.TabPages(contador)
         Dim WebBrowser1 As New WebBrowser
+        WebBrowser1.Name="WebBrowser1"
         FormularioPrincipal.TabControl1.TabPages(contador).Controls.Add(WebBrowser1)
         abrirEspaña(WebBrowser1)
         WebBrowser1.Dock = DockStyle.Fill
+
     End Sub
     Sub SiguienteFicha(ByVal PestañaActual As TabPage) 'Siguiente ficha
         Dim paginaActual = FormularioPrincipal.TabControl1.SelectedIndex
@@ -43,18 +44,36 @@ Public Class AspectoFormulario
         End Try
     End Sub
     Sub CerrarFicha(ByVal PestañaActual As TabPage) 'Cerramos ficha
+
         Dim paginaActual = FormularioPrincipal.TabControl1.SelectedIndex
+
         If paginaActual > 0 Then
-            FormularioPrincipal.TabControl1.TabPages.Remove(PestañaActual)
+
+            ''liberamos el webbrowser
+            Dim control As New WebBrowser()
+            control = FormularioPrincipal.TabControl1.TabPages(paginaActual).Controls("WebBrowser1")
+            control.Dispose()
+
+
             Dim numeroPagina = FormularioPrincipal.TabControl1.TabPages.IndexOf(PestañaActual)
+            FormularioPrincipal.TabControl1.TabPages.Remove(FormularioPrincipal.TabControl1.TabPages(paginaActual))
             paginaActual -= 1
             FormularioPrincipal.TabControl1.SelectedTab = FormularioPrincipal.TabControl1.TabPages(paginaActual)
+            FormularioPrincipal.TabControl1.TabPages(paginaActual).Focus()
+
         End If
+
     End Sub
 
     Sub CerrarTodasFicha() 'Cerramos tasodas las fichas
-        For i = 1 To FormularioPrincipal.TabControl1.TabCount - 1
-            Me.CerrarFicha(FormularioPrincipal.TabControl1.SelectedTab)
+        For i = FormularioPrincipal.TabControl1.TabCount - 1 To 1 Step -1
+
+            ''Liberamos el webbrowser
+            Dim control As New WebBrowser()
+            control = FormularioPrincipal.TabControl1.TabPages(i).Controls("WebBrowser1")
+            control.Dispose()
+
+            FormularioPrincipal.TabControl1.TabPages.Remove(FormularioPrincipal.TabControl1.TabPages(i))
         Next
     End Sub
 
@@ -140,9 +159,9 @@ Public Class AspectoFormulario
         Return False
     End Function
 
-    Private Sub crearLOG()
+    Public Sub crearLOG(ByVal nombreArchivo As String)
         Try
-            Dim myXmlTextWriter As XmlTextWriter = New XmlTextWriter("LOG.xml", System.Text.Encoding.UTF8)
+            Dim myXmlTextWriter As XmlTextWriter = New XmlTextWriter(nombreArchivo, System.Text.Encoding.UTF8)
             myXmlTextWriter.Formatting = System.Xml.Formatting.Indented
             myXmlTextWriter.WriteStartDocument(False)
             'Crear el elemento de documento principal.
@@ -188,7 +207,7 @@ Public Class AspectoFormulario
                 contador += 6
             Next
 
-      
+
             'Cerrar el elemento primario peticionesHTTP
             myXmlTextWriter.WriteEndElement()
             myXmlTextWriter.Flush()
@@ -266,12 +285,12 @@ Public Class AspectoFormulario
                         seguimientoAux.Add(item)
                     Next
                     URLseguimiento = seguimientoAux
-                    crearLOG() 'Creamos el archivo de LOG
+                    crearLOG("LOG.xml") 'Creamos el archivo de LOG
                 Catch
                 End Try
 
             Else
-                crearLOG() 'Creamos el archivo de LOG
+                crearLOG("LOG.xml") 'Creamos el archivo de LOG
             End If
         End If
     End Sub
@@ -601,6 +620,7 @@ Public Class AspectoFormulario
 
 
     'AUTOCOMPLETADO*******************************
+
     'Private Function comprobarArchivo() As Boolean
     '    Dim folder As New DirectoryInfo(System.IO.Directory.GetCurrentDirectory()) 'Directorio
     '    For Each file As FileInfo In folder.GetFiles() 'Comprobamos si hay un archivo igual
