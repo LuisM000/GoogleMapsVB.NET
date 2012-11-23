@@ -1,6 +1,7 @@
 ﻿Imports System.Xml
 Imports System.IO
 Imports System.Xml.XPath
+Imports System.ComponentModel
 
 Public Class AspectoFormulario
 
@@ -18,7 +19,8 @@ Public Class AspectoFormulario
         FormularioPrincipal.TabControl1.TabPages.Add(nombre)
         FormularioPrincipal.TabControl1.SelectedTab = FormularioPrincipal.TabControl1.TabPages(contador)
         Dim WebBrowser1 As New WebBrowser
-        WebBrowser1.Name="WebBrowser1"
+        WebBrowser1.Name = "WebBrowser1"
+        WebBrowser1.ScriptErrorsSuppressed = True
         FormularioPrincipal.TabControl1.TabPages(contador).Controls.Add(WebBrowser1)
         abrirEspaña(WebBrowser1)
         WebBrowser1.Dock = DockStyle.Fill
@@ -52,6 +54,7 @@ Public Class AspectoFormulario
             ''liberamos el webbrowser
             Dim control As New WebBrowser()
             control = FormularioPrincipal.TabControl1.TabPages(paginaActual).Controls("WebBrowser1")
+            control.Stop()
             control.Dispose()
 
 
@@ -75,6 +78,7 @@ Public Class AspectoFormulario
 
             FormularioPrincipal.TabControl1.TabPages.Remove(FormularioPrincipal.TabControl1.TabPages(i))
         Next
+
     End Sub
 
 
@@ -731,7 +735,7 @@ Public Class AspectoFormulario
 
     Sub GuardarAutocompletarXML()
         If My.Settings.SettingAutocompletar = True Then 'Si está configurado para que se guarde
-            
+
             Try
                 Dim myXmlTextWriter As XmlTextWriter = New XmlTextWriter("Autocompletado.xml", System.Text.Encoding.UTF8)
                 myXmlTextWriter.Formatting = System.Xml.Formatting.Indented

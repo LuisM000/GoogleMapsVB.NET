@@ -35,6 +35,7 @@
 
     End Sub
 
+
     Private Sub CerrarTodasLasPestañasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarTodasLasPestañasToolStripMenuItem.Click
         aspectoFormu.CerrarTodasFicha() 'Cerramos todas las fichas
     End Sub
@@ -184,22 +185,9 @@
     End Sub
 
 
-    'Declaración de la API
-    Private Declare Auto Function SetProcessWorkingSetSize Lib "kernel32.dll" (ByVal procHandle As IntPtr, ByVal min As Int32, ByVal max As Int32) As Boolean
-
-    'Funcion de liberacion de memoria
-    Public Sub ClearMemory()
-
-        Try
-            Dim Mem As Process
-            Mem = Process.GetCurrentProcess()
-            SetProcessWorkingSetSize(Mem.Handle, -1, -1)
-        Catch ex As Exception
-            'Control de errores
-        End Try
-    End Sub
-    Private Sub AsdasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsdasToolStripMenuItem.Click
-        ClearMemory()
+    Private Sub SadaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SadaToolStripMenuItem.Click
+        InfoPC.Show()
     End Sub
 
+   
 End Class

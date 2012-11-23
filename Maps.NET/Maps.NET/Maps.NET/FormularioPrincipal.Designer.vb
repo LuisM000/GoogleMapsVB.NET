@@ -79,8 +79,8 @@ Partial Class FormularioPrincipal
         Me.AcercaDeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FeedbackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InformarDeUnErrorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AsdasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SadaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer1.SuspendLayout()
@@ -145,6 +145,7 @@ Partial Class FormularioPrincipal
         Me.WebBrowser1.Location = New System.Drawing.Point(3, 3)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
+        Me.WebBrowser1.ScriptErrorsSuppressed = True
         Me.WebBrowser1.Size = New System.Drawing.Size(292, 108)
         Me.WebBrowser1.TabIndex = 0
         Me.WebBrowser1.Url = New System.Uri("", System.UriKind.Relative)
@@ -462,12 +463,12 @@ Partial Class FormularioPrincipal
         'OpcionesToolStripMenuItem
         '
         Me.OpcionesToolStripMenuItem.Name = "OpcionesToolStripMenuItem"
-        Me.OpcionesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OpcionesToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
         Me.OpcionesToolStripMenuItem.Text = "Opciones"
         '
         'AyudaToolStripMenuItem
         '
-        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeToolStripMenuItem, Me.FeedbackToolStripMenuItem, Me.InformarDeUnErrorToolStripMenuItem, Me.AsdasToolStripMenuItem, Me.ToolStripMenuItem3})
+        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeToolStripMenuItem, Me.FeedbackToolStripMenuItem, Me.InformarDeUnErrorToolStripMenuItem, Me.SadaToolStripMenuItem})
         Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
         Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(56, 21)
         Me.AyudaToolStripMenuItem.Text = "Ayuda"
@@ -490,17 +491,16 @@ Partial Class FormularioPrincipal
         Me.InformarDeUnErrorToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
         Me.InformarDeUnErrorToolStripMenuItem.Text = "Informar de un error"
         '
-        'AsdasToolStripMenuItem
+        'SadaToolStripMenuItem
         '
-        Me.AsdasToolStripMenuItem.Name = "AsdasToolStripMenuItem"
-        Me.AsdasToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
-        Me.AsdasToolStripMenuItem.Text = "asdas"
+        Me.SadaToolStripMenuItem.Name = "SadaToolStripMenuItem"
+        Me.SadaToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
+        Me.SadaToolStripMenuItem.Text = "Liberar recursos"
         '
-        'ToolStripMenuItem3
+        'Timer1
         '
-        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(197, 22)
-        Me.ToolStripMenuItem3.Text = "342"
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 1000
         '
         'FormularioPrincipal
         '
@@ -587,7 +587,7 @@ Partial Class FormularioPrincipal
     Friend WithEvents ConfiguraciónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OpcionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents InformarDeUnErrorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AsdasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem3 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SadaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 
 End Class
