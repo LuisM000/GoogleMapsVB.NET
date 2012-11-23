@@ -185,7 +185,7 @@ Partial Class StreetViewDIr
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(497, 628)
+        Me.Button2.Location = New System.Drawing.Point(510, 65)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(129, 31)
         Me.Button2.TabIndex = 61
@@ -197,7 +197,7 @@ Partial Class StreetViewDIr
         Me.AcceptButton = Me.Button1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(654, 668)
+        Me.ClientSize = New System.Drawing.Size(654, 634)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)

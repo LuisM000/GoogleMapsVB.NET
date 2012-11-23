@@ -11,6 +11,7 @@
         indicacionesMapa = Indicaciones
     End Sub
     Private Sub MapasRuta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.TopLevel = True
         Me.Width = 900
         Me.Height = 587
         Dim mapas As New MapsNet

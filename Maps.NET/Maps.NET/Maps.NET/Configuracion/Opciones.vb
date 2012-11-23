@@ -57,6 +57,9 @@
         'Comprobamos si está activado/desactivada la función de guardar registro http
         If My.Settings.GuardarLOG = True Then CheckedListBox2.SetItemChecked(0, True) Else CheckedListBox2.SetItemChecked(0, False)
 
+        'Comprobamos si está activado/desactivada la el cuadro de herramientas
+        If My.Settings.CuadroHerramientas = True Then CheckedListBox3.SetItemChecked(0, True) Else CheckedListBox3.SetItemChecked(0, False)
+
         ListBox1.SelectedIndex = 0
         CheckedListBox1.SelectedIndex = 0
     End Sub
@@ -99,6 +102,17 @@
             borrarLOG()
         End If
 
+        'Guardamos si está activado/desactivada el cuadro de herramientas
+        If CheckedListBox3.GetItemCheckState(0) = CheckState.Checked Then
+            My.Settings.CuadroHerramientas = True
+            FormularioPrincipal.ToolStrip1.Visible = True
+            FormularioPrincipal.CuadroDeHerramientasToolStripMenuItem.Checked = True
+        Else
+            My.Settings.CuadroHerramientas = False
+            FormularioPrincipal.ToolStrip1.Visible = False
+            FormularioPrincipal.CuadroDeHerramientasToolStripMenuItem.Checked = False
+        End If
+
         Me.Close()
     End Sub
 
@@ -129,12 +143,18 @@
                 DescripcionConfig(3)
                 CheckedListBox2.SelectedIndex = 0
 
+            Case 2
+                Panel4.Visible = True
+                DescripcionConfig(5)
+                CheckedListBox3.SelectedIndex = 0
+
 
         End Select
     End Sub
     Sub desactivarPaneles()
         Panel2.Visible = False
         Panel3.Visible = False
+        Panel4.Visible = False
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -149,10 +169,12 @@
             CheckedListBox1.SetItemChecked(1, False)
             CheckedListBox1.SetItemChecked(2, True)
             CheckedListBox2.SetItemChecked(0, True)
+            CheckedListBox3.SetItemChecked(0, True)
             My.Settings.Autocompletado = True
             My.Settings.SetDireccionEncontrada = True
             My.Settings.SettingAutocompletar = True
             My.Settings.GuardarLOG = True
+            My.Settings.CuadroHerramientas = True
         End If
 
     End Sub
@@ -175,6 +197,8 @@
                 RichTextBox1.Text = "Al activar esta opción se guardarán todas las peticiones HTTP realizadas por la aplicación. Esta opción sólo almacenará las peticiones en su pc, no las enviará a ningún servidor."
             Case 4
                 RichTextBox1.Text = "Se eliminará todo el historial de peticiones HTTP de la aplicación. Esta opción no se puede deshacer."
+            Case 5
+                RichTextBox1.Text = "Activa o desactiva el cuadro de herramientas de la ventana principal."
 
         End Select
 

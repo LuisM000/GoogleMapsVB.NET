@@ -33,9 +33,12 @@ Partial Class Opciones
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.CheckedListBox2 = New System.Windows.Forms.CheckedListBox()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.CheckedListBox3 = New System.Windows.Forms.CheckedListBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -107,7 +110,7 @@ Partial Class Opciones
         Me.ListBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.ItemHeight = 17
-        Me.ListBox1.Items.AddRange(New Object() {"Autocompletado", "Registro"})
+        Me.ListBox1.Items.AddRange(New Object() {"Autocompletado", "Registro", "Diseño"})
         Me.ListBox1.Location = New System.Drawing.Point(12, 12)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(168, 191)
@@ -154,12 +157,34 @@ Partial Class Opciones
         Me.CheckedListBox2.Size = New System.Drawing.Size(364, 60)
         Me.CheckedListBox2.TabIndex = 5
         '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.CheckedListBox3)
+        Me.Panel4.Location = New System.Drawing.Point(229, 12)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(483, 107)
+        Me.Panel4.TabIndex = 11
+        Me.Panel4.Visible = False
+        '
+        'CheckedListBox3
+        '
+        Me.CheckedListBox3.BackColor = System.Drawing.SystemColors.Control
+        Me.CheckedListBox3.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.CheckedListBox3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckedListBox3.FormattingEnabled = True
+        Me.CheckedListBox3.Items.AddRange(New Object() {"Cuadro de herramientas"})
+        Me.CheckedListBox3.Location = New System.Drawing.Point(2, 11)
+        Me.CheckedListBox3.Name = "CheckedListBox3"
+        Me.CheckedListBox3.Size = New System.Drawing.Size(364, 60)
+        Me.CheckedListBox3.TabIndex = 5
+        '
         'Opciones
         '
         Me.AcceptButton = Me.Button1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(798, 256)
+        Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Panel2)
@@ -177,6 +202,7 @@ Partial Class Opciones
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -191,4 +217,6 @@ Partial Class Opciones
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents CheckedListBox2 As System.Windows.Forms.CheckedListBox
+    Friend WithEvents Panel4 As System.Windows.Forms.Panel
+    Friend WithEvents CheckedListBox3 As System.Windows.Forms.CheckedListBox
 End Class

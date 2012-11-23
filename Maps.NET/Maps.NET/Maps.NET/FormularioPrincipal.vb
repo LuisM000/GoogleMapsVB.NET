@@ -14,7 +14,15 @@
         aspectoFormu.TabControlYpanel() 'Ajustamos el tabcontrol
         aspectoFormu.abrirEspaña(aspectoFormu.NavegadorActual(Me.TabControl1.SelectedIndex))
         aspectoFormu.cargarAutocompletado() 'Cargamos los datos del autocompletado en el arraylist
-        aspectoFormu.precargaAutocompletar()
+        aspectoFormu.precargaAutocompletar() 'Precargamos el autocompletar
+        If My.Settings.CuadroHerramientas = True Then 'Activamos/desactivamos cuadro de herramientas
+            ToolStrip1.Visible = True
+            CuadroDeHerramientasToolStripMenuItem.Checked = True
+        Else
+            ToolStrip1.Visible = False
+            CuadroDeHerramientasToolStripMenuItem.Checked = False
+
+        End If
     End Sub
 
 

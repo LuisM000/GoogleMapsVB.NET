@@ -11,7 +11,7 @@
     End Sub
 
     Private Sub MostarTodosStreetViewvb_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Me.TopLevel = True
         Me.Width = 880
         Me.Height = 587
         Dim mapas As New MapsNet

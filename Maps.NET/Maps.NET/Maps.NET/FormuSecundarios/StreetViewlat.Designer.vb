@@ -49,7 +49,7 @@ Partial Class StreetViewlat
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(20, 222)
+        Me.Label6.Location = New System.Drawing.Point(107, 217)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(112, 17)
         Me.Label6.TabIndex = 70
@@ -59,7 +59,7 @@ Partial Class StreetViewlat
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(20, 174)
+        Me.Label5.Location = New System.Drawing.Point(107, 169)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(129, 17)
         Me.Label5.TabIndex = 69
@@ -69,7 +69,7 @@ Partial Class StreetViewlat
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(20, 126)
+        Me.Label4.Location = New System.Drawing.Point(107, 121)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(42, 17)
         Me.Label4.TabIndex = 68
@@ -79,7 +79,7 @@ Partial Class StreetViewlat
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(375, 222)
+        Me.Label3.Location = New System.Drawing.Point(462, 217)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(15, 17)
         Me.Label3.TabIndex = 67
@@ -89,7 +89,7 @@ Partial Class StreetViewlat
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(375, 174)
+        Me.Label2.Location = New System.Drawing.Point(462, 169)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(15, 17)
         Me.Label2.TabIndex = 66
@@ -99,7 +99,7 @@ Partial Class StreetViewlat
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(375, 126)
+        Me.Label1.Location = New System.Drawing.Point(462, 121)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(15, 17)
         Me.Label1.TabIndex = 65
@@ -107,7 +107,7 @@ Partial Class StreetViewlat
         '
         'HScrollBar3
         '
-        Me.HScrollBar3.Location = New System.Drawing.Point(157, 222)
+        Me.HScrollBar3.Location = New System.Drawing.Point(244, 217)
         Me.HScrollBar3.Maximum = 360
         Me.HScrollBar3.Name = "HScrollBar3"
         Me.HScrollBar3.Size = New System.Drawing.Size(206, 17)
@@ -115,7 +115,7 @@ Partial Class StreetViewlat
         '
         'HScrollBar2
         '
-        Me.HScrollBar2.Location = New System.Drawing.Point(157, 174)
+        Me.HScrollBar2.Location = New System.Drawing.Point(244, 169)
         Me.HScrollBar2.Maximum = 360
         Me.HScrollBar2.Name = "HScrollBar2"
         Me.HScrollBar2.Size = New System.Drawing.Size(206, 17)
@@ -123,7 +123,7 @@ Partial Class StreetViewlat
         '
         'HScrollBar1
         '
-        Me.HScrollBar1.Location = New System.Drawing.Point(157, 126)
+        Me.HScrollBar1.Location = New System.Drawing.Point(244, 121)
         Me.HScrollBar1.Minimum = 10
         Me.HScrollBar1.Name = "HScrollBar1"
         Me.HScrollBar1.Size = New System.Drawing.Size(206, 17)
@@ -133,7 +133,7 @@ Partial Class StreetViewlat
         'PictureBox2
         '
         Me.PictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox2.Location = New System.Drawing.Point(23, 263)
+        Me.PictureBox2.Location = New System.Drawing.Point(25, 263)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(600, 400)
         Me.PictureBox2.TabIndex = 61
@@ -143,7 +143,7 @@ Partial Class StreetViewlat
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(20, 73)
+        Me.Label7.Location = New System.Drawing.Point(111, 73)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(59, 17)
         Me.Label7.TabIndex = 75
@@ -152,7 +152,7 @@ Partial Class StreetViewlat
         'txtlongitud
         '
         Me.txtlongitud.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlongitud.Location = New System.Drawing.Point(130, 72)
+        Me.txtlongitud.Location = New System.Drawing.Point(221, 72)
         Me.txtlongitud.Name = "txtlongitud"
         Me.txtlongitud.Size = New System.Drawing.Size(238, 23)
         Me.txtlongitud.TabIndex = 72
@@ -160,7 +160,7 @@ Partial Class StreetViewlat
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Maps.NET.My.Resources.Resources.help
-        Me.PictureBox1.Location = New System.Drawing.Point(93, 33)
+        Me.PictureBox1.Location = New System.Drawing.Point(184, 33)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(20, 20)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -172,7 +172,7 @@ Partial Class StreetViewlat
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(20, 33)
+        Me.Label8.Location = New System.Drawing.Point(111, 33)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(47, 17)
         Me.Label8.TabIndex = 73
@@ -181,7 +181,7 @@ Partial Class StreetViewlat
         'txtlatitud
         '
         Me.txtlatitud.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlatitud.Location = New System.Drawing.Point(130, 32)
+        Me.txtlatitud.Location = New System.Drawing.Point(221, 32)
         Me.txtlatitud.Name = "txtlatitud"
         Me.txtlatitud.Size = New System.Drawing.Size(238, 23)
         Me.txtlatitud.TabIndex = 71
@@ -194,7 +194,7 @@ Partial Class StreetViewlat
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(424, 67)
+        Me.Button2.Location = New System.Drawing.Point(513, 64)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(129, 31)
         Me.Button2.TabIndex = 76
@@ -204,7 +204,7 @@ Partial Class StreetViewlat
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(424, 30)
+        Me.Button1.Location = New System.Drawing.Point(513, 27)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(129, 31)
         Me.Button1.TabIndex = 77
@@ -216,7 +216,7 @@ Partial Class StreetViewlat
         Me.AcceptButton = Me.Button1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(646, 671)
+        Me.ClientSize = New System.Drawing.Size(654, 677)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label7)

@@ -365,7 +365,6 @@ Public Class Rutas
         Dim aspectoFormu As New AspectoFormulario
         Button3_Click(sender, e)
         If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then
-
             'Añadir al autocompletado
             aspectoFormu.autocompletar({txtdirorigen.Text, txtdirdestin.Text}, {txtlatOrigen.Text, txtlngOrigen.Text, txtdirEncOrig.Text, txtlatDestin.Text, txtlngDestin.Text, txtdirEncDest.Text})
 
@@ -486,7 +485,6 @@ Public Class Rutas
         Dim aspectoFormu As New AspectoFormulario
         Button3_Click(sender, e)
         If txtdirEncDest.Text <> "" And txtdirEncOrig.Text <> "" Then
-
             'Añadir al autocompletado
             aspectoFormu.autocompletar({txtdirorigen.Text, txtdirdestin.Text}, {txtlatOrigen.Text, txtlngOrigen.Text, txtdirEncOrig.Text, txtlatDestin.Text, txtlngDestin.Text, txtdirEncDest.Text})
 
