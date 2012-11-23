@@ -21,7 +21,6 @@
         Else
             ToolStrip1.Visible = False
             CuadroDeHerramientasToolStripMenuItem.Checked = False
-
         End If
     End Sub
 
