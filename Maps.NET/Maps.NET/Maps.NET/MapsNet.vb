@@ -25,6 +25,51 @@ Public Class MapsNet
         URLseguimiento.Add(url)
         URLseguimiento.Add(excepcion)
     End Sub
+
+    Public Function ComprobarClaveAPI(ByVal clave As String) 'Comprobar clave de API Google Maps
+        'Creamos la url con los datso
+        Dim url = "https://maps.googleapis.com/maps/api/place/search/xml?location=0,0&radius=1000&sensor=false&key=" & clave
+        Dim LatLong As New ArrayList()
+
+        Dim req As HttpWebRequest = DirectCast(WebRequest.Create(url), HttpWebRequest)
+        req.Timeout = 3000
+        Dim valorRetorno As Boolean
+        Try
+            'Preparamos el archivo xml
+            Dim res As System.Net.WebResponse = req.GetResponse()
+            Dim responseStream As Stream = res.GetResponseStream()
+            Dim NodeIter As XPathNodeIterator
+            Dim docNav As New XPathDocument(responseStream)
+            Dim nav = docNav.CreateNavigator
+
+            Dim Exstatus As String
+            Dim status As String = ""
+
+
+            'Creamos los paths
+            Exstatus = "PlaceSearchResponse/status"
+
+            'Recorremos el xml
+            NodeIter = nav.Select(Exstatus)
+            While (NodeIter.MoveNext())
+                status = (NodeIter.Current.Value)
+                Exit While
+            End While
+            responseStream.Close()
+
+            If status = "OK" Then
+                valorRetorno = True
+            Else
+                valorRetorno = False
+            End If
+
+        Catch ex As Exception
+            valorRetorno = False
+        End Try
+        Return valorRetorno
+    End Function
+
+
     Public Function ObtenerURLdesdeDireccion(ByVal direccion As String)
         Dim urlMaps As String 'Creamos variable para almacenar la url
         urlMaps = "http://maps.google.es/maps?q=" & direccion & "&output=embed" 'Concatenamos la dirección con la dirección del mapa

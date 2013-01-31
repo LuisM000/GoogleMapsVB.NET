@@ -131,25 +131,27 @@
     Sub autocompletado(Optional offset As Integer = 0) 'Buscamos con todos los caracteres y si no hay resultados vamos quitando el del final
         Dim maps As New MapsNet
         Dim autoc As New ArrayList
-        Try
-            If offset = 0 Then
-                contadorPalabras = txtestablecimiento.Text.Length - 1
-                autoc = maps.Autocompletado(txtestablecimiento.Text, txtlatitud.Text, txtlongitud.Text, NumericUpDown1.Value, txtestablecimiento.Text.Length)
-                Label5.Text = "Quizá quiso decir: " & autoc(0)
-                Label5.Visible = True
-            Else
-                autoc = maps.Autocompletado(txtestablecimiento.Text, txtlatitud.Text, txtlongitud.Text, NumericUpDown1.Value, contadorPalabras)
-                Label5.Text = "Quizá quiso decir: " & autoc(0)
-                Label5.Visible = True
-            End If
+        If maps.ComprobarClaveAPI(maps.ClaveMaps) = True Then 'Si la clave del API es correcta
+            Try
+                If offset = 0 Then
+                    contadorPalabras = txtestablecimiento.Text.Length - 1
+                    autoc = maps.Autocompletado(txtestablecimiento.Text, txtlatitud.Text, txtlongitud.Text, NumericUpDown1.Value, txtestablecimiento.Text.Length)
+                    Label5.Text = "Quizá quiso decir: " & autoc(0)
+                    Label5.Visible = True
+                Else
+                    autoc = maps.Autocompletado(txtestablecimiento.Text, txtlatitud.Text, txtlongitud.Text, NumericUpDown1.Value, contadorPalabras)
+                    Label5.Text = "Quizá quiso decir: " & autoc(0)
+                    Label5.Visible = True
+                End If
 
-        Catch
-            If contadorPalabras > 0 Then
-                contadorPalabras -= 1
-                autocompletado(contadorPalabras)
-            End If
+            Catch
+                If contadorPalabras > 0 Then
+                    contadorPalabras -= 1
+                    autocompletado(contadorPalabras)
+                End If
 
-        End Try
+            End Try
+        End If
     End Sub
     'Sustituimos en el txtestablecimiento el resultado que se ha predicho*************************
     Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click

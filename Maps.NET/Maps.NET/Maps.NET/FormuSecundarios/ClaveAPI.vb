@@ -5,6 +5,7 @@
     End Sub
 
     Private Sub Cancel_Button_Click(sender As Object, e As EventArgs) Handles Cancel_Button.Click
+
         maps.ClaveMaps = TextBox1.Text
         MessageBox.Show("Clave guardada", "Maps.NET", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub

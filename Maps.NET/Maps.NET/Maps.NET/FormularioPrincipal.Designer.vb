@@ -40,9 +40,6 @@ Partial Class FormularioPrincipal
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
-        Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.VerURLActualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SeguimientoPeticionesHTTPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevaPestañaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.BorrarPestañaActivarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -62,6 +59,11 @@ Partial Class FormularioPrincipal
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarServicioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.ArchivoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SeguimientoPeticionesHTTPToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VerURLActualToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ClaveAPIToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AutocomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ElevaciónPorDirecciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ElevaciónPorLatitudlongitudToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -81,7 +83,6 @@ Partial Class FormularioPrincipal
         Me.InformarDeUnErrorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SadaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.ClaveAPIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer1.SuspendLayout()
@@ -98,11 +99,11 @@ Partial Class FormularioPrincipal
         'ToolStripContainer1.ContentPanel
         '
         Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.Panel1)
-        Me.ToolStripContainer1.ContentPanel.Size = New System.Drawing.Size(866, 506)
+        Me.ToolStripContainer1.ContentPanel.Size = New System.Drawing.Size(992, 506)
         Me.ToolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ToolStripContainer1.Location = New System.Drawing.Point(0, 25)
         Me.ToolStripContainer1.Name = "ToolStripContainer1"
-        Me.ToolStripContainer1.Size = New System.Drawing.Size(866, 531)
+        Me.ToolStripContainer1.Size = New System.Drawing.Size(992, 531)
         Me.ToolStripContainer1.TabIndex = 1
         Me.ToolStripContainer1.Text = "ToolStripContainer1"
         '
@@ -116,7 +117,7 @@ Partial Class FormularioPrincipal
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(866, 506)
+        Me.Panel1.Size = New System.Drawing.Size(992, 506)
         Me.Panel1.TabIndex = 0
         '
         'TabControl1
@@ -233,25 +234,6 @@ Partial Class FormularioPrincipal
         Me.ToolStripButton8.Name = "ToolStripButton8"
         Me.ToolStripButton8.Size = New System.Drawing.Size(96, 22)
         Me.ToolStripButton8.Text = "Ocultar barra"
-        '
-        'ArchivoToolStripMenuItem
-        '
-        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VerURLActualToolStripMenuItem, Me.SeguimientoPeticionesHTTPToolStripMenuItem, Me.ClaveAPIToolStripMenuItem})
-        Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
-        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(63, 21)
-        Me.ArchivoToolStripMenuItem.Text = "Archivo"
-        '
-        'VerURLActualToolStripMenuItem
-        '
-        Me.VerURLActualToolStripMenuItem.Name = "VerURLActualToolStripMenuItem"
-        Me.VerURLActualToolStripMenuItem.Size = New System.Drawing.Size(245, 22)
-        Me.VerURLActualToolStripMenuItem.Text = "Ver URL actual"
-        '
-        'SeguimientoPeticionesHTTPToolStripMenuItem
-        '
-        Me.SeguimientoPeticionesHTTPToolStripMenuItem.Name = "SeguimientoPeticionesHTTPToolStripMenuItem"
-        Me.SeguimientoPeticionesHTTPToolStripMenuItem.Size = New System.Drawing.Size(245, 22)
-        Me.SeguimientoPeticionesHTTPToolStripMenuItem.Text = "Seguimiento peticiones HTTP"
         '
         'EditarToolStripMenuItem
         '
@@ -377,12 +359,42 @@ Partial Class FormularioPrincipal
         'MenuStrip1
         '
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.CodificaciónGeográficaToolStripMenuItem, Me.AutocomToolStripMenuItem, Me.StreetViewToolStripMenuItem, Me.PlacesToolStripMenuItem, Me.RutasToolStripMenuItem, Me.MapasToolStripMenuItem, Me.ConfiguraciónToolStripMenuItem, Me.AyudaToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem1, Me.EditarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.CodificaciónGeográficaToolStripMenuItem, Me.AutocomToolStripMenuItem, Me.StreetViewToolStripMenuItem, Me.PlacesToolStripMenuItem, Me.RutasToolStripMenuItem, Me.MapasToolStripMenuItem, Me.ConfiguraciónToolStripMenuItem, Me.AyudaToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(866, 25)
+        Me.MenuStrip1.Size = New System.Drawing.Size(992, 25)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'ArchivoToolStripMenuItem1
+        '
+        Me.ArchivoToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SeguimientoPeticionesHTTPToolStripMenuItem1, Me.VerURLActualToolStripMenuItem1, Me.ToolStripMenuItem4, Me.ClaveAPIToolStripMenuItem1})
+        Me.ArchivoToolStripMenuItem1.Name = "ArchivoToolStripMenuItem1"
+        Me.ArchivoToolStripMenuItem1.Size = New System.Drawing.Size(63, 21)
+        Me.ArchivoToolStripMenuItem1.Text = "Archivo"
+        '
+        'SeguimientoPeticionesHTTPToolStripMenuItem1
+        '
+        Me.SeguimientoPeticionesHTTPToolStripMenuItem1.Name = "SeguimientoPeticionesHTTPToolStripMenuItem1"
+        Me.SeguimientoPeticionesHTTPToolStripMenuItem1.Size = New System.Drawing.Size(245, 22)
+        Me.SeguimientoPeticionesHTTPToolStripMenuItem1.Text = "Seguimiento peticiones HTTP"
+        '
+        'VerURLActualToolStripMenuItem1
+        '
+        Me.VerURLActualToolStripMenuItem1.Name = "VerURLActualToolStripMenuItem1"
+        Me.VerURLActualToolStripMenuItem1.Size = New System.Drawing.Size(245, 22)
+        Me.VerURLActualToolStripMenuItem1.Text = "Ver URL actual"
+        '
+        'ToolStripMenuItem4
+        '
+        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(242, 6)
+        '
+        'ClaveAPIToolStripMenuItem1
+        '
+        Me.ClaveAPIToolStripMenuItem1.Name = "ClaveAPIToolStripMenuItem1"
+        Me.ClaveAPIToolStripMenuItem1.Size = New System.Drawing.Size(245, 22)
+        Me.ClaveAPIToolStripMenuItem1.Text = "Clave API "
         '
         'AutocomToolStripMenuItem
         '
@@ -503,17 +515,11 @@ Partial Class FormularioPrincipal
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'ClaveAPIToolStripMenuItem
-        '
-        Me.ClaveAPIToolStripMenuItem.Name = "ClaveAPIToolStripMenuItem"
-        Me.ClaveAPIToolStripMenuItem.Size = New System.Drawing.Size(245, 22)
-        Me.ClaveAPIToolStripMenuItem.Text = "Clave API "
-        '
         'FormularioPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(866, 556)
+        Me.ClientSize = New System.Drawing.Size(992, 556)
         Me.Controls.Add(Me.ToolStripContainer1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.KeyPreview = True
@@ -548,7 +554,6 @@ Partial Class FormularioPrincipal
     Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripButton3 As System.Windows.Forms.ToolStripButton
     Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
-    Friend WithEvents ArchivoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EditarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents NuevaPestañaToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BorrarPestañaActivarToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
@@ -568,8 +573,6 @@ Partial Class FormularioPrincipal
     Friend WithEvents CalcularRutaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ElevaciónPorDirecciónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ElevaciónPorLatitudlongitudToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents VerURLActualToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SeguimientoPeticionesHTTPToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StreetViewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StreetViewPorDirecciónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StreetViewPorLatitudlongitudToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -596,6 +599,10 @@ Partial Class FormularioPrincipal
     Friend WithEvents InformarDeUnErrorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SadaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents ClaveAPIToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ArchivoToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SeguimientoPeticionesHTTPToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents VerURLActualToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem4 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ClaveAPIToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 
 End Class

@@ -22,10 +22,11 @@
             ToolStrip1.Visible = False
             CuadroDeHerramientasToolStripMenuItem.Checked = False
         End If
+        InicioAPI.ShowDialog()
     End Sub
 
 
-    Private Sub VerURLActualToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerURLActualToolStripMenuItem.Click
+    Private Sub VerURLActualToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Try
             Dim frm As New Dialog1(aspectoFormu.URLactual().ToString)
             frm.Show()
@@ -105,18 +106,19 @@
         ElevacionDir.Show()
     End Sub
 
-    
-    Private Sub SeguimientoPeticionesHTTPToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeguimientoPeticionesHTTPToolStripMenuItem.Click
+
+    Private Sub SeguimientoPeticionesHTTPToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SeguimientoPeticionesHTTPToolStripMenuItem1.Click
         SeguimientoURL.Show()
     End Sub
 
-    Private Sub ClaveAPIToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClaveAPIToolStripMenuItem.Click
-        ClaveAPI.Show()
-    End Sub
-
-    Private Sub ElevaciónPorLatitudlongitudToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ElevaciónPorLatitudlongitudToolStripMenuItem.Click
+    Private Sub VerURLActualToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles VerURLActualToolStripMenuItem1.Click
         ElevacionesLat.Show()
     End Sub
+
+    Private Sub ClaveAPIToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ClaveAPIToolStripMenuItem1.Click
+        InicioAPI.Show()
+    End Sub
+  
 
     Private Sub StreetViewPorDirecciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StreetViewPorDirecciónToolStripMenuItem.Click
         StreetViewDIr.Show()
@@ -179,7 +181,7 @@
 
     'Peticiones HTTP
     Private Sub ToolStripButton7_Click(sender As Object, e As EventArgs) Handles ToolStripButton7.Click
-        SeguimientoPeticionesHTTPToolStripMenuItem_Click(sender, e)
+        SeguimientoPeticionesHTTPToolStripMenuItem1_Click(sender, e)
     End Sub
 
     'Abrimos/cerramos cuadro de herramientas
@@ -200,5 +202,5 @@
         InfoPC.Show()
     End Sub
 
-  
+ 
 End Class
