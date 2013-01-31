@@ -5,9 +5,17 @@ Imports System.Xml.XPath
 Imports System.Text.RegularExpressions
 
 Public Class MapsNet
+    Private Shared key As String
+    Public Property ClaveMaps As String 'Clave para API Google Maps
+        Get
+            Return key
+        End Get
+        Set(value As String)
+            key = value
+        End Set
+    End Property
 
-   
-
+ 
     Sub almacenarDatosHTTP(ByVal url As String, ByVal informacion As String, ByVal estatus As String, Optional ByVal excepcion As String = "sin excepción") 'Alamacén de información de las peticiones (con variable globales)
         numeroInstancia += 1
         URLseguimiento.Add(numeroInstancia)
@@ -256,7 +264,7 @@ Public Class MapsNet
         idioma = "&language=" & idioma
 
         'Creamos la url con los datso
-        Dim url = "https://maps.googleapis.com/maps/api/place/search/xml?location=" & latitud & "," & longitud & local & NombreEstablecimiento & radioB & idioma & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        Dim url = "https://maps.googleapis.com/maps/api/place/search/xml?location=" & latitud & "," & longitud & local & NombreEstablecimiento & radioB & idioma & "&sensor=false&key=" & ClaveMaps
         Dim datos As New ArrayList()
         Dim auxiliar(0) As String
         auxiliar(0) = "sin datos"
@@ -345,7 +353,7 @@ Public Class MapsNet
     Public Function DetallesLugar(ByVal ParametroDetalles As String) 'Enviamos los detalles del lugar
 
         'Creamos la url con los datso
-        Dim url = "https://maps.googleapis.com/maps/api/place/details/xml?reference=" & ParametroDetalles & "&language=es&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        Dim url = "https://maps.googleapis.com/maps/api/place/details/xml?reference=" & ParametroDetalles & "&language=es" & "&sensor=false&key=" & ClaveMaps
         Dim datos As New ArrayList()
 
 
@@ -459,7 +467,7 @@ Public Class MapsNet
     Public Function DetallesRestaurante(ByVal ParametroDetalles As String) 'Enviamos los detalles del lugar
 
         'Creamos la url con los datso
-        Dim url = "https://maps.googleapis.com/maps/api/place/details/xml?reference=" & ParametroDetalles & "&language=es&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8&language=es"
+        Dim url = "https://maps.googleapis.com/maps/api/place/details/xml?reference=" & ParametroDetalles & "&language=es" & "&sensor=false&key=" & ClaveMaps
         Dim datos As New ArrayList()
         Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
         req.Timeout = 3000
@@ -626,7 +634,7 @@ Public Class MapsNet
         numeroCaracAux = "&offset=" & NumeroCaracteres
 
         'Creamos la url con los datos
-        Dim url = "https://maps.googleapis.com/maps/api/place/autocomplete/xml?" & input & numeroCaracAux & localizacion & radioAux & "&language=es&types=establishment&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        Dim url = "https://maps.googleapis.com/maps/api/place/autocomplete/xml?" & input & numeroCaracAux & localizacion & radioAux & "&language=es&types=establishment" & "&sensor=false&key=" & ClaveMaps
         Dim establecimiento As New ArrayList()
 
         Dim req As System.Net.HttpWebRequest = DirectCast(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)
@@ -952,7 +960,7 @@ Public Class MapsNet
         zoomS = "&fov=" & zoom
 
         'Creamos la url con los datos
-        Dim url = "http://maps.googleapis.com/maps/api/streetview?" & tamaño & direccion & horizontal & vertical & zoomS & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        Dim url = "http://maps.googleapis.com/maps/api/streetview?" & tamaño & direccion & horizontal & vertical & zoomS & "&sensor=false&key=" & ClaveMaps
         imagenStreet = ImagenDesdeURL(url)
 
         Return imagenStreet
@@ -992,7 +1000,7 @@ Public Class MapsNet
 
 
         'Creamos la url con los datos
-        Dim url = "http://maps.googleapis.com/maps/api/streetview?" & tamaño & latitudLong & horizontal & vertical & zoomS & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        Dim url = "http://maps.googleapis.com/maps/api/streetview?" & tamaño & latitudLong & horizontal & vertical & zoomS & "&sensor=false&key=" & ClaveMaps
         imagenStreet = ImagenDesdeURL(url)
 
         Return imagenStreet
@@ -1074,7 +1082,7 @@ Public Class MapsNet
         idiomaM = "&language=" & idioma
 
         'Creamos url
-        Dim url = "http://maps.google.com/maps/api/staticmap?" & centroM & zoomM & sizeM & formatoM & maptypeM & idiomaM & marcadores & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        Dim url = "http://maps.google.com/maps/api/staticmap?" & centroM & zoomM & sizeM & formatoM & maptypeM & idiomaM & marcadores & "&sensor=false&key=" & ClaveMaps
         If url.Length >= 2048 Then
             Me.almacenarDatosHTTP(url, "Petición de mapa estático", "PERDIDO", "Superado el límite de 2048 caracteres") 'Almacenamos información
         Else
@@ -1189,7 +1197,7 @@ Public Class MapsNet
         End If
 
         'Creamos url
-        Dim url = "http://maps.google.com/maps/api/staticmap?" & centroM & zoomM & sizeM & formatoM & maptypeM & idiomaM & marcadoresM & rutasM & estilosM & visibleM & "&sensor=false&key=AIzaSyCzWaJYw_MW87ganzyaVlxB9igfGMTTrW8"
+        Dim url = "http://maps.google.com/maps/api/staticmap?" & centroM & zoomM & sizeM & formatoM & maptypeM & idiomaM & marcadoresM & rutasM & estilosM & visibleM & "&sensor=false&key=" & ClaveMaps
         If url.Length >= 2048 Then
             Me.almacenarDatosHTTP(url, "Petición de mapa estático", "PERDIDO", "Superado el límite de 2048 caracteres") 'Almacenamos información
         Else

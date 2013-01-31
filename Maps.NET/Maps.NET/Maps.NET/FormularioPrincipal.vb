@@ -110,6 +110,10 @@
         SeguimientoURL.Show()
     End Sub
 
+    Private Sub ClaveAPIToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClaveAPIToolStripMenuItem.Click
+        ClaveAPI.Show()
+    End Sub
+
     Private Sub ElevaciónPorLatitudlongitudToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ElevaciónPorLatitudlongitudToolStripMenuItem.Click
         ElevacionesLat.Show()
     End Sub
@@ -196,5 +200,5 @@
         InfoPC.Show()
     End Sub
 
-   
+  
 End Class

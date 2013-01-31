@@ -81,6 +81,7 @@ Partial Class FormularioPrincipal
         Me.InformarDeUnErrorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SadaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.ClaveAPIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer1.SuspendLayout()
@@ -235,7 +236,7 @@ Partial Class FormularioPrincipal
         '
         'ArchivoToolStripMenuItem
         '
-        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VerURLActualToolStripMenuItem, Me.SeguimientoPeticionesHTTPToolStripMenuItem})
+        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VerURLActualToolStripMenuItem, Me.SeguimientoPeticionesHTTPToolStripMenuItem, Me.ClaveAPIToolStripMenuItem})
         Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
         Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(63, 21)
         Me.ArchivoToolStripMenuItem.Text = "Archivo"
@@ -502,6 +503,12 @@ Partial Class FormularioPrincipal
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'ClaveAPIToolStripMenuItem
+        '
+        Me.ClaveAPIToolStripMenuItem.Name = "ClaveAPIToolStripMenuItem"
+        Me.ClaveAPIToolStripMenuItem.Size = New System.Drawing.Size(245, 22)
+        Me.ClaveAPIToolStripMenuItem.Text = "Clave API "
+        '
         'FormularioPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -589,5 +596,6 @@ Partial Class FormularioPrincipal
     Friend WithEvents InformarDeUnErrorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SadaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents ClaveAPIToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

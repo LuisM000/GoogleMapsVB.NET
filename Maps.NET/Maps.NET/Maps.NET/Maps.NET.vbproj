@@ -113,6 +113,12 @@
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="ClaseAspecto.vb" />
+    <Compile Include="FormuSecundarios\ClaveAPI.Designer.vb">
+      <DependentUpon>ClaveAPI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormuSecundarios\ClaveAPI.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormuSecundarios\CodificacionGeo.Designer.vb">
       <DependentUpon>CodificacionGeo.vb</DependentUpon>
     </Compile>
@@ -321,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\AboutBox1.resx">
       <DependentUpon>AboutBox1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormuSecundarios\ClaveAPI.resx">
+      <DependentUpon>ClaveAPI.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormuSecundarios\CodificacionGeo.resx">
       <DependentUpon>CodificacionGeo.vb</DependentUpon>
