@@ -197,10 +197,10 @@
     <Compile Include="FormuSecundarios\Dialog1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormuSecundarios\Dirección.Designer.vb">
-      <DependentUpon>Dirección.vb</DependentUpon>
+    <Compile Include="FormuSecundarios\Direccion.Designer.vb">
+      <DependentUpon>Direccion.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormuSecundarios\Dirección.vb">
+    <Compile Include="FormuSecundarios\Direccion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormularioPrincipal.vb">
@@ -372,8 +372,8 @@
     <EmbeddedResource Include="FormuSecundarios\Dialog1.resx">
       <DependentUpon>Dialog1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormuSecundarios\Dirección.resx">
-      <DependentUpon>Dirección.vb</DependentUpon>
+    <EmbeddedResource Include="FormuSecundarios\Direccion.resx">
+      <DependentUpon>Direccion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioPrincipal.resx">
       <DependentUpon>FormularioPrincipal.vb</DependentUpon>
