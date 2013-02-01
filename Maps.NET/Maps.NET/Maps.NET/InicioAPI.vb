@@ -11,6 +11,7 @@
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
         Dim maps As New MapsNet
         maps.ClaveMaps = txtclave.Text
+        My.Settings.ClaveMaps = txtclave.Text
         Me.Close()
     End Sub
 
@@ -44,6 +45,12 @@
             maps.ClaveMaps = txtclave.Text
         Else
             PictureBox1.Image = My.Resources.cancel
+        End If
+    End Sub
+
+    Private Sub InicioAPI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If My.Settings.ClaveMaps <> "" Then 'Si ya hay clave guardada
+            txtclave.Text = My.Settings.ClaveMaps
         End If
     End Sub
 End Class

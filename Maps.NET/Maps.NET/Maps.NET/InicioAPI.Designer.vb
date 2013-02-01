@@ -59,18 +59,18 @@ Partial Class InicioAPI
         '
         'OK
         '
-        Me.OK.Location = New System.Drawing.Point(300, 157)
+        Me.OK.Location = New System.Drawing.Point(293, 157)
         Me.OK.Name = "OK"
-        Me.OK.Size = New System.Drawing.Size(94, 23)
+        Me.OK.Size = New System.Drawing.Size(101, 23)
         Me.OK.TabIndex = 4
-        Me.OK.Text = "&Aceptar"
+        Me.OK.Text = "&Aceptar y guardar"
         '
         'Cancel
         '
         Me.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Cancel.Location = New System.Drawing.Point(200, 157)
+        Me.Cancel.Location = New System.Drawing.Point(186, 157)
         Me.Cancel.Name = "Cancel"
-        Me.Cancel.Size = New System.Drawing.Size(94, 23)
+        Me.Cancel.Size = New System.Drawing.Size(101, 23)
         Me.Cancel.TabIndex = 5
         Me.Cancel.Text = "&Omitir"
         '

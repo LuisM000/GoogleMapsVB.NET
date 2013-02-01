@@ -113,6 +113,18 @@ Namespace My
                 Me("CuadroHerramientas") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property ClaveMaps() As String
+            Get
+                Return CType(Me("ClaveMaps"),String)
+            End Get
+            Set
+                Me("ClaveMaps") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

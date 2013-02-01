@@ -50,7 +50,7 @@ Partial Class MapasRutaPasoaPaso
         Me.WebBrowser2.Location = New System.Drawing.Point(575, 290)
         Me.WebBrowser2.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser2.Name = "WebBrowser2"
-        Me.WebBrowser2.Size = New System.Drawing.Size(260, 190)
+        Me.WebBrowser2.Size = New System.Drawing.Size(272, 205)
         Me.WebBrowser2.TabIndex = 1
         Me.WebBrowser2.TabStop = False
         '
