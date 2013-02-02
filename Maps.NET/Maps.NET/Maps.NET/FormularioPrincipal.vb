@@ -7,9 +7,9 @@
         aspectoFormu.GuardarAutocompletarXML()
 
     End Sub
- 
-    
-    
+
+
+
     Private Sub FormularioPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         aspectoFormu.TabControlYpanel() 'Ajustamos el tabcontrol
         aspectoFormu.abrirEspaña(aspectoFormu.NavegadorActual(Me.TabControl1.SelectedIndex))
@@ -22,7 +22,15 @@
             ToolStrip1.Visible = False
             CuadroDeHerramientasToolStripMenuItem.Checked = False
         End If
-        InicioAPI.ShowDialog()
+
+        Dim maps As New MapsNet 'Objeto de la clase maps
+        'Si no hay clave o se comprueba y no es real, mostramos el formulario para introducir clave
+        'En caso contrario, guardamos la clave
+        If Not (My.Settings.ClaveMaps <> "" AndAlso maps.ComprobarClaveAPI(My.Settings.ClaveMaps) = True) Then
+            InicioAPI.ShowDialog()
+        Else
+            maps.ClaveMaps = My.Settings.ClaveMaps 'Asignamos la clave guardada a la propiedad ClaveMaps
+        End If
     End Sub
 
 
@@ -97,7 +105,7 @@
         PlacesDir.Show()
     End Sub
 
-   
+
     Private Sub CalcularRutaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CalcularRutaToolStripMenuItem.Click
         Rutas.Show()
     End Sub
@@ -118,7 +126,7 @@
     Private Sub ClaveAPIToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ClaveAPIToolStripMenuItem1.Click
         InicioAPI.Show()
     End Sub
-  
+
 
     Private Sub StreetViewPorDirecciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StreetViewPorDirecciónToolStripMenuItem.Click
         StreetViewDIr.Show()
@@ -128,7 +136,7 @@
         StreetViewlat.Show()
     End Sub
 
-   
+
     Private Sub GeneradorBásicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GeneradorBásicoToolStripMenuItem.Click
         MapasSencillos.Show()
     End Sub
@@ -188,7 +196,7 @@
     Private Sub ToolStripButton8_Click(sender As Object, e As EventArgs) Handles ToolStripButton8.Click
         CuadroDeHerramientasToolStripMenuItem_Click(sender, e)
     End Sub
- 
+
     Private Sub OpcionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpcionesToolStripMenuItem.Click
         Opciones.Show()
     End Sub
@@ -202,5 +210,5 @@
         InfoPC.Show()
     End Sub
 
- 
+
 End Class
